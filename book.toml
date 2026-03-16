@@ -1,0 +1,13 @@
+[book]
+authors = ["OGBot"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Chip Manufacturing: From Sand to Silicon"
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
+
+[preprocessor.quiz]
+command = "mdbook-quiz"
