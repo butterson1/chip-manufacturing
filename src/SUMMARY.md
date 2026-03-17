@@ -11,3 +11,7 @@
 - [Day 5: Logic Gates to CPUs](./day-05.md)
 - [Day 6: Process Nodes](./day-06.md)
 - [Day 7: The Fab](./day-07.md)
+
+# Week 2 — Manufacturing Deep Dive
+
+- [Day 8: EUV Lithography](./day-08.md)
