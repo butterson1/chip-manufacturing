@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Around which process node did the naming convention begin to diverge significantly from physical gate length?"
+prompt.distractors = [
+    "250nm, when deep ultraviolet lithography replaced mercury i-line exposure systems",
+    "65nm, when strain engineering decoupled gate performance from lithographic dimensions",
+    "22nm, when Intel introduced FinFET transistors with three-dimensional gate structures"
+]
+answer.answer = "130nm, when etch trimming allowed physical gate lengths to shrink well below the printed pitch"
+context = "Around the 130nm node (~2001), fabs began using over-etching and trimming techniques to shrink physical gate lengths (down to ~70nm) well below the lithographic pitch. This opened the gap between node name and physical measurement that has widened ever since."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the most physically meaningful metric for comparing transistor density across different foundries?"
+prompt.distractors = [
+    "Gate pitch (CPP), because it directly determines the minimum spacing between adjacent transistor gates",
+    "Fin pitch, because it controls the number of current-carrying channels available per transistor",
+    "Equivalent oxide thickness, because thinner gate dielectrics enable tighter electrostatic control at smaller geometries"
+]
+answer.answer = "Minimum metal pitch (M1), because it corresponds to a directly measurable interconnect spacing on the chip"
+context = "Metal pitch — the center-to-center spacing of the tightest interconnect layer — is directly measurable with an electron microscope and determines wiring density. While transistor density (M/mm²) is also informative, it depends on the cell mix used. Metal pitch is the most consistent physical measurement across foundries."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why was Intel's 14nm process roughly comparable to TSMC's 7nm in transistor density despite the naming gap?"
+prompt.distractors = [
+    "Intel used FinFET transistors while TSMC was still on planar devices, giving Intel a structural density advantage",
+    "Intel's 14nm used EUV lithography for critical layers while TSMC's 7nm relied entirely on DUV multi-patterning",
+    "Intel's 14nm targeted server chips with tighter design rules while TSMC's 7nm was optimized for mobile power efficiency"
+]
+answer.answer = "The node names had become marketing labels rather than physical measurements, and Intel used a more conservative naming scheme than TSMC"
+context = "Intel's 14nm and TSMC's 7nm both achieved roughly 96-100 million transistors/mm². The difference was naming convention: Intel's numbers tracked closer to physical dimensions while TSMC's marketing had jumped further ahead. Intel eventually renamed its processes (10nm ESF → Intel 7) to compete on naming."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why does line edge roughness (LER) become proportionally more damaging as features shrink?"
+prompt.distractors = [
+    "Smaller features require more photoresist layers, and each layer introduces additional edge roughness that accumulates",
+    "The photoacid molecules used in EUV resists are physically larger than those in DUV resists, causing rougher edges",
+    "Shorter wavelength light sources produce more diffraction, which creates standing wave patterns along the feature edges"
+]
+answer.answer = "The absolute roughness stays similar at ±1-2nm, but this becomes a larger percentage of the feature width at smaller dimensions"
+context = "LER is driven by the statistical nature of photoresist chemistry — individual photoacid molecules are ~1-2nm. This absolute roughness doesn't shrink with features. At 200nm width, ±2nm is 1% (irrelevant); at 20nm width, the same ±2nm is 10%, causing significant device-to-device electrical variation."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What material has replaced silicon dioxide as the gate dielectric in modern transistors to prevent quantum tunneling through ultra-thin oxide layers?"
+answer.answer = "hafnium dioxide"
+answer.alternatives = ["HfO2", "hafnium oxide", "high-k dielectric", "HfO₂"]
+context = "Hafnium dioxide (HfO₂) is a high-k dielectric that replaced SiO₂ starting around the 45nm node (Intel, 2007). Its higher dielectric constant allows a physically thicker layer that still provides the same capacitive coupling, drastically reducing gate leakage from quantum tunneling."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why is the 28nm process node considered the industry's 'sweet spot' for cost-per-transistor?"
+prompt.distractors = [
+    "It was the first node to use FinFET transistors, which dramatically improved yield and reduced power consumption",
+    "It is the smallest node that can be manufactured using only i-line lithography without any immersion or multi-patterning",
+    "It matches the minimum feature size achievable with 193nm ArF immersion lithography using triple-patterning techniques"
+]
+answer.answer = "It is the most advanced node achievable without EUV or excessive multi-patterning, keeping manufacturing costs low while delivering good density"
+context = "28nm sits at the inflection point where cost-per-transistor stopped decreasing. Below 28nm, the need for multi-patterning (and eventually EUV) drove up manufacturing costs faster than density gains reduced them. This makes 28nm the most cost-effective node, which is why new 28nm fab capacity is still being built."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What physical phenomenon limits how much current can flow through copper interconnects narrower than ~20nm?"
+prompt.distractors = [
+    "Quantum confinement effects that increase copper's bulk resistivity by restricting electron wavefunction spreading",
+    "Thermal runaway caused by Joule heating in narrow wires that exceed the thermal conductivity of surrounding dielectrics",
+    "Skin effect at gigahertz frequencies that forces current to flow only along the wire surface, reducing effective cross-section"
+]
+answer.answer = "Electromigration, where high-density electron current physically displaces copper atoms, creating voids and hillocks"
+context = "Electromigration occurs when the momentum transfer from electrons to metal atoms physically moves them. At <20nm widths, current density is extremely high, and copper atoms get 'shoved' like bowling balls hit by marbles. This creates voids (open circuits) and hillocks (shorts), which is why ruthenium and molybdenum are being explored as replacements."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Approximately how much does it cost to design a complex chip on a 3nm process, according to industry estimates?"
+prompt.distractors = [
+    "$50-100 million, roughly triple the cost of a mature 28nm design due to additional verification requirements",
+    "$150-250 million, driven primarily by the licensing fees for EDA tools and standard cell libraries at advanced nodes",
+    "$1.5-2 billion, matching the capital cost share allocated per major customer at a leading-edge foundry"
+]
+answer.answer = "$500-800 million, reflecting the enormous engineering effort for physical design, verification, and mask creation"
+context = "According to IBS estimates, designing a complex SoC on 3nm costs $500-800M. This includes RTL design, physical design, timing closure, verification, and mask costs. On 5nm it's $400-500M; on 28nm it's $40-50M. This ~10× cost gap limits leading-edge design to very high-volume products."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the approximate transistor density (in millions per mm²) of TSMC's N5 process?"
+answer.answer = "173"
+answer.alternatives = ["173 million", "~173", "170"]
+context = "TSMC's N5 (5nm) process achieves approximately 173 million transistors per mm². For comparison, their N3E reaches ~291M/mm², Samsung's 3nm GAA is ~150-170M/mm², and Intel 4 is ~160M/mm². This highlights how node names don't linearly correspond to density."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did the semiconductor industry transition from planar transistors to FinFETs and then to Gate-All-Around nanosheets?"
+prompt.distractors = [
+    "Each architecture reduces manufacturing complexity by requiring fewer lithography steps per transistor layer",
+    "Wrapping the gate around more sides reduces the gate oxide area, which lowers parasitic capacitance and improves switching speed",
+    "Three-dimensional structures allow stacking multiple transistor layers vertically, directly doubling density per generation"
+]
+answer.answer = "Wrapping the gate around more channel sides improves electrostatic control, combating short-channel effects at smaller gate lengths"
+context = "As channels shortened below ~25nm, the gate lost control over the channel (short-channel effects like DIBL). FinFETs wrapped the gate around 3 sides of a fin-shaped channel. GAA nanosheets wrap all 4 sides, providing even better electrostatic control. More gate contact = shorter channels work reliably."

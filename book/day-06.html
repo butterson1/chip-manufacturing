@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Day 6: Process Nodes - Chip Manufacturing: From Sand to Silicon</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Chip Manufacturing: From Sand to Silicon</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="day-6-process-nodes"><a class="header" href="#day-6-process-nodes">Day 6: Process Nodes</a></h1>
+<h2 id="what-3nm-actually-means-and-why-its-mostly-marketing"><a class="header" href="#what-3nm-actually-means-and-why-its-mostly-marketing">What "3nm" Actually Means (and Why It's Mostly Marketing)</a></h2>
+<p>Yesterday we built a CPU from scratch — NAND gates to adders to pipelines. Every step of that journey depended on one assumption: that we could make transistors <em>smaller</em>. Shrink the transistor, fit more on a chip, compute more per watt. Simple.</p>
+<p>But here's the dirty secret of the semiconductor industry: <strong>the number in a process node name hasn't corresponded to any physical measurement on the chip since roughly 2009.</strong> When Intel says "Intel 4" or TSMC says "N3," those numbers are marketing labels — brand names, like "Grande" at Starbucks. They tell you approximately where a process fits in the generational pecking order, but if you pulled out an electron microscope and started measuring features on a "3nm" chip, you would not find anything that's 3 nanometers.</p>
+<p>This isn't fraud. It's a story about how an industry's measurement system slowly diverged from physical reality — and why understanding that divergence is essential to making sense of modern semiconductors.</p>
+<h2 id="the-golden-age-when-the-number-meant-something"><a class="header" href="#the-golden-age-when-the-number-meant-something">The Golden Age: When the Number Meant Something</a></h2>
+<p>Let's rewind. In the 1970s and 1980s, process node names were delightfully literal. When Intel introduced its 3-micron process in 1979 for the 8086, the smallest feature you could print — typically the gate length of a transistor — was genuinely about 3 micrometers (3,000nm). The naming was descriptive. A 1.5µm process had 1.5µm gate lengths. A 0.8µm process had 0.8µm gate lengths. Engineers could look at a process name and immediately know the critical dimension.</p>
+<p>This worked because photolithography had a straightforward relationship: the minimum printable feature was roughly proportional to the wavelength of light being used, divided by the numerical aperture of the lens. As fabs moved from mercury g-line (436nm) to i-line (365nm) to deep ultraviolet (248nm, then 193nm), features shrank proportionally.</p>
+<p>Through the 1990s, the naming convention held. The 250nm node (introduced ~1997) really did have gate lengths close to 250nm. The 180nm node (~1999) had gate lengths near 180nm. Each generation shrank the critical dimension by roughly 0.7× — a factor that, when squared, gave you a 2× increase in transistor density per generation. This is the scaling factor baked into Moore's Law.</p>
+<p>Then things got... creative.</p>
+<h2 id="the-great-divergence-gate-length-vs-node-name"><a class="header" href="#the-great-divergence-gate-length-vs-node-name">The Great Divergence: Gate Length vs. Node Name</a></h2>
+<p>Around the 130nm node (~2001), a gap began to open. Physical gate lengths started shrinking faster than the node name implied, because engineers discovered that the gate length didn't have to match the printable pitch. Through various tricks — over-etching, trimming techniques, and later immersion lithography — you could print a line at 130nm but etch the actual gate electrode down to 70nm. A shorter gate means faster switching, so fabs aggressively shortened gates while the node name tracked the lithographic pitch.</p>
+<p>By the 65nm node (circa 2005-2006), the physical gate length had shrunk to about 35nm — roughly half the node name. At 45nm (~2007), gate lengths were around 25nm. The node name was becoming less a measurement and more a generation marker.</p>
+<p>But the real break came at 22nm.</p>
+<p>In 2012, Intel introduced its 22nm process with a revolutionary change: the FinFET transistor (which we covered on Day 1). Instead of a flat planar gate sitting on top of a silicon channel, the channel was carved into a thin vertical fin, and the gate wrapped around three sides. This was a fundamentally three-dimensional structure. The question "what is the gate length?" suddenly had an awkward answer — do you mean the fin height? The fin width? The distance the gate wraps along the channel direction? The concept of a single defining dimension no longer captured the complexity of the device.</p>
+<p>Intel called it a 22nm process. The fin pitch was 60nm. The minimum metal pitch was 80nm. The "22" wasn't any of these numbers. It was just... the name.</p>
+<h2 id="what-actually-defines-a-process-today"><a class="header" href="#what-actually-defines-a-process-today">What Actually Defines a Process Today</a></h2>
+<p>If the node name doesn't correspond to a physical feature, what <em>does</em> differentiate one process from another? The industry tracks several real metrics:</p>
+<p><strong>Transistor density</strong> is the most honest measure. It's exactly what it sounds like: how many transistors can you fit per square millimeter of silicon. TSMC's N5 (5nm) process packs about 173 million transistors per mm². Their N3E (3nm enhanced) reaches approximately 291 million/mm². Intel's Intel 4 hits about 160 million/mm². For context, Apple's M2 Ultra die — fabricated on TSMC N5 — crams 134 billion transistors onto a 900mm² combined area.</p>
+<p>But even transistor density can be gamed. The number depends heavily on the mix of logic cells used. A chip full of simple NAND gates will have higher density than one using complex multi-input gates with lots of routing. The industry consortium IEEE/IRDS tried to standardize this by defining logic density at a specific mix of gates, but each foundry still has latitude in how it reports numbers.</p>
+<p><strong>Metal pitch</strong> — the center-to-center spacing of the tightest metal interconnect layer — is probably the most physically meaningful metric. At TSMC's N3, the minimum metal pitch (M1) is about 23nm. At Intel 4, it's about 21nm. At Samsung's 3nm GAA process, roughly 25nm. These numbers correspond to real distances you could measure with an electron microscope, and they directly determine how densely you can route wires between transistors.</p>
+<p><strong>Gate pitch</strong> (also called CPP — contacted poly pitch) measures the repeating distance between adjacent transistor gates. TSMC's N5 has a gate pitch of 48nm. N3 tightens this to 48nm as well (they improved density through other means). Intel 4 uses a 50nm gate pitch. Intel 3 will push to 50nm too but add other density tricks.</p>
+<p><strong>Fin pitch</strong> (or, for Gate-All-Around nodes, nanosheet pitch) measures the spacing between the fins or nanosheets that form the transistor channel. TSMC N5: 25-27nm fin pitch. TSMC N3: 26nm. Intel 4: ~25nm.</p>
+<p>So a "process node" is really a <em>bundle</em> of these dimensions plus the design rules (how close you can place different structures) and the number of metal layers available. It's less like a single measurement and more like a vintage year on wine — it tells you approximately when it was made and gives a rough quality signal, but the terroir matters more than the year.</p>
+<h2 id="the-naming-arms-race"><a class="header" href="#the-naming-arms-race">The Naming Arms Race</a></h2>
+<p>Here's where it gets cynically fascinating. Around 2016, the foundries realized that node names had become a marketing weapon. Customers — the Apples, Qualcomms, and NVIDIAs of the world — used them to market their own chips. "Built on cutting-edge 7nm technology!" sounds impressive to consumers, analysts, and investors. There was enormous competitive pressure to have the smallest number.</p>
+<p>The result was a bizarre naming arms race. In 2018, TSMC shipped its "7nm" process (N7). Intel was still shipping "14nm" (14nm++). If you looked purely at the names, Intel appeared two full generations behind. But if you measured transistor density, Intel's 14nm delivered about 100 million transistors/mm² — within shouting distance of TSMC's N7 at about 96 million transistors/mm². Intel's "14nm" was roughly comparable to TSMC's "7nm" in actual transistor density.</p>
+<p>This made Intel furious, and understandably so. They eventually capitulated and renamed their processes: "10nm Enhanced SuperFin" became "Intel 7." "Intel's 7nm" became "Intel 4." The old numbering might have been more honest, but it was commercial suicide to sell "Intel 10nm" against "TSMC 5nm" when the transistor densities were comparable.</p>
+<p>Samsung added fuel to the fire. Their "3nm" GAA (Gate-All-Around) process, introduced in 2022, had a transistor density of roughly 150-170 million/mm² depending on the variant — which was comparable to or even lower than TSMC's "5nm" at 173 million/mm². Samsung essentially slapped a "3nm" label on a process that, by density metrics, was a 5nm-class product. They could justify it because they introduced GAA transistor architecture (a genuine innovation), but the number was pure marketing.</p>
+<h2 id="a-surprising-truth-bigger-node-better-product"><a class="header" href="#a-surprising-truth-bigger-node-better-product">A Surprising Truth: Bigger Node, Better Product?</a></h2>
+<p>Here's the counterintuitive fact that trips up even technically literate people: <strong>a chip manufactured on a "larger" process node can absolutely outperform one on a "smaller" node.</strong></p>
+<p>Consider the AMD EPYC 9654 server processor (launched 2022, TSMC N5) versus the Intel Xeon w9-3595X (launched 2024, Intel 3). Intel 3's transistor density (~200M/mm²) is higher than TSMC N5's (~173M/mm²), despite "Intel 3" sounding like it should be larger than "5nm." The naming implies Intel is a generation behind; the physics say otherwise.</p>
+<p>Or consider analog and RF chips. Texas Instruments' best-selling products are manufactured on 65nm and 130nm processes — nodes that digital designers abandoned 15-20 years ago. But for power management, sensor interfaces, and radio frequency circuits, those older processes are <em>superior</em>. They handle higher voltages, have lower noise, and cost a fraction of leading-edge digital processes. TI operates some of its 130nm fabs at nearly 100% utilization. A "130nm" power management IC can be a more profitable product than a "3nm" digital chip, because the $2 billion fab that produces it was paid off a decade ago.</p>
+<h2 id="the-real-physics-what-sets-the-floor"><a class="header" href="#the-real-physics-what-sets-the-floor">The Real Physics: What Sets the Floor</a></h2>
+<p>If the names are marketing, where are the actual physical limits? What determines how small you can really make things?</p>
+<p>The answer comes back to a handful of hard physics constraints:</p>
+<p><strong>Quantum tunneling</strong> sets a floor on gate oxide thickness. The gate oxide (now high-k dielectric, typically hafnium dioxide, HfO₂) must be thin enough for the gate's electric field to control the channel, but thick enough that electrons don't quantum-tunnel straight through it. Modern gate oxides are about 1-2nm of equivalent oxide thickness — roughly 5-10 atoms thick. You genuinely cannot go much thinner without electrons tunneling through, which causes gate leakage current and wastes power.</p>
+<p><strong>Short-channel effects</strong> set a floor on how short the gate (channel length) can be. When the channel becomes too short (currently around 5-12nm in production), the source and drain electric fields start to interfere with each other, and the gate loses control of the channel. This is called drain-induced barrier lowering (DIBL), and it's why the industry moved from planar transistors (where the gate only touches one side of the channel) to FinFETs (three sides) and now to Gate-All-Around nanosheets (all four sides). More gate contact = more electrostatic control = shorter channels work.</p>
+<p><strong>Line edge roughness (LER)</strong> becomes proportionally more damaging as features shrink. When you print a line that's supposed to be 20nm wide, the edges aren't perfectly smooth — they wiggle by ±1-2nm due to the statistical nature of photoresist chemistry (individual photoacid molecules are ~1-2nm). At 200nm, a ±2nm wobble is 1% of the width — irrelevant. At 20nm, that same wobble is 10% — it significantly changes the transistor's electrical characteristics from one device to the next. This random variation is one of the reasons why yields drop and design becomes harder at smaller nodes.</p>
+<p><strong>Electromigration</strong> limits how much current you can push through the tiny copper (or now cobalt and ruthenium) interconnect wires. Below about 20nm wire width, copper atoms get physically shoved by the electron current, like tiny bowling balls being pushed by a stream of marbles. Eventually the wire develops voids (open circuits) or hillocks (short circuits). This is why the industry is actively exploring ruthenium and molybdenum for the tightest wire layers — they resist electromigration better than copper.</p>
+<h2 id="the-economics-why-naming-matters-more-than-physics"><a class="header" href="#the-economics-why-naming-matters-more-than-physics">The Economics: Why Naming Matters More Than Physics</a></h2>
+<p>Behind the marketing absurdity lies a deadly serious economic reality. Each process node is staggeringly expensive to develop.</p>
+<p>TSMC spent approximately $36 billion in capital expenditure in 2023 alone, the majority aimed at N3 and N2 development. A single EUV scanner from ASML costs $350-400 million (the new High-NA EUV machines will cost $380+ million <em>each</em>). A leading-edge fab costs $20-28 billion to build (TSMC's Arizona Fab 21 is budgeted at $40+ billion for two phases).</p>
+<p>The design costs are equally eye-watering. Designing a complex chip on a 3nm process costs $500-800 million in engineering effort, according to IBS estimates. On 5nm, it's about $400-500 million. On 28nm — a mature node — it's about $40-50 million. This 10× cost gap means that only a handful of products have enough volume to justify leading-edge design: smartphone SoCs (billions of units), datacenter processors, and high-end GPUs.</p>
+<p>This is why process node naming is so consequential. When Apple announces the A18 Pro is built on "3nm," that marketing claim reverberates through the entire supply chain. It justifies the premium price of the iPhone. It justifies TSMC's capital expenditure. It justifies ASML's R&amp;D spending on EUV. The names are marketing, yes, but they're marketing that underpins a $600 billion industry's investment logic.</p>
+<h2 id="a-rosetta-stone-for-node-names"><a class="header" href="#a-rosetta-stone-for-node-names">A Rosetta Stone for Node Names</a></h2>
+<p>Here's a practical cheat sheet for cutting through the naming fog (approximate, as of 2025):</p>
+<div class="table-wrapper"><table><thead><tr><th>Foundry Node</th><th>Transistor Density (M/mm²)</th><th>Min Metal Pitch</th><th>Gate Pitch</th><th>Transistor Type</th></tr></thead><tbody>
+<tr><td>Intel 7 (old "10nm ESF")</td><td>~100</td><td>36nm</td><td>54nm</td><td>FinFET</td></tr>
+<tr><td>TSMC N7</td><td>~96</td><td>40nm</td><td>54nm</td><td>FinFET</td></tr>
+<tr><td>TSMC N5</td><td>~173</td><td>28nm</td><td>48nm</td><td>FinFET</td></tr>
+<tr><td>Intel 4 (old "7nm")</td><td>~160</td><td>21nm</td><td>50nm</td><td>FinFET</td></tr>
+<tr><td>Samsung 3nm GAA</td><td>~150-170</td><td>25nm</td><td>48nm</td><td>GAA</td></tr>
+<tr><td>TSMC N3E</td><td>~291</td><td>23nm</td><td>48nm</td><td>FinFET</td></tr>
+<tr><td>Intel 18A (~"2nm")</td><td>~250+</td><td>18nm</td><td>45nm</td><td>GAA (RibbonFET)</td></tr>
+<tr><td>TSMC N2 (2025)</td><td>~350+</td><td>~21nm</td><td>45nm</td><td>GAA</td></tr>
+</tbody></table>
+</div>
+<p>Notice that Intel 4 and TSMC N7 have similar density despite the name implying a two-generation gap. And TSMC N3E has nearly double Samsung 3nm GAA's density, despite sharing the "3nm" label. The names are, at best, a rough ordinal ranking within a single foundry's lineup.</p>
+<h2 id="the-future-will-naming-ever-make-sense-again"><a class="header" href="#the-future-will-naming-ever-make-sense-again">The Future: Will Naming Ever Make Sense Again?</a></h2>
+<p>Probably not — but it might matter less. The industry is shifting from pure transistor scaling to <em>system-level</em> scaling. Chiplet architectures (which we'll explore in Week 2) let you mix and match process nodes: put the high-performance compute on 3nm, the I/O on 5nm, the analog on 28nm, and package them together. In this world, bragging about a single node name becomes less meaningful.</p>
+<p>ASML's new High-NA EUV lithography (0.55 NA, versus 0.33 NA for current EUV) will enable tighter pitches — potentially sub-20nm metal pitch and below 40nm gate pitch. This will power TSMC's A14 (1.4nm class) and Intel's 14A processes around 2027-2028. But even these will be named in the same arbitrary way.</p>
+<p>The honest metric — cost per transistor — tells the real story. For decades, each node made transistors cheaper. That trend broke around 28nm. Below 28nm, cost per transistor started <em>increasing</em> at advanced nodes due to EUV costs, multi-patterning complexity, and abysmal early yields. The 28nm node remains the sweet spot for cost-per-transistor, which is why it's the world's most widely manufactured process and why fabs keep building new 28nm capacity.</p>
+<h2 id="what-to-take-away"><a class="header" href="#what-to-take-away">What to Take Away</a></h2>
+<p>Process node names are generational labels, not measurements. The real metrics — transistor density, metal pitch, gate pitch — tell you what a process can actually do. And the economics of each node determine which products can afford to use it.</p>
+<p>Tomorrow, we'll step inside the most extraordinary manufacturing environment humans have ever created: the semiconductor fab itself. A place where the air is 10,000 times cleaner than a hospital operating room, where a single speck of dust is a catastrophe, and where the machines cost more than commercial jetliners. We'll see how all these process technologies come together in a $20 billion cathedral of precision — and why the logistics of running a fab are almost as challenging as the physics.</p>
+<hr />
+<div id="quiz-placeholder" data-quiz-path="quizzes/day-06.toml"></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="day-05.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="day-05.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
