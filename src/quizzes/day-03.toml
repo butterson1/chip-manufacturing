@@ -1,0 +1,119 @@
+# Day 3 Quiz: Photolithography 101 — Printing Circuits with Light
+
+## New Questions (6)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why does Optical Proximity Correction (OPC) add distorted shapes to the mask pattern instead of using the actual desired circuit layout?"
+prompt.distractors = [
+    "The distorted shapes reduce thermal stress on the chrome layer during repeated exposures, extending mask lifetime significantly",
+    "The distorted shapes increase the mask's transparency uniformity, ensuring equal light dosage reaches all parts of the wafer",
+    "The distorted shapes compensate for electron scattering in the resist film, which would otherwise blur the latent chemical image"
+]
+answer.answer = "Light diffracts around edges and interferes during projection, so the mask must be pre-distorted to cancel optical effects and produce the intended pattern"
+context = "Diffraction causes corners to round, lines to thin, and dense/isolated features to print differently. OPC pre-distorts the mask with serifs, assist features, and biases so that after all optical distortions, the printed pattern matches the intended design."
+id = "d3-q1-opc-purpose"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What made immersion lithography feasible for extending 193nm DUV to smaller feature sizes?"
+prompt.distractors = [
+    "Water absorbs stray 193nm reflections from the wafer surface, reducing standing-wave interference effects in the photoresist film",
+    "Water cools the wafer during exposure, preventing thermal expansion that would otherwise distort the printed pattern at tight pitches",
+    "Water enables higher laser pulse energy delivery to the resist, increasing the chemical amplification reaction rate for finer features"
+]
+answer.answer = "Water's refractive index of 1.44 at 193nm increases the numerical aperture from ~0.93 to ~1.35, improving resolution by roughly 45% over dry exposure"
+context = "Since NA = n × sin(θ), replacing air (n=1.0) with water (n=1.44) at the lens-wafer gap boosts the maximum NA to about 1.35. Burn Lin of TSMC proposed this in 2002, and ASML shipped the first immersion scanners by 2006."
+id = "d3-q2-immersion"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "In Self-Aligned Quadruple Patterning (SAQP), how are the final features created at 4× the density of the original lithographic pattern?"
+prompt.distractors = [
+    "Four separate mask exposures are aligned to each other using advanced overlay correction, each printing one quarter of the features",
+    "The resist is exposed four times at slightly shifted positions using the same mask, accumulating dose to create quarter-pitch features",
+    "A focused ion beam trims the original features into four equal sub-features by removing material from their centers sequentially"
+]
+answer.answer = "A conformal spacer film is deposited on printed lines, the core is etched away leaving sidewall pairs, then the spacer process is repeated to double density again"
+context = "SAQP prints a line, deposits a conformal spacer, removes the original line leaving two sidewall features, then repeats the whole process. Each round doubles density: 1× → 2× → 4×. Samsung and TSMC used this at 7nm and 5nm DUV nodes."
+id = "d3-q3-saqp"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why must post-exposure bake (PEB) temperature be controlled to ±0.1°C across the wafer?"
+prompt.distractors = [
+    "Temperature variations above ±0.1°C cause the photoresist solvent to re-evaporate non-uniformly, creating thickness variations that affect the next etch step",
+    "Temperature variations above ±0.1°C induce differential thermal expansion between the resist and silicon, generating pattern-cracking defects",
+    "Temperature variations above ±0.1°C alter the refractive index of the resist film, changing how alignment mark sensors read wafer position"
+]
+answer.answer = "The acid-catalyzed deprotection reaction rate is exponentially sensitive to temperature, so a 1°C variation can shift printed feature dimensions by about 10%"
+context = "In chemically amplified resists, PEB is when photogenerated acid catalyzes the deprotection of polymer chains. This reaction follows Arrhenius kinetics — exponentially dependent on temperature. Even 1°C non-uniformity causes ~10% dimensional variation."
+id = "d3-q4-peb-temp"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What company, headquartered in Veldhoven, Netherlands, manufactures virtually all of the world's advanced lithography scanners?"
+answer.answer = "ASML"
+answer.alternatives = ["asml", "ASML Holding"]
+context = "ASML is the sole manufacturer of EUV lithography systems and dominates the DUV immersion scanner market. Their machines cost $100M-$350M+ each and are essential for producing every leading-edge chip."
+id = "d3-q5-asml"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why do leading-edge EUV photomask sets cost $10-15 million for a single chip design?"
+prompt.distractors = [
+    "EUV masks require gold-plated substrates instead of chrome-on-quartz, and the gold deposition process has extremely low throughput rates",
+    "Each EUV mask must be individually calibrated to a specific scanner unit, so fabs maintain duplicate mask sets for production redundancy",
+    "EUV mask blanks are made from beryllium fluoride crystal, which must be grown in zero-gravity conditions to achieve required flatness"
+]
+answer.answer = "A chip requires 60-80 separate masks (one per layer), each written by slow electron-beam lithography taking 20-40 hours, with individual masks costing $300K-$1M"
+context = "Each mask layer requires a separate fused-silica plate with chrome patterns written dot-by-dot by e-beam tools over 20-40 hours. At $300K-$1M per mask across 60-80 layers, total mask set costs reach $10-15M — a major barrier to entry for advanced chip design."
+id = "d3-q6-mask-cost"
+
+## Recent Review — Day 2 (2)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why is removing boron impurities during the Siemens process more challenging than removing iron or aluminum?"
+prompt.distractors = [
+    "Boron forms covalent bonds with silicon atoms in the trichlorosilane molecule, preventing physical separation by distillation",
+    "Boron impurities exist as dissolved solids rather than gaseous chlorides, requiring additional liquid-phase extraction steps",
+    "Boron atoms are lighter than silicon atoms, so they cannot be separated by the centrifugal forces used in fractional distillation"
+]
+answer.answer = "Boron trichloride boils at 12.5°C, only 19°C below trichlorosilane's 31.8°C boiling point, making fractional distillation separation extremely difficult"
+context = "Iron chloride (316°C) and aluminum chloride (180°C) have boiling points far from TCS (31.8°C), so they separate easily. Boron trichloride (12.5°C) is only 19°C away, requiring distillation columns with hundreds of theoretical plates."
+id = "d3-r1-boron"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What causes oxygen contamination in a silicon boule during Czochralski crystal growth?"
+prompt.distractors = [
+    "Trace oxygen in the argon shielding gas reacts with the silicon melt surface, gradually incorporating oxygen atoms into the crystal",
+    "The polysilicon feedstock retains dissolved oxygen from the Siemens deposition process that persists through remelting temperatures",
+    "Convective currents expose the melt surface to the furnace atmosphere, allowing oxygen radicals to diffuse into the liquid silicon"
+]
+answer.answer = "The fused silica (SiO₂) crucible gradually dissolves into the 1,414°C molten silicon throughout the 24-72 hour growth process, releasing oxygen atoms"
+context = "The quartz crucible is the only practical container for molten silicon at 1,414°C, but SiO₂ slowly dissolves into the melt. This is an inherent trade-off — no alternative crucible material works as well, so oxygen incorporation is managed rather than eliminated."
+id = "d3-r2-oxygen"
+
+## Older Review — Day 1 (2)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did CMOS technology — pairing NMOS and PMOS transistors — become dominant over NMOS-only circuits?"
+prompt.distractors = [
+    "CMOS transistors switch faster than NMOS-only circuits because the complementary pair creates a push-pull output with lower gate delay",
+    "CMOS manufacturing requires fewer photolithography steps than NMOS-only processes, significantly reducing production cost per wafer",
+    "CMOS circuits produce more stable voltage output levels than NMOS-only logic, reducing bit-flip errors in memory applications"
+]
+answer.answer = "CMOS draws current only during switching transitions, consuming near-zero static power, while NMOS-only logic draws continuous current through pull-up resistors"
+context = "In CMOS, either the PMOS or NMOS transistor is off at any time in steady state, creating no path from power to ground. NMOS-only circuits use resistive pull-ups that constantly draw current. This power advantage made CMOS essential for scaling to billions of transistors."
+id = "d3-r3-cmos"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What structural innovation, introduced by Intel in 2011 at the 22nm node, replaced the traditional flat planar transistor gate with a three-dimensional fin-shaped channel?"
+answer.answer = "FinFET"
+answer.alternatives = ["finfet", "Fin-FET", "fin-FET", "finFET", "tri-gate", "Tri-Gate", "tri-gate transistor"]
+context = "The FinFET (or tri-gate) wraps the gate around three sides of a tall, thin fin of silicon, dramatically improving electrostatic control over the channel. Intel introduced it at 22nm in 2011, and it became universal across the industry at 16/14nm."
+id = "d3-r4-finfet"

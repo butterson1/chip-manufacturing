@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Day 3: Photolithography 101 - Chip Manufacturing: From Sand to Silicon</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Chip Manufacturing: From Sand to Silicon</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="day-3-photolithography-101"><a class="header" href="#day-3-photolithography-101">Day 3: Photolithography 101</a></h1>
+<h2 id="printing-circuits-with-light--how-we-paint-at-the-atomic-scale"><a class="header" href="#printing-circuits-with-light--how-we-paint-at-the-atomic-scale">Printing Circuits with Light — How We Paint at the Atomic Scale</a></h2>
+<p>Yesterday, we ended with a pristine silicon wafer — 300mm of eleven-nines-pure crystal, polished to half a nanometer of flatness. A perfect blank canvas. Today, we learn how the semiconductor industry paints on it. And the brush is light itself.</p>
+<p>Photolithography is the single most critical step in chip manufacturing. It's also the most repeated: a modern processor goes through <strong>60 to 80 separate lithography passes</strong> during its fabrication, each one printing a different layer of the chip's 3D structure. If wafer-making is the foundation and transistor design is the blueprint, lithography is the construction crew that actually builds the building — one impossibly thin floor at a time.</p>
+<p>The basic concept sounds almost absurdly simple. Coat the wafer with a light-sensitive chemical. Shine patterned light onto it. Develop the chemical, like developing a photograph. Use the resulting pattern as a stencil to etch or deposit material. Wash off the stencil. Repeat.</p>
+<p>It sounds like silk-screening a t-shirt. But here's what makes it the most extraordinary optical engineering challenge humans have ever tackled: you're printing features that are <strong>smaller than the wavelength of the light you're using to print them</strong>. Today's leading-edge fabs routinely print structures 3–5 nanometers wide using light with a wavelength of 13.5 nanometers — which itself replaced 193-nanometer light that was used to print 7nm features. That's like painting a portrait using a brush five times wider than the finest detail you need to capture.</p>
+<p>How is that even possible? That's what this lesson is about.</p>
+<hr />
+<h2 id="the-photoresist-a-chemical-that-remembers-light"><a class="header" href="#the-photoresist-a-chemical-that-remembers-light">The Photoresist: A Chemical That Remembers Light</a></h2>
+<p>Every lithography step begins the same way: a robotic arm spins the wafer at <strong>1,500–4,000 RPM</strong> while a nozzle dispenses a small puddle of <strong>photoresist</strong> — a liquid polymer dissolved in a solvent that's sensitive to specific wavelengths of light. Centrifugal force spreads the resist into an astonishingly uniform film, typically <strong>50–500 nanometers thick</strong> depending on the application. The uniformity target? Thickness variation of less than <strong>1 nanometer</strong> across the entire 300mm wafer. Imagine painting a wall the size of a football field and keeping the paint thickness consistent to within the width of a single molecule.</p>
+<p>The resist is then "soft-baked" on a hot plate at <strong>90–110°C</strong> for 60–90 seconds to drive off the solvent and harden the film into a stable solid.</p>
+<p>Photoresists come in two flavors:</p>
+<ul>
+<li><strong>Positive resist:</strong> Where light hits, the polymer chains break apart and become soluble in developer solution. The exposed areas wash away. You keep what was in the dark.</li>
+<li><strong>Negative resist:</strong> Where light hits, the polymer cross-links and hardens. The unexposed areas wash away. You keep what was in the light.</li>
+</ul>
+<p>Modern leading-edge lithography overwhelmingly uses <strong>positive resist</strong> because it produces sharper edges. Specifically, the industry standard since the mid-1990s has been <strong>chemically amplified resists (CARs)</strong>, invented by Hiroshi Ito, C. Grant Willson, and Jean Fréchet at IBM in 1982. The clever trick: the light doesn't directly break the polymer. Instead, it generates an acid molecule. During a post-exposure bake at <strong>100–130°C</strong>, each acid molecule catalyzes a chain reaction that deprotects dozens of nearby polymer molecules, making them soluble. One photon's worth of acid does the work of many. This chemical amplification is what made it possible to use less light and still get a strong pattern — critical as the industry pushed to shorter wavelengths where photon sources are dimmer.</p>
+<p>For EUV lithography (which we'll cover in depth on Day 8), the story gets even more exotic. EUV photons at 13.5nm carry <strong>92 electron-volts</strong> of energy each — enough to blast electrons out of atoms. These secondary electrons, not the photons themselves, do most of the actual resist chemistry. The resist becomes a chaotic cascade of ionization events, and controlling that chaos to produce clean, sharp patterns at 3nm resolution is one of the hardest unsolved problems in materials science. Companies like <strong>Inpria</strong> (acquired by JSR in 2021) are developing entirely new metal-oxide resists for EUV that absorb photons more efficiently than traditional organic polymers.</p>
+<hr />
+<h2 id="the-mask-a-10-million-stencil"><a class="header" href="#the-mask-a-10-million-stencil">The Mask: A $10 Million Stencil</a></h2>
+<p>Before light reaches the wafer, it passes through a <strong>photomask</strong> (or reticle) — a fused silica plate, about 152mm × 152mm × 6.35mm, with the circuit pattern etched into an ultra-thin layer of chrome on its surface. Think of it as a glass slide with an absurdly intricate stencil.</p>
+<p>Here's a number that should make you blink: a single leading-edge EUV photomask costs <strong>$300,000 to $1,000,000</strong> to produce. A complete mask set for a modern chip — one mask per lithography layer, 60–80 layers — runs <strong>$10–15 million</strong>. Before you've fabricated a single chip, you've spent more on masks than most companies spend on an entire product line. This is one of the key reasons why cutting-edge chip design is a billionaires-only club.</p>
+<p>Masks are manufactured by specialist companies — <strong>Photronics</strong> (US) and <strong>Toppan</strong> (Japan) dominate the merchant market, while TSMC, Samsung, and Intel make their most advanced masks in-house. The process uses <strong>electron beam lithography</strong> — no light involved. An extremely focused beam of electrons scans across the chrome-coated quartz plate, writing the pattern dot by dot. A single advanced mask can take <strong>20–40 hours</strong> of continuous e-beam writing time because the pattern is so dense and complex.</p>
+<p>But here's the counterintuitive part: the mask pattern doesn't look like the circuit it prints. Not even close.</p>
+<hr />
+<h2 id="optical-proximity-correction-lying-to-the-light"><a class="header" href="#optical-proximity-correction-lying-to-the-light">Optical Proximity Correction: Lying to the Light</a></h2>
+<p>If you simply put the desired circuit pattern on a mask and projected it onto the wafer, the result would be a blurry mess. Light diffracts — it bends around edges, bleeds into dark areas, and interferes with itself. A pattern of perfectly square corners on the mask would print as sad, rounded blobs on the wafer. Narrow lines would print thinner than intended or vanish entirely. Dense arrays of lines would print differently from isolated lines at the same width.</p>
+<p>The solution is one of the most intellectually audacious ideas in the field: <strong>Optical Proximity Correction (OPC)</strong>. Instead of putting the "true" pattern on the mask, you put a <em>deliberately distorted</em> pattern that, after all the optical distortions of projection, produces the shape you actually want on the wafer.</p>
+<p>Imagine you need to print a perfect square. You know the optical system will round the corners. So you add tiny "serifs" — aggressive protrusions at each corner of the mask pattern — that get smoothed down by diffraction into something closer to a right angle. Need to print a narrow line next to a wider space? You make the line on the mask slightly wider to compensate for how the optics will thin it out.</p>
+<p>OPC is computed using massive simulations. Companies like <strong>Synopsys</strong>, <strong>Cadence</strong>, and <strong>Siemens EDA</strong> (formerly Mentor Graphics) sell software that models the full physics of light propagation through the optical system, resist chemistry, and etching behavior. A single OPC run for one mask layer can consume <strong>tens of thousands of CPU-hours</strong> and take days on a cluster. The resulting mask patterns look nothing like circuits — they look like deranged abstract art, with hammer-head serifs, sub-resolution assist features (tiny shapes too small to print but which improve the pattern fidelity of nearby features through constructive interference), and bizarre fractal-like decorations that exist only to trick the light into doing the right thing.</p>
+<p>This is a staggering inversion: we're not designing the mask to show the light what we want. We're designing the mask to <em>lie to the light</em> in precisely the right way so that the light's own distortions produce the truth.</p>
+<hr />
+<h2 id="the-scanner-a-350-million-camera-running-backward"><a class="header" href="#the-scanner-a-350-million-camera-running-backward">The Scanner: A $350 Million Camera Running Backward</a></h2>
+<p>Now for the machine that ties it all together: the <strong>lithography scanner</strong>, built almost exclusively by one company on Earth — <strong>ASML</strong>, headquartered in Veldhoven, the Netherlands. (We'll dive deep into ASML's EUV machines on Day 8. Today, let's understand the fundamental optics.)</p>
+<p>A lithography scanner is, at its core, a projection camera running in reverse. Instead of capturing light from the world to record an image, it projects light <em>through</em> a mask <em>onto</em> the wafer to create an image. But every parameter of this "camera" is pushed to the bleeding edge of physics.</p>
+<p><strong>The light source.</strong> For most of the industry's history (1990s through ~2019), the workhorse wavelength has been <strong>193 nanometers</strong> — deep ultraviolet (DUV) light produced by an <strong>argon fluoride (ArF) excimer laser</strong>. These lasers work by electrically exciting a mixture of argon and fluorine gases, which briefly form ArF molecules that emit UV light when they dissipate. A modern ArF laser fires <strong>6,000 pulses per second</strong>, each pulse lasting about <strong>20 nanoseconds</strong>, delivering roughly <strong>90 watts</strong> of average UV power. The laser itself is about the size of a large refrigerator and costs several million dollars.</p>
+<p>For the latest nodes, <strong>EUV lithography</strong> uses 13.5nm light — not even ultraviolet but soft X-rays. We'll defer the full EUV story to Day 8, but know this: there is no laser that naturally emits 13.5nm light. You have to create it by firing a CO₂ laser at <strong>50,000 tiny droplets of molten tin per second</strong>, each droplet 25 micrometers wide, generating a plasma at roughly <strong>500,000°C</strong>. It's absurd, and it works.</p>
+<p><strong>The optics.</strong> The light from the source passes through (DUV) or reflects off (EUV) a series of precision lenses or mirrors that reduce the mask pattern by <strong>4× or 5×</strong> before it hits the wafer. A DUV scanner contains <strong>30–40 individual lens elements</strong> made of ultra-pure fused silica and calcium fluoride, each polished to sub-nanometer accuracy. The total optical column weighs several tons and costs more than many houses. These lenses are made primarily by <strong>Carl Zeiss SMT</strong> in Oberkochen, Germany — the only company in the world capable of producing them at the required quality.</p>
+<p>The 4× reduction is a crucial design choice. It means the mask pattern is four times larger than what prints on the wafer, which relaxes the tolerances on mask manufacturing. A 20nm feature on the wafer only needs to be 80nm on the mask — still difficult, but manageable with e-beam writing.</p>
+<p><strong>The stage.</strong> The wafer sits on a stage that moves with <strong>sub-nanometer precision</strong> at speeds up to <strong>700 mm/s</strong>. During exposure, the mask and wafer move simultaneously in opposite directions (the mask at 4× the wafer speed, matching the reduction ratio). This scanning motion is why the tool is called a "scanner" rather than a "stepper" (older machines that exposed the full field at once without scanning). The stage uses magnetic levitation — the wafer chuck literally floats on magnetic fields — to eliminate vibration. Position is tracked by <strong>laser interferometers</strong> measuring to fractions of a nanometer. The entire machine weighs about <strong>180 tons</strong> and sits on active vibration isolation systems that can compensate for disturbances as subtle as someone walking in the hallway outside the fab.</p>
+<hr />
+<h2 id="immersion-lithography-water-makes-light-bend-harder"><a class="header" href="#immersion-lithography-water-makes-light-bend-harder">Immersion Lithography: Water Makes Light Bend Harder</a></h2>
+<p>By the early 2000s, the industry faced a crisis. The minimum feature size you can print with light is governed by the <strong>Rayleigh criterion</strong>:</p>
+<blockquote>
+<p><strong>Resolution = k₁ × λ / NA</strong></p>
+</blockquote>
+<p>Where <strong>λ</strong> is the wavelength, <strong>NA</strong> is the numerical aperture of the lens (how much light it collects), and <strong>k₁</strong> is a process factor that can't go below about 0.25. With 193nm light and a numerical aperture of about 0.85 (limited by how sharply you can bend light through air), the finest printable half-pitch was around 65nm. Moore's Law demanded 45nm, then 32nm. The industry needed a new trick.</p>
+<p>In 2002, <strong>Burn Lin</strong> of TSMC proposed a solution that had been discussed in academic circles but was considered impractical: fill the gap between the final lens element and the wafer with <strong>ultra-pure water</strong> instead of air.</p>
+<p>The insight was elegant. Water has a refractive index of about <strong>1.44</strong> at 193nm (compared to 1.0 for air). Since numerical aperture equals <em>n</em> × sin(θ), where <em>n</em> is the refractive index of the medium, replacing air with water immediately boosted the maximum NA from ~0.93 to about <strong>1.35</strong>. That's a 45% improvement in resolution — for free, in a sense, by just adding water.</p>
+<p>But "just adding water" to a system operating at nanometer precision, moving at 700 mm/s, while maintaining uniform 193nm UV light intensity across the exposure field — that's an engineering nightmare. How do you keep bubbles out? (A single 50-micron air bubble in the water film ruins the exposure.) How do you prevent the water from leaking across the wafer? (The answer: a precisely engineered meniscus held in place by surface tension and a carefully controlled "shower head" nozzle system.) How do you keep the water clean? (You filter it to insane standards and flow it constantly.)</p>
+<p>ASML's first immersion scanner, the <strong>TWINSCAN XT:1700i</strong>, shipped in 2006. By 2008, immersion lithography was mainstream. The current DUV workhorse, ASML's <strong>TWINSCAN NXT:2050</strong>, achieves an NA of 1.35 and can print features down to about <strong>38nm half-pitch</strong>. These machines cost approximately <strong>$100 million each</strong> and can expose <strong>275 wafers per hour</strong> — that's one wafer every 13 seconds, each containing hundreds of chips with billions of transistors.</p>
+<hr />
+<h2 id="multi-patterning-when-one-exposure-isnt-enough"><a class="header" href="#multi-patterning-when-one-exposure-isnt-enough">Multi-Patterning: When One Exposure Isn't Enough</a></h2>
+<p>Even immersion DUV at 1.35 NA can only directly print features down to about 38nm half-pitch. But leading-edge chips before EUV arrived needed <strong>14nm and even 7nm</strong> features. How?</p>
+<p>The answer is <strong>multi-patterning</strong> — printing the same layer multiple times with different masks, each mask containing only a subset of the features, so no individual exposure needs to resolve features too close together.</p>
+<p>The simplest version, <strong>LELE (Litho-Etch-Litho-Etch)</strong>, prints half the features, etches them, then prints the other half in between. More advanced schemes like <strong>SADP (Self-Aligned Double Patterning)</strong> and <strong>SAQP (Self-Aligned Quadruple Patterning)</strong> use the physics of thin-film deposition to automatically create features at half or quarter the pitch of the original lithographic pattern.</p>
+<p>SAQP is the wildest: you print a line, deposit a thin "spacer" film conformally around it, etch away the original line, then use the two remaining spacer sidewalls as your actual features. Repeat the process and you've quadrupled the pattern density. Samsung and TSMC used SAQP extensively at 7nm and 5nm nodes with DUV lithography.</p>
+<p>The cost? Multi-patterning doubles or quadruples the number of expensive lithography steps. A layer that once needed a single exposure might now need four, each with its own mask, its own resist coat, its own etch step. This is a major reason EUV was so desperately needed — a single EUV exposure can replace <strong>3–5 DUV multi-patterning steps</strong>, reducing cost and, crucially, reducing the overlay errors that accumulate when you stack multiple patterns on top of each other.</p>
+<hr />
+<h2 id="overlay-the-alignment-challenge"><a class="header" href="#overlay-the-alignment-challenge">Overlay: The Alignment Challenge</a></h2>
+<p>Speaking of stacking patterns — every lithography exposure after the first must align perfectly to the layers already on the wafer. This alignment, called <strong>overlay</strong>, must be accurate to about <strong>1.5 nanometers</strong> on current nodes. That's roughly <strong>7 silicon atoms.</strong></p>
+<p>Think about what this means. You have a 300mm wafer that's been through dozens of processing steps involving temperatures from room temperature to over 1,000°C. The wafer has expanded, contracted, warped slightly from film stress, and been handled by dozens of robotic arms. And now you need to place the next layer's pattern within 1.5nm of where it should be relative to the previous layer — across the entire 300mm surface.</p>
+<p>The scanner achieves this by reading <strong>alignment marks</strong> — small target patterns etched into the wafer's surface during earlier processing steps. Multiple alignment marks are distributed across the wafer, and the scanner's sensors locate them with sub-nanometer precision using diffraction-based measurement. The scanner's software then computes a mathematical model of how the wafer has distorted (translation, rotation, expansion, and higher-order warping terms) and adjusts the stage position and optical field correction in real-time during exposure.</p>
+<p>ASML's latest scanners measure up to <strong>40 alignment marks per wafer</strong> and use machine-learning-enhanced models to predict and correct for systematic distortion patterns. Even with all this, overlay is the <strong>tightest specification in the entire fab</strong> and one of the top three yield limiters for advanced chips.</p>
+<hr />
+<h2 id="developing-and-beyond-completing-the-pattern"><a class="header" href="#developing-and-beyond-completing-the-pattern">Developing and Beyond: Completing the Pattern</a></h2>
+<p>After exposure, the wafer goes through <strong>post-exposure bake (PEB)</strong> — critical for chemically amplified resists, as this is when the acid-catalyzed deprotection reaction actually happens. Temperature uniformity during PEB must be controlled to <strong>±0.1°C</strong> because the reaction rate is exponentially sensitive to temperature. A mere 1°C variation can shift feature dimensions by 10%.</p>
+<p>Then comes <strong>development</strong>: the wafer is immersed in (or more precisely, puddle-developed with) a mild base solution — typically <strong>tetramethylammonium hydroxide (TMAH)</strong> at 2.38% concentration, a recipe so standard it's been the same since the 1980s. The exposed positive resist dissolves. What remains is a precisely patterned stencil of hardened polymer, typically 50–200nm tall, covering exactly the areas where you want to protect the underlying silicon (or metal, or oxide) from the next processing step — etching.</p>
+<p>And that's where tomorrow's lesson picks up. In <strong>Day 4</strong>, we'll explore <strong>Moore's Law</strong> — the audacious 60-year prediction that the number of transistors on a chip would double roughly every two years, and why that relentless march depends entirely on making lithography do things that seem physically impossible. We've already seen the tricks: immersion, multi-patterning, OPC. But the story of <em>why</em> the industry kept pushing — the economics, the competition, and the looming walls that threaten to end the scaling party — is even more fascinating than the physics.</p>
+<p>For now, marvel at this: the global semiconductor industry produces roughly <strong>2 trillion square centimeters</strong> of patterned silicon per year, with every square centimeter exposed by light pushed through optics more precise than the Hubble Space Telescope, aligned to the width of a few atoms, at the rate of one wafer every 13 seconds per machine. The machines to do this cost more than a Boeing 787 Dreamliner. The masks cost more than a house. The chemicals are controlled to parts per trillion. And it all started with the same basic idea as a 19th-century darkroom photograph: shine light on a chemical, and watch what develops.</p>
+<hr />
+<div class="quiz-placeholder" data-quiz-name="&quot;day-03&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;context&quot;:&quot;Diffraction causes corners to round, lines to thin, and dense/isolated features to print differently. OPC pre-distorts the mask with serifs, assist features, and biases so that after all optical distortions, the printed pattern matches the intended design.&quot;,&quot;id&quot;:&quot;d3-q1-opc-purpose&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Light diffracts around edges and interferes during projection, so the mask must be pre-distorted to cancel optical effects and produce the intended pattern&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;The distorted shapes reduce thermal stress on the chrome layer during repeated exposures, extending mask lifetime significantly&quot;,&quot;The distorted shapes increase the mask's transparency uniformity, ensuring equal light dosage reaches all parts of the wafer&quot;,&quot;The distorted shapes compensate for electron scattering in the resist film, which would otherwise blur the latent chemical image&quot;],&quot;prompt&quot;:&quot;Why does Optical Proximity Correction (OPC) add distorted shapes to the mask pattern instead of using the actual desired circuit layout?&quot;}},{&quot;context&quot;:&quot;Since NA = n × sin(θ), replacing air (n=1.0) with water (n=1.44) at the lens-wafer gap boosts the maximum NA to about 1.35. Burn Lin of TSMC proposed this in 2002, and ASML shipped the first immersion scanners by 2006.&quot;,&quot;id&quot;:&quot;d3-q2-immersion&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Water's refractive index of 1.44 at 193nm increases the numerical aperture from ~0.93 to ~1.35, improving resolution by roughly 45% over dry exposure&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Water absorbs stray 193nm reflections from the wafer surface, reducing standing-wave interference effects in the photoresist film&quot;,&quot;Water cools the wafer during exposure, preventing thermal expansion that would otherwise distort the printed pattern at tight pitches&quot;,&quot;Water enables higher laser pulse energy delivery to the resist, increasing the chemical amplification reaction rate for finer features&quot;],&quot;prompt&quot;:&quot;What made immersion lithography feasible for extending 193nm DUV to smaller feature sizes?&quot;}},{&quot;context&quot;:&quot;SAQP prints a line, deposits a conformal spacer, removes the original line leaving two sidewall features, then repeats the whole process. Each round doubles density: 1× → 2× → 4×. Samsung and TSMC used this at 7nm and 5nm DUV nodes.&quot;,&quot;id&quot;:&quot;d3-q3-saqp&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;A conformal spacer film is deposited on printed lines, the core is etched away leaving sidewall pairs, then the spacer process is repeated to double density again&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Four separate mask exposures are aligned to each other using advanced overlay correction, each printing one quarter of the features&quot;,&quot;The resist is exposed four times at slightly shifted positions using the same mask, accumulating dose to create quarter-pitch features&quot;,&quot;A focused ion beam trims the original features into four equal sub-features by removing material from their centers sequentially&quot;],&quot;prompt&quot;:&quot;In Self-Aligned Quadruple Patterning (SAQP), how are the final features created at 4× the density of the original lithographic pattern?&quot;}},{&quot;context&quot;:&quot;In chemically amplified resists, PEB is when photogenerated acid catalyzes the deprotection of polymer chains. This reaction follows Arrhenius kinetics — exponentially dependent on temperature. Even 1°C non-uniformity causes ~10% dimensional variation.&quot;,&quot;id&quot;:&quot;d3-q4-peb-temp&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;The acid-catalyzed deprotection reaction rate is exponentially sensitive to temperature, so a 1°C variation can shift printed feature dimensions by about 10%&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Temperature variations above ±0.1°C cause the photoresist solvent to re-evaporate non-uniformly, creating thickness variations that affect the next etch step&quot;,&quot;Temperature variations above ±0.1°C induce differential thermal expansion between the resist and silicon, generating pattern-cracking defects&quot;,&quot;Temperature variations above ±0.1°C alter the refractive index of the resist film, changing how alignment mark sensors read wafer position&quot;],&quot;prompt&quot;:&quot;Why must post-exposure bake (PEB) temperature be controlled to ±0.1°C across the wafer?&quot;}},{&quot;context&quot;:&quot;ASML is the sole manufacturer of EUV lithography systems and dominates the DUV immersion scanner market. Their machines cost $100M-$350M+ each and are essential for producing every leading-edge chip.&quot;,&quot;id&quot;:&quot;d3-q5-asml&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;alternatives&quot;:[&quot;asml&quot;,&quot;ASML Holding&quot;],&quot;answer&quot;:&quot;ASML&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What company, headquartered in Veldhoven, Netherlands, manufactures virtually all of the world's advanced lithography scanners?&quot;}},{&quot;context&quot;:&quot;Each mask layer requires a separate fused-silica plate with chrome patterns written dot-by-dot by e-beam tools over 20-40 hours. At $300K-$1M per mask across 60-80 layers, total mask set costs reach $10-15M — a major barrier to entry for advanced chip design.&quot;,&quot;id&quot;:&quot;d3-q6-mask-cost&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;A chip requires 60-80 separate masks (one per layer), each written by slow electron-beam lithography taking 20-40 hours, with individual masks costing $300K-$1M&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;EUV masks require gold-plated substrates instead of chrome-on-quartz, and the gold deposition process has extremely low throughput rates&quot;,&quot;Each EUV mask must be individually calibrated to a specific scanner unit, so fabs maintain duplicate mask sets for production redundancy&quot;,&quot;EUV mask blanks are made from beryllium fluoride crystal, which must be grown in zero-gravity conditions to achieve required flatness&quot;],&quot;prompt&quot;:&quot;Why do leading-edge EUV photomask sets cost $10-15 million for a single chip design?&quot;}},{&quot;context&quot;:&quot;Iron chloride (316°C) and aluminum chloride (180°C) have boiling points far from TCS (31.8°C), so they separate easily. Boron trichloride (12.5°C) is only 19°C away, requiring distillation columns with hundreds of theoretical plates.&quot;,&quot;id&quot;:&quot;d3-r1-boron&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Boron trichloride boils at 12.5°C, only 19°C below trichlorosilane's 31.8°C boiling point, making fractional distillation separation extremely difficult&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Boron forms covalent bonds with silicon atoms in the trichlorosilane molecule, preventing physical separation by distillation&quot;,&quot;Boron impurities exist as dissolved solids rather than gaseous chlorides, requiring additional liquid-phase extraction steps&quot;,&quot;Boron atoms are lighter than silicon atoms, so they cannot be separated by the centrifugal forces used in fractional distillation&quot;],&quot;prompt&quot;:&quot;Why is removing boron impurities during the Siemens process more challenging than removing iron or aluminum?&quot;}},{&quot;context&quot;:&quot;The quartz crucible is the only practical container for molten silicon at 1,414°C, but SiO₂ slowly dissolves into the melt. This is an inherent trade-off — no alternative crucible material works as well, so oxygen incorporation is managed rather than eliminated.&quot;,&quot;id&quot;:&quot;d3-r2-oxygen&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;The fused silica (SiO₂) crucible gradually dissolves into the 1,414°C molten silicon throughout the 24-72 hour growth process, releasing oxygen atoms&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;Trace oxygen in the argon shielding gas reacts with the silicon melt surface, gradually incorporating oxygen atoms into the crystal&quot;,&quot;The polysilicon feedstock retains dissolved oxygen from the Siemens deposition process that persists through remelting temperatures&quot;,&quot;Convective currents expose the melt surface to the furnace atmosphere, allowing oxygen radicals to diffuse into the liquid silicon&quot;],&quot;prompt&quot;:&quot;What causes oxygen contamination in a silicon boule during Czochralski crystal growth?&quot;}},{&quot;context&quot;:&quot;In CMOS, either the PMOS or NMOS transistor is off at any time in steady state, creating no path from power to ground. NMOS-only circuits use resistive pull-ups that constantly draw current. This power advantage made CMOS essential for scaling to billions of transistors.&quot;,&quot;id&quot;:&quot;d3-r3-cmos&quot;,&quot;type&quot;:&quot;MultipleChoice&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;CMOS draws current only during switching transitions, consuming near-zero static power, while NMOS-only logic draws continuous current through pull-up resistors&quot;},&quot;prompt&quot;:{&quot;distractors&quot;:[&quot;CMOS transistors switch faster than NMOS-only circuits because the complementary pair creates a push-pull output with lower gate delay&quot;,&quot;CMOS manufacturing requires fewer photolithography steps than NMOS-only processes, significantly reducing production cost per wafer&quot;,&quot;CMOS circuits produce more stable voltage output levels than NMOS-only logic, reducing bit-flip errors in memory applications&quot;],&quot;prompt&quot;:&quot;Why did CMOS technology — pairing NMOS and PMOS transistors — become dominant over NMOS-only circuits?&quot;}},{&quot;context&quot;:&quot;The FinFET (or tri-gate) wraps the gate around three sides of a tall, thin fin of silicon, dramatically improving electrostatic control over the channel. Intel introduced it at 22nm in 2011, and it became universal across the industry at 16/14nm.&quot;,&quot;id&quot;:&quot;d3-r4-finfet&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;alternatives&quot;:[&quot;finfet&quot;,&quot;Fin-FET&quot;,&quot;fin-FET&quot;,&quot;finFET&quot;,&quot;tri-gate&quot;,&quot;Tri-Gate&quot;,&quot;tri-gate transistor&quot;],&quot;answer&quot;:&quot;FinFET&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What structural innovation, introduced by Intel in 2011 at the 22nm node, replaced the traditional flat planar transistor gate with a three-dimensional fin-shaped channel?&quot;}}]}"></div>
+<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="day-02.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="day-04.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="day-02.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="day-04.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
