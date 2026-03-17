@@ -1,0 +1,111 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "How many times per hour is the entire air volume in a leading-edge fab cleanroom replaced?"
+prompt.distractors = [
+    "30-60 times per hour, using ceiling-mounted HEPA filters with laminar downflow at 0.1 m/s",
+    "3,000-6,000 times per hour, using turbulent high-velocity jets from side-wall nozzle arrays",
+    "10-20 times per hour, using underfloor pressurized plenums with upward laminar flow patterns"
+]
+answer.answer = "300-600 times per hour, using ceiling ULPA filter banks with downward laminar flow at 0.3-0.5 m/s"
+context = "Leading-edge fab cleanrooms replace their entire air volume 300 to 600 times per hour using downward laminar airflow. Air passes through ceiling-mounted filter banks, flows past wafers and workers, drains through the raised floor, and recirculates. This air handling system accounts for 30-40% of a fab's electricity consumption."
+id = "fe26876b-96c7-40a7-82f5-c0db3bdf4083"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the resistivity of ultrapure water (UPW) used in semiconductor fabs, and why does it matter?"
+prompt.distractors = [
+    "1.82 megaohm-cm, which is ten times purer than distilled water and prevents oxide regrowth during rinsing",
+    "182 megaohm-cm, the absolute physical maximum, which ensures zero ionic contamination on gate dielectrics",
+    "0.182 megaohm-cm, sufficiently pure to avoid metallic contamination during chemical-mechanical planarization"
+]
+answer.answer = "18.2 megaohm-cm, the theoretical maximum for pure H₂O, ensuring parts-per-trillion level cleanliness for wafer rinsing"
+context = "UPW has a resistivity of 18.2 megaohm-cm, the theoretical maximum for pure water. This extreme purity (fewer than 1 ppb dissolved solids) is needed because even trace contamination can ruin devices at atomic scales. By comparison, tap water is 0.01-0.05 megaohm-cm — roughly 400 to 1,800 times less pure."
+id = "3c8da123-42f4-40cf-9e99-3853392447cb"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "A leading-edge fab consumes 100-150 MW continuously. Which system is the single largest consumer of that power?"
+prompt.distractors = [
+    "EUV lithography scanners, because each unit draws 1.2 MW and a fab operates 10-15 of them simultaneously",
+    "Ultrapure water treatment plants, because multi-stage reverse osmosis and UV oxidation run continuously",
+    "Vacuum pump arrays in the subfab, because hundreds of turbomolecular pumps maintain 10⁻⁶ Torr pressures"
+]
+answer.answer = "HVAC and air handling systems, because maintaining ISO Class 1-3 cleanroom conditions with 300-600 air changes per hour is enormously energy-intensive"
+context = "HVAC and air handling account for 30-40% of a fab's power consumption — the single largest share. Maintaining precise temperature (21°C ± 0.1°C), humidity (43% ± 1%), and ISO Class 1-3 particle counts with hundreds of air changes per hour requires massive fan, chiller, and filter infrastructure."
+id = "3a6a4d29-18aa-4330-b933-d37c39a55dce"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why can't a competitor simply buy the same equipment as TSMC and achieve comparable chip yields?"
+prompt.distractors = [
+    "TSMC has exclusive purchasing agreements with equipment vendors that prevent competitors from acquiring identical tools",
+    "TSMC modifies vendor-supplied equipment hardware extensively, creating proprietary machine variants unavailable to others",
+    "Equipment vendors intentionally ship different hardware configurations to different customers based on licensing tiers"
+]
+answer.answer = "The competitive moat lies in thousands of finely tuned process recipes accumulated over years of production learning, not in the equipment itself"
+context = "Two fabs with identical equipment will produce wildly different yields depending on how well process recipes are tuned. Recipes — the precise sequences of gas flows, pressures, temperatures, and timings — are the true secret sauce, accumulated through years of production learning. This is why Intel couldn't replicate TSMC's success despite buying the same ASML scanners."
+id = "fa84b868-0bcc-4b74-a86d-0ba7f3c44b87"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "How many individual process steps does a leading-edge wafer undergo, and how long does it spend in the fab?"
+prompt.distractors = [
+    "200-400 steps over 15-25 days, with most time spent in lithography queue waits between identical DUV exposure passes",
+    "2,000-5,000 steps over 6-12 months, dominated by repeated thermal oxidation cycles that require slow temperature ramps",
+    "50-100 steps over 7-14 days, because advanced automation and parallel processing dramatically compress cycle times"
+]
+answer.answer = "800-1,200 steps over 60-100 days, cycling through deposit-pattern-etch-clean sequences for each of the many layers"
+context = "A leading-edge chip like Apple's M4 undergoes 800 to 1,200 process steps over 60 to 100 days. The wafer passes through lithography 80-100 times and repeats the deposit-coat-expose-etch-clean cycle for every layer, including 15+ metal interconnect layers. Total travel distance on the overhead rail system can reach 15-30 km."
+id = "c4a7b29a-3f53-466f-913c-549a09df8d30"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the sealed container used to transport wafers between process tools on the overhead rail system?"
+answer.answer = "FOUP"
+answer.alternatives = ["Front Opening Unified Pod", "foup"]
+context = "FOUPs (Front Opening Unified Pods) are sealed containers that hold up to 25 wafers and travel between tools on the AMHS (Automated Material Handling System) overhead monorail. They protect wafers from contamination during transport — a wafer may never be touched by human hands during its entire 2-3 month journey through the fab."
+id = "4593a662-7e1f-4732-bd3c-e5be182ee6f6"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What daily volume of ultrapure water does a leading-edge semiconductor fab consume?"
+prompt.distractors = [
+    "500-1,000 cubic meters per day, equivalent to supplying a small village of 2,000-3,000 residents",
+    "1-5 million cubic meters per day, equivalent to supplying a major metropolitan area of several million people",
+    "100-500 cubic meters per day, sufficient because closed-loop recirculation recovers 99% of process water"
+]
+answer.answer = "30,000-50,000 cubic meters per day, equivalent to supplying a city of 50,000-60,000 people"
+context = "A leading-edge fab uses 30,000 to 50,000 cubic meters (8-13 million gallons) of ultrapure water daily — enough for a city of 50,000-60,000 people. TSMC alone consumed ~88 million metric tons of water in 2022. Advanced fabs reclaim 75-85%, but the remaining draw is substantial."
+id = "55a9fe5f-9988-42be-aee0-44e83809e754"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why are pencils banned inside semiconductor cleanrooms?"
+prompt.distractors = [
+    "Pencil wood fibers release volatile organic compounds that react with photoresist chemistry during UV exposure",
+    "The yellow paint on standard pencils contains cadmium, a mobile ion contaminant lethal to MOSFET gate oxides",
+    "Pencil erasers shed rubber particles that generate static charges capable of damaging gate dielectric layers"
+]
+answer.answer = "Graphite particles from pencil tips are a contamination source that could deposit on wafers and cause defects"
+context = "Pencils are banned because graphite is a conductive particulate contaminant. In a cleanroom hunting particles at the 100nm scale, graphite dust from writing would be a serious contamination risk. Only cleanroom-rated pens are permitted. Similarly, cosmetics, perfume, and outside paper are prohibited."
+id = "2f2a5201-8299-47ef-bddb-cad776fc4524"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Which company is the sole supplier of EUV lithography systems in the world?"
+answer.answer = "ASML"
+answer.alternatives = ["asml"]
+context = "ASML, headquartered in Veldhoven, Netherlands, is the only company on Earth that manufactures EUV lithography scanners. Each system costs approximately $380 million, and a leading-edge fab requires 10-15 of them. This monopoly position makes ASML one of the most strategically important companies in the global semiconductor supply chain."
+id = "96a4e52d-e35f-408c-b074-7db8ef76350d"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the approximate cost breakdown of a fully equipped leading-edge fab?"
+prompt.distractors = [
+    "$15-25B total: 60-70% construction, 15-20% tooling, 10-15% safety and environmental compliance systems",
+    "$15-25B total: 50-60% land acquisition and site preparation, 20-30% tooling, 10-20% facility systems",
+    "$15-25B total: 40-50% labor costs for the 3-4 year construction period, 30-40% tooling, 10-20% materials"
+]
+answer.answer = "$15-25B total: roughly $4-6B in process tools alone (~1,000-1,500 machines), with safety infrastructure representing 15-20% of construction cost"
+context = "A leading-edge fab costs $15-25 billion. The 1,000-1,500 process tools represent $4-6 billion of that total. Safety infrastructure (gas detectors, fire suppression, chemical scrubbers, seismic bracing) accounts for 15-20% of construction costs. The remainder covers the building, clean infrastructure, utilities, and qualification."
+id = "b3f33faf-2118-47a7-90bd-580a253c3a32"

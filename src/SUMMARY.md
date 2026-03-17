@@ -10,3 +10,4 @@
 - [Day 4: Moore's Law](./day-04.md)
 - [Day 5: Logic Gates to CPUs](./day-05.md)
 - [Day 6: Process Nodes](./day-06.md)
+- [Day 7: The Fab](./day-07.md)
