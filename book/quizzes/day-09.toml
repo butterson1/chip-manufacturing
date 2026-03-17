@@ -1,0 +1,120 @@
+# Day 9 Quiz: Etching & Deposition
+# 6 new + 2 recent review (Days 7-8) + 2 older review (Days 1-4)
+
+## --- NEW: Day 9 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why is plasma etching preferred over wet etching for many critical semiconductor features?"
+prompt.distractors = [
+    "Because plasma etching always runs at lower temperature, preventing photoresist shrinkage more effectively than aqueous chemical baths",
+    "Because plasma etching uses cheaper gases than wet benches use chemicals, making it the dominant choice mainly for cost reasons",
+    "Because plasma etching completely eliminates surface charging, allowing metal and dielectric layers to be processed without bias damage"
+]
+answer.answer = "Because plasma combines reactive chemistry with directional ion bombardment, allowing highly anisotropic profiles that wet etching cannot reliably produce"
+context = "Wet etching is often isotropic, so it attacks laterally as well as vertically. Plasma etching lets engineers use ions accelerated toward the wafer to preferentially activate the trench bottom while protecting sidewalls, which is essential for vertical profiles at nanometer scales."
+id = "d9-q01"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What does high selectivity mean in an etch process?"
+prompt.distractors = [
+    "The plasma removes all exposed materials at nearly identical rates, ensuring the etched profile remains geometrically balanced across layer boundaries",
+    "The etch proceeds faster at the wafer center than at the edge, allowing engineers to compensate for chamber loading with radial tuning",
+    "The process uses only neutral radicals rather than ions, so the wafer surface sees minimal physical bombardment during pattern transfer"
+]
+answer.answer = "The plasma removes the target material much faster than an adjacent or underlying material, preserving stop layers and critical dimensions"
+context = "Selectivity is about material discrimination. A good selective etch might remove silicon nitride quickly while barely touching silicon dioxide beneath it, allowing the process to stop where intended instead of chewing into neighboring layers."
+id = "d9-q02"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why is atomic layer deposition especially valuable for advanced transistor structures and other high-aspect-ratio features?"
+prompt.distractors = [
+    "Because it deposits thick conductive films in a single pulse sequence, minimizing wafer queue time for back-end interconnect modules",
+    "Because it relies on high-energy sputtered atoms that naturally travel deeper into narrow trenches than conventional CVD precursors",
+    "Because it converts existing oxide films into metal-rich compounds in place, avoiding the need for separate precursor purge steps"
+]
+answer.answer = "Because its self-limiting surface reactions give excellent thickness control and conformal coating even inside narrow, complex 3D geometries"
+context = "ALD feeds precursors sequentially so each half-reaction stops once available surface sites are consumed. That makes growth slow but extremely uniform, which is why ALD became crucial for films like hafnium oxide gate dielectrics and modern liners."
+id = "d9-q03"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "In the Bosch deep reactive ion etch process, what is the purpose of alternating between SF6 etch steps and C4F8 passivation steps?"
+prompt.distractors = [
+    "To alternate between silicon oxidation and oxide reduction, which suppresses charge buildup and stabilizes the plasma sheath over deep trenches",
+    "To cycle the wafer between fluorine-rich and chlorine-rich chemistries, improving selectivity to photoresist without needing a hard mask",
+    "To periodically cool the wafer with a fluorocarbon soak, preventing local heating that would otherwise bow the sidewalls inward"
+]
+answer.answer = "To repeatedly protect the sidewalls with polymer while reopening the trench bottom, enabling very deep, nearly vertical silicon etches"
+context = "The Bosch process deposits a fluoropolymer during the passivation step, then uses the following etch step to clear the bottom more than the sidewalls. Repeating that sequence creates deep anisotropic trenches with high aspect ratios."
+id = "d9-q04"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Which Finnish inventor is credited with developing atomic layer deposition in the 1970s?"
+answer.answer = "Tuomo Suntola"
+answer.alternatives = ["Suntola"]
+context = "Tuomo Suntola developed atomic layer epitaxy, now called atomic layer deposition, in the 1970s. The method became foundational for ultra-thin conformal films in advanced semiconductor manufacturing."
+id = "d9-q05"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why do fabs 'season' plasma etch or deposition chambers before running critical production wafers?"
+prompt.distractors = [
+    "To deliberately roughen the electrostatic chuck surface so backside helium cooling remains stable during high-bias process steps",
+    "To pre-charge dielectric surfaces inside the chamber, reducing ion energy spread and improving within-wafer overlay performance",
+    "To increase chamber humidity slightly, which suppresses polymer flaking and lowers particle generation during fluorocarbon chemistry"
+]
+answer.answer = "To bring chamber wall conditions to a stable, repeatable state, since deposited films and absorbed chemistry can change process behavior wafer to wafer"
+context = "Chamber history matters. Wall coatings influence radical balance, polymer formation, particle behavior, and etch or deposition rates. Seasoning helps make the chamber behave consistently before valuable wafers are processed."
+id = "d9-q06"
+
+## --- RECENT REVIEW: Days 7-8 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why do leading-edge fabs rely so heavily on sealed FOUPs and automated overhead transport instead of human wafer handling?"
+prompt.distractors = [
+    "Because FOUP transport dramatically lowers wafer temperature variation, which is the main source of transistor threshold drift in production fabs",
+    "Because human handling introduces unacceptable electromagnetic interference that disrupts scanner interferometers and plasma RF matching networks",
+    "Because automated transport is required to maintain vacuum continuity between all front-end tools, preventing oxide regrowth on exposed silicon surfaces"
+]
+answer.answer = "Because humans are major particle sources, and sealed FOUP transport helps preserve ultraclean conditions while moving wafers repeatably through the fab"
+context = "People shed particles constantly. FOUPs isolate wafers from ambient contamination and let automated material-handling systems move them through the fab with much lower contamination risk and better logistical consistency."
+id = "d9-q07"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why does an EUV scanner lose so much light between the source and the wafer?"
+prompt.distractors = [
+    "Because the wafer absorbs most EUV photons during alignment exposure, leaving only a small residual dose for the patterned imaging pass",
+    "Because EUV systems intentionally broaden the spectrum after plasma generation to reduce speckle and improve stochastic resist behavior",
+    "Because the vacuum chamber walls scatter part of the beam to maintain uniform slit illumination over the full reticle field"
+]
+answer.answer = "Because EUV must use multiple reflective optics with limited mirror reflectivity, so the beam suffers compounding losses at each optical surface"
+context = "Each EUV mirror reflects only about two-thirds of the incoming light. After several mirrors plus mask losses, only a small fraction of the original source power reaches the wafer, which is why EUV source power is such a crucial constraint."
+id = "d9-q08"
+
+## --- OLDER REVIEW: Days 1-4 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did the industry move from planar MOSFETs to FinFETs at advanced nodes?"
+prompt.distractors = [
+    "Because FinFETs allow much thicker gate oxides, which dramatically reduces lithography complexity on critical front-end patterning layers",
+    "Because FinFETs replace doped source and drain regions with intrinsic silicon, eliminating junction leakage by removing implanted carriers",
+    "Because FinFETs simplify back-end routing by rotating the transistor channel vertically relative to local interconnect tracks"
+]
+answer.answer = "Because wrapping the gate around more of the channel improves electrostatic control, reducing leakage as planar devices became too hard to scale"
+context = "Planar MOSFETs lost gate control as dimensions shrank, leading to rising leakage. FinFETs improved electrostatics by having the gate control multiple sides of the channel, which enabled continued scaling at lower effective leakage."
+id = "d9-q09"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the formula that relates lithographic resolution to wavelength, numerical aperture, and a process factor k1?"
+answer.answer = "Rayleigh criterion"
+answer.alternatives = ["Rayleigh equation", "Rayleigh formula", "Rayleigh resolution criterion"]
+context = "The Rayleigh criterion is commonly written as critical dimension approximately k1 × lambda / NA. It explains why shorter wavelengths and higher numerical aperture improve lithographic resolution."
+id = "d9-q10"

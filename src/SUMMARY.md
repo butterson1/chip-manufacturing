@@ -15,3 +15,4 @@
 # Week 2 — Manufacturing Deep Dive
 
 - [Day 8: EUV Lithography](./day-08.md)
+- [Day 9: Etching & Deposition](./day-09.md)
