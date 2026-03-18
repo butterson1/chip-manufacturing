@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why does RTL verification typically consume 60-70% of the total chip design effort?"
+prompt.distractors = [
+    "Because RTL simulation tools run extremely slowly, requiring months of compute time for even simple test cases",
+    "Because the hardware description languages are error-prone and lack strong type systems for catching common mistakes",
+    "Because foundries require formal mathematical proofs of correctness for every module before accepting a tape-out"
+]
+answer.answer = "Because silicon cannot be patched after fabrication, so exhaustive pre-silicon testing is needed to avoid multi-hundred-million-dollar respins"
+context = "A respin at 3nm costs $300-500M and adds 3-6 months of delay. Since bugs in silicon can't be fixed with a software update, the industry invests heavily in verification to catch errors before tape-out."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What does logic synthesis do in the RTL-to-GDSII flow?"
+prompt.distractors = [
+    "It converts gate-level netlists into physical layout geometries by assigning coordinates to each standard cell instance",
+    "It verifies that the RTL behavioral description matches the designer's specification using constrained random testing",
+    "It maps routed metal interconnects onto specific foundry metal layers while respecting design rule constraints"
+]
+answer.answer = "It transforms behavioral RTL code into a netlist of specific standard cells from the foundry's library, optimized for timing, area, and power"
+context = "Logic synthesis takes the RTL (behavioral description) and maps it onto physical standard cells (NAND, NOR, flip-flops, etc.) from the foundry's library, while optimizing for the designer's timing, area, and power constraints."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "During placement, modern PnR tools use analytical methods that treat standard cells like charged particles. What is the purpose of this approach?"
+prompt.distractors = [
+    "To model the electromagnetic interference between adjacent cells and ensure signal integrity across the design",
+    "To simulate the thermal distribution across the die and prevent hot spots from forming in dense regions",
+    "To calculate the parasitic capacitance between cells for accurate timing analysis during optimization passes"
+]
+answer.answer = "To distribute cells across the die by balancing repulsive forces (avoiding overlap) with attractive forces (minimizing wire length to connected cells)"
+context = "Analytical global placement models cells as particles with repulsive forces (to prevent overlap/congestion) and attractive forces toward their optimal positions (minimizing total wirelength). This produces a good initial distribution that subsequent legalization and detailed placement refine."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What does Static Timing Analysis (STA) check across multiple PVT corners?"
+prompt.distractors = [
+    "That the clock frequency can be dynamically adjusted across all process, voltage, and temperature combinations without losing data",
+    "That the power consumption remains within the thermal design envelope across all operating condition combinations",
+    "That the standard cell library characterization data accurately predicts gate delays for each manufacturing condition"
+]
+answer.answer = "That every signal path between flip-flops meets setup and hold timing requirements across all process, voltage, and temperature combinations"
+context = "STA checks that signals arrive at destination flip-flops before the next clock edge (setup) and don't arrive too quickly after the current edge (hold) across all PVT corners — e.g., slow/low-V/hot for setup, fast/high-V/cold for hold."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the industry-standard file format that contains the final geometric mask data sent to the foundry after tape-out?"
+answer.answer = "GDSII"
+answer.alternatives = ["GDS2", "GDS II", "GDSII file", "gdsii"]
+context = "GDSII (Graphic Data System II) is the standard format for IC layout data sent to foundries. Its modern successor, OASIS (Open Artwork System Interchange Standard), is increasingly used for large designs where GDSII files can exceed 1-2 TB."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why is the EDA industry dominated by just two companies (Synopsys and Cadence) despite the semiconductor industry being worth over $500 billion?"
+prompt.distractors = [
+    "Because semiconductor companies prefer to develop proprietary in-house EDA tools rather than purchasing from multiple vendors",
+    "Because international export controls restrict EDA software distribution, limiting the number of viable global vendors",
+    "Because the EDA market is too small to attract new entrants, with total annual revenues under $2 billion worldwide"
+]
+answer.answer = "Because switching costs are extreme — tools are deeply integrated with each other and co-developed with foundry process kits, making requalification take 6-12 months"
+context = "EDA tools form a tightly coupled flow where timing, parasitic, and design rule data flows between tools. Foundries co-develop PDKs with specific EDA vendors over years. Switching even one tool requires months of requalification, creating enormous lock-in."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the purpose of Design Rule Checking (DRC) before tape-out?"
+prompt.distractors = [
+    "To verify that the circuit extracted from the layout matches the original gate-level netlist from synthesis",
+    "To confirm that all signal paths meet timing requirements after parasitic resistance and capacitance are extracted",
+    "To validate that the RTL source code conforms to the foundry's recommended coding style and synthesis guidelines"
+]
+answer.answer = "To verify that every geometric shape in the layout complies with the foundry's manufacturing constraints like minimum widths, spacings, and enclosures"
+context = "DRC checks that the physical layout respects the foundry's manufacturing rules — minimum metal widths, minimum feature spacing, via enclosure requirements, and thousands of other geometric constraints. A single DRC violation can cause a yield-killing defect."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Clock tree synthesis (CTS) on a modern 3+ GHz SoC must achieve clock skew as tight as 5-10 picoseconds. Why is this so critical?"
+prompt.distractors = [
+    "Because clock skew directly determines the chip's maximum power consumption, and tighter skew enables lower operating voltage",
+    "Because electromagnetic emissions from clock distribution networks must meet regulatory limits for consumer electronic devices",
+    "Because the foundry's DRC rules specify maximum allowable timing mismatch between clock buffer outputs on each metal layer"
+]
+answer.answer = "Because clock skew eats directly into the timing budget — every picosecond of skew is a picosecond stolen from useful computation between flip-flops"
+context = "At 3 GHz, one clock period is ~333 ps. If clock skew consumes 10 ps, that's 3% of the total budget lost before any logic delay is counted. Excessive skew causes setup or hold violations, making the chip malfunction."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the approximate total cost to design a leading-edge chip at the 3nm process node, including EDA tools, compute, and engineering?"
+answer.answer = "$500-800 million"
+answer.alternatives = ["500-800 million", "$500M-$800M", "$500 million to $800 million", "500 million", "800 million"]
+context = "Designing a 3nm chip costs an estimated $500-800 million total, covering EDA licenses, massive compute farms (50,000-100,000 cores), and engineering teams of hundreds working for 2-3+ years. This cost explosion limits leading-edge design to a handful of companies."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Intel's 1994 Pentium FDIV bug resulted in a $475 million write-off. What was the root cause of this famous verification failure?"
+prompt.distractors = [
+    "A timing violation in the floating-point unit caused incorrect rounding behavior under specific high-frequency operating conditions",
+    "A synthesis tool optimization incorrectly merged redundant logic gates in the floating-point divider's critical path",
+    "A manufacturing defect in the copper interconnects caused intermittent signal integrity failures in the math coprocessor"
+]
+answer.answer = "A lookup table used in the floating-point divider had five incorrect entries out of 1,066, producing wrong results for certain rare divisor pairs"
+context = "The Pentium FDIV bug was a data error — five wrong entries in a 1,066-entry lookup table used by the SRT division algorithm. It wasn't a logic design flaw or manufacturing defect, but a verification gap: insufficient testing of the divider's lookup table values."

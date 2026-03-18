@@ -21,3 +21,7 @@
 - [Day 12: Chemical Mechanical Planarization](./day-12.md)
 - [Day 13: Packaging](./day-13.md)
 - [Day 14: Yield & Defects](./day-14.md)
+
+# Week 3 — Design & Architecture
+
+- [Day 15: RTL to GDSII](./day-15.md)
