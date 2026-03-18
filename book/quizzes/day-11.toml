@@ -1,0 +1,120 @@
+# Day 11 Quiz: Interconnects
+# 6 new + 2 recent review (Days 9-10) + 2 older review (Days 1-7)
+
+## --- NEW: Day 11 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did the semiconductor industry switch from aluminum to copper for interconnects around 1997, despite copper being known as a superior conductor for decades?"
+prompt.distractors = [
+    "Because aluminum's thermal expansion coefficient caused cracking in low-κ dielectrics, which were introduced at the 250 nm node and required a more ductile metal",
+    "Because aluminum oxide formation during processing created insulating barriers at via interfaces, increasing contact resistance beyond acceptable limits at 350 nm pitches",
+    "Because aluminum's crystal structure is incompatible with damascene processing, and the industry needed to adopt damascene before copper could be considered"
+]
+answer.answer = "Because copper cannot be plasma-etched into patterns like aluminum, and it took until 1997 for IBM to develop the damascene process that works around this limitation"
+context = "Copper doesn't form volatile compounds with plasma etch chemistries. IBM's breakthrough was the damascene process: carve trenches in the dielectric first, then fill with copper — reversing the traditional deposit-then-etch approach."
+id = "d11-q01"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "In the dual damascene electroplating process, what mechanism causes copper to fill trenches from the bottom up without trapping voids?"
+prompt.distractors = [
+    "The electric field concentrates at the trench bottom due to geometric focusing, naturally driving copper ions to deposit there first regardless of bath chemistry",
+    "The copper seed layer is deliberately made thicker at the trench bottom during PVD deposition, providing higher local conductivity and faster nucleation rates",
+    "A temperature gradient maintained between the trench bottom (heated by the wafer chuck) and the top (cooled by the electrolyte) drives preferential deposition at the warm surface"
+]
+answer.answer = "Organic additives (accelerator, suppressor, leveler) competitively adsorb on the surface, with the accelerator concentrating at the trench bottom due to geometric effects to locally speed deposition"
+context = "Superfilling relies on three additives: the suppressor slows deposition everywhere, the accelerator overrides it at the bottom (concentrating as the area shrinks), and the leveler kills overgrowth at high points. This competitive adsorption creates bottom-up fill."
+id = "d11-q02"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why does a 20 nm copper wire have an effective resistivity 3–5× higher than bulk copper's 1.7 μΩ·cm?"
+prompt.distractors = [
+    "Because the electroplating process introduces sulfur and carbon contaminants from the organic bath additives, which remain trapped in the copper and act as scattering centers",
+    "Because the annealing temperatures used in BEOL (300–400°C) are too low to fully crystallize the copper, leaving it in a partially amorphous state with poor electron mobility",
+    "Because the TaN barrier layer creates a Schottky contact with the copper that adds interface resistance, and this contact resistance dominates when cross-sections are very small"
+]
+answer.answer = "Because grain boundary scattering, surface scattering from rough interfaces, and the barrier layer consuming 10–30% of the wire cross-section all compound to dramatically increase resistance"
+context = "Three effects combine: electrons scatter off polycrystalline grain boundaries (comparable to wire width), rough copper-barrier interfaces (surface scattering scales as 1/width), and the TaN/Ta barrier takes up a significant fraction of the available cross-section."
+id = "d11-q03"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why is ruthenium being considered to replace copper at the tightest interconnect pitches, despite having a bulk resistivity of 7.1 μΩ·cm — more than 4× worse than copper?"
+prompt.distractors = [
+    "Because ruthenium's higher melting point (2334°C vs 1085°C) allows BEOL annealing at much higher temperatures, producing perfect single-crystal wires with zero grain boundaries",
+    "Because ruthenium is a noble metal that doesn't require a diffusion barrier layer and has natural immunity to electromigration, reducing total BEOL process steps by 40%",
+    "Because ruthenium can be patterned using conventional plasma etching with oxygen chemistry, eliminating the need for damascene processing and CMP at tight pitches"
+]
+answer.answer = "Because ruthenium's short electron mean free path (6.7 nm vs copper's 39 nm) means surface and grain boundary scattering add less relative resistance, so its effective resistivity degrades far less at nanoscale widths"
+context = "Copper's long mean free path (39 nm) means electrons travel far between bulk scattering events — so adding surfaces and grain boundaries at 20 nm widths causes massive additional scattering. Ruthenium's short mean free path (6.7 nm) means electrons already scatter frequently in bulk, so surfaces add comparatively little extra resistance."
+id = "d11-q04"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the ancient metalworking technique (and the city it's named after) that inspired the process IBM developed to pattern copper interconnects?"
+answer.answer = "damascene"
+answer.alternatives = ["damascene process", "Damascus", "dual damascene"]
+context = "The damascene process is named after the ancient art of metal inlay practiced by swordsmiths in Damascus, Syria. Instead of depositing and etching metal, trenches are carved first and then filled."
+id = "d11-q05"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "At the 3 nm node, approximately what fraction of total wafer processing time is consumed by BEOL (interconnect) fabrication compared to FEOL (transistor) fabrication?"
+prompt.distractors = [
+    "BEOL takes about 15–20% of processing time, with FEOL dominating at 60% due to the complex multi-patterning lithography needed for FinFET and GAA transistor structures",
+    "BEOL and FEOL each take approximately 30% of total processing time, with the remaining 40% consumed by testing, metrology, and wafer-level packaging steps",
+    "BEOL takes about 25% of processing time, slightly less than FEOL's 35%, because each damascene cycle is faster than the equivalent FEOL lithography-etch-deposition cycle"
+]
+answer.answer = "BEOL takes about 40% of total processing time, exceeding FEOL's 30–35%, because building 13–15 metal layers with repeated damascene cycles is more time-consuming than the transistor fabrication"
+context = "The interconnect wiring — the 'plumbing' — takes more fab time than the transistors themselves. Each of the 13–15 metal layers requires its own lithography, etch, deposition, electroplating, and CMP cycles."
+id = "d11-q06"
+
+## --- REVIEW: Recent (Days 9-10) ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "In reactive ion etching (RIE), what role do passivation polymers deposited on trench sidewalls play during the etch process?"
+prompt.distractors = [
+    "They increase the etch rate at the sidewalls by catalyzing the chemical reaction between the plasma radicals and the substrate material being etched",
+    "They neutralize the electrical charge that accumulates on sidewalls during plasma exposure, preventing charge-induced deflection of incoming ions",
+    "They absorb UV radiation from the plasma source that would otherwise cause photoresist degradation and pattern distortion on the sidewalls"
+]
+answer.answer = "They protect the sidewalls from lateral chemical etching by plasma radicals, enabling anisotropic (vertical) profiles while the ion bombardment clears passivation only from the trench bottom"
+context = "Passivation layers (e.g., fluorocarbon polymers) coat all surfaces during RIE. Vertical ion bombardment sputters away the passivation at the trench bottom, allowing etching to continue downward, while sidewalls remain protected — producing vertical profiles."
+id = "d11-q07"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why does ion channeling cause problems during implantation into crystalline silicon, and how is it typically mitigated?"
+prompt.distractors = [
+    "Channeled ions create excessive lattice damage along crystal planes, so the wafer is heated to 600°C during implantation to provide real-time dynamic annealing of the damage",
+    "Channeled ions scatter laterally along crystal planes, broadening the implant profile sideways, so an amorphous oxide hardmask is used to collimate the beam more tightly",
+    "Channeled ions lose energy too quickly due to electronic stopping in aligned rows, creating a shallower-than-intended profile, so higher beam energies compensate for the energy loss"
+]
+answer.answer = "Channeled ions travel much deeper than intended along open crystal axes, creating an unwanted deep tail in the dopant profile, so the wafer is tilted 5–7° off-axis to block the channels"
+context = "Silicon's diamond cubic structure has open channels along certain crystallographic directions. Ions entering these channels experience less nuclear stopping and penetrate far deeper than the projected range. Tilting the wafer 5–7° misaligns the beam with these channels."
+id = "d11-q08"
+
+## --- REVIEW: Older (Days 1-7) ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did Dennard scaling — the principle that allowed voltage and power density to decrease with each transistor generation — break down around 2006?"
+prompt.distractors = [
+    "Because the gate oxide thickness reached the limit of chemical vapor deposition precision, making it impossible to deposit uniform films thinner than 5 nm across a 300 mm wafer",
+    "Because interconnect RC delay began dominating total chip delay, making further transistor voltage reductions pointless since wires determined actual switching speed",
+    "Because lithographic overlay errors at the 90 nm node prevented the precise alignment needed to scale gate length and source/drain dimensions proportionally"
+]
+answer.answer = "Because threshold voltage couldn't scale proportionally with supply voltage without causing exponentially increasing leakage current, as subthreshold leakage rises exponentially with lower Vth"
+context = "Dennard scaling required threshold voltage to drop with supply voltage. But subthreshold leakage current increases exponentially as Vth decreases. Below ~1V supply, leakage became unacceptable, breaking the scaling paradigm and ending the era of automatic power density reduction."
+id = "d11-q09"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the target resistivity (in MΩ·cm) of the ultrapure water used in semiconductor fabs for wafer cleaning and rinsing?"
+answer.answer = "18.2"
+answer.alternatives = ["18.2 MΩ·cm", "18.2 megohm-cm"]
+context = "Semiconductor-grade ultrapure water (UPW) has a resistivity of 18.2 MΩ·cm, which is the theoretical maximum for pure water at 25°C. This indicates virtually zero dissolved ions — any contamination would reduce resistivity."
+id = "d11-q10"
