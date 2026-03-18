@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "A fab has a defect density of 0.10 defects/cm². What is the approximate Poisson yield for a die with an area of 8 cm²?"
+prompt.distractors = [
+    "Approximately 67%, because large dies lose yield linearly with area and defect density",
+    "Approximately 55%, because the exponential decay produces moderate losses at this area-density product",
+    "Approximately 37%, because the area-density product of 0.8 reduces yield by more than half"
+]
+answer.answer = "Approximately 45%, because yield follows e^(−D₀ × A) and e^(−0.8) ≈ 0.449"
+context = "The Poisson yield model gives Y = e^(−D₀ × A). With D₀ = 0.10/cm² and A = 8 cm², the product is 0.8, so Y = e^(−0.8) ≈ 0.449 or about 45%."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why does AMD's chiplet approach (e.g., EPYC Rome with eight 74 mm² chiplets) improve yield compared to a single monolithic ~600 mm² die?"
+prompt.distractors = [
+    "Because chiplets use a less advanced process node with inherently fewer lithographic defects per step",
+    "Because the total silicon area used by chiplets is significantly smaller than a monolithic die's area",
+    "Because chiplet interconnects can route around defective regions within each individual chiplet die"
+]
+answer.answer = "Because yield drops exponentially with die area, so eight small dies each yield far better than one large die"
+context = "The Poisson yield model shows yield = e^(−D₀ × A). Since yield drops exponentially with area, eight 74 mm² chiplets at ~93% yield each produce far more working silicon than a single 600 mm² die at ~55% yield."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the critical difference between 'killer defects' and 'latent defects' in semiconductor manufacturing?"
+prompt.distractors = [
+    "Killer defects occur during front-end transistor fabrication, while latent defects arise during back-end interconnect processing",
+    "Killer defects affect parametric performance like clock speed, while latent defects cause complete functional failure in testing",
+    "Killer defects are caused by particle contamination, while latent defects result exclusively from process variation drift"
+]
+answer.answer = "Killer defects cause immediate failure caught during factory testing, while latent defects pass all tests but cause field failures later"
+context = "Killer defects are actually the 'good' kind — they're caught before shipping. Latent defects (partially voided vias, thin oxides, hairline cracks) pass factory tests but fail months or years later under operational stress."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "For automotive semiconductor applications, what is the target defective parts per million (DPPM) rate?"
+prompt.distractors = [
+    "Below 50 DPPM, matching the strictest consumer electronics reliability tier for premium devices",
+    "Below 10 DPPM, reflecting the enhanced reliability needed for safety-adjacent electronic components",
+    "Below 0.001 DPPM, driven by zero-defect mandates from automotive safety certification standards"
+]
+answer.answer = "Below 1 DPPM, with the industry increasingly aspiring to sub-0.1 DPPM for safety-critical applications"
+context = "Consumer electronics typically targets 50-500 DPPM. Automotive, where chip failures can be life-threatening, requires <1 DPPM, with the industry pushing toward <0.1 DPPM (one defective chip per ten million shipped)."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What does IDDQ testing detect that functional testing often misses?"
+prompt.distractors = [
+    "Timing violations from interconnect resistance variations that only manifest at maximum operating frequency",
+    "Intermittent contact failures in solder bumps that appear only under mechanical stress or thermal cycling",
+    "Photolithographic overlay errors that shift transistor placement but preserve basic circuit functionality"
+]
+answer.answer = "Latent defects like partial gate oxide breakdown or bridged interconnects revealed by abnormal quiescent supply current"
+context = "IDDQ testing measures the static power supply current when inputs are held at fixed logic levels. A healthy CMOS circuit draws near-zero static current; a die with latent oxide or bridging defects draws detectably elevated IDDQ (e.g., 50 µA vs 30 µA)."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the statistical distribution originally used by Brian Murphy at Fairchild in 1964 to model random defect distribution on wafers?"
+answer.answer = "Poisson"
+answer.alternatives = ["Poisson distribution", "poisson"]
+context = "Murphy's foundational 1964 model assumed defects are randomly and independently distributed, following the Poisson distribution: Y = e^(−D₀ × A)."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "During the yield learning curve, what defect density range is typical during the 'risk production' phase?"
+prompt.distractors = [
+    "0.05–0.10 defects/cm², as the process has been debugged but not yet volume-optimized for economics",
+    "1.0–3.0 defects/cm², since early production wafers still carry significant systematic process issues",
+    "0.01–0.05 defects/cm², reflecting the near-mature process quality needed for first customer samples"
+]
+answer.answer = "0.3–0.5 defects/cm², as the process is functional but still far from mature optimization levels"
+context = "Risk production (6-12 months before high-volume) typically sees 0.3-0.5 defects/cm² with 20-40% yield for small dies. Mature processes eventually reach 0.05-0.10/cm²."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why do stochastic defects in EUV lithography present a unique yield challenge at aggressive pitches?"
+prompt.distractors = [
+    "Because EUV's 13.5 nm wavelength causes diffraction effects that randomly distort feature edges beyond correction",
+    "Because EUV masks use reflective multilayers whose thickness variations randomly modulate local exposure intensity",
+    "Because EUV resist materials have molecular-scale granularity that introduces random chemical reaction boundaries"
+]
+answer.answer = "Because each feature is exposed by only a few dozen photons, so shot noise causes random shape variations across billions of features"
+context = "At the most aggressive pitches, each pixel receives only tens of EUV photons. Statistical fluctuation in photon arrival (shot noise) makes every printed feature subtly random. Across hundreds of billions of features per die, even extremely rare stochastic failures become yield-limiting."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What technique involves running chips at elevated voltage and temperature to accelerate latent failure mechanisms before shipping?"
+answer.answer = "burn-in"
+answer.alternatives = ["Burn-in", "burn in", "Burn-In", "BURN-IN"]
+context = "Burn-in subjects chips to elevated voltage and temperature for hours, accelerating failure mechanisms like electromigration and oxide breakdown to weed out latent defects before products reach customers."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "If four chiplets each have 95% yield and the bonding process has 98% yield with three bonding steps, what is the approximate combined package yield?"
+prompt.distractors = [
+    "Approximately 84%, calculated by multiplying the individual chiplet yields and a single bonding yield factor",
+    "Approximately 72%, derived from the product of all chiplet yields with four independent bonding yield terms",
+    "Approximately 81%, computed by averaging the chiplet and bonding yields weighted by process step count"
+]
+answer.answer = "Approximately 77%, calculated as 0.95⁴ × 0.98³ giving a combined yield near 76.6%"
+context = "Combined yield is the product of all component yields: 0.95⁴ × 0.98³ = 0.8145 × 0.9412 ≈ 0.766 or about 76.6%. This multiplicative effect is why Known-Good-Die testing is essential for multi-die packages."

@@ -20,3 +20,4 @@
 - [Day 11: Interconnects](./day-11.md)
 - [Day 12: Chemical Mechanical Planarization](./day-12.md)
 - [Day 13: Packaging](./day-13.md)
+- [Day 14: Yield & Defects](./day-14.md)
