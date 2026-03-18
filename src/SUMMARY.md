@@ -18,3 +18,4 @@
 - [Day 9: Etching & Deposition](./day-09.md)
 - [Day 10: Doping & Ion Implantation](./day-10.md)
 - [Day 11: Interconnects](./day-11.md)
+- [Day 12: Chemical Mechanical Planarization](./day-12.md)
