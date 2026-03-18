@@ -1,0 +1,111 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did AMD's chiplet approach with EPYC Rome dramatically improve manufacturing economics compared to a monolithic die?"
+prompt.distractors = [
+    "Chiplets enabled higher clock speeds because smaller dies have lower parasitic capacitance and shorter critical signal paths across the chip",
+    "Each chiplet could be tested independently at wafer level, eliminating the need for expensive package-level burn-in testing entirely",
+    "The chiplet design allowed AMD to use a single lithography mask set for all product tiers, reducing the $150M mask cost to a one-time expense"
+]
+answer.answer = "Small 74 mm² dies yield far better than a ~500 mm² monolithic die, and the I/O die could use a cheaper older process node"
+context = "Defect density follows a Poisson distribution — larger dies have exponentially worse yields. AMD's small CCDs at 74 mm² yielded much better than a hypothetical ~500 mm² monolithic equivalent. Additionally, the I/O die used GlobalFoundries' cheaper 14 nm process since it didn't need cutting-edge transistors."
+id = "d13-q01"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the primary advantage of a silicon interposer (as in TSMC's CoWoS) over an organic package substrate for connecting chiplets?"
+prompt.distractors = [
+    "Silicon interposers dissipate heat 3× more effectively than organic substrates due to silicon's superior thermal conductivity of 150 W/m·K",
+    "Silicon interposers can be manufactured in 5 days versus 60-80 days for organic substrates, dramatically reducing production lead times",
+    "Silicon interposers eliminate the need for solder connections entirely by using direct copper-to-copper bonding at the substrate level"
+]
+answer.answer = "Silicon interposers can be patterned with semiconductor lithography to achieve interconnect pitches orders of magnitude finer than organic substrates"
+context = "The key advantage is density: silicon interposers use standard semiconductor lithography to achieve 0.4-0.8 µm line widths, enabling ~100,000 interconnects per mm² — orders of magnitude denser than organic substrates (8-15 µm lines). This density is what enables the ultra-wide memory buses needed for HBM."
+id = "d13-q02"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "An HBM3E memory stack achieves 819 GB/s of bandwidth per stack. What architectural feature primarily enables this extreme bandwidth?"
+prompt.distractors = [
+    "Each DRAM die in the stack operates at 8.4 Gbps per pin, roughly 4× faster than standard DDR5 signaling rates",
+    "The through-silicon vias have near-zero resistance due to their short 50 µm length, eliminating signal integrity losses",
+    "The base logic die contains a high-speed serializer/deserializer that multiplexes data from all stacked dies onto fewer output channels"
+]
+answer.answer = "The 3D stack connects 8-12 dies through 5,000+ TSVs per die, enabling a 1,024-bit-wide parallel interface versus DDR5's 64-bit bus"
+context = "HBM achieves extreme bandwidth primarily through massive parallelism — a 1,024-bit-wide bus made possible by TSVs connecting stacked dies vertically. This is 16× wider than DDR5's 64-bit interface. Going vertical with TSVs allows thousands of short, parallel connections that would be impossible with conventional side-by-side packaging."
+id = "d13-q03"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Hybrid bonding at 9 µm pitch achieves approximately what connection density, and how does this compare to micro-bump technology?"
+prompt.distractors = [
+    "Approximately 3,000 connections per mm², representing a 5× improvement over the 625 per mm² achievable with standard micro-bump pitches",
+    "Approximately 50,000 connections per mm², representing a 50× improvement driven primarily by eliminating the solder ball volume entirely",
+    "Approximately 1,200 connections per mm², a modest 2× improvement since the copper pad sizes remain similar to micro-bump diameters"
+]
+answer.answer = "Approximately 12,000 connections per mm², representing a 20× improvement over the 625 per mm² achievable with 40 µm micro-bump pitch"
+context = "At 9 µm pitch, hybrid bonding achieves ~12,000 connections per mm² — about 20× denser than the ~625/mm² of micro-bumps at 40 µm pitch. This dramatic improvement comes from eliminating solder bumps and directly bonding copper pads with surrounding oxide, allowing much tighter spacing."
+id = "d13-q04"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of TSMC's 2.5D packaging technology used in virtually all major AI accelerators (NVIDIA H100, AMD MI300X, etc.)?"
+answer.answer = "CoWoS"
+answer.alternatives = ["cowos", "Chip-on-Wafer-on-Substrate", "chip on wafer on substrate"]
+context = "CoWoS (Chip-on-Wafer-on-Substrate) is TSMC's 2.5D packaging platform using a silicon interposer. It's the dominant technology for AI accelerators, connecting GPU/accelerator dies with HBM memory stacks. CoWoS capacity has been a major supply bottleneck for the AI industry."
+id = "d13-q05"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why is 3D stacking of two high-power logic dies (e.g., two GPUs) particularly challenging with current technology?"
+prompt.distractors = [
+    "The electromagnetic interference between two active logic dies at close proximity causes crosstalk that corrupts high-speed signaling above 2 GHz",
+    "Current hybrid bonding alignment accuracy of ±200 nm is insufficient for the sub-50 nm via pitches required by logic-to-logic connections",
+    "The different thermal expansion coefficients of the bonding interface create mechanical stress that fractures TSVs during power cycling"
+]
+answer.answer = "The bottom die's heat must conduct through the top die to reach the heat sink, creating 10-15°C thermal gradients that stress the bonds"
+context = "Heat is the primary obstacle to logic-on-logic 3D stacking. Both dies generate hundreds of watts, and the bottom die's heat must traverse the bonding interface and the top die to reach the heat sink. This creates steep thermal gradients (10-15°C) that cause differential expansion and stress the bonds. This is why 3D stacking has succeeded mainly with low-power-density circuits like memory (HBM) and cache (V-Cache)."
+id = "d13-q06"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is Intel's EMIB technology, and what advantage does it offer over a full silicon interposer?"
+prompt.distractors = [
+    "EMIB uses a polymer bridge with embedded optical waveguides to achieve higher bandwidth than silicon while eliminating electrical signal attenuation",
+    "EMIB is a full-wafer silicon interposer manufactured on Intel's own 7 nm process, avoiding dependency on TSMC's CoWoS capacity",
+    "EMIB places silicon bridges on top of the chiplets rather than below them, reducing the total package height by eliminating the interposer layer"
+]
+answer.answer = "EMIB embeds small localized silicon bridges within the organic substrate only where die-to-die connections are needed, reducing cost versus a full interposer"
+context = "EMIB (Embedded Multi-die Interconnect Bridge) places small silicon bridge chips into cavities within the organic substrate, providing high-density interconnect only at the die-to-die boundaries where it's needed. This is much cheaper than a full silicon interposer that spans the entire package area. Intel's Ponte Vecchio GPU used EMIB to connect 47 tiles."
+id = "d13-q07"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Which companies dominate advanced organic substrate manufacturing for AI chip packages, and why has this become a bottleneck?"
+prompt.distractors = [
+    "TSMC, Samsung, and Intel have vertically integrated substrate production, but their fab capacity prioritizes wafer production over substrates",
+    "ASE Group, Amkor, and JCET dominate substrates, but their 8-15 µm line widths cannot meet the sub-5 µm requirements of AI packages",
+    "Applied Materials, Tokyo Electron, and Lam Research build substrate equipment, but tool delivery times of 18+ months constrain new capacity"
+]
+answer.answer = "Ibiden, Shinko Electric, and AT&S hold 70%+ share, with 60-90 step processes taking 60-80 days and lead times stretching to 40-50 weeks"
+context = "Three companies — Ibiden, Shinko Electric (Fujitsu subsidiary), and AT&S (Austrian) — dominate with 70%+ combined market share. Advanced substrates require 60-90 process steps, take 60-80 days to manufacture, and lead times stretch to 40-50 weeks during peak demand. A $50-100 substrate can constrain delivery of a $30,000+ GPU."
+id = "d13-q08"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the approximate maximum area that a single EUV lithography exposure can print, known as the reticle limit?"
+answer.answer = "858 mm²"
+answer.alternatives = ["858mm2", "858 square mm", "~858 mm²", "about 858 mm²", "858"]
+context = "The reticle limit is approximately 858 mm² (26 × 33 mm), set by the maximum field size of EUV scanners. Dies approaching this limit (like large GPUs at 600+ mm²) suffer severe yield penalties, which is a key driver of the chiplet approach — splitting designs into multiple smaller dies that each fit well within the reticle limit."
+id = "d13-q09"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD's 3D V-Cache technology stacks SRAM cache on top of a CPU die. What makes hybrid bonding critical for this application?"
+prompt.distractors = [
+    "Hybrid bonding enables the stacked SRAM to operate at the same voltage as the CPU die by eliminating the voltage drop across solder bumps",
+    "Hybrid bonding allows the cache to be manufactured on a different process node than the CPU, reducing the cost of the SRAM chiplet by 40%",
+    "Hybrid bonding provides thermal conductivity between the dies that is 10× better than micro-bumps, keeping the cache within operating temperature"
+]
+answer.answer = "The bond density is high enough and latency low enough that the CPU treats stacked cache as a seamless extension of its on-die L3 cache"
+context = "Hybrid bonding's dense, low-latency connections (12,000/mm² at 9 µm pitch) make the boundary between the CPU die and stacked SRAM nearly invisible electrically. The CPU accesses the stacked cache with latency comparable to its own on-die L3 — software cannot distinguish between on-die and stacked cache. This seamless integration is only possible with hybrid bonding's density."
+id = "d13-q10"
