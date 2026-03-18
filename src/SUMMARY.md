@@ -25,3 +25,4 @@
 # Week 3 — Design & Architecture
 
 - [Day 15: RTL to GDSII](./day-15.md)
+- [Day 16: CPU Architecture](./day-16.md)

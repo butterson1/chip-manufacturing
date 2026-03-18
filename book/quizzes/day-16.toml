@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "A modern CPU core at 5 GHz completes a cycle every 200 picoseconds, while DDR5 DRAM access takes ~70 nanoseconds. What is the approximate ratio of memory latency to cycle time?"
+prompt.distractors = [
+    "Approximately 35:1 — memory is about 35 times slower than a single CPU cycle",
+    "Approximately 3,500:1 — memory latency exceeds thousands of CPU clock periods",
+    "Approximately 30:1 — memory takes roughly 30 cycles to deliver requested data"
+]
+answer.answer = "Approximately 350:1 — the processor would idle for ~350 cycles waiting for each memory access"
+context = "70 ns / 0.2 ns = 350. This enormous ratio is the 'memory wall' — without caches, a CPU would be idle 99.7% of the time waiting for DRAM."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Intel's Pentium 4 Prescott (2004) had a 31-stage pipeline and hit 3.8 GHz, but performed worse than expected. What was the primary architectural reason?"
+prompt.distractors = [
+    "The 31-stage pipeline consumed excessive power due to clock distribution across many pipeline latches",
+    "Each pipeline stage performed too little work, making instruction throughput limited by decode bandwidth",
+    "The deep pipeline required larger instruction and data caches, reducing the transistor budget for execution units"
+]
+answer.answer = "The deep pipeline imposed a severe branch misprediction penalty, flushing up to 31 cycles of work per mispredict"
+context = "Deeper pipelines mean more cycles wasted on each misprediction. With ~20% of instructions being branches and even a 5% mispredict rate, flushing 31 stages per mispredict devastated real-world performance despite the high clock speed."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What does register renaming accomplish in an out-of-order processor?"
+prompt.distractors = [
+    "It maps virtual memory addresses to physical register locations, allowing faster memory access patterns",
+    "It compresses register file storage by sharing physical registers between independent execution threads",
+    "It enables the scheduler to prioritize instructions by dynamically reordering the register namespace"
+]
+answer.answer = "It maps architectural registers to a larger set of physical registers, eliminating false data dependencies between instructions"
+context = "If two instructions both write to architectural register r1 but are otherwise independent, renaming maps them to different physical registers (e.g., p47 and p112), allowing both to execute in parallel without conflict."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Apple's M-series performance cores are approximately 8-10 wide at decode while clocking at 3.5-4.5 GHz, whereas Intel cores are 6-wide at 5.5+ GHz. Why is Apple's wide-and-slower approach more power-efficient?"
+prompt.distractors = [
+    "Wider cores use simpler transistors that switch at lower voltages, reducing the total energy per instruction executed",
+    "Apple's ARM instruction set requires fewer micro-operations per instruction, making wide decode inherently cheaper",
+    "TSMC's manufacturing process provides Apple with transistors that leak less current than Intel's at any given width"
+]
+answer.answer = "Dynamic power scales roughly with the cube of frequency, so extracting IPC from width costs less energy than extracting it from higher clock speeds"
+context = "Power ∝ C × V² × f, and voltage must increase with frequency to maintain signal integrity. This makes frequency scaling extremely power-expensive. Wider execution at lower frequency achieves similar throughput at a fraction of the energy cost."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "The TAGE (TAgged GEometric history length) branch predictor, used in most modern CPUs, maintains multiple tables indexed by different history lengths. What advantage does geometric spacing of history lengths provide?"
+prompt.distractors = [
+    "Geometric spacing reduces the total storage requirement by allocating fewer entries to longer history lengths",
+    "It ensures that each prediction table has equal probability of providing the correct prediction for any branch",
+    "Geometric spacing minimizes aliasing conflicts by distributing branch addresses across non-overlapping hash ranges"
+]
+answer.answer = "It efficiently captures both short-term and long-term branch correlation patterns without needing a separate table for every possible history length"
+context = "TAGE uses tables indexed by histories of length ~4, 8, 16, 64, 512 etc. (geometrically spaced). The predictor consults all tables and uses the longest matching history. This captures loops (short history), correlated branches (medium), and long-range patterns (long) with a tractable number of tables."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the CPU security vulnerability disclosed in January 2018 that exploits speculative execution and branch prediction to leak secret data through cache side channels?"
+answer.answer = "Spectre"
+answer.alternatives = ["spectre", "SPECTRE", "Spectre attack"]
+context = "Spectre (discovered independently by Jann Horn and Paul Kocher) showed that speculative execution past mispredicted branches can leave observable traces in cache state, allowing attackers to read memory they shouldn't access. Mitigations cost 2-8% performance."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD's Ryzen 7 5800X3D uses 3D V-Cache — an extra 64 MB SRAM chiplet bonded on top of the CCD. In gaming workloads, it outperformed the higher-clocked 5800X by 15-20%. What does this demonstrate about modern CPU performance?"
+prompt.distractors = [
+    "SRAM-based cache is fundamentally faster than DRAM, so adding any amount of SRAM will proportionally improve performance",
+    "The 3D stacking eliminates thermal throttling, allowing the underlying cores to sustain higher boost frequencies longer",
+    "Gaming workloads are primarily memory-bandwidth limited, and the extra L3 reduces the number of off-chip DRAM reads"
+]
+answer.answer = "Cache hit rate improvements from larger L3 reduce costly pipeline stalls from memory latency, outweighing the benefit of additional clock speed"
+context = "The 5800X3D actually ran at slightly lower clocks than the 5800X, but its 96 MB total L3 (vs 32 MB) dramatically reduced cache misses. With the 300:1 ratio between DRAM latency and cycle time, even a small improvement in cache hit rate translates to large performance gains."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "In a modern out-of-order CPU, the Reorder Buffer (ROB) serves a critical correctness function. What happens when a branch misprediction is detected?"
+prompt.distractors = [
+    "The ROB replays all instructions from the mispredicted branch using corrected operand values from the register file",
+    "The ROB checkpoints the architectural state and re-executes only the instructions on the incorrect path",
+    "The ROB marks all subsequent entries as invalid and waits for the execution units to drain before resuming"
+]
+answer.answer = "All ROB entries after the mispredicted branch are discarded, restoring architectural state to the last correctly committed instruction"
+context = "The ROB tracks instructions in program order. On misprediction, everything speculative after the bad branch is flushed — results thrown away, renamed registers freed. Execution restarts from the correct path. This is why ROB size matters: larger ROBs enable more speculation but waste more on mispredictions."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What percentage of all instructions in typical workloads are branch instructions — the remarkably stable figure mentioned in the lesson?"
+answer.answer = "20%"
+answer.alternatives = ["20", "~20%", "about 20%", "approximately 20%"]
+context = "Roughly 20% of all instructions are branches — a statistic that holds surprisingly well across diverse workloads. This means a branch predictor that's 99% accurate still mispredicts about 1 in every 500 instructions, which at pipeline depths of 15-20+ stages creates significant performance impact."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "A modern high-performance CPU core dedicates only about 5-10% of its transistors to actual arithmetic execution units. What does the remaining 90-95% of the transistor budget primarily implement?"
+prompt.distractors = [
+    "Cache memory and memory controller logic for managing the multi-level storage hierarchy on-chip",
+    "Power management circuits and clock distribution networks that control dynamic voltage and frequency scaling",
+    "Inter-core communication fabric, coherency protocols, and shared resource arbitration between multiple cores"
+]
+answer.answer = "Branch prediction, instruction scheduling, reorder buffers, register renaming, and forwarding logic that orchestrate out-of-order execution"
+context = "The vast majority of a modern CPU core's transistors are dedicated to the 'bookkeeping' of out-of-order, speculative execution: predicting branches, renaming registers, tracking dependencies in reservation stations, buffering instructions in the ROB, and forwarding results. The actual ALUs and FPUs that do math are a small fraction. A CPU is more logistics operation than calculator."
