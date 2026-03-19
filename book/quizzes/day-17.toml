@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "NVIDIA's SIMT execution model groups threads into warps of 32 that execute the same instruction simultaneously. What happens when threads in a warp take different paths at an if/else branch?"
+prompt.distractors = [
+    "The warp scheduler splits the warp into two independent sub-warps, each executing its branch path in parallel on separate execution units",
+    "The hardware predicts which branch most threads will take and speculatively executes only that path, rolling back any incorrect threads",
+    "The warp is disbanded and its threads are redistributed across other warps that have matching branch directions to maintain lockstep"
+]
+answer.answer = "The GPU serializes both paths, executing each one while masking off threads that don't belong to that path, potentially halving throughput"
+context = "This is 'warp divergence.' Since all threads in a warp share one program counter, divergent branches force sequential execution of both paths. With 16 threads per side, throughput drops to 50%."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "An NVIDIA H100 has 528 tensor cores, each computing a 16×16×16 FP16 matrix multiply per cycle at ~1.98 GHz. Approximately how many FP16 TFLOPS does this deliver from tensor cores alone?"
+prompt.distractors = [
+    "Approximately 330 TFLOPS — each tensor core performs 4,096 FMAs but at reduced clock due to thermal limits on dense matrix operations",
+    "Approximately 2,100 TFLOPS — each tensor core performs 8,192 FLOPS which multiplied by 528 cores at 1.98 GHz exceeds one petaflop",
+    "Approximately 67 TFLOPS — tensor cores share execution resources with CUDA cores and cannot all fire simultaneously every cycle"
+]
+answer.answer = "Approximately 990 TFLOPS — 528 cores × 8,192 FLOPS per core per cycle × 1.98 GHz ÷ 10¹² yields roughly one petaflop of FP16"
+context = "Each 16×16×16 MMA is 4,096 FMAs = 8,192 FLOPS. 528 × 8,192 × 1.98 GHz ≈ 8.56 × 10¹⁵ / 10¹² ≈ 990 TFLOPS. This is ~15× the CUDA core FP32 throughput."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "GPUs hide memory latency through a fundamentally different mechanism than CPUs. What is the GPU's primary approach?"
+prompt.distractors = [
+    "GPUs use hardware prefetchers that predict access patterns across thread blocks and begin fetching data before warps request it",
+    "GPUs rely on large multi-level cache hierarchies with 80+ MB of L3 cache to ensure most accesses hit on-chip SRAM storage",
+    "GPUs employ out-of-order execution within each warp, reordering independent instructions to overlap compute with memory stalls"
+]
+answer.answer = "GPUs maintain many warps resident simultaneously with pre-allocated registers, switching instantly to a ready warp when one stalls on memory"
+context = "Each SM can hold up to 48 warps (1,536 threads) with register state already in the register file. Zero-cost context switching means the GPU simply runs other warps while one waits for memory — no speculation or caching tricks needed."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "The NVIDIA RTX 4090 (Ada Lovelace) has 256 KB of register file per SM. Why does a GPU need dramatically more register storage than a CPU?"
+prompt.distractors = [
+    "GPU shader programs use wider 128-bit SIMD registers that require 4× the storage of CPU 32-bit registers for equivalent operations",
+    "GPU register files double as L0 cache for texture data, serving both execution and memory subsystem functions simultaneously",
+    "GPU compilers cannot perform register allocation as efficiently as CPU compilers due to the SIMT execution model constraints"
+]
+answer.answer = "Multiple warps must have their full register state resident simultaneously so the scheduler can switch between them with zero overhead"
+context = "If an SM holds 48 warps of 32 threads, that's 1,536 threads all needing live registers. Instant warp switching requires no save/restore, so every thread's registers must physically exist in the register file at once."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of NVIDIA's parallel computing platform, launched in 2007, that lets developers write GPU code in C++-like syntax and forms the primary software moat for NVIDIA's ecosystem?"
+answer.answer = "CUDA"
+answer.alternatives = ["cuda"]
+context = "CUDA (Compute Unified Device Architecture) launched alongside the G80/GeForce 8800 GTX in 2007. Over 17 years, NVIDIA built cuDNN, cuBLAS, NCCL, TensorRT and more on top of it, creating a software ecosystem that competitors struggle to match."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD's MI300X uses 153 billion transistors with chiplet design. What specific advantage does its 192 GB of HBM3 provide over NVIDIA H100's 80 GB for large language model inference?"
+prompt.distractors = [
+    "More HBM capacity allows the MI300X to batch 2.4× more inference requests simultaneously, increasing throughput per dollar spent",
+    "The additional memory enables mixed-precision training with both FP32 master weights and FP16 gradients stored without compression",
+    "Greater HBM capacity means the MI300X can cache the entire KV-cache for long-context transformers without recomputation overhead"
+]
+answer.answer = "Model weights for large LLMs that exceed 80 GB can fit entirely on a single MI300X without model parallelism across multiple GPUs"
+context = "A 70B parameter model in FP16 requires ~140 GB — too large for one H100 but fits on one MI300X. Eliminating multi-GPU model parallelism avoids inter-GPU communication overhead and simplifies deployment."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "The GeForce 8800 GTX (G80, 2006) introduced a key architectural change that enabled general-purpose GPU computing. What was this change?"
+prompt.distractors = [
+    "It was the first GPU to include hardware-managed L2 cache, allowing transparent data reuse across sequential kernel launches",
+    "It introduced hardware thread scheduling that could dynamically balance vertex and pixel workloads across clock cycles",
+    "It added atomic memory operations that enabled inter-thread communication for the first time on consumer graphics hardware"
+]
+answer.answer = "It unified vertex and pixel shader hardware into identical streaming processors that could run any type of shader program"
+context = "Before G80, GPUs had separate dedicated hardware for vertex and pixel shaders, leading to load imbalance. Unified shaders meant any core could run any program type, enabling efficient general-purpose computation and launching the GPGPU era."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "The H100 SXM costs roughly $30,000 while the RTX 4090 costs $1,599, despite having similar CUDA core counts (~16,900 vs ~16,400). Which factor best explains the 20× price difference?"
+prompt.distractors = [
+    "The H100 uses a fundamentally different transistor architecture optimized for sustained datacenter workloads with higher reliability binning",
+    "NVIDIA applies different firmware licenses for datacenter versus consumer cards that artificially segment the pricing tiers",
+    "The H100's larger die size (814 mm² vs 609 mm²) requires proportionally more expensive wafer area at TSMC's leading-edge nodes"
+]
+answer.answer = "The H100 includes HBM3 (3,350 GB/s bandwidth), NVLink 4.0 (900 GB/s interconnect), 80 GB memory, ECC, and MIG — systems-level features absent from consumer GPUs"
+context = "The price premium reflects HBM3 packaging (extremely expensive silicon interposer and DRAM stacks), NVLink interconnect for multi-GPU scaling, ECC memory protection, and datacenter reliability features. It's a systems premium, not just a silicon premium."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "In 2012, what convolutional neural network trained on two GTX 580 GPUs won the ImageNet competition and catalyzed the deep learning revolution?"
+answer.answer = "AlexNet"
+answer.alternatives = ["alexnet", "Alex Net"]
+context = "Alex Krizhevsky's AlexNet won ImageNet 2012 by a huge margin, demonstrating that GPUs could make deep neural networks tractable. CNNs had existed since the 1980s, but GPUs provided the compute to finally train them on large datasets."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Apple's M4 Max delivers 546 GB/s memory bandwidth from a unified memory architecture at ~30W. For local LLM inference, why can this approach compete with discrete GPUs despite much lower raw TFLOPS?"
+prompt.distractors = [
+    "Apple's Neural Engine cores are more efficient at transformer attention operations than GPU tensor cores due to custom dataflow design",
+    "The unified architecture eliminates CPU-to-GPU data transfer over PCIe, saving the 30-50 microsecond latency that dominates small batch inference",
+    "Apple's custom memory controller uses compression algorithms that effectively double the usable bandwidth for neural network weight access"
+]
+answer.answer = "LLM inference is memory-bandwidth-bound rather than compute-bound, so Apple's high bandwidth-per-watt ratio matters more than peak TFLOPS"
+context = "Generating each token requires reading billions of weight parameters but relatively little compute per parameter. At ~18 GB/s per watt, Apple Silicon's bandwidth efficiency rivals discrete GPUs that consume 300-700W, making performance-per-watt competitive for this specific workload."
