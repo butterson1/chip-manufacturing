@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What was Morris Chang's core strategic insight when founding TSMC in 1987?"
+prompt.distractors = [
+    "Chip design would become so standardized that fabs could differentiate mainly through commodity wafer pricing and utility efficiency",
+    "Government demand for military microelectronics would become large enough to sustain a dedicated Taiwanese defense foundry model",
+    "Memory chips would become structurally more profitable than logic, so contract DRAM manufacturing would reshape the semiconductor business"
+]
+answer.answer = "Fabrication would become so capital-intensive and specialized that design and manufacturing would need to split into separate businesses"
+context = "Chang recognized that advanced fabs were becoming too expensive and complex for every chip company to own. TSMC's pure-play foundry model let fabless companies design chips without building fabs."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why was TSMC's promise to never compete with its customers strategically powerful?"
+prompt.distractors = [
+    "It allowed TSMC to avoid export-control rules that applied only to vertically integrated chip vendors selling finished processors under their own brands",
+    "It let TSMC reuse the exact same mask sets across multiple customers, lowering non-recurring engineering costs through shared reticles",
+    "It enabled TSMC to operate without its own process design kits, since customers were responsible for final manufacturing optimization"
+]
+answer.answer = "It created trust with fabless designers that would never have wanted to share their best chips with a manufacturing partner that also sold rival products"
+context = "The neutrality mattered. Apple, Qualcomm, AMD, NVIDIA, and others could treat TSMC as a manufacturing partner rather than a product competitor with conflicting incentives."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is TSMC's real product in economic terms, beyond simply selling wafers?"
+prompt.distractors = [
+    "Lowest possible energy consumption per fab module, which lets customers arbitrage regional electricity prices across different production sites",
+    "Maximum transistor novelty per node, even if manufacturability is initially unstable and volume ramps must be delayed for redesigns",
+    "Exclusive access to proprietary chip architectures, which customers license as semi-custom CPU and GPU templates before tape-out"
+]
+answer.answer = "High yield at scale with predictable schedules, so customers can count on good dies per wafer in real production volumes"
+context = "A leading-edge wafer is expensive, but what customers truly need is predictable high-volume output. Yield, ramp discipline, and schedule reliability are where foundry economics become decisive."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did TSMC become especially critical to NVIDIA during the AI accelerator boom?"
+prompt.distractors = [
+    "NVIDIA depended on TSMC mainly for x86 CPU chiplets used to control tensor cores, while GPUs themselves stayed on mature domestic nodes",
+    "TSMC was the only supplier able to provide gallium nitride power transistors required for HBM stacks and AI server voltage regulation",
+    "NVIDIA needed TSMC primarily for photomask writing because EUV reticle preparation had become a larger bottleneck than wafer fabrication"
+]
+answer.answer = "NVIDIA needed both TSMC's advanced logic nodes and TSMC-centered packaging capacity like CoWoS to pair giant GPU dies with HBM at scale"
+context = "During the AI boom, the bottleneck was not just GPU design. It was TSMC's ability to fabricate advanced dies and package them with HBM using advanced integration flows such as CoWoS."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why is reproducing TSMC's manufacturing strength outside Taiwan so difficult?"
+prompt.distractors = [
+    "Most advanced process steps can only be legally performed under Taiwan's domestic patent system, forcing foreign fabs to use older transistor architectures",
+    "ASML scanners and KLA inspection tools are permanently calibrated to Taiwan's power grid frequency, making overseas replication technically inconsistent",
+    "The main constraint is that overseas sites cannot import the same silicon wafers, so they must use different crystal orientations and redesign libraries"
+]
+answer.answer = "Because the advantage is not just buildings and tools but an entire ecosystem of engineers, suppliers, utilities, routines, and tacit manufacturing know-how"
+context = "A leading fab depends on far more than capex. You need local supplier density, contamination discipline, trained technicians, stable utilities, and process culture built over decades."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What best explains how TSMC overtook Intel in manufacturing relevance?"
+prompt.distractors = [
+    "TSMC focused on memory-first process development, then reused those DRAM breakthroughs to leapfrog Intel in logic density and cache scaling",
+    "TSMC won mainly because Taiwanese labor costs stayed permanently lower, making advanced-node wafers structurally cheaper regardless of yield",
+    "TSMC abandoned inspection-heavy process control in favor of faster cycle times, accepting more defects but compensating with larger total wafer starts"
+]
+answer.answer = "TSMC aligned its business around process execution for many customers, while Intel had to synchronize world-class product design and process development inside one organization"
+context = "Intel had to co-optimize both products and fabs for itself. TSMC concentrated on manufacturing excellence and could amortize node development across many customers and product categories."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "In the dynamic power equation P = α × C × V² × f, which term gives voltage scaling its unusually large effect on power?"
+prompt.distractors = [
+    "The activity factor α, because voltage controls how many transistors are logically allowed to switch during each clock cycle",
+    "The capacitance C, because lowering voltage physically shrinks interconnect dimensions and therefore reduces die size during operation",
+    "The frequency f, because voltage changes are always mirrored by identical changes in clock speed on every modern processor architecture"
+]
+answer.answer = "The squared voltage term V², which means even modest voltage reductions produce disproportionately large dynamic power savings"
+context = "From Day 21: voltage is the strongest single lever in dynamic power because it is squared. A 30% drop in voltage cuts dynamic power by about 51%."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the distinctive advantage of RISC-V's custom extension model compared with a proprietary ISA like ARM?"
+prompt.distractors = [
+    "RISC-V automatically converts all custom instructions into portable microcode, so binaries remain fully compatible across every implementation",
+    "RISC-V requires every extension to be standardized globally before use, preventing fragmentation while preserving vendor-specific optimizations",
+    "RISC-V hides custom instructions behind privileged firmware, letting vendors tune hardware privately without exposing new opcodes to software"
+]
+answer.answer = "It lets companies add workload-specific instructions directly into the ISA without paying architecture-license fees or inventing an entire instruction set from scratch"
+context = "From Day 20: RISC-V reserves opcode space for custom extensions. That gives designers standard ecosystem support plus domain-specific acceleration in the core itself."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Which advanced TSMC packaging technology became a major bottleneck during the AI boom by linking large logic dies to HBM stacks?"
+answer.answer = "CoWoS"
+answer.alternatives = ["cowos", "Chip-on-Wafer-on-Substrate"]
+context = "CoWoS is TSMC's advanced packaging technology that became central to AI accelerators, especially NVIDIA GPUs paired with HBM memory."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What three-letter term describes the business model TSMC disrupted, where one company both designed and manufactured its own chips?"
+answer.answer = "IDM"
+answer.alternatives = ["integrated device manufacturer", "integrated device manufacturers"]
+context = "Before TSMC's rise, the semiconductor industry was dominated by IDMs such as Intel and Texas Instruments, which designed and fabricated their own chips."
