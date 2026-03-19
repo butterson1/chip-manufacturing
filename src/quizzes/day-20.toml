@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did Krste Asanović and his team at UC Berkeley design RISC-V in 2010?"
+prompt.distractors = [
+    "Existing ISAs lacked support for 64-bit addressing and modern security features needed for research",
+    "ARM had restricted academic use licenses, making it impossible to teach processor design courses",
+    "MIPS had been discontinued and no RISC architecture remained available for commercial licensing"
+]
+answer.answer = "Every existing ISA was either too complex, too expensive to license, or too encumbered by patents for student implementation"
+context = "x86 was too complex (1,500+ instructions), ARM architecture licenses cost $5-15M, and MIPS was patent-encumbered. The team needed a clean ISA students could implement in a semester."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "How many instructions does the base RISC-V integer ISA (RV32I) contain?"
+prompt.distractors = [
+    "32 instructions, matching the number of general-purpose registers in the architecture",
+    "64 instructions, split evenly between compute operations and memory/control operations",
+    "128 instructions, covering integer, floating-point, and basic atomic operations"
+]
+answer.answer = "47 instructions, covering integer arithmetic, memory access, control flow, and system operations"
+context = "RV32I has just 47 instructions. Compare this to ARMv8-A's ~400 or x86-64's 1,500+. The small base ISA is extended through modular standard extensions."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What does the RISC-V extension letter 'C' provide?"
+prompt.distractors = [
+    "Cryptographic acceleration instructions for AES, SHA, and elliptic curve operations",
+    "Cache management instructions for explicit prefetch, flush, and coherence control",
+    "Conditional execution support allowing predicated instructions to reduce branch penalties"
+]
+answer.answer = "Compressed 16-bit instruction encoding that improves code density in memory-constrained systems"
+context = "The 'C' extension provides compressed 16-bit encodings for common instructions, improving code density — critical for embedded systems with limited memory."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why has RISC-V become strategically essential for Chinese semiconductor companies?"
+prompt.distractors = [
+    "Chinese companies receive preferential RISC-V licensing terms through bilateral agreements with Switzerland",
+    "RISC-V's vector extension provides superior performance for Chinese AI workloads compared to ARM's SVE",
+    "Chinese foundries have optimized their process design kits specifically for RISC-V physical implementations"
+]
+answer.answer = "RISC-V's open governance through a Swiss foundation makes it sanction-resistant, unlike ARM which can face license restrictions"
+context = "U.S. technology restrictions on China make proprietary ISAs risky. ARM Holdings can be pressured to revoke licenses, but RISC-V's governance by a Swiss-based foundation with thousands of members makes restriction essentially impossible."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What shorthand notation designates a RISC-V core with integer, multiply/divide, atomic, single/double float, and compressed extensions — the typical combination for a Linux-capable application processor?"
+answer.answer = "RV64GC"
+answer.alternatives = ["rv64gc", "RV64gc"]
+context = "RV64GC means 64-bit base with G (shorthand for IMAFD: Integer, Multiply, Atomic, Float, Double) plus C (Compressed). This is the standard combination for application processors running Linux."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "How does RISC-V handle custom instructions without creating conflicts between different vendors' extensions?"
+prompt.distractors = [
+    "A central registry managed by RISC-V International assigns unique extension IDs to prevent opcode collisions",
+    "Custom instructions must use a software trap mechanism, executing in microcode rather than native hardware",
+    "Vendors encode a company identifier in the instruction prefix, creating isolated per-vendor opcode namespaces"
+]
+answer.answer = "RISC-V reserves four dedicated opcodes in the encoding space for user-defined extensions that won't conflict with standard instructions"
+context = "RISC-V reserves four opcodes (each covering billions of possible encodings) specifically for custom extensions. This avoids conflicts with the standard ISA or other vendors' extensions."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What was Western Digital's primary motivation for transitioning over two billion embedded cores per year to RISC-V?"
+prompt.distractors = [
+    "RISC-V's vector extension provided 3× better throughput for error-correction coding in storage controllers",
+    "ARM's licensing agreement required Western Digital to disclose proprietary storage firmware source code",
+    "RISC-V cores achieved 40% lower power consumption than equivalent ARM cores on the same process node"
+]
+answer.answer = "RISC-V's custom extension model allowed workload-specific optimization for storage controllers at zero licensing cost"
+context = "Western Digital chose RISC-V partly because custom extensions let them optimize for storage controller workloads, and the zero-royalty model eliminated significant per-chip costs across billions of units."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Research comparing equivalent implementations across different ISAs typically shows what performance difference attributable to ISA choice alone?"
+prompt.distractors = [
+    "25-35%, giving RISC architectures a consistent advantage over CISC designs in power efficiency",
+    "40-60%, which is why ISA selection remains the most critical early decision in processor design",
+    "Less than 1%, making ISA choice entirely irrelevant even for deeply embedded real-time applications"
+]
+answer.answer = "5-15%, well within the range of microarchitectural choices, memory subsystem design, and compiler quality"
+context = "Studies show ISA choice accounts for only 5-15% performance difference. Apple's ARM chips beat Intel's x86 not because of the ISA, but because of superior microarchitecture and full-stack control."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Who is the legendary CPU architect — known for AMD K8, Apple A-series, and AMD Zen — who founded Tenstorrent to build RISC-V-based AI and general-purpose processors?"
+answer.answer = "Jim Keller"
+answer.alternatives = ["Keller", "jim keller"]
+context = "Jim Keller, one of the most accomplished CPU architects in history, founded Tenstorrent to pursue RISC-V-based processors, lending significant credibility to RISC-V's high-performance ambitions."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What performance class did the Esperanto ET-SoC-1 demonstrate RISC-V could compete in, and how did it achieve this?"
+prompt.distractors = [
+    "Single-threaded desktop performance, using a deep out-of-order pipeline with speculative execution at 5+ GHz",
+    "Server-class throughput computing, using four large cores with massive shared L3 caches on TSMC 5nm",
+    "Real-time embedded control, using deterministic in-order cores with guaranteed sub-microsecond interrupt latency"
+]
+answer.answer = "ML inference via massive parallelism, packing over 1,000 small RISC-V vector cores on a single TSMC 7nm die"
+context = "Esperanto's ET-SoC-1 contained over 1,000 small ET-Minion RISC-V cores with vector extensions plus four larger ET-Maxion management cores, all on TSMC 7nm, targeting ML inference through massive parallelism."
