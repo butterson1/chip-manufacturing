@@ -30,3 +30,4 @@
 - [Day 18: Memory Hierarchy](./day-18.md)
 - [Day 19: AI Accelerators](./day-19.md)
 - [Day 20: RISC-V](./day-20.md)
+- [Day 21: Power & Thermal](./day-21.md)
