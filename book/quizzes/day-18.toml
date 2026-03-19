@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why does an SRAM cell require approximately 50× more silicon area per bit than a DRAM cell?"
+prompt.distractors = [
+    "SRAM uses higher-voltage transistors that require larger spacing between gate structures for isolation",
+    "SRAM cells need dedicated refresh circuitry per bit that occupies significant additional die area",
+    "SRAM requires thicker metal interconnect layers per cell to handle higher switching currents",
+]
+answer.answer = "SRAM stores each bit using six transistors while DRAM uses just one transistor and one capacitor"
+context = "The classic 6T SRAM cell uses six transistors per bit — two cross-coupled inverters plus two access transistors. DRAM's 1T-1C design (one transistor, one capacitor) is far more area-efficient, which is why DRAM achieves orders of magnitude higher density."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the approximate random access latency penalty when a modern 5 GHz CPU must fetch data from DDR5 DRAM instead of L1 cache?"
+prompt.distractors = [
+    "The processor wastes roughly 25-50 cycles because DDR5's row activation takes about 5-10 nanoseconds total",
+    "The processor wastes roughly 500-700 cycles because DDR5 bus negotiation adds 100-140 nanoseconds of overhead",
+    "The processor wastes roughly 50-75 cycles because DDR5's CAS latency is approximately 10-15 nanoseconds",
+]
+answer.answer = "The processor wastes roughly 250-350 cycles because DDR5 random access takes approximately 50-70 nanoseconds total"
+context = "DDR5 random access requires row activation (~13 ns) plus column access (~13-14 ns CAS) totaling ~50-70 ns. At 5 GHz (0.2 ns per cycle), that's 250-350 wasted cycles — a massive penalty that out-of-order execution tries to hide."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "How does HBM achieve dramatically higher bandwidth than DDR5 despite operating at lower per-pin data rates?"
+prompt.distractors = [
+    "HBM uses advanced signal encoding that packs 4 bits per transfer per pin versus DDR5's single bit per transfer",
+    "HBM places DRAM dies directly on the processor substrate which reduces electrical resistance by 100× per pin",
+    "HBM operates at much higher clock frequencies internally but uses wide parallel buses only for the TSV connections",
+]
+answer.answer = "HBM uses a 1,024-bit wide interface via thousands of TSVs compared to DDR5's 32-bit sub-channel width"
+context = "HBM's key insight is massive parallelism through short, slow wires. Each stack has a 1,024-bit interface (vs DDR5's 32-bit sub-channel), achieved through thousands of Through-Silicon Vias connecting vertically stacked dies. The per-pin rate is lower (~6.4 Gbps vs 5,600+ Mbps), but 32× more pins yield far greater aggregate bandwidth."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why must every DRAM cell be refreshed approximately every 32-64 milliseconds?"
+prompt.distractors = [
+    "The transistor gate oxide gradually accumulates trapped charges that shift the threshold voltage and corrupt the stored state",
+    "Electromagnetic interference from adjacent cells causes progressive bit flipping that must be periodically corrected",
+    "The word-line voltage decays over time due to resistance in the polysilicon interconnects connecting the row decoder",
+]
+answer.answer = "The storage capacitor loses charge through junction leakage and subthreshold currents making the bit unreadable"
+context = "DRAM stores each bit as charge on a tiny ~20-30 femtofarad capacitor. Junction leakage and subthreshold currents drain this charge within about 64 ms, so every cell must be periodically read and rewritten (refreshed) to maintain data integrity. This refresh tax costs 5-10% of available bandwidth."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD's 3D V-Cache technology delivered significant gaming performance gains primarily because:"
+prompt.distractors = [
+    "The additional cache die operated at higher clock speeds than the main CCD due to optimized thermal dissipation paths",
+    "The stacked cache used a new 8T SRAM cell design with 40% lower access latency than conventional L3 cache cells",
+    "The extra die added dedicated texture decompression hardware that offloaded work from the main processor cores",
+]
+answer.answer = "Tripling L3 cache to 96 MB dramatically reduced DRAM accesses for pointer-heavy game engine scene graph traversals"
+context = "Game engines chase pointers through complex scene graphs, creating cache-unfriendly access patterns. By tripling L3 from 32 MB to 96 MB via hybrid-bonded SRAM, the 5800X3D kept far more of this working set on-die, avoiding costly 50-70 ns DRAM accesses. It matched faster-clocked Intel CPUs despite fewer cores."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "How many companies manufacture essentially all of the world's DRAM? (Give the number)"
+answer.answer = "3"
+answer.alternatives = ["three", "Three"]
+context = "Samsung (~40% share), SK Hynix (~34%), and Micron (~25%) manufacture essentially all DRAM globally. This extreme concentration across just two countries (South Korea and the US) represents a significant geopolitical vulnerability."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What fundamental physical constraint gives rise to the memory hierarchy in modern computers?"
+prompt.distractors = [
+    "Semiconductor manufacturing limitations prevent integrating more than approximately 100 MB of any memory type on a single die",
+    "Quantum tunneling effects at sub-5nm nodes corrupt stored charges in proportion to memory array size on chip",
+    "Signal propagation delays through metal interconnects scale quadratically with memory array size on a single die",
+]
+answer.answer = "Moving data costs energy proportional to distance, creating a 300-400× energy gap between on-die and off-chip access"
+context = "Reading a bit from SRAM 1 mm away costs ~0.05 pJ, while fetching from DRAM 20 mm away costs ~15-20 pJ — a 300-400× increase. This energy-distance relationship means you can always build more compute, but feeding it with data becomes proportionally more expensive, forcing a tiered memory approach."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the approximate cost per stack of HBM3E memory, and how does it compare to equivalent DDR5 capacity?"
+prompt.distractors = [
+    "HBM3E costs roughly $30-50 per stack, approximately 3-5× the cost of equivalent DDR5 capacity per gigabyte",
+    "HBM3E costs roughly $500-700 per stack, approximately 50-70× the cost of equivalent DDR5 capacity per gigabyte",
+    "HBM3E costs roughly $10-20 per stack, roughly comparable to DDR5 per gigabyte due to manufacturing scale",
+]
+answer.answer = "HBM3E costs roughly $100-120 per stack, approximately 20-30× the cost of equivalent DDR5 capacity per gigabyte"
+context = "An HBM3E stack costs ~$100-120 vs $3-5 for equivalent DDR5 capacity. The premium comes from TSV drilling, die thinning (risk of cracking), precision stacking/bonding, and limited manufacturers. An H100's 80 GB of HBM represents ~$500-600 in memory cost alone."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the standard cache line size on x86 processors, in bytes?"
+answer.answer = "64"
+answer.alternatives = ["64 bytes", "64B"]
+context = "x86 processors use a 64-byte cache line as the fundamental unit of data transfer between cache levels and main memory. When any byte is accessed, the entire 64-byte line containing it is fetched, exploiting spatial locality — the tendency for nearby data to be accessed together."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why can a cache-friendly matrix multiplication run 10-100× faster than a naïve implementation performing the same number of arithmetic operations?"
+prompt.distractors = [
+    "Cache-friendly code triggers hardware-level SIMD vectorization that the naïve version cannot utilize due to data alignment issues",
+    "Cache-friendly code avoids branch mispredictions by linearizing control flow which eliminates pipeline stalls in the execution engine",
+    "Cache-friendly code enables the compiler to use fused multiply-add instructions that are blocked by memory aliasing in naïve versions",
+]
+answer.answer = "Cache-friendly access patterns keep data in fast SRAM caches while naïve patterns cause repeated 50-70 ns DRAM accesses per element"
+context = "A single cache miss costs 200-500 arithmetic operations worth of time and energy. Loop tiling processes data in cache-sized blocks, maximizing reuse from fast L1/L2 SRAM. Naïve implementations thrash the cache with strided access patterns, forcing constant 50-70 ns DRAM round trips that dominate total runtime."

@@ -27,3 +27,4 @@
 - [Day 15: RTL to GDSII](./day-15.md)
 - [Day 16: CPU Architecture](./day-16.md)
 - [Day 17: GPU Architecture](./day-17.md)
+- [Day 18: Memory Hierarchy](./day-18.md)
