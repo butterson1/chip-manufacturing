@@ -35,3 +35,4 @@
 # Week 4 — Industry & Geopolitics
 
 - [Day 22: TSMC](./day-22.md)
+- [Day 23: The Semiconductor Supply Chain](./day-23.md)

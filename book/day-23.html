@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Day 23: The Semiconductor Supply Chain - Chip Manufacturing: From Sand to Silicon</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Chip Manufacturing: From Sand to Silicon</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="day-23-the-semiconductor-supply-chain--a-600-billion-global-machine"><a class="header" href="#day-23-the-semiconductor-supply-chain--a-600-billion-global-machine">Day 23: The Semiconductor Supply Chain — A $600 Billion Global Machine</a></h1>
+<p><em>No nation on Earth can build a cutting-edge chip alone. The United States designs the most advanced processors and writes the software that makes them possible. The Netherlands builds the only machines that can print them. Japan monopolizes the chemicals that go on the wafer. Taiwan and South Korea do the actual manufacturing. Germany and Japan grind the lenses. A handful of companies in three countries supply all the memory. The semiconductor supply chain is the most geographically dispersed, interdependent, and fragile industrial system humans have ever constructed — and in 2025, it shipped $791.7 billion worth of chips.</em></p>
+<hr />
+<h2 id="anatomy-of-a-chain-that-spans-the-planet"><a class="header" href="#anatomy-of-a-chain-that-spans-the-planet">Anatomy of a Chain That Spans the Planet</a></h2>
+<p>A single leading-edge chip touches more than 25 countries on its journey from raw material to finished product. Not metaphorically — literally. The xenon and krypton gases used in some lithography processes come from Ukraine, Russia, and China. The 300mm silicon wafers are pulled from crystal in Japan. The photoresist is synthesized in Shizuoka Prefecture. The EUV scanner that patterns the wafer was assembled in Veldhoven, Netherlands, with optics from Oberkochen, Germany, and a laser source from San Diego, California. The chip is manufactured in Hsinchu, Taiwan. It is tested in Penang, Malaysia. It is packaged in a substrate built by Ibiden in Gifu, Japan. And then it ships to Shenzhen, China, where it is soldered onto a circuit board and placed inside a phone, server, or car that ends up in your hands.</p>
+<p>If any single link in that chain breaks — a factory fire, an earthquake, a geopolitical spat, a pandemic shutting down a port — the entire system feels it. We learned this the hard way in 2020-2022, when the global chip shortage cost the auto industry alone an estimated <strong>$210 billion</strong> in lost revenue.</p>
+<p>The semiconductor supply chain is not just complex. It is <em>concentrated</em>. And concentration is the source of both its extraordinary efficiency and its terrifying fragility.</p>
+<h2 id="layer-1-raw-materials--where-silicon-meets-geopolitics"><a class="header" href="#layer-1-raw-materials--where-silicon-meets-geopolitics">Layer 1: Raw Materials — Where Silicon Meets Geopolitics</a></h2>
+<p>Every chip starts with silicon, and not just any silicon. Semiconductor-grade polysilicon must be refined to <strong>eleven nines</strong> of purity — 99.999999999% — making it the purest bulk material humans produce. The global silicon wafer market was valued at roughly <strong>$14.5 billion in 2024</strong>, and it is dominated by a startling oligopoly: <strong>Shin-Etsu Chemical</strong> and <strong>SUMCO</strong>, both Japanese, together control approximately <strong>55-60%</strong> of the world's 300mm wafer supply. Add <strong>GlobalWafers</strong> (Taiwan), <strong>SK Siltron</strong> (South Korea), and <strong>Siltronic</strong> (Germany), and five companies account for over <strong>90%</strong> of the market.</p>
+<p>This is already a chokepoint, but it gets narrower. After Japan restricted exports of three key semiconductor materials to South Korea in 2019 — hydrogen fluoride, fluorinated polyimide, and photoresist — the industry was reminded that chemistry matters as much as physics. Japanese firms control approximately <strong>90% of the global photoresist market</strong> (JSR, Tokyo Ohka Kogyo, Shin-Etsu Chemical, Fujifilm, and Sumitomo Chemical), and for the most critical type — <strong>EUV photoresist</strong> — that figure climbs above <strong>95%</strong>. These are not simple chemicals. EUV photoresists are molecular machines: chemically amplified polymers with photoacid generators tuned to respond to 13.5nm extreme ultraviolet light, requiring defect densities measured in parts per trillion. Synthesizing them requires decades of accumulated process knowledge that cannot be replicated by throwing money at the problem.</p>
+<p>Then there are the specialty gases. Semiconductor fabrication consumes vast quantities of ultra-high-purity neon (used in DUV excimer lasers), helium (for cooling and leak detection), nitrogen trifluoride (for chamber cleaning), and dozens of others. Before Russia's invasion of Ukraine in 2022, <strong>Ukraine supplied roughly 50%</strong> of the world's semiconductor-grade neon, which is produced as a byproduct of steel manufacturing. Prices spiked 10× virtually overnight. The industry has since diversified — South Korean and Chinese neon producers have ramped capacity — but the episode illustrated how a material nobody thinks about can suddenly become a strategic vulnerability.</p>
+<p>Here's the counterintuitive fact about the raw materials layer: <strong>the materials themselves are cheap</strong>. A 300mm silicon wafer costs roughly <strong>$100-150</strong>. The photoresist on it costs maybe <strong>$50-80 per wafer</strong> for EUV layers. The total bill of materials for all chemicals, gases, and substrates on a single wafer is perhaps <strong>$500-1,500</strong> — a fraction of the $15,000-20,000 that wafer will be worth after processing at a leading-edge node. The value isn't in the atoms. It's in the perfection. Getting hydrogen fluoride to 99.999% purity versus 99.99% is the difference between working chips and scrap.</p>
+<h2 id="layer-2-equipment--the-110-billion-bottleneck"><a class="header" href="#layer-2-equipment--the-110-billion-bottleneck">Layer 2: Equipment — The $110 Billion Bottleneck</a></h2>
+<p>If materials are the bloodstream of chipmaking, equipment is the skeleton and the muscles. The semiconductor equipment market reached approximately <strong>$110 billion in 2024</strong> and is projected to hit <strong>$155 billion by 2029</strong>. It is dominated by five companies that collectively control the vast majority of spending:</p>
+<ul>
+<li><strong>Applied Materials</strong> (Santa Clara, CA) — ~$27B revenue. The broadest portfolio: deposition, etch, CMP, ion implantation, inspection. Touches nearly every process step.</li>
+<li><strong>ASML</strong> (Veldhoven, Netherlands) — ~$30B revenue. The monopoly we covered on Day 8: the sole supplier of EUV lithography systems, and dominant in DUV immersion scanners.</li>
+<li><strong>Tokyo Electron (TEL)</strong> (Tokyo, Japan) — ~$16B revenue. Coater/developers, etch, deposition, cleaning. The workhorse of the fab.</li>
+<li><strong>Lam Research</strong> (Fremont, CA) — ~$17B revenue. The etch and deposition specialist; their machines carve the patterns that ASML prints.</li>
+<li><strong>KLA Corporation</strong> (Milpitas, CA) — ~$11B revenue. The inspector: optical and e-beam metrology, defect review, process control.</li>
+</ul>
+<p>Together, these five account for roughly <strong>70-75% of all semiconductor equipment spending</strong>. In specific sub-segments, concentration is even more extreme. ASML is a monopoly in EUV (100% share) and holds ~80% of DUV immersion lithography. KLA has <strong>55-60% of wafer inspection and metrology</strong>. In ALD (atomic layer deposition) for advanced gate stacks, <strong>ASM International</strong> (Netherlands) holds a commanding position.</p>
+<p>What makes the equipment layer so potent as a chokepoint is the <strong>lead time</strong>. An EUV scanner takes <strong>18-24 months</strong> from order to delivery, and ASML can only produce about <strong>50-60 per year</strong> — that's roughly one a week for the entire planet. A new fab needs 15-20 EUV tools. Do the math: even with $40 billion and a perfect construction schedule, you cannot fill a leading-edge fab unless you secured your ASML delivery slots <strong>two years</strong> in advance.</p>
+<p>The machinery is also extraordinarily difficult to maintain. ASML stations roughly <strong>350 field service engineers</strong> at TSMC alone. Each EUV scanner needs daily attention: the tin droplet source degrades, mirrors accumulate contamination, lasers need alignment. A tool going down costs a fab roughly <strong>$100,000 per hour</strong> in lost production. This creates a sticky, recurring revenue stream for equipment companies — after selling a $380 million scanner, ASML collects <strong>$3-5 million per year per tool</strong> in service contracts. With an installed base of several hundred EUV systems, the annuity is worth billions.</p>
+<h2 id="layer-3-eda-software--the-invisible-chokepoint"><a class="header" href="#layer-3-eda-software--the-invisible-chokepoint">Layer 3: EDA Software — The Invisible Chokepoint</a></h2>
+<p>Before a single photon hits a wafer, the chip must be designed, and design requires electronic design automation software. As we covered on Day 15, <strong>Synopsys</strong> and <strong>Cadence</strong> form a duopoly controlling roughly <strong>60-74%</strong> of the global EDA market, with <strong>Siemens EDA</strong> (formerly Mentor Graphics) holding most of the remainder. Together, these three cover virtually <strong>100%</strong> of the market for the tools needed to design a chip at 7nm and below.</p>
+<p>The EDA market is small by semiconductor standards — roughly <strong>$16-18 billion</strong> in annual revenue — but its leverage is enormous. Without EDA tools, you literally cannot design a modern chip. There is no open-source equivalent that works at leading-edge nodes. The tools embody decades of algorithmic innovation in synthesis, place-and-route, timing analysis, parasitic extraction, and physical verification. They are deeply intertwined with specific foundry process design kits (PDKs): a Synopsys flow validated for TSMC N3 is not trivially replaceable by anything else.</p>
+<p>This is why EDA was one of the first targets of U.S. technology export controls against China. In August 2022, the Bureau of Industry and Security added certain EDA tools for <strong>gate-all-around (GAA) transistor design</strong> to the restricted list. It was a precision strike: China can design chips at older nodes with existing tools, but designing next-generation chips at 3nm and below became significantly harder without access to the latest Synopsys and Cadence releases.</p>
+<h2 id="layer-4-foundry-manufacturing--taiwans-65-problem"><a class="header" href="#layer-4-foundry-manufacturing--taiwans-65-problem">Layer 4: Foundry Manufacturing — Taiwan's 65% Problem</a></h2>
+<p>TSMC manufactures roughly <strong>65% of the world's semiconductors by revenue</strong> and an even higher share of the leading edge: <strong>over 90% of chips at 7nm and below</strong> come from TSMC fabs. Samsung foundry and Intel Foundry Services split most of the rest, but neither matches TSMC's yield, process maturity, or customer trust.</p>
+<p>We covered TSMC in depth yesterday, so let's zoom out to the foundry market as a whole. Global foundry revenue was approximately <strong>$130-140 billion in 2024</strong>. Behind TSMC and Samsung, the landscape includes:</p>
+<ul>
+<li><strong>GlobalFoundries</strong> (Malta, NY) — Abandoned leading-edge in 2018. Focuses on 12nm and above, specializing in RF, embedded memory, and automotive. ~$8B revenue.</li>
+<li><strong>UMC</strong> (Taiwan) — Mature-node powerhouse, 22nm and above. ~$7B revenue.</li>
+<li><strong>SMIC</strong> (Shanghai) — China's most advanced foundry. Officially at 7nm (N+2 process), though under heavy U.S. equipment restrictions. ~$8B revenue.</li>
+<li><strong>Intel Foundry Services</strong> — Intel's attempt to become a major foundry. Has TSMC-competitive technology on paper (Intel 18A ≈ 2nm), but still needs to prove yield and attract major external customers.</li>
+</ul>
+<p>The geographic concentration is staggering. More than <strong>75% of advanced chip manufacturing capacity</strong> sits within a few hundred kilometers of the Taiwan Strait. A natural disaster, a military conflict, or even a sustained power grid failure in Taiwan would cause economic disruption measured in <strong>trillions of dollars</strong> — dwarfing the 2020-2022 shortage.</p>
+<h2 id="layer-5-assembly-testing--packaging--the-unsung-heroes"><a class="header" href="#layer-5-assembly-testing--packaging--the-unsung-heroes">Layer 5: Assembly, Testing &amp; Packaging — The Unsung Heroes</a></h2>
+<p>After a wafer is processed in the fab, it must be diced into individual dies, tested, and packaged. This <strong>OSAT</strong> (outsourced semiconductor assembly and test) layer is the least glamorous part of the supply chain but accounts for roughly <strong>$45-50 billion</strong> in annual revenue.</p>
+<p>The major OSATs include <strong>ASE Technology</strong> (Taiwan), <strong>Amkor</strong> (U.S., with most operations in Asia), <strong>JCET</strong> (China), and <strong>Tongfu Microelectronics</strong> (China). Taiwan and China together host the majority of the world's assembly and test capacity.</p>
+<p>But as we learned on Day 13, packaging is rapidly evolving from commodity work to a critical technology differentiator. TSMC's <strong>CoWoS</strong> (Chip-on-Wafer-on-Substrate) advanced packaging — essential for NVIDIA's H100/B200 and AMD's MI300X — has become a major bottleneck. In 2024, CoWoS capacity allocation was a hotter topic in chip industry boardrooms than even EUV scanner availability. TSMC invested roughly <strong>$5-6 billion</strong> to more than double its CoWoS capacity from 2023 to 2025.</p>
+<p>The packaging layer introduces yet another chokepoint: <strong>ABF substrates</strong> (Ajinomoto Build-up Film). These organic substrates, essential for high-performance chip packages, are manufactured primarily by three Japanese companies — <strong>Ibiden</strong>, <strong>Shinko Electric</strong> (a Fujitsu subsidiary), and <strong>AT&amp;S</strong> (Austria). During the 2021-2022 shortage, ABF substrates had lead times stretching to <strong>50-70 weeks</strong>, and substrate costs for a single advanced package reached <strong>$50-100</strong> — sometimes rivaling the cost of the silicon die itself.</p>
+<h2 id="the-hidden-interdependencies-why-no-one-can-go-it-alone"><a class="header" href="#the-hidden-interdependencies-why-no-one-can-go-it-alone">The Hidden Interdependencies: Why No One Can Go It Alone</a></h2>
+<p>Here's what makes the semiconductor supply chain fundamentally different from, say, the automotive or apparel supply chain: <strong>the knowledge barriers at each layer are so high that vertical integration across the entire stack is essentially impossible.</strong></p>
+<p>Consider what a country would need to build a chip entirely domestically:</p>
+<ol>
+<li><strong>Silicon crystal growth</strong> — requires 50+ years of metallurgical process knowledge (Japan's lead)</li>
+<li><strong>Photoresist synthesis</strong> — molecular-level chemistry at defect densities of parts per trillion (Japan)</li>
+<li><strong>EUV lithography</strong> — the most complex optical system ever built, with components from the Netherlands, Germany, and the U.S.</li>
+<li><strong>EDA software</strong> — decades of algorithmic IP concentrated in two U.S. companies</li>
+<li><strong>Process technology</strong> — 40+ years of yield learning, proprietary to each foundry</li>
+<li><strong>Advanced packaging</strong> — substrate materials, hybrid bonding, TSV expertise spread across Taiwan, Japan, and Korea</li>
+<li><strong>DRAM and HBM</strong> — Samsung, SK Hynix, and Micron collectively hold <strong>95%+</strong> of the memory market</li>
+</ol>
+<p>No country controls all these layers. The United States dominates EDA, equipment, and chip design but has minimal wafer capacity (currently ~12% of global manufacturing, almost none at leading edge). Japan dominates materials and some equipment but exited leading-edge logic manufacturing decades ago. Taiwan has the foundries but imports almost all equipment and materials. South Korea has memory manufacturing but depends on Japanese materials and Dutch/American equipment. China is trying to build everything domestically but faces technology gaps at nearly every layer, compounded by export controls.</p>
+<p>The BCG/SIA estimated in a landmark 2021 study that building a fully self-sufficient semiconductor supply chain in any single region would require <strong>$1 trillion in upfront investment</strong> and would raise chip prices by <strong>35-65%</strong>. That number is almost certainly higher today.</p>
+<h2 id="the-792-billion-pyramid"><a class="header" href="#the-792-billion-pyramid">The $792 Billion Pyramid</a></h2>
+<p>When the Semiconductor Industry Association reported <strong>$791.7 billion</strong> in global chip sales for 2025 — up 25.6% from the prior year, driven overwhelmingly by AI demand — that headline number only captures the final revenue from chip companies selling to their customers. The actual economic machine beneath it is vastly larger:</p>
+<ul>
+<li><strong>Equipment</strong>: ~$110B</li>
+<li><strong>Materials &amp; chemicals</strong>: ~$70B</li>
+<li><strong>EDA &amp; IP</strong>: ~$18B</li>
+<li><strong>OSAT (assembly &amp; test)</strong>: ~$45-50B</li>
+<li><strong>Foundry manufacturing</strong>: ~$130-140B</li>
+<li><strong>End-chip sales</strong>: ~$792B</li>
+</ul>
+<p>Add the downstream systems — the phones, servers, cars, data centers, and industrial equipment that these chips go into — and semiconductors underpin an estimated <strong>$3+ trillion</strong> in annual end-product value. The industry is fond of saying that chips are to the modern economy what oil was to the 20th century. The analogy is imperfect — chips don't burn when you use them — but the dependency is comparable.</p>
+<p>And unlike oil, where dozens of countries can pump crude, leading-edge chipmaking is concentrated in what analyst Chris Miller calls a series of <strong>"chokepoints"</strong>: individual companies or small groups of companies without which the entire system stops. ASML in lithography. TSMC in manufacturing. Synopsys and Cadence in design tools. Shin-Etsu and SUMCO in wafers. JSR and TOK in photoresist. Samsung and SK Hynix in HBM. Each of these is a potential single point of failure for the global economy.</p>
+<h2 id="resilience-can-the-chain-be-unchoked"><a class="header" href="#resilience-can-the-chain-be-unchoked">Resilience: Can the Chain Be Unchoked?</a></h2>
+<p>The post-2020 era has seen unprecedented efforts to diversify the supply chain. The U.S. CHIPS Act committed <strong>$52.7 billion</strong> in subsidies. The EU Chips Act pledged <strong>€43 billion</strong>. Japan committed <strong>¥3.9 trillion</strong> (~$26 billion). Even India announced a <strong>$10 billion</strong> semiconductor incentive scheme. TSMC is building fabs in Arizona, Japan (Kumamoto), and Germany (Dresden). Samsung is building in Taylor, Texas. Intel is expanding in Ohio, Arizona, Germany, and Poland.</p>
+<p>But diversification faces brutal physics. A fab in Arizona uses the same ASML scanners, the same TEL coater/developers, the same Shin-Etsu wafers, and the same JSR photoresist as a fab in Taiwan. Moving the manufacturing step to a different country does not eliminate the underlying material and equipment dependencies. It shifts one chokepoint while leaving the others intact.</p>
+<p>Moreover, new fabs take <strong>3-5 years</strong> from groundbreaking to high-volume production. TSMC's Arizona Fab 21 — announced in 2020 — is not expected to reach full N4 production until 2025, and its N3/N2 phases stretch into 2028. Building a fab is easy compared to achieving yield parity with the mother fab in Taiwan, where decades of tacit knowledge live in the heads of thousands of process engineers.</p>
+<p>The deeper question is whether geographic diversification is even the right frame. The semiconductor supply chain evolved toward concentration not by accident but because <strong>concentration is efficient</strong>. Having 90% of photoresist made in Japan means Japan's chemical companies can invest deeply in R&amp;D, achieve massive economies of scale, and deliver the sub-ppb purity levels that fabs demand. Distributing that production across ten countries would raise costs, dilute expertise, and potentially lower quality. The supply chain is fragile precisely because it is optimized.</p>
+<p>This tension — efficiency versus resilience — is the central dilemma of semiconductor industrial policy in the 2020s. And it has no clean answer. More on that tomorrow.</p>
+<hr />
+<p><em>Tomorrow we move from the supply chain as a system to the supply chain as a weapon. Day 24 covers the CHIPS Act and semiconductor nationalism — how the U.S., EU, China, and Japan are each trying to reshape the chain in their favor, and why the resulting subsidy race may be the most expensive industrial policy experiment in human history.</em></p>
+<hr />
+<div class="quiz-placeholder" data-quiz-path="quizzes/day-23.toml" data-quiz-day="23"></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="day-22.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="day-22.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

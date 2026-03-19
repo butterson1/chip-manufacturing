@@ -30,7 +30,7 @@ Manufacturing advanced logic chips is not a commodity service. It is an integrat
 
 A customer taping out at TSMC does not simply send a layout and wait for finished dies. It plugs into an ecosystem.
 
-TSMC's **Open Innovation Platform** ties together EDA vendors like **Synopsys**, **Cadence**, and **Siemens EDA**; IP suppliers like **Arm**, **Synopsys**, and **Imagination**; packaging options like **CoWoS**, **InFO**, and **SoIC**; and process design kits tuned for the quirks of each node. That ecosystem is why Apple can co-design an SoC with exotic SRAM compiler options, why NVIDIA can pair gigantic GPUs with HBM through advanced packaging, and why a startup can reach tape-out without inventing half the toolchain itself.
+TSMC's **Open Innovation Platform** ties together EDA vendors like **Synopsys**, **Cadence**, and **Siemens EDA**; IP suppliers like **Arm** and **Imagination**; packaging options like **CoWoS**, **InFO**, and **SoIC**; and process design kits tuned for each node. That ecosystem is why Apple, NVIDIA, and small startups can all target the same foundry without reinventing the toolchain from scratch.
 
 The deeper reason the foundry model worked is almost psychological: TSMC built trust by refusing to be clever in the wrong way. Intel, Samsung, and historically IBM all had incentives to prioritize their own products. TSMC's discipline was monastic. If Apple made a better iPhone chip than Qualcomm, fine. If AMD hurt Intel, fine. If NVIDIA became more valuable than the rest of the semiconductor sector combined, also fine. TSMC's job was to sell everyone an immaculate manufacturing service and let the market fight above that layer.
 
