@@ -28,3 +28,4 @@
 - [Day 16: CPU Architecture](./day-16.md)
 - [Day 17: GPU Architecture](./day-17.md)
 - [Day 18: Memory Hierarchy](./day-18.md)
+- [Day 19: AI Accelerators](./day-19.md)
