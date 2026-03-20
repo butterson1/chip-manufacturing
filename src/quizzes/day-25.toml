@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What was the approximate total capitalization across all three phases of China's National IC Investment Fund (Big Fund)?"
+prompt.distractors = [
+    "Approximately ¥204 billion (~$29B), focused primarily on equipment and materials companies",
+    "Approximately ¥344 billion (~$47B), concentrated on leading-edge foundry construction projects",
+    "Approximately ¥138 billion (~$21B), distributed evenly across design and manufacturing sectors"
+]
+answer.answer = "Approximately ¥686 billion (~$97B), invested across design, manufacturing, packaging, equipment, and materials"
+context = "The Big Fund had three phases: Phase I at ¥138.7B (~$21B), Phase II at ¥204.1B (~$29B), and Phase III at ¥344B (~$47.5B), totaling over ¥686B (~$97B). Each figure listed in the distractors represents only a single phase, not the combined total."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "How does SMIC reportedly achieve 7nm-class features without EUV lithography?"
+prompt.distractors = [
+    "By using electron-beam direct-write lithography to pattern each critical layer serially on the wafer",
+    "By using ASML's NXT:2050i with double patterning and advanced optical proximity correction techniques",
+    "By using X-ray proximity lithography with silicon nitride membrane masks and synchrotron radiation"
+]
+answer.answer = "By using ASML's NXT:2000i DUV immersion scanner with self-aligned quadruple patterning (SAQP)"
+context = "SMIC uses the same approach TSMC employed for first-gen N7 in 2018: 193nm immersion DUV with multi-patterning. SAQP requires four exposures per critical layer, dramatically increasing litho time, mask count, and defect opportunities compared to single EUV exposures."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the estimated yield range for SMIC's 7nm-class Kirin 9000S process, and how does this compare to TSMC's mature 7nm yields?"
+prompt.distractors = [
+    "SMIC achieves 50-60% yields, roughly two-thirds of TSMC's mature 7nm yields above 90%",
+    "SMIC achieves 40-50% yields, approaching commercial viability but still below TSMC's 85% benchmark",
+    "SMIC achieves 70-80% yields after recent improvements, narrowing the gap with TSMC's 90%+ yields"
+]
+answer.answer = "SMIC achieves roughly 10-30% yields, compared to TSMC's mature 7nm yields reportedly above 90%"
+context = "The low yield means 70-90% of dies are defective and discarded, making the effective cost per working chip roughly 6× higher than TSMC's. This is acceptable for a flagship political product but devastating for commercial competitiveness at scale."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why is the U.S. servicing restriction on semiconductor equipment considered especially impactful?"
+prompt.distractors = [
+    "Because equipment software licenses expire annually and cannot be renewed without U.S. authorization",
+    "Because new equipment requires American-trained engineers for initial installation and calibration setup",
+    "Because equipment spare parts contain controlled substances that require separate export licenses each time"
+]
+answer.answer = "Because without OEM maintenance, scanner overlay accuracy degrades within 12-18 months and tools may become inoperable within 2-3 years"
+context = "Semiconductor manufacturing equipment requires constant maintenance — laser source replacements, chamber rebuilds, software updates. Without the original manufacturer's service engineers and parts, the tools physically degrade, making the servicing restriction a time bomb even for already-installed equipment."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the approximate resolution gap between SMEE's most advanced lithography scanner and ASML's current production DUV scanner?"
+prompt.distractors = [
+    "SMEE achieves 28nm resolution versus ASML's 7nm, representing a gap of roughly 8-10 years",
+    "SMEE achieves 65nm resolution versus ASML's 28nm, representing a gap of roughly 12-15 years",
+    "SMEE achieves 45nm resolution versus ASML's 13nm, representing a gap of roughly 15-18 years"
+]
+answer.answer = "SMEE achieves 90nm resolution versus ASML's 38nm half-pitch, representing a gap of roughly 20 years"
+context = "SMEE's SSA/800-10W demonstrates 90nm resolution — comparable to where ASML was around 2004. ASML's current NXT:2050i achieves 38nm half-pitch with single patterning. Lithography is the widest technology gap in China's domestic equipment push."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Who is the former TSMC R&D co-director who became SMIC's co-CEO in 2017 and is credited with accelerating their 14nm and 7nm development?"
+answer.answer = "Liang Mong-Song"
+answer.alternatives = ["Mong-Song Liang", "Liang Mongsong"]
+context = "Liang Mong-Song previously helped develop TSMC's 16nm FinFET and Samsung's 14nm FinFET before joining SMIC. Taiwan has since criminalized certain forms of semiconductor talent recruitment in response to such moves."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "How does the Huawei Ascend 910B AI accelerator reportedly compare to NVIDIA's A100 and H100 in training performance?"
+prompt.distractors = [
+    "Roughly 90-95% of an A100 and 70-80% of an H100, making it nearly competitive for most workloads",
+    "Roughly 30-40% of an A100 and 15-20% of an H100, limiting it to inference-only deployment scenarios",
+    "Roughly equal to an A100 and approximately 50% of an H100, achieving parity at the prior generation"
+]
+answer.answer = "Roughly 60-80% of an A100 and 30-40% of an H100, sufficient for entities that cannot legally acquire NVIDIA chips"
+context = "The Ascend 910B, fabbed on SMIC's 7nm-class process, delivers meaningful but not equivalent performance to NVIDIA's offerings. For Chinese companies and government entities barred from purchasing NVIDIA chips, 60% of an A100 is infinitely better than 0% of an H100."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What percentage of SMIC's revenue comes from mature nodes (28nm and above)?"
+prompt.distractors = [
+    "Approximately 40-50%, with the majority coming from competitive 14nm and 7nm-class products",
+    "Approximately 55-60%, reflecting a balanced portfolio between mature and advanced node offerings",
+    "Approximately 85-90%, with virtually no revenue contribution from any process below 28nm node"
+]
+answer.answer = "Over 70%, with advanced nodes (14nm and below) contributing under 20% and 7nm a tiny fraction"
+context = "SMIC's strategic importance is actually more about mature-node self-sufficiency than leading-edge. China's real semiconductor vulnerability is in mundane 28nm-90nm chips for automotive, industrial, and military applications. SMIC's massive 28nm fab expansion addresses this more immediate concern."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What share of global mature-node capacity (28nm and above) are Chinese fabs expected to account for by 2027?"
+answer.answer = "30%"
+answer.alternatives = ["over 30%", "30 percent", ">30%", "about 30%"]
+context = "Chinese fabs are projected to account for over 30% of global mature-node capacity by 2027, up from roughly 18% in 2022. This concentration raises concerns that the rest of the world could become dependent on Chinese mature chips — a mirror image of China's dependence on TSMC for advanced ones."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did the October 2022 export controls specifically target EDA tools for Gate-All-Around (GAA) transistor design?"
+prompt.distractors = [
+    "Because GAA transistors require fundamentally new materials that only American chemical suppliers can provide",
+    "Because GAA EDA tools contain encryption algorithms classified under U.S. munitions export control regulations",
+    "Because GAA design flows are only available from Synopsys and blocking them blocks all Chinese chip design"
+]
+answer.answer = "Because even if SMIC acquired 2nm manufacturing equipment, designers couldn't create GAA chips without the specialized EDA software"
+context = "The GAA EDA restriction is strategically clever: it targets the design side of the equation. Without tools from Synopsys and Cadence for GAA transistor design, Chinese companies can't design chips for the next transistor architecture — regardless of what manufacturing capabilities they develop."

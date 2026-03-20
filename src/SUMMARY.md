@@ -37,3 +37,4 @@
 - [Day 22: TSMC](./day-22.md)
 - [Day 23: The Semiconductor Supply Chain](./day-23.md)
 - [Day 24: The CHIPS Act & Semiconductor Nationalism](./day-24.md)
+- [Day 25: China's Chip Ambitions](./day-25.md)
