@@ -40,3 +40,4 @@
 - [Day 25: China's Chip Ambitions](./day-25.md)
 - [Day 26: Analog & Specialty Chips](./day-26.md)
 - [Day 27: The Economics](./day-27.md)
+- [Day 28: What's Next](./day-28.md)
