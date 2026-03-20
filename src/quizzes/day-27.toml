@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "A leading-edge 3nm fab costs approximately $20–28 billion. What single equipment category consumes the largest share of that capital investment?"
+prompt.distractors = [
+    "Deposition chambers for atomic-layer and chemical-vapor deposition processes",
+    "Metrology and inspection tools including e-beam review and optical CD systems",
+    "CMP polishers, wet clean stations, and ion implantation equipment combined"
+]
+answer.answer = "EUV lithography scanners at $350–400M each, with 15–20 units needed per fab"
+context = "EUV scanners represent $6–8B of a fab's tool investment (15–20 units × ~$380M each), making lithography the single largest equipment expenditure by a wide margin."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What is the approximate total manufacturing cost to process a single 300mm wafer through TSMC's N3 (3nm-class) process?"
+prompt.distractors = [
+    "$3,000–5,000, mostly driven by raw silicon wafer cost and basic chemical processing",
+    "$8,000–10,000, dominated by lithography and a smaller contribution from etch steps",
+    "$40,000–50,000, reflecting the full cost of EUV tools amortized over limited wafer volume"
+]
+answer.answer = "$16,000–20,000, with lithography consuming 30–40% and deposition/etch another 25–30%"
+context = "Leading-edge N3 wafers cost roughly $16,000–20,000 to process. Lithography is the largest cost component (30–40%), followed by deposition and etch (25–30%), with metrology, CMP, and other steps making up the rest."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why did AMD's chiplet strategy for EPYC processors represent a major economic advantage over monolithic die designs?"
+prompt.distractors = [
+    "Chiplets allowed AMD to skip EUV lithography entirely and use cheaper DUV-only processes for all components",
+    "Chiplets eliminated the need for advanced packaging, reducing total manufacturing cost by over 60%",
+    "Chiplets let AMD use a single universal die across desktop, laptop, and server markets without redesigns"
+]
+answer.answer = "Smaller chiplet dies maintained high yield per die while still assembling into large multi-die products"
+context = "Die size and yield interact multiplicatively — doubling die area both halves dice-per-wafer AND reduces yield because larger dies catch more random defects. AMD's chiplets kept each die small (high yield) while combining them into massive server processors."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "According to IBS estimates, what is the approximate total cost to design a chip at the 3nm process node?"
+prompt.distractors = [
+    "$50–80 million, primarily driven by mask set costs and basic EDA tool licensing fees",
+    "$150–200 million, dominated by ARM licensing royalties and physical IP block purchases",
+    "$1.5–2.0 billion, reflecting the full loaded cost of all engineers over the design cycle"
+]
+answer.answer = "$590–800 million, with verification consuming 60–70% and EDA licenses at $50–100M annually"
+context = "IBS estimates 3nm design costs at $590–800M. Verification and validation consume 60–70% of the effort, EDA tool licenses run $50–100M/year, and mask sets alone cost $10–20M. This has reduced the number of companies designing at leading-edge to fewer than 15–20."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What industry term describes the observation that semiconductor fabrication facility costs double approximately every four years?"
+answer.answer = "Rock's Law"
+answer.alternatives = ["Rocks Law", "Moore's Second Law", "Moores Second Law"]
+context = "Named after venture capitalist Arthur Rock, Rock's Law (also called Moore's Second Law) observes that fab costs double roughly every four years, creating an exponential barrier to entry in leading-edge manufacturing."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Why can Texas Instruments achieve 58–62% gross margins while operating fabs that use 10–20 year old process technology?"
+prompt.distractors = [
+    "TI receives substantial government subsidies that offset most of their manufacturing operating expenses",
+    "TI's analog chips require far fewer lithography steps than digital chips, reducing per-wafer cost by 90%",
+    "TI has exclusive licensing agreements with ASML for refurbished tools at a fraction of original price"
+]
+answer.answer = "Their fabs are fully depreciated, so equipment that cost billions when new contributes zero capital cost to current wafers"
+context = "Depreciation is a major component of wafer cost. Once fab equipment is fully depreciated (paid off over 5–7 years), the manufacturing cost per wafer drops dramatically, enabling enormous margins on mature-node products that still command healthy selling prices."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "What happens economically when a leading-edge fab's utilization rate drops significantly below 80%?"
+prompt.distractors = [
+    "The fab can quickly retool for mature-node production to maintain revenue during demand downturns",
+    "Variable costs like chemicals and gases dominate, so reduced volume causes only proportional revenue loss",
+    "ASML contractually absorbs idle tool costs through guaranteed revenue-sharing agreements with foundries"
+]
+answer.answer = "Fixed costs from equipment depreciation and facility maintenance continue regardless, turning idle capacity into catastrophic cash burn"
+context = "Semiconductor fabs have extremely high fixed costs (equipment depreciation, cleanroom maintenance, staffing). Most costs are incurred whether the tools run or not, so utilization below 80% means paying billions in fixed costs without generating enough wafer revenue to cover them."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "A complete set of photomasks for a 3nm chip design costs approximately $10–20 million. What makes a 'mask respin' particularly costly beyond the mask set itself?"
+prompt.distractors = [
+    "Respin requires purchasing new EDA tool licenses for each mask revision at $5–10 million per respin",
+    "Each respin requires ASML to physically recalibrate every EUV scanner in the fab for the new pattern",
+    "Mask respins trigger re-qualification of all wafer-level processing steps from scratch under ISO standards"
+]
+answer.answer = "Beyond the $10–20M replacement cost, a respin adds 2–3 months of schedule delay to an already multi-year design program"
+context = "A mask respin means manufacturing an entirely new set of masks ($10–20M) and adds 2–3 months of delay. For products with tight market windows, the schedule impact can be even more damaging than the direct cost — it's why pre-silicon verification consumes 60–70% of design effort."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "In what year did GlobalFoundries abandon leading-edge process development, freezing at the 12nm/14nm node?"
+answer.answer = "2018"
+answer.alternatives = ["2018"]
+context = "GlobalFoundries announced in August 2018 that it would stop developing 7nm and beyond, instead focusing on profitable mature-node manufacturing. This was a recognition that the capital requirements for leading-edge had become unsustainable for all but the top 2–3 foundries."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "The cost per transistor has fallen by roughly 8 orders of magnitude since 1970, yet fewer companies can afford to manufacture at each new node. What economic concept best captures this paradox?"
+prompt.distractors = [
+    "The tragedy of the commons, where shared access to ASML tools depletes available capacity for all foundries equally",
+    "Economies of scope, where diversifying into multiple product lines reduces per-unit transistor manufacturing costs",
+    "The Jevons paradox, where cheaper transistors increase demand so rapidly that total industry spending rises faster than savings"
+]
+answer.answer = "A variant of Baumol's cost disease in reverse, where each generation of automation costs dramatically more even as per-unit output costs fall"
+context = "The semiconductor industry exhibits an inverted Baumol's cost disease: transistors are nearly free per unit, but the fixed cost of accessing each new generation of cheap transistors rises to levels only a handful of entities can afford — like water being nearly free per gallon but a new treatment plant costing $30 billion."

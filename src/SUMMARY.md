@@ -39,3 +39,4 @@
 - [Day 24: The CHIPS Act & Semiconductor Nationalism](./day-24.md)
 - [Day 25: China's Chip Ambitions](./day-25.md)
 - [Day 26: Analog & Specialty Chips](./day-26.md)
+- [Day 27: The Economics](./day-27.md)
