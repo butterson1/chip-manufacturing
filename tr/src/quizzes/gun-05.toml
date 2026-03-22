@@ -1,0 +1,119 @@
+# Gün 5 Testi: Mantık Kapılarından CPU'lara — Milyarlarca Aptal Anahtar Düşünmeyi Nasıl Öğrenir?
+
+## Yeni Sorular (6)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "CMOS mantık tasarımında NAND kapıları neden AND kapılarına göre temel yapı taşı olarak tercih edilir?"
+prompt.distractors = [
+    "AND kapıları, 10nm'nin altındaki proses nodlarında elde edilmesi güç eşleştirilmiş PMOS ve NMOS boyutlandırma oranları gerektirir",
+    "NAND kapıları, transistör istifleme eşik altı akım yollarını azalttığından daha az statik sızıntı gücü tüketir",
+    "AND kapıları, giriş geçişleri sırasında derin boru hattı aşamalarındaki aşağı akış mantığını bozan glitch üretir"
+]
+answer.answer = "CMOS transistors are naturally inverting, so NAND requires only 4 transistors while AND requires 6 (a NAND plus an inverter)"
+context = "En basit CMOS devresi olan evirici, doğası gereği girişini çevirir. Çevirmesiz kapılar oluşturmak ek bir evirici aşaması gerektirir. NAND tersyüz ödevi doğal olarak içerdiğinden AND'ın 6 yerine yalnızca 4 transistör kullanır. Ayrıca NAND, NOR'dan daha hızlıdır; çünkü NAND'da çıkışı düşük süren NMOS transistörler PMOS'tan 2-3 kat daha yüksek taşıyıcı hareketliliğine sahiptir."
+id = "d5-q1-nand-preference"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Taşıma öngörümlü toplayıcı (carry-lookahead adder) hangi sorunu çözer ve bu iyileştirmeyi nasıl başarır?"
+prompt.distractors = [
+    "Toplayıcı ağacındaki transistör sızıntısını, boşta geçen yarı döngülerde ön yükleme yapan dinamik mantık kapıları kullanarak ortadan kaldırır",
+    "Toplayıcıdaki bitişik bit konumları arasında kısmi çarpım satırlarını paylaşarak toplam transistör sayısını azaltır",
+    "Saat kenarı gelmeden önce kararlı taşıma sinyalleri üreterek çıkış flip-floplarındaki metaistikrarsızlığı önler"
+]
+answer.answer = "It eliminates the serial carry ripple delay by pre-computing all carry bits in parallel using generate and propagate signals in O(log n) time"
+context = "Dalgalanmalı taşımalı toplayıcıda her bit konumu, önceki konumdaki taşıyı beklemek zorundadır; bu O(n) gecikme verir. Taşıma öngörümlü toplayıcılar, tüm taşıların O(log₂ n) kapı gecikmesiyle eş zamanlı hesaplanmasını sağlayan 'üret' (her iki giriş 1) ve 'yay' (girişlerden biri 1) sinyalleri hesaplar. 64 bitlik bir toplama, 128 yerine yaklaşık 12 kapı gecikmesinde tamamlanır."
+id = "d5-q2-carry-lookahead"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İkiye tümleyen gösterim, CPU'da ayrı çıkarma donanımı ihtiyacını nasıl ortadan kaldırır?"
+prompt.distractors = [
+    "İkiye tümleyen, çıkarmayı bitsel NOR işlemi ve ardından bir artırma işlemine dönüştürerek ALU'da zaten bulunan NOR dizisini yeniden kullanır",
+    "İkiye tümleyen, negatif sayıları kaydırılmış pozitif değerler olarak kodlar ve kod çözücünün işlenenleri mevcut çarpan üzerinden yeniden yönlendirmesine izin verir",
+    "İkiye tümleyen, işareti ayrı bir bayrak kaydedicisinde tutar ve aynı veri yolunun her iki işlem için de işaretsiz büyüklükleri işlemesini sağlar"
+]
+answer.answer = "Subtracting B from A becomes inverting all bits of B (via XOR with a control signal) and adding 1 via the carry-in, reusing the same adder circuit"
+context = "İkiye tümleyende -B, ~B + 1'e eşittir (bitsel ters alma artı bir). Donanım bunu, B'nin her bitini 'çıkart' kontrol sinyaliyle XOR'layarak (çıkarma sırasında B'yi tersine çevirir) ve toplayıcının taşıma girişini 1 olarak ayarlayarak gerçekler. Aynı toplayıcı, tek bir mod bitine göre hem toplama hem de çıkarma işlemini yapar."
+id = "d5-q3-twos-complement"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "İki NAND kapısı çapraz bağlandığında (her birinin çıkışı diğerinin girişine bağlanınca) hangi devre oluşur?"
+answer.answer = "SR latch"
+answer.alternatives = ["set-reset latch", "S-R latch", "latch", "bistable"]
+context = "İki NAND kapısını çapraz bağlamak iki kararlı durumlu bir devre — SR (Kur-Sıfırla) mandalı — oluşturur. İki kararlı durumu vardır ve itildiği durumda kalır; bu yapı tüm dijital belleğin temel yapı taşını oluşturur. D flip-flop ise üzerine geçit mantığı ve kenar tetikleme eklenerek bu yapıdan türetilir."
+id = "d5-q4-cross-coupled"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "x86 ISA programcılara yalnızca 16 genel amaçlı kaydedici sunarken Intel'in Golden Cove gibi modern bir CPU çekirdeği neden ~280 fiziksel tamsayı kaydedicisi içerir?"
+prompt.distractors = [
+    "Ekstra kaydediciler, kod çözücünün çalıştırmadan önce x86 talimatlarını dönüştürdüğü mikrokod dizilerini depolar",
+    "16 mimari kaydedicinin her biri, yüksek saat hızlarında sinyal bütünlüğünü korumak amacıyla birden fazla voltaj alanında çoğaltılmıştır",
+    "Ek kaydediciler, son koşullu talimatların sonucunu izleyen dal tahmini geçmişi tablolarını tutar"
+]
+answer.answer = "The extra physical registers enable register renaming, which eliminates false data dependencies and allows out-of-order execution of more instructions in parallel"
+context = "Kaydedici yeniden adlandırma, mimari kaydedicileri daha büyük bir fiziksel kaydedici havuzuna eşler. Bu, CPU'nun talimatları gereksiz yere serileştirmesine neden olacak yaz-sonra-yaz ve yaz-sonra-oku tehlikelerini (yanlış bağımlılıklar) ortadan kaldırır. 280 fiziksel kaydedici ile çekirdek, aynı mimari kaydedici adına başvursalar bile farklı fiziksel kaydediciler kullanan yüzlerce talimatı aynı anda havada tutabilir."
+id = "d5-q5-register-renaming"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Von Neumann'ın 1945'te dile getirdiği üzere hesap makinesi ile saklı program bilgisayarı arasındaki temel fark nedir?"
+prompt.distractors = [
+    "Hesap makinesi sabit noktalı aritmetikle veri işlerken saklı program bilgisayarı yapılandırılabilir hassasiyetle kayan nokta gösterimi kullanır",
+    "Hesap makinesi tek bir veri akışı üzerinde işlemleri sırayla yürütürken saklı program bilgisayarı birden fazla veri akışını paralel olarak işleyebilir",
+    "Hesap makinesi saat sinyali olmayan kombinasyonel mantık kullanırken saklı program bilgisayarı işlemleri sıralamak için eş zamanlı saat gerektirir"
+]
+answer.answer = "A stored-program computer stores instructions in the same memory as data and uses a generic circuit that reads and executes them, making it programmable"
+context = "Von Neumann'ın temel içgörüsü (Turing ve ENIAC ekibinin çalışmaları üzerine inşa edilen) talimatlar ile verinin aynı belleği paylaşması ve genel amaçlı bir çalıştırma biriminin talimatları bellekten okuyup uygulamasıydı. Bu, aynı donanımın herhangi bir programı çalıştırabileceği anlamına gelir; oysa hesap makinesinde işlemler üretim aşamasında sabit biçimde bağlanmaktadır."
+id = "d5-q6-stored-program"
+
+## Tekrar Soruları — Son (Gün 3-4)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Fotolitografide, maske deseni geometrik olarak doğru olsa bile optik yakınlık düzeltmesi (OPC) neden gereklidir?"
+prompt.distractors = [
+    "Fotodirençteki moleküller UV pozlama sırasında termal genleşme yaşayarak yapıların maske boyutlarına göre %5-10 küçülmesine neden olur",
+    "Maskedeki krom emici katman sonlu kalınlığı nedeniyle pozlama alanı kenarlarında paralaks hatalarına yol açar",
+    "Tarama sırasında wafer platformu motorlarının titreşimleri, özellik kenarlarını öngörülemeyen biçimde bulanıklaştıran rastgele konum sarsıntısı oluşturur"
+]
+answer.answer = "Diffraction causes light passing through mask features near or below the wavelength to spread and interfere, distorting the projected pattern on the wafer"
+context = "Yapı boyutları kullanılan ışığın dalga boyuna (ArF immersiyonlu litografi için 193nm) yaklaştığında kırınım etkileri şiddetlenir. Işık, maske kenarlarında kıvrılır; komşu özellikler arasındaki parazit köşelerin yuvarlanmasına, çizgilerin kısalmasına ve yoğun desenlerin yalıtılmış olanlardan farklı basılmasına yol açar. OPC, bozulmuş hava görüntüsünün amaçlanan deseni üretmesi için maske şekillerini önceden bozar."
+id = "d5-q7-review-opc"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Moore'un gözlemi, transistörlerin her iki yılda bir ikiye katlandığından değil, özellikle çip başına en uygun bileşen sayısının üstel biçimde ilerlediğinden ibaretti. Bu optimumu ne belirler?"
+prompt.distractors = [
+    "Parazitik kapasitans transistör anahtarlama eşiğini aşmadan önce üst üste yığılabilen metal ara bağlantı katmanı sayısının azami sınırı",
+    "Aynı anda anahtarlama yapabilecek aktif transistör sayısını eklem sıcaklığı sınırlarını aşmadan belirleyen termal tasarım gücü zarfı",
+    "Her proses kuşağıyla birlikte besleme voltajı ölçeklenirken kabul edilebilir gürültü marjlarını korumak için gereken minimum transistör eşik voltajı"
+]
+answer.answer = "The sweet spot where cost per transistor is lowest — too few wastes silicon area, too many crashes yield because defects kill oversized dies"
+context = "Moore Yasası özünde fiziksel değil ekonomik bir gözlemdir. Herhangi bir zamanda transistör başına maliyetin en düşük olduğu en uygun kalıp boyutu vardır. Daha küçük kalıplar, pahalı wafer alanını skribe yollarına ve paketleme yüküne harcar; daha büyük kalıplarda ise tek bir hata daha büyük (ve daha pahalı) bir çipi çöpe çevirdiğinden verim düşer. Bu ekonomik optimum tutarlı bir üstel hızda ilerledi."
+id = "d5-q8-review-moores-optimum"
+
+## Tekrar Soruları — Eski (Gün 1-2)
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Wafer dilimlerinin kesildiği tek kristalli silikon külçelerini üretmek için hangi kristal büyüme yöntemi kullanılır?"
+answer.answer = "Czochralski"
+answer.alternatives = ["Czochralski method", "Czochralski process", "CZ", "CZ method"]
+context = "Czochralski (CZ) süreci, bir tohum kristali ~1.414°C'deki erimiş silikona daldırmayı ve döndürerek yavaşça yukarı çekmeyi içerir; böylece silindirik tek kristalli bir külçe büyütülür. 300mm waferler için modern külçeler yaklaşık 2 metre uzunluğunda olup 100 kg'ın üzerinde ağırlığa sahiptir. Süreç, milyar silikon atomundan birinden daha az safsızlık içerecek biçimde mutlak saf malzeme gerektirir."
+id = "d5-q9-review-czochralski"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Sektör neden 22nm nodunda düzlemsel MOSFET'lerden FinFET (üç kapılı) transistörlere geçti?"
+prompt.distractors = [
+    "Düzlemsel MOSFET'ler, besleme voltajı 0,9V'un altına düştükçe SRAM hücre kararlılığı için gereken eşik voltajlarını elde edemedi",
+    "22nm'de bakır ara bağlantıya geçiş, farklı metal tane yapısını barındırmak için dikey transistör geometrisi gerektirdi",
+    "Düzlemsel kapı oksitleri, 22nm yapı boyutları için gereken kalınlıklarda 300mm waferler üzerine düzgün çöktürülemedi"
+]
+answer.answer = "The gate in a planar MOSFET could no longer control the channel effectively at short lengths, causing excessive leakage; FinFETs wrap the gate around three sides of the channel for better electrostatic control"
+context = "Düzlemsel MOSFET'ler ~30nm kapı uzunluğunun altına inerken kapı, kanal üzerindeki elektrostatik kontrolünü yitirdi; bu sorun kısa kanal etkileri olarak adlandırılır. Transistör 'kapalı' olsa bile kaynak ile dren arasında akım sızdı. FinFET'ler, kanalı yan tarafta ince bir fin olarak dikeyleştirip kapıyı üç yüzeye sararak bu sorunu çözer. Bu üç kapılı yapı çok daha güçlü kontrol sağlar ve sızıntıyı önemli ölçüde azaltır. Intel, FinFET'leri 2012'de 22nm'de ticari olarak piyasaya sürdü."
+id = "d5-q10-review-finfet"

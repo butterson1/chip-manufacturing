@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Çin'in Ulusal Entegre Devre Yatırım Fonu'nun (Büyük Fon) üç aşamasındaki toplam sermayeleşme miktarı yaklaşık olarak neydi?"
+prompt.distractors = [
+    "Yaklaşık ¥204 milyar (~29 milyar dolar), öncelikli olarak ekipman ve malzeme şirketlerine odaklandı",
+    "Yaklaşık ¥344 milyar (~47 milyar dolar), öncü teknoloji döküm inşaat projelerine yoğunlaştı",
+    "Yaklaşık ¥138 milyar (~21 milyar dolar), tasarım ve üretim sektörlerine eşit biçimde dağıtıldı"
+]
+answer.answer = "Yaklaşık ¥686 milyar (~97 milyar dolar), tasarım, üretim, paketleme, ekipman ve malzemelere yatırım yapıldı"
+context = "Büyük Fon üç aşamadan oluştu: 1. Aşama ¥138,7 milyar (~21 milyar dolar), 2. Aşama ¥204,1 milyar (~29 milyar dolar) ve 3. Aşama ¥344 milyar (~47,5 milyar dolar); toplam ¥686 milyarı (~97 milyar dolar) aşıyor. Seçeneklerde listelenen her rakam yalnızca tek bir aşamayı temsil etmekte olup toplam tutarı yansıtmamaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "SMIC'in EUV litografi kullanmaksızın 7nm sınıfı özelliklere ulaştığı iddiasının ardındaki yöntem nedir?"
+prompt.distractors = [
+    "Elektron ışını doğrudan yazma litografisi kullanarak her kritik katmanı wafer üzerinde seri biçimde desenlemek",
+    "ASML'nin NXT:2050i'sini çift desenleme ve gelişmiş optik yakınlık düzeltme teknikleriyle kullanmak",
+    "Silikon nitrür membran maskeler ve senkrotron radyasyonuyla X-ışını yakınlık litografisi kullanmak"
+]
+answer.answer = "ASML'nin NXT:2000i DUV daldırma tarayıcısını öz-hizalı dörtlü desenleme (SAQP) ile birlikte kullanmak"
+context = "SMIC, TSMC'nin 2018'de ilk nesil N7'de uyguladığı yaklaşımın aynısını kullanıyor: çok katmanlı desenlemeyle 193nm daldırmalı DUV. SAQP, her kritik katman için dört pozlama gerektiriyor; bu da tek EUV pozlamalarına kıyasla litografi süresini, maske sayısını ve kusur riskini önemli ölçüde artırıyor."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "SMIC'in 7nm sınıfı Kirin 9000S sürecindeki tahmini verim aralığı nedir ve bu TSMC'nin olgun 7nm verimleriyle nasıl karşılaştırılır?"
+prompt.distractors = [
+    "SMIC %50-60 verim elde ediyor; bu değer %90'ın üzerindeki TSMC olgun 7nm verimlerinin yaklaşık üçte ikisi",
+    "SMIC %40-50 verim elde ediyor; ticari uygulanabilirliğe yaklaşıyor ancak TSMC'nin %85 referans değerinin altında kalıyor",
+    "SMIC son iyileştirmelerden sonra %70-80 verim elde ediyor; TSMC'nin %90+ verimleriyle aradaki farkı daraltıyor"
+]
+answer.answer = "SMIC yaklaşık %10-30 verim elde ediyor; TSMC'nin olgun 7nm verimleri ise %90'ın üzerinde seyredediyor"
+context = "Düşük verim, kalıpların %70-90'ının kusurlu olup atıldığı anlamına gelir; bu da çalışan yonga başına etkin maliyeti TSMC'ninkinin yaklaşık 6 katına çıkarır. Bu durum siyasi açıdan öne çıkarılan bir amiral ürün için kabul edilebilir olsa da ölçekte ticari rekabet gücü açısından yıkıcıdır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "ABD'nin yarı iletken ekipmanına yönelik servis kısıtlamasının neden bu denli etkili olduğu düşünülmektedir?"
+prompt.distractors = [
+    "Çünkü ekipman yazılım lisansları yıllık dolmakta ve ABD izni olmadan yenilenememektedir",
+    "Çünkü yeni ekipmanlar ilk kurulum ve kalibrasyon için Amerikalı mühendisler gerektirmektedir",
+    "Çünkü ekipman yedek parçaları, her seferinde ayrı ihracat lisansı gerektiren kontrollü maddeler içermektedir"
+]
+answer.answer = "Çünkü OEM bakımı olmaksızın tarayıcı örtüşme doğruluğu 12-18 ay içinde bozulmakta, ekipmanlar ise 2-3 yıl içinde kullanılamaz hale gelebilmektedir"
+context = "Yarı iletken üretim ekipmanları sürekli bakım gerektirir; lazer kaynağı değişimleri, hazne yenilemeleri, yazılım güncellemeleri. Orijinal üreticinin servis mühendisleri ve parçaları olmaksızın ekipmanlar fiziksel olarak bozulur; bu nedenle servis kısıtlaması, halihazırda kurulu ekipmanlar için bile bir zaman bombası niteliği taşır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "SMEE'nin en gelişmiş litografi tarayıcısı ile ASML'nin mevcut üretim DUV tarayıcısı arasındaki yaklaşık çözünürlük farkı nedir?"
+prompt.distractors = [
+    "SMEE 28nm çözünürlük elde ederken ASML 7nm'ye ulaşıyor; bu yaklaşık 8-10 yıllık bir farka karşılık geliyor",
+    "SMEE 65nm çözünürlük elde ederken ASML 28nm'ye ulaşıyor; bu yaklaşık 12-15 yıllık bir farka karşılık geliyor",
+    "SMEE 45nm çözünürlük elde ederken ASML 13nm'ye ulaşıyor; bu yaklaşık 15-18 yıllık bir farka karşılık geliyor"
+]
+answer.answer = "SMEE 90nm çözünürlük elde ederken ASML 38nm yarı adım değerine ulaşıyor; bu yaklaşık 20 yıllık bir farka karşılık geliyor"
+context = "SMEE'nin SSA/800-10W modeli 90nm çözünürlük sunuyor; bu değer ASML'nin yaklaşık 2004'teki düzeyine denk geliyor. ASML'nin mevcut NXT:2050i'si tek desenlemeyle 38nm yarı adım değerine ulaşıyor. Litografi, Çin'in yerli ekipman hamlesindeki en büyük teknoloji açığı konumundadır."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "2017 yılında SMIC'in eş CEO'su olan ve 14nm ile 7nm geliştirmeyi hızlandırdığı öne sürülen eski TSMC Ar-Ge eş direktörünün adı nedir?"
+answer.answer = "Liang Mong-Song"
+answer.alternatives = ["Mong-Song Liang", "Liang Mongsong"]
+context = "Liang Mong-Song, SMIC'e katılmadan önce TSMC'nin 16nm FinFET'ini ve Samsung'un 14nm FinFET'ini geliştirmeye katkıda bulundu. Tayvan, bu tür girişimlere yanıt olarak belirli yarı iletken yetenek transferi biçimlerini suç kapsamına almıştır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Huawei Ascend 910B yapay zeka hızlandırıcısının eğitim performansı açısından NVIDIA'nın A100 ve H100'üyle karşılaştırıldığında nasıl olduğu bildirilmektedir?"
+prompt.distractors = [
+    "Bir A100'ün yaklaşık %90-95'i ve bir H100'ün %70-80'i; çoğu iş yükü için neredeyse rekabetçi düzeyde",
+    "Bir A100'ün yaklaşık %30-40'ı ve bir H100'ün %15-20'si; yalnızca çıkarım odaklı dağıtım senaryolarıyla sınırlı",
+    "Bir A100'e yaklaşık eşit ve bir H100'ün yaklaşık %50'si; önceki nesilde eşitlik sağlanmış"
+]
+answer.answer = "Bir A100'ün yaklaşık %60-80'i ve bir H100'ün %30-40'ı; NVIDIA yongalarını yasal olarak satın alamayan kuruluşlar için yeterli"
+context = "SMIC'in 7nm sınıfı sürecinde üretilen Ascend 910B, NVIDIA'nın ürünlerine kıyasla anlamlı ancak eşdeğer olmayan bir performans sunuyor. NVIDIA yongası satın alması yasaklanan Çinli şirketler ve devlet kuruluşları için bir A100'ün %60'ı, bir H100'ün %0'ından sonsuz kat daha iyidir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "SMIC'in gelirinin olgun düğümlerden (28nm ve üzeri) gelen payı nedir?"
+prompt.distractors = [
+    "Yaklaşık %40-50; gelirlerin büyük çoğunluğu rekabetçi 14nm ve 7nm sınıfı ürünlerden geliyor",
+    "Yaklaşık %55-60; olgun ve gelişmiş düğüm teklifleri arasında dengeli bir portföyü yansıtıyor",
+    "Yaklaşık %85-90; 28nm altı herhangi bir süreçten neredeyse hiç gelir katkısı bulunmuyor"
+]
+answer.answer = "%70'in üzerinde; 14nm ve altı gelişmiş düğümler %20'nin altında katkı sağlarken 7nm son derece küçük bir pay oluşturuyor"
+context = "SMIC'in stratejik önemi, aslında öncü teknolojiden çok olgun düğümlerde kendi kendine yeterliliğiyle ilgilidir. Çin'in gerçek yarı iletken açığı, otomotiv, endüstriyel ve askeri uygulamalar için sıradan 28nm-90nm yongalarındadır. SMIC'in devasa 28nm fab genişlemesi bu daha acil sorunu ele almaktadır."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Çin fablarının 2027 yılına kadar küresel olgun düğüm kapasitesinin (28nm ve üzeri) ne kadarını oluşturması beklenmektedir?"
+answer.answer = "30%"
+answer.alternatives = ["over 30%", "30 percent", ">30%", "about 30%"]
+context = "Çin fablarının 2022'deki yaklaşık %18'den 2027'ye kadar küresel olgun düğüm kapasitesinin %30'undan fazlasını oluşturması öngörülüyor. Bu yoğunlaşma, dünyanın geri kalanının Çin'in olgun yongalarına bağımlı hale gelebileceği endişelerini doğuruyor; bu da Çin'in gelişmiş yongalar için TSMC'ye olan bağımlılığının ayna görüntüsüdür."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Ekim 2022 ihracat kontrolleri neden özellikle Çevre Kapı Dizi (GAA) transistör tasarımına yönelik EDA araçlarını hedef aldı?"
+prompt.distractors = [
+    "Çünkü GAA transistörler yalnızca Amerikalı kimyasal tedarikçilerin sağlayabileceği temelden yeni malzemeler gerektiriyor",
+    "Çünkü GAA EDA araçları, ABD mühimmat ihracat kontrolü yönetmelikleri kapsamında sınıflandırılmış şifreleme algoritmaları içeriyor",
+    "Çünkü GAA tasarım akışları yalnızca Synopsys ve Cadence'tan temin edilebilir; bu firmaların engellenmesi tüm Çin yonga tasarımını bloke ediyor"
+]
+answer.answer = "Çünkü SMIC 2nm üretim ekipmanı edinse bile tasarımcılar özel EDA yazılımı olmaksızın GAA yongaları tasarlayamazdı"
+context = "GAA EDA kısıtlaması stratejik açıdan zekice bir hamledir: denklemin tasarım tarafını hedef alıyor. Synopsys ve Cadence'ın GAA transistör tasarımına yönelik araçları olmaksızın Çinli şirketler, geliştirdikleri üretim kapasitesinden bağımsız olarak bir sonraki transistör mimarisine uygun yongalar tasarlayamazlar."

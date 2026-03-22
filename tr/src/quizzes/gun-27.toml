@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Öncü teknoloji 3nm fab yaklaşık 20-28 milyar dolara mal oluyor. Bu sermaye yatırımının en büyük payını hangi tek ekipman kategorisi tüketiyor?"
+prompt.distractors = [
+    "Atomik katman ve kimyasal buhar biriktirme süreçleri için biriktirme odaları",
+    "E-ışını inceleme ve optik CD sistemleri dahil metroloji ve denetim araçları",
+    "CMP parlatıcılar, ıslak temizlik istasyonları ve iyon implantasyon ekipmanlarının toplamı"
+]
+answer.answer = "Her biri 350-400 milyon dolar tutan ve fab başına 15-20 adet gereken EUV litografi tarayıcıları"
+context = "EUV tarayıcılar bir fabin alet yatırımının 6-8 milyar dolarını oluşturuyor (15-20 adet × yaklaşık 380 milyon dolar); bu da litografiyi en büyük ekipman harcama kalemi haline getiriyor."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Tek bir 300mm waferi TSMC'nin N3 (3nm sınıfı) sürecinden geçirmenin yaklaşık toplam üretim maliyeti nedir?"
+prompt.distractors = [
+    "3.000-5.000 dolar; ağırlıklı olarak ham silikon wafer maliyeti ve temel kimyasal işleme ile şekilleniyor",
+    "8.000-10.000 dolar; litografi baskın maliyet kalemi, aşındırma adımları daha küçük bir katkı sağlıyor",
+    "40.000-50.000 dolar; sınırlı wafer hacmine göre amortize edilmiş EUV alet maliyetinin tamamını yansıtıyor"
+]
+answer.answer = "16.000-20.000 dolar; litografi %30-40 ve biriktirme/aşındırma %25-30 payıyla en büyük maliyet kalemleri"
+context = "Öncü teknoloji N3 waferleri işlemek için yaklaşık 16.000-20.000 dolara mal oluyor. Litografi en büyük maliyet bileşeni (%30-40), bunu biriktirme ve aşındırma (%25-30) takip ediyor; metroloji, CMP ve diğer adımlar geri kalanı oluşturuyor."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD'nin EPYC işlemciler için chiplet stratejisi, monolitik kalıp tasarımlarına kıyasla neden büyük bir ekonomik avantaj sağladı?"
+prompt.distractors = [
+    "Chiplet'ler AMD'nin EUV litografisini tamamen atlamasına ve tüm bileşenler için daha ucuz yalnızca-DUV süreçleri kullanmasına olanak tanıdı",
+    "Chiplet'ler gelişmiş paketleme ihtiyacını ortadan kaldırdı; toplam üretim maliyetini %60'tan fazla düşürdü",
+    "Chiplet'ler AMD'nin yeniden tasarım yapmadan masaüstü, dizüstü ve sunucu pazarlarında tek bir evrensel kalıp kullanmasına imkân verdi"
+]
+answer.answer = "Daha küçük chiplet kalıpları kalıp başına yüksek verim korurken büyük çok kalıplı ürünlerde bir araya getirilebildi"
+context = "Kalıp boyutu ve verim çarpımsal biçimde etkileşir; kalıp alanını ikiye katlamak hem wafer başına kalıp sayısını yarıya indirir hem de daha büyük kalıplar daha fazla rastgele kusur yakaladığından verimi düşürür. AMD'nin chiplet'leri her kalıbı küçük (yüksek verimli) tutarken bunları devasa sunucu işlemcilerinde bir araya getirdi."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "IBS tahminlerine göre 3nm süreç düğümünde bir yonga tasarlamanın yaklaşık toplam maliyeti nedir?"
+prompt.distractors = [
+    "50-80 milyon dolar; ağırlıklı olarak maske seti maliyetleri ve temel EDA alet lisans ücretleriyle şekilleniyor",
+    "150-200 milyon dolar; ARM lisans telif ücretleri ve fiziksel IP bloğu satın alımlarıyla baskın maliyet kalemi oluşuyor",
+    "1,5-2,0 milyar dolar; tasarım döngüsü boyunca tüm mühendislerin tam yüklenmiş maliyetini yansıtıyor"
+]
+answer.answer = "590-800 milyon dolar; doğrulama %60-70 payıyla baskın kalem, EDA lisansları ise yıllık 50-100 milyon dolar"
+context = "IBS, 3nm tasarım maliyetlerini 590-800 milyon dolar olarak tahmin ediyor. Doğrulama ve geçerleme çabanın %60-70'ini tüketiyor, EDA alet lisansları yılda 50-100 milyon dolara çıkıyor ve yalnızca maske setleri 10-20 milyon dolara mal oluyor. Bu durum, öncü teknolojide tasarım yapan şirket sayısını 15-20'nin altına indirdi."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Yarı iletken üretim tesisi maliyetlerinin yaklaşık dört yılda bir ikiye katlandığı gözlemini tanımlayan sektör terimi nedir?"
+answer.answer = "Rock's Law"
+answer.alternatives = ["Rocks Law", "Moore's Second Law", "Moores Second Law"]
+context = "Risk sermayedarı Arthur Rock'ın adıyla anılan Rock Yasası (Moore'un İkinci Yasası olarak da bilinir), fab maliyetlerinin yaklaşık dört yılda bir iki katına çıktığını ve öncü teknoloji üretiminde üstel biçimde büyüyen bir giriş engeli yarattığını gözlemler."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Texas Instruments 10-20 yıllık süreç teknolojisi kullanan fablar işletirken neden %58-62 brüt marj elde edebiliyor?"
+prompt.distractors = [
+    "TI, üretim işletme giderlerinin büyük bölümünü karşılayan önemli devlet sübvansiyonları alıyor",
+    "TI'ın analog yongaları dijital yongalara kıyasla çok daha az litografi adımı gerektiriyor; wafer başına maliyeti %90 düşürüyor",
+    "TI, ASML ile yenilenen aletler için orijinal fiyatın çok altında özel lisans anlaşmaları imzaladı"
+]
+answer.answer = "Fabları tamamen amortize edildi; bu nedenle yeni olduğunda milyarlara mal olan ekipmanlar mevcut waferler için sıfır sermaye maliyeti yaratıyor"
+context = "Amortisman, wafer maliyetinin önemli bir bileşenidir. Fab ekipmanı tamamen amortize edildiğinde (5-7 yılda ödendiğinde) wafer başına üretim maliyeti dramatik biçimde düşer; bu da sağlıklı satış fiyatlarını koruyan olgun düğüm ürünlerde devasa marjlara yol açar."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Öncü teknoloji bir fabin kullanım oranı %80'in önemli ölçüde altına düştüğünde ekonomik olarak ne olur?"
+prompt.distractors = [
+    "Fab, talep düşüşleri sırasında geliri korumak için hızla olgun düğüm üretimine geçebilir",
+    "Kimyasallar ve gazlar gibi değişken maliyetler baskın olduğundan azalan hacim yalnızca orantılı gelir kaybına neden olur",
+    "ASML, döküm tesisleriyle garantili gelir paylaşım anlaşmaları aracılığıyla atıl alet maliyetlerini sözleşmeyle üstlenir"
+]
+answer.answer = "Ekipman amortismanı ve tesis bakımından kaynaklanan sabit maliyetler her durumda devam ettiğinden atıl kapasite yıkıcı nakit yakımına dönüşür"
+context = "Yarı iletken fabların sabit maliyetleri son derece yüksektir (ekipman amortismanı, temiz oda bakımı, personel). Maliyetlerin büyük bölümü aletler çalışsın ya da çalışmasın aynı şekilde oluştuğundan, %80 altındaki kullanım oranı yeterli wafer geliri üretilmeden milyarlarca dolarlık sabit maliyetin karşılanması anlamına gelir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "3nm yonga tasarımı için eksiksiz bir fotomask seti yaklaşık 10-20 milyon dolara mal oluyor. Bir 'mask yeniden basımını' yalnızca maske seti maliyetinin ötesinde özellikle pahalı kılan nedir?"
+prompt.distractors = [
+    "Yeniden basım, her maske revizyonu için yeniden 5-10 milyon dolarlık EDA alet lisansı satın almayı gerektiriyor",
+    "Her yeniden basım, ASML'nin fabdaki her EUV tarayıcıyı yeni desen için fiziksel olarak yeniden kalibre etmesini gerektiriyor",
+    "Maske yeniden basımları, tüm wafer düzeyinde işlem adımlarının ISO standartları kapsamında sıfırdan yeniden nitelendirmesini tetikler"
+]
+answer.answer = "10-20 milyon dolarlık değiştirme maliyetinin ötesinde, yeniden basım zaten çok yıllık bir tasarım programına 2-3 aylık program gecikmesi ekler"
+context = "Maske yeniden basımı, tamamen yeni bir maske seti üretimi (10-20 milyon dolar) anlamına gelir ve 2-3 aylık gecikme yaratır. Dar pazar penceresine sahip ürünler için program etkisi doğrudan maliyetten bile daha yıkıcı olabilir; bu yüzden ön-silikon doğrulama tasarım çabasının %60-70'ini tüketir."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "GlobalFoundries'in öncü teknoloji süreç geliştirmesinden vazgeçerek 12nm/14nm düğümünde dondurduğu yıl hangisidir?"
+answer.answer = "2018"
+answer.alternatives = ["2018"]
+context = "GlobalFoundries, Ağustos 2018'de 7nm ve sonrasını geliştirmeyi durduracağını ve bunun yerine kârlı olgun düğüm üretimine odaklanacağını duyurdu. Bu karar, öncü teknoloji için gereken sermaye gereksinimlerinin yalnızca ilk 2-3 döküm tesisi için sürdürülebilir hale geldiğinin kabulüydü."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Transistör başına maliyet 1970'den bu yana yaklaşık 8 büyüklük mertebesi düştü; yine de her yeni düğümde üretimi karşılayabilen şirket sayısı azalıyor. Bu paradoksu en iyi hangi ekonomik kavram açıklar?"
+prompt.distractors = [
+    "Ortak alanların trajedisi; ASML aletlerine paylaşımlı erişim mevcut kapasiteyi tüm döküm tesisleri için eşit biçimde tüketiyor",
+    "Ölçek ekonomisi; birden fazla ürün hattına yayılma, birim transistör üretim maliyetlerini azaltıyor",
+    "Jevons paradoksu; daha ucuz transistörler talebi o kadar hızlı artırıyor ki toplam sektör harcaması tasarruflardan daha hızlı yükseliyor"
+]
+answer.answer = "Baumol'un maliyet hastalığının tersine dönmüş bir varyantı; her otomasyon nesli birim çıktı maliyetleri düşerken çok daha pahalıya mal oluyor"
+context = "Yarı iletken sektörü, tersine dönmüş bir Baumol maliyet hastalığı sergiler: transistörler birim başına neredeyse bedava, ancak ucuz transistörlerin her yeni nesline erişimin sabit maliyeti yalnızca bir elin parmaklarıyla sayılabilecek kuruluşun karşılayabileceği düzeylere çıkıyor — tıpkı suyun litre başına neredeyse bedava olmasına karşın yeni bir arıtma tesisinin 30 milyar dolara mal olması gibi."

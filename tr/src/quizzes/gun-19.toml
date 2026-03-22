@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yapay zeka hızlandırıcılarındaki sinir ağı iş yüklerine hâkim olan temel hesaplama işlemi nedir?"
+prompt.distractors = [
+    "Koşullu dallanmayla seyrek özellik haritaları üzerinde bit düzeyinde XOR işlemleri",
+    "Geri yayılım sırasında ağırlık tensörlerine uygulanan Hızlı Fourier dönüşümleri",
+    "Yüksek bant genişlikli bellekte depolanan gömme vektörleri için karma tablo aramaları",
+]
+answer.answer = "Matris elemanları üzerinde çalışan, toplam değer biriktiren çarpma-biriktirme işlemleri"
+context = "Sinir ağı katmanları temel olarak matris çarpımlarından oluşur: iki sayı çarpılır ve sonuç kümülatif bir toplama eklenir. Bu çarpma-biriktirme (MAC) işlemi hem eğitim hem de çıkarım sırasında hesaplamanın ezici çoğunluğunu oluşturur."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Google'ın TPU v1'inin temelindeki mimari yenilik nedir?"
+prompt.distractors = [
+    "Paylaşılan HBM'e bağlı 65.536 bağımsız işleme çekirdeğini birbirine bağlayan çapraz anahtar (crossbar switch)",
+    "Her sinir ağı katmanına veri yolunu uyarlayan yeniden yapılandırılabilir FPGA dokusu",
+    "Yazılım tarafından yönetilen geçici belleğe (scratchpad) sahip 256 paralel yürütme birimli VLIW işlemcisi",
+]
+answer.answer = "Verilerin komşu MAC'ler arasında ritmik biçimde aktığı 256×256'lık sistolik dizi"
+context = "TPU v1'ın sistolik dizisi, 700 MHz'de döngü başına 65.536 MAC gerçekleştirerek verileri merkezi bellek erişimi olmadan komşu işleme elemanları arasında aktarır. 'Sistolik' adı, veri akışının ızgara boyunca ritmik ve kalbe benzer akışından gelmektedir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Google neden bfloat16'yı IEEE FP16'nın 5 bit üs ve 10 bit mantis yerine 8 bit üs ve yalnızca 7 bit mantis ile tasarladı?"
+prompt.distractors = [
+    "FP16'nın daha geniş mantisi, tensör çekirdekli çarpanlarda aşırı silikon alan kullanımına neden olur",
+    "IEEE FP16'nın üs aralığı çok geniş olduğundan sinir ağlarının hiç üretmediği değerlere bit israf edilir",
+    "BF16'nın daha dar mantisi, eğitim sırasında sessiz veri bozulmasını önleyen hata düzelten kodları mümkün kılar",
+]
+answer.answer = "Sinir ağları taşma/taşma altını önlemek için geniş dinamik aralığa ihtiyaç duyar ancak hassas olmayan mantis değerlerine tolerans gösterir"
+context = "Google Brain'in kavrayışı, sinir ağlarının tam ondalık hassasiyetten çok dinamik aralığı (taşma veya taşma altı yaşamamak) önemsediğiydi. BF16, FP32'nin üs aralığını korurken mantis bitlerini azaltır ve bu sayede karma hassasiyetli eğitimi pratik hale getirir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "2013'te Google'ı TPU'yu geliştirmeye iten endişe verici öngörü neydi?"
+prompt.distractors = [
+    "Öngörülen YouTube öneri gecikmesinin, özel çıkarım donanımı olmadan 500 ms'yi aşacağı hesaplandı",
+    "Gmail'in spam sınıflandırma modelleri, dünya genelindeki tüm Google CPU kapasitesinin %40'ını tüketiyordu",
+    "Google Translate'in sinir makine çevirisi modelleri, kullanılabilir GPU kapasitesinin 10 kat üzerinde FLOP gerektiriyordu",
+]
+answer.answer = "Her Android kullanıcısının günlük üç dakika sesli arama kullanması, Google'ın tüm hesaplama kapasitesini iki katına çıkarmayı gerektirirdi"
+context = "2013'te Google, her Android kullanıcısı günde yalnızca üç dakika sesli arama kullansaydı konuşma tanıma sinir ağları için tüm veri merkezi hesaplama kapasitesini iki katına çıkarmaları gerekeceğini hesapladı. Bu durum, özel silikon kullanımını ekonomik açıdan zorunlu hale getirdi."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Bir yapay zeka iş yükünün hesaplama mı yoksa bellek bant genişliği mi sınırlı olduğunu belirleyen, hesaplama işlemlerinin erişilen bellek baytlarına oranını ifade eden terimin adı nedir?"
+answer.answer = "arithmetic intensity"
+answer.alternatives = ["compute intensity", "operational intensity"]
+context = "Aritmetik yoğunluk (erişilen veri baytı başına FLOP), bir iş yükünün işleme hızıyla mı (hesaplama sınırlı, yüksek aritmetik yoğunluk) yoksa veri iletimle mi (bellek sınırlı, düşük aritmetik yoğunluk) sınırlı olduğunu belirler. Büyük matris çarpımları yüksek aritmetik yoğunluğa sahiptir (~1000 FLOP/bayt); otomatik bağlanımlı kod çözme ise ciddi biçimde bellek sınırlıdır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "FP16 formatında 175 milyar parametreli bir modelle otomatik bağlanımlı LLM çıkarımı sırasında neden tensör çekirdekleri zamanın yaklaşık %95'inde boşta kalır?"
+prompt.distractors = [
+    "Softmax dikkat işlemi paralel hale getirilemeduğundan tüm tensör çekirdeği warplarını seri hale getirir",
+    "Dönüştürücü katmanları arasındaki ardışık düzen baloncukları (pipeline bubble), çalışma süresine hâkim olan senkronizasyon durmalarına yol açar",
+    "KV-önbelleği bellek ayırma ek yükü, GPU'da sık çöp toplama duraklamalarını zorlar",
+]
+answer.answer = "Her token, HBM'den ~350 GB ağırlık okunmasını gerektirir ve bant genişliği verimi ~9,5 token/saniye ile sınırlar"
+context = "Her token üretimi, tüm model ağırlık matrisini okuyan tam bir ileri geçiş gerektirir. 175 milyar parametre × 2 bayt (FP16) = token başına 350 GB; 3,35 TB/s HBM3 bant genişliğiyle bile yalnızca ~9,5 token/saniye elde edilir. Hesaplama birimleri veri beklerken açlık çeker."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Cerebras'ın Wafer-Scale Engine (WSE-3) mimarisinin geleneksel GPU tabanlı yapay zeka hızlandırıcılarına kıyasla temel avantajı nedir?"
+prompt.distractors = [
+    "İşleme çekirdekleri arasındaki optik ara bağlantılar, NVLink'e kıyasla 10 kat daha düşük gecikme sağlar",
+    "46.225 mm²'lik kalıbı, EUV öz onarımını kullanarak geleneksel yongalara kıyasla daha yüksek verimle üretilebilir",
+    "Deterministik veri akışı zamanlaması, 900 bin çekirdek genelindeki tüm bellek erişimi çakışmalarını ortadan kaldırır",
+]
+answer.answer = "Çip üzerindeki 44 GB SRAM, HBM bellek bant genişliği darboğazını tamamen ortadan kaldırır"
+context = "WSE-3, 900.000 çekirdek genelinde dağılmış 44 GB çip üzeri SRAM içerir; bu sayede veriler hesaplamaya yakın tutulur ve geleneksel GPU mimarilerini kısıtlayan HBM bant genişliği duvarından kaçınılır. Bu yaklaşım, pek çok yapay zeka iş yükünün bellek sınırlı doğasına köklü bir çözüm sunmaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "NVIDIA'nın CUDA ekosistemini donanım özelliklerinden daha kalıcı bir rekabet avantajı haline getiren nedir?"
+prompt.distractors = [
+    "CUDA'nın özel derleyicisi, özdeş donanımda herhangi bir açık kaynak alternatifinden 3-5 kat daha hızlı kod üretir",
+    "NVIDIA'nın tensör çekirdeği mikro-mimarisindeki patent portföyü, rakiplerin en yüksek TFLOPS değerlerine erişmesini engeller",
+    "CUDA'nın HBM3E bellek denetleyicilerine özel erişimi, NVIDIA GPU'larına AMD'ye kıyasla daha yüksek etkin bant genişliği sağlar",
+]
+answer.answer = "18 yıllık optimize edilmiş kütüphane, çerçeve ve araç birikimi, araştırmacıların standart kod yazarak donanımın %80-90'ından yararlanmasına olanak tanır"
+context = "CUDA'nın kütüphaneleri (cuBLAS, cuDNN, NCCL, TensorRT), milyonlarca kişi-saatlik optimizasyonu temsil etmektedir. Araştırmacılar standart PyTorch yazar ve en yüksek kullanımın %80-90'ını elde eder; rakip platformlarda aynı başarıyı elde etmek aylarca süren manuel ayarlama gerektirir; bu da yazılım ekosistemini herhangi bir donanım özelliğinden daha yapışkan kılar."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Tri Dao tarafından geliştirilen, dönüştürücü dikkat hesaplamasını SRAM veri yeniden kullanımını maksimuma çıkaracak biçimde yeniden yapılandıran ve donanım değişikliği olmaksızın 2-4 kat hızlanma sağlayan algoritmik optimizasyonun adı nedir?"
+answer.answer = "Flash Attention"
+answer.alternatives = ["FlashAttention", "flash attention", "Flash-Attention"]
+context = "Flash Attention, dikkat hesaplamasını GPU SRAM'ine sığan döşemeler halinde işleyerek pahalı HBM okuma/yazma işlemlerini en aza indirecek biçimde yeniden yapılandırır. Tamamen algoritmik olan bu optimizasyon, dikkatin bellek sınırlı doğasını ele alarak 2-4 kat hızlanma sağladı; yazılım verimliliğinin donanım yükseltmesine rakip olabileceğini kanıtladı."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Meta, Llama 3 405B modelini 16.384 H100 GPU üzerinde eğitirken hangi model FLOP kullanım (MFU) oranını bildirdi?"
+prompt.distractors = [
+    "Yaklaşık %65-72; birincil verimlilik kaybı olarak ardışık düzen paralellik ek yüküyle birlikte",
+    "Yaklaşık %15-22; çok düğümlü ölçeklendirme verimliliğini kısıtlayan NVLink bant genişliği doygunluğuyla birlikte",
+    "Yaklaşık %75-82; hesaplama ve iletişimi örtüştüren özel NCCL değişiklikleriyle elde edilen",
+]
+answer.answer = "Yaklaşık %38-43; iletişim ek yükü ve yük dengesizliği potansiyel hesaplamanın büyük bölümünü tüketiyor"
+context = "Meta, Llama 3 405B eğitimi için %38-43 MFU bildirdi; bu, H100 filosunun teorik hesaplama kapasitesinin yarısından fazlasının toplu iletişim, ardışık düzen balonları, bellek parçalanması ve yük dengesizliği nedeniyle boşa harcandığı anlamına gelir. Bu durum, yazılım verimliliği iyileştirmelerinin neden donanım yükseltmelerinden daha değerli olabileceğini gözler önüne sermektedir."

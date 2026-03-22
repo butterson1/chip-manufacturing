@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "2024 yılında satılan yarı iletkenlerin yüzde kaçı 10nm altı süreç düğümlerinde üretildi?"
+prompt.distractors = [
+    "Yaklaşık %15; küresel yonga pazarının en yüksek gelirli segmentini temsil ediyor",
+    "Yaklaşık %10; ağırlıklı olarak akıllı telefon uygulama işlemcileri ve veri merkezi GPU'larıyla şekilleniyor",
+    "Yaklaşık %25; EUV litografisinin büyük döküm tesislerinde hızlı benimsenmesini yansıtıyor"
+]
+answer.answer = "Toplam sektör gelirinin yaklaşık %15-20'sini oluşturmasına karşın %2'den az"
+context = "Yongaların büyük çoğunluğu — birim hacim olarak %98'in üzerinde — 28nm ile 350nm arasında ve daha büyük düğümlerde üretiliyor. Öncü teknoloji mantık yongaları manşetlere hakim olsa da toplam yarı iletken sevkiyatlarının son derece küçük bir bölümünü oluşturuyor."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Analog entegre devre tasarımı neden otomatik sentez araçlarına değil insan uzmanlığına bağımlı kalmaya devam etmektedir?"
+prompt.distractors = [
+    "Çünkü analog döküm tesisleri, modern EDA yazılım platformlarıyla uyumsuz tescilli 200mm ekipman kullanıyor",
+    "Çünkü analog devreler standart yerleştirme-yönlendirme araçları tarafından oluşturulamayan özel litografik maskeler gerektiriyor",
+    "Çünkü uluslararası ihracat kontrolleri çoğu üretim bölgesinde otomatik analog tasarım araçlarının kullanımını kısıtlıyor"
+]
+answer.answer = "Çünkü her transistör ve pasif bileşen, gürültü, hız, güç, alan ve süreç değişkenliği takaslarını dengelemek için tek tek boyutlandırılmak zorundadır"
+context = "RTL'yi kapılara otomatik olarak dönüştüren mantık sentezinin aksine analog devreler her bileşenin elle ayarlanmasını gerektirir. Mantık sentezine eşdeğer bir analog karşılık yoktur; bu durum, tecrübeli analog tasarımcıların emekliliğini varoluşsal bir sorun haline getiriyor."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Silikon karbürü (SiC) EV'lerdeki yüksek voltajlı güç elektroniğinde silikon karşısında üstün kılan nedir?"
+prompt.distractors = [
+    "SiC'nin daha yüksek elektron hareketi (8.500 cm²/V·s'ye karşı 1.400 cm²/V·s), daha düşük kapı voltajında daha hızlı anahtarlama sağlıyor",
+    "SiC standart Czochralski çekimi kullanılarak daha büyük külçeler halinde büyütülebilir; substrat maliyetlerini yaklaşık %40 azaltıyor",
+    "SiC mevcut silikon fab ekipmanıyla uyumludur; amortize edilmiş üretim hatlarında doğrudan ikame edilmesine olanak tanıyor"
+]
+answer.answer = "SiC'nin 3,26 eV bant aralığı, eşdeğer voltaj bloklaması için 10 kat daha küçük kalıp alanı, 10 kat daha hızlı anahtarlama ve 200°C eklem sıcaklığında çalışma imkânı sunuyor"
+context = "Silikon'un 1,12 eV bant aralığı voltaj kapasitesini ve sıcaklık toleransını kısıtlıyor. Tesla Model 3, 48 silikon IGBT'yi 24 SiC MOSFET ile değiştirerek ve yalnızca azaltılmış güç dönüşüm kayıplarından %5-8 menzil iyileştirmesi sağlayarak tam SiC evirici kullanan ilk kitlesel pazar EV'si oldu."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Küresel SiC substrat tedarikinin yaklaşık %60'ını hangi şirket kontrol ediyor?"
+answer.answer = "Wolfspeed"
+answer.alternatives = ["Cree", "wolfspeed", "WOLFSPEED"]
+context = "Wolfspeed (eski adıyla Cree), New York Marcy'deki 200mm fablarından SiC substrat üretiminde liderliği elinde bulunduruyor; bu tesis 2022'de açılan 5 milyar dolarlık bir yatırımı temsil ediyor."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "MEMS ivme ölçer ivmeyi nasıl algılar?"
+prompt.distractors = [
+    "Piezoelektrik kristal, uygulanan kuvvetle orantılı voltaj üretir; bu voltaj yük duyarlı bir ASIC tarafından yükseltilir",
+    "Paket substratına yapıştırılmış ince film gerinim göstergesi, cihaz ivmeye maruz kaldığında direncini değiştirir",
+    "Optik interferometre, kalıba entegre edilmiş bir VCSEL lazer kullanarak yansıtıcı membranın yer değiştirmesini ölçer"
+]
+answer.answer = "Oyulmuş yaylar üzerinde asılı bir silikon ispat kütlesi ivme altında saparak, girintili tarak elektrotları arasındaki femtofarad düzeyindeki kapasitansı değiştirir"
+context = "MEMS ivme ölçerler kapasitif algılama kullanır: hareket eden mekanik yapılar genellikle 2-20 mikrometre genişliğinde olup 1-3 mikrometre derinliğindeki boşlukların üzerinde asılı durur. ASIC, küçük kapasitans değişikliklerini 14 bit hassasiyetle ölçer."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Sony'nin yığmalı CMOS görüntü sensörleri neden iki ayrı wafer kullanarak birleştiriliyor?"
+prompt.distractors = [
+    "Çünkü fotoiyot katmanı daha yüksek kuantum verimliliği için GaAs gerektirirken okuma devresi standart silikon CMOS'a ihtiyaç duyuyor",
+    "Çünkü birleşik analog-dijital kalıpların üretim verimi tek bir wafer üzerinde her ikisi bir arada olduğunda %30'un altına düşüyor",
+    "Çünkü ışığa duyarlı katman ile sıcak mantık devresi arasındaki ısı yalıtımı karanlık akım bozulmasını önlüyor"
+]
+answer.answer = "Böylece fotoiyot dizisi ışık hassasiyeti için optimize edilmiş bir süreçte (40-90nm) üretilirken mantık, işlem hızı için daha gelişmiş bir düğüm (22nm veya altı) kullanabilir"
+context = "Her katmanı kendi optimal süreç düğümünde üretip bakır-bakır hibrit bağlama ile birleştirerek Sony, hem ışık hassasiyetini hem de sinyal işleme performansını tek bir süreçte ikisini birden taviz vererek optimize etmek yerine bağımsız olarak optimize edebilir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Texas Instruments gibi analog yonga üreticileri fabsız üretim modeline geçmek yerine neden kendi fablarını işletmeye devam ediyor?"
+prompt.distractors = [
+    "Çünkü TSMC ve Samsung, düşük wafer hacimleri gerekçesiyle analog tasarım baskı çıktılarını kabul etmiyor",
+    "Çünkü ABD ihracat düzenlemeleri, analog voltaj referansı içeren her yonga için yurt içi üretim zorunluluğu getiriyor",
+    "Çünkü analog yongalar 200mm wafer gerektiriyor; büyük döküm tesisleri ise bu boyutu üretimden tamamen çıkardı"
+]
+answer.answer = "Çünkü analog performans, emtia döküm tesislerinin özelleştirmeyeceği süreç ayrıntılarıyla yakından bağlantılıdır; uzun ürün yaşam döngüleri ise amortize edilmiş fabları son derece kârlı kılar"
+context = "TI'ın analog tasarımları belirli süreç özelliklerine göre ayarlanmıştır. Amortize edilmiş fablarda 45nm-130nm olgun süreçleri çalıştırmak olağanüstü marjlar sağlar. TI, ödenmiş 200mm ekipmanda wafer işleme maliyetlerinin 3.000-4.000 dolara karşın 3nm'de 300mm ekipman için 16.000 dolar ve üzeri olması nedeniyle yaklaşık %58 brüt marj elde etmektedir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Otomotiv yarı iletken yeterlendirmesini tüketici yongalarından temelden ayıran kritik özellik nedir?"
+prompt.distractors = [
+    "Otomotiv yongaları 0-85°C ortam sıcaklığında, 10 yıllık ömürle ve 100 DPPM altında kusur oranıyla çalışmak zorunda",
+    "Otomotiv yongaları, otoyol sürüşü sırasında kozmik ışın maruziyeti nedeniyle MIL-STD-883 düzeyinde radyasyon sertleştirmesi gerektiriyor",
+    "Otomotiv yongaları kurşunsuz paket kullanmak ve çarpışma güvenliği için JEDEC nem hassasiyeti Düzey 1 testini geçmek zorunda"
+]
+answer.answer = "Otomotiv yongaları -40°C ile 150-175°C arasında çalışmalı, 15-20 yıl dayanmalı ve 1 DPPM altında kusur oranına sahip olmalıdır"
+context = "Tüketici yongaları 3-5 yıl boyunca 0-70°C'de ve 50-500 DPPM ile çalışır. Otomotiv gereksinimleri çok daha katıdır; bazı güvenlik kritik bileşenler sıfır DPPM hedefler. Bu yeterlendirme yükü, otomotiv yongalarının neden olgun, iyi karakterize edilmiş süreç düğümlerinde üretildiğini açıklar."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Tek bir 5G akıllı telefon kaç adet BAW veya SAW filtresi içerebilir?"
+answer.answer = "over 100"
+answer.alternatives = ["100", "100+", ">100", "more than 100"]
+context = "5G telefonların düzinelerce frekans bandını ayırması gerekir; bu da 100'den fazla toplu akustik dalga (BAW) veya yüzey akustik dalga (SAW) filtresi gerektiriyor. Bu durum, Broadcom'un filtre bölümünü (Avago'dan devralınan) bağımsız yarı iletken şirketlerinin büyük çoğunluğundan daha değerli kılmaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Çin'in agresif olgun düğüm fab genişlemesi, Batılı analog yonga üreticileri için nasıl bir stratejik risk oluşturuyor?"
+prompt.distractors = [
+    "Çin fabları analog tasarım için kritik EDA araçlarını edinebilir; bu süreçte Synopsys/Cadence ikilisini kırabilir",
+    "Çin fabları SiC ve GaN substrat tedarik zincirini ele geçirerek geniş bant aralıklı malzeme erişimini kesebilir",
+    "Çin fabları daha yüksek maaşlar sunarak Batılı analog tasarım yeteneklerini çekebilir; bu da analog yetenek kıtlığını hızlandırır"
+]
+answer.answer = "SMIC, HuaHong ve Nexchip'ten gelen devasa yeni 28nm-55nm kapasitesi piyasayı ucuz emtia analog yongalarıyla doldurabilir; bu durum Batılı firmaların kâr marjlarını yerle bir edebilir"
+context = "TI ve Analog Devices gibi Batılı analog şirketler, olgun düğümlerde çalışan amortize edilmiş fablardan elde ettikleri yüksek marjlara dayanıyor. Çinli döküm tesisleri aynı düğümlere devasa kapasiteler ekler ve sübvansiyonlu fiyatlarla satarsa bu, tüm Batılı analog yarı iletken ekosistemini ayakta tutan iş modelini baltalayabilir."

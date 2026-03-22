@@ -1,0 +1,120 @@
+# Gün 10 Sınavı: Katkılama ve İyon İmplantasyonu
+# 6 yeni + 2 yakın tekrar (Günler 8-9) + 2 eski tekrar (Günler 1-6)
+
+## --- YENİ: Gün 10 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Her milyon silisyum atomundan birinin yerine fosfor koyduğumuzda serbest taşıyıcı yoğunluğu neden yaklaşık üç milyon kat artar?"
+prompt.distractors = [
+    "Çünkü fosfor atomları kafes periyodikliğini bozarak geniş bir bölgedeki komşu silisyum atomlarından elektronları serbest bırakır",
+    "Çünkü fosforun silisyuma göre çok daha düşük iyonizasyon enerjisi vardır; bu yüzden oda sıcaklığında beş valans elektronunu kendiliğinden serbest bırakır",
+    "Çünkü fosfor-silisyum bağı kovalent değil metalik niteliktedir; bu durum yerel olarak iletim bandının değerlik bandıyla örtüşmesine neden olur"
+]
+answer.answer = "Because intrinsic silicon has extremely few carriers (~10¹⁰/cm³), so adding ~5×10¹⁶ donors/cm³ overwhelms the baseline by a factor of millions"
+context = "Oda sıcaklığındaki doğal silisyum, ~5×10²² atom/cm³ içinde yalnızca ~1,5×10¹⁰ taşıyıcı/cm³ barındırır. Milyonda bir gibi küçük bir katkı oranı bile (~5×10¹⁶/cm³) doğal taşıyıcı sayısının milyonlarca katıdır."
+id = "d10-q01"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Katkılama açısından iyon implantasyonunun termal difüzyona göre temel avantajı nedir?"
+prompt.distractors = [
+    "İyon implantasyonu difüzyondan daha yüksek sıcaklıkta çalışır; böylece katkı maddeleri ayrı bir tavlama adımı gerektirmeksizin yerine geçici bölgelere ulaşabilir",
+    "İyon implantasyonu herhangi bir kristal hasarı oluşturmaz; bu nedenle katkı atomları kafese girdikten hemen sonra elektriksel olarak etkindir",
+    "İyon implantasyonu iyon yerine nötr atomlar kullanır; bu da difüzyon fırınlarının iyonize gazdan oluşturduğu yük kaynaklı yüzey hasarını ortadan kaldırır"
+]
+answer.answer = "Ion implantation allows independent control of dopant depth (via energy) and dopant concentration (via dose), unlike diffusion where depth and dose are coupled"
+context = "Termal difüzyonda sıcaklık ve süre birlikte hem derinliği hem de konsantrasyonu belirler. İyon implantasyonu bu ikisini birbirinden ayırır: hızlandırma gerilimi derinliği (yansıtılan menzil) belirlerken ışın akımı × süre dozu belirler."
+id = "d10-q02"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Katkı atomları iyon implantasyonunun hemen ardından neden elektriksel olarak etkin değildir?"
+prompt.distractors = [
+    "Çünkü gofret yüzeyi implantasyon sırasında oksitlenir ve katkı atomlarını elektriksel olarak inert oksit bileşiğinde hapseden yalıtkan bir bariyer oluşturur",
+    "Çünkü implantör vakumda çalışır; dolayısıyla katkı atomları iyonize hâlde kalır ve atmosfer basıncı yeniden sağlanana kadar silisyumla bağlanamaz",
+    "Çünkü ışın tarama düzeni kafeste duran dalga girişimi oluşturur ve katkı atomlarını sıfır elektron yoğunluğuna sahip düğüm noktalarına yerleştirir"
+]
+answer.answer = "Because the implanted ions land in random interstitial positions amid heavy crystal damage, not in the substitutional lattice sites needed for electrical activity"
+context = "Her implante iyon ~2.000 silisyum atomunu yerinden eder ve hasarlı bir bölge oluşturur. Kafes noktaları arasında (aratabanlı) oturan katkılar taşıyıcı katkısı sağlamaz. Tavlama kristali onarır ve katkıları yerine geçici noktalara taşır."
+id = "d10-q03"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yüzeysel ve yoğun katkılanmış NMOS kaynak/dren bölgeleri için arsenik neden fosfor yerine tercih edilir?"
+prompt.distractors = [
+    "Çünkü arsenikın silisyumdaki katı çözünürlüğü fosfordan daha yüksektir; bu durum kümelenme veya çökelme başlamadan daha yüksek tepe konsantrasyonlarına izin verir",
+    "Çünkü arsenik iyonları daha hafiftir ve daha düşük enerjilere daha kolay hızlandırılabilir; bu da daha az enerji yayılımıyla daha yüzeysel implant profilleri üretir",
+    "Çünkü arsenik, fosfordan implante iyon başına daha az Frenkel çifti oluşturur; bu da daha az kristal hasarı ve daha kolay sonraki tavlama anlamına gelir"
+]
+answer.answer = "Because arsenic is much heavier (mass 75 vs. 31), so it diffuses roughly 10× slower than phosphorus, keeping the junction shallow through subsequent thermal steps"
+context = "Arsenikın yüksek atom kütlesi, silisyumda çok düşük difüzivite kazandırır. Bir kez implante edildikten sonra, ardışık ısıl adımlarda daha hafif fosforun derinleşip yayılmasının aksine yerinde kalır ve eklem sığlığını korur."
+id = "d10-q04"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "İmplante iyonların silisyum kristal kafesindeki açık sıralara girerek beklenenden çok daha derine gitmesi olayının adı nedir?"
+answer.answer = "channeling"
+answer.alternatives = ["ion channeling", "crystal channeling"]
+context = "İyon demeti önemli bir kristal ekseniyle (<110> gibi) hizalandığında, iyonlar atom sıralarının arasındaki açık kanallar boyunca ilerleyerek rastgele durdurma teorisinin öngördüğünden çok daha derине nüfuz edebilir. Fablar buna karşı gofretleri ~7° eğerek ve ön amorflaştırma implantları kullanarak önlem alır."
+id = "d10-q05"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Sektör neden FinFET ve nanoyaprak transistörlerde katkısız kanallar kullanmaya yöneldi?"
+prompt.distractors = [
+    "Çünkü katkısız kanallar daha yüksek çalışma gerilimlerine izin verir; bu da çok kapılı transistör mimarilerinde azalan kapı kapasitansını telafi eder",
+    "Çünkü kanal katkılarının kaldırılması iyon implantasyonu ihtiyacını tamamen ortadan kaldırır; böylece proses adımlarının sayısını ve genel fab maliyetini önemli ölçüde azaltır",
+    "Çünkü katkısız silisyum her sıcaklıkta katkılı silisyumdan doğal olarak daha yüksek elektron mobilitesine sahiptir; bu da katkısız kanalları her koşulda daha hızlı kılar"
+]
+answer.answer = "Because channels are now so small that they contain only one or two dopant atoms, making random dopant fluctuation a dominant source of transistor-to-transistor variability"
+context = "2nm düğümündeki bir nanoyaprak kanalı yaklaşık 1.250 nm³ hacme sahip olabilir. 10¹⁸/cm³ katkılama yoğunluğunda bu, ~1,25 katkı atomuna karşılık gelir. 1 ile 2 atom arasındaki fark yaklaşık %80 eşik gerilimi değişimine yol açar; bu nedenle bunun yerine iş fonksiyonu metalleri kullanılır."
+id = "d10-q06"
+
+## --- TEKRAR: Yakın (Günler 8-9) ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "ASML'nin EUV tarayıcısında optik yolun tamamı neden kırıcı mercekler yerine yansıtıcı aynalar kullanmak zorundadır?"
+prompt.distractors = [
+    "Çünkü kırıcı mercekler 248nm'nin altındaki tüm dalga boylarında kromatik sapmaya yol açar ve gerekli bindirme doğruluğuna ulaşmayı imkânsız kılar",
+    "Çünkü EUV ışığı dalga değil parçacık demeti olarak hareket eder; bu nedenle kırılma gerçekleşmez ve fotonları yalnızca speküler yansıma yeniden yönlendirebilir",
+    "Çünkü kırıcı mercekler ışın kesit alanını yarık genişliğinin ötesine genişletir; bu da efektif sayısal açıklığı kullanılabilir düzeyin altına düşürür"
+]
+answer.answer = "Because 13.5nm EUV light is absorbed by virtually all solid materials, so no transparent lens material exists and reflective Mo/Si multilayer mirrors are the only viable option"
+context = "13,5nm dalga boyunda, erimiş silis (DUV'de şeffaf) dahil tüm malzemeler tamamen opaktır. EUV sistemleri, her biri yalnızca ~6,9nm kalınlığında yaklaşık 40-80 dönüşümlü Mo/Si çift katmandan oluşan Bragg yansıtıcı aynalar kullanır."
+id = "d10-q07"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "ALD'de (atomik katman kaplama) film büyümesini döngü başına tam olarak bir atom katmanıyla sınırlayan mekanizma nedir?"
+prompt.distractors = [
+    "Öncül gaz basıncı, tedarik vanası otomatik kapanmadan önce odaya tam olarak bir monolayer molekül girecek şekilde hassas biçimde ayarlanır",
+    "Taban sıcaklığı, öncülün tam bozunma noktasına ayarlanır; böylece yalnızca ilk gelen moleküllerin soğumadan önce bağlanmaya yetecek enerjisi vardır",
+    "Öncül darbeler arasındaki plazma adımı, kontrollü bias ile seçici iyon bombardımanı aracılığıyla adsorbe edilmiş moleküllerin en alt katmanı dışındakilerini uzaklaştırır"
+]
+answer.answer = "Each precursor reacts only with specific surface functional groups and stops once all available sites are occupied, making the process inherently self-limiting"
+context = "ALD, kendiliğinden sınırlandırıcı yüzey kimyasına dayanır. A öncülü tüm reaktif bölgeleri doyurur, fazlası arındırılır; ardından B öncülü adsorbe edilmiş A katmanıyla reaksiyona girer ve yüzeyi yeniden sonlandırır. Döngü başına büyüme, pozlama süresinden bağımsız olarak tipik olarak 0,5-1,5 Å'dır."
+id = "d10-q08"
+
+## --- TEKRAR: Eski (Günler 1-6) ---
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Yarıiletken gofretlerin kesildiği tek kristal silisyum külçelerini üretmek için hangi kristal büyütme yöntemi kullanılır?"
+answer.answer = "Czochralski"
+answer.alternatives = ["CZ", "Czochralski method", "Czochralski process"]
+context = "Czochralski (CZ) prosesi, ~1.414°C'deki erimiş silisyuma bir tohum kristal daldırılmasını ve döndürülürken yavaşça yukarı çekilmesini kapsar; böylece 300mm çapına ve 2 metre uzunluğuna kadar tek kristal külçe büyütülür."
+id = "d10-q09"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Proses düğümü adları ile gerçek transistör boyutları arasındaki ilişki neden yaklaşık 130nm'de çöktü?"
+prompt.distractors = [
+    "Çünkü bu düğümde gofret boyutları 200mm'den 300mm'ye çıktı ve yeni isimlendirme kuralları özellik boyutu yerine gofret çapına dayandırıldı",
+    "Çünkü alüminyumdan bakır bağlantılara geçiş, hangi özelliğin her teknoloji nesli için belirleyici ölçüm sayılacağını değiştirdi",
+    "Çünkü EUV litografisi ilk kez 130nm'de kullanıldı ve üstün çözünürlüğü geleneksel kapı uzunluğu tabanlı isimlendirmeyi yapay biçimde tutucu gösterdi"
+]
+answer.answer = "Because foundries began marketing smaller node numbers for competitive advantage while actual gate lengths, metal pitch, and density did not shrink at the same rate"
+context = "~130nm sonrasında düğüm adı fiziksel bir ölçüm yerine pazarlama etiketi hâline geldi. TSMC'nin '7nm'si minimum metal adımı ~36nm ve fin adımı ~30nm ile gelir; gerçek hiçbir özellik için 7nm'ye yakın değildir."
+id = "d10-q10"

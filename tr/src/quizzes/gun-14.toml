@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bir fabrikada 0,10 kusur/cm² kusur yoğunluğu bulunmaktadır. 8 cm² alana sahip bir die için yaklaşık Poisson verimi nedir?"
+prompt.distractors = [
+    "Yaklaşık %67; çünkü büyük die'lar alan ve kusur yoğunluğuyla doğrusal biçimde verim kaybeder",
+    "Yaklaşık %55; çünkü üstel azalma bu alan-yoğunluk çarpımında orta düzeyde kayıplara yol açar",
+    "Yaklaşık %37; çünkü 0,8'lik alan-yoğunluk çarpımı verimi yarıdan fazla düşürür"
+]
+answer.answer = "Yaklaşık %45; çünkü verim e^(−D₀ × A) formülünü izler ve e^(−0,8) ≈ 0,449"
+context = "Poisson verim modeli Y = e^(−D₀ × A) formülünü verir. D₀ = 0,10/cm² ve A = 8 cm² ile çarpım 0,8 olur; dolayısıyla Y = e^(−0,8) ≈ 0,449 yani yaklaşık %45."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD'nin chiplet yaklaşımı (örn. sekiz 74 mm²'lik chiplet içeren EPYC Rome), tek bir monolitik ~600 mm²'lik die'a kıyasla verimi neden artırır?"
+prompt.distractors = [
+    "Çünkü chipletler, adım başına doğası gereği daha az litografik kusur içeren daha az gelişmiş bir süreç düğümü kullanır",
+    "Çünkü chipletlerin kullandığı toplam silikon alanı, monolitik bir die alanından önemli ölçüde daha küçüktür",
+    "Çünkü chiplet interkonnektleri, her bir chiplet die'ı içindeki kusurlu bölgelerin etrafından dolaşabilir"
+]
+answer.answer = "Çünkü verim, die alanıyla birlikte üstel olarak düşer; dolayısıyla sekiz küçük die her biri tek bir büyük die'dan çok daha iyi verim verir"
+context = "Poisson verim modeli, verim = e^(−D₀ × A) olduğunu gösterir. Verim alanla üstel olarak düştüğünden, her biri ~%93 verimle üretilen sekiz 74 mm²'lik chiplet, %55 verimle üretilen tek bir 600 mm²'lik die'dan çok daha fazla çalışır silikon üretir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yarı iletken üretiminde 'öldürücü kusurlar' (killer defects) ile 'gizli kusurlar' (latent defects) arasındaki kritik fark nedir?"
+prompt.distractors = [
+    "Öldürücü kusurlar ön uç transistör üretimi sırasında oluşurken, gizli kusurlar arka uç interkonnekt işleme sırasında ortaya çıkar",
+    "Öldürücü kusurlar saat hızı gibi parametrik performansı etkilerken, gizli kusurlar testte tam işlevsel başarısızlığa yol açar",
+    "Öldürücü kusurlar partikül kirliliğinden kaynaklanırken, gizli kusurlar yalnızca süreç varyasyon kaymasından kaynaklanır"
+]
+answer.answer = "Öldürücü kusurlar fabrika testinde yakalanarak anında başarısızlığa yol açarken, gizli kusurlar tüm testleri geçer ama sonradan sahada arızalara neden olur"
+context = "Öldürücü kusurlar aslında 'iyi' türdendir — sevkiyattan önce yakalanırlar. Gizli kusurlar (kısmen boşaltılmış via'lar, ince oksitler, saç çatlakları) fabrika testlerini geçer ancak operasyonel stres altında aylar veya yıllar sonra başarısız olur."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Otomotiv yarı iletken uygulamalarında hedef arızalı parça sayısı (DPPM) oranı nedir?"
+prompt.distractors = [
+    "50 DPPM'nin altında; premium cihazlar için en katı tüketici elektroniği güvenilirlik kademesiyle eşleşerek",
+    "10 DPPM'nin altında; güvenlikle ilgili elektronik bileşenler için gereken artırılmış güvenilirliği yansıtarak",
+    "0,001 DPPM'nin altında; otomotiv güvenlik sertifikasyon standartlarının sıfır kusur zorunluluğundan kaynaklanan"
+]
+answer.answer = "1 DPPM'nin altında; güvenlik açısından kritik uygulamalar için endüstri giderek 0,1 DPPM'nin altını hedeflemektedir"
+context = "Tüketici elektroniği genellikle 50-500 DPPM hedefler. Chip arızalarının hayati tehlike oluşturabileceği otomotifte <1 DPPM gereklidir; endüstri <0,1 DPPM'e (gönderilen on milyonda bir kusurlu çip) doğru ilerlemektedir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "IDDQ testi, işlevsel testlerin genellikle gözden kaçırdığı neyi tespit eder?"
+prompt.distractors = [
+    "Yalnızca maksimum çalışma frekansında beliren interkonnekt direnç varyasyonlarından kaynaklanan zamanlama ihlalleri",
+    "Yalnızca mekanik stres veya termal döngü altında görünen lehim bump'larındaki aralıklı temas arızaları",
+    "Transistör yerleşimini kaydıran ancak temel devre işlevselliğini koruyan fotolitografik hizalama hataları"
+]
+answer.answer = "Anormal durağan besleme akımıyla ortaya çıkan kısmi kapı oksit bozunması veya köprülenmiş interkonnektler gibi gizli kusurlar"
+context = "IDDQ testi, girişler sabit mantık seviyelerinde tutulurken statik güç beslemesi akımını ölçer. Sağlıklı bir CMOS devresi neredeyir sıfır statik akım çeker; gizli oksit veya köprüleme kusurları olan bir die ölçülebilir ölçüde yüksek IDDQ çeker (örn. 30 μA yerine 50 μA)."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Brian Murphy'nin 1964'te Fairchild'da wafer üzerindeki rastgele kusur dağılımını modellemek için kullandığı istatistiksel dağılımın adı nedir?"
+answer.answer = "Poisson"
+answer.alternatives = ["Poisson distribution", "poisson"]
+context = "Murphy'nin 1964 tarihli temel modeli, kusurların Poisson dağılımını izleyerek rastgele ve bağımsız biçimde dağıldığını varsaydı: Y = e^(−D₀ × A)."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Verim öğrenme eğrisi sürecinde 'riskli üretim' (risk production) aşamasında tipik kusur yoğunluğu aralığı nedir?"
+prompt.distractors = [
+    "0,05-0,10 kusur/cm²; süreç düzeltilmiş ancak ekonomik açıdan henüz yüksek hacim için optimize edilmemiş",
+    "1,0-3,0 kusur/cm²; erken üretim waferları hâlâ önemli sistematik süreç sorunları barındırdığından",
+    "0,01-0,05 kusur/cm²; ilk müşteri numuneleri için gereken olgun süreç kalitesini yansıtarak"
+]
+answer.answer = "0,3-0,5 kusur/cm²; süreç işlevsel olmakla birlikte olgun optimizasyon düzeylerinden hâlâ uzak"
+context = "Riskli üretim (yüksek hacimden 6-12 ay önce), küçük die'lar için tipik olarak 0,3-0,5 kusur/cm² ve %20-40 verimle seyreder. Olgun süreçler sonunda 0,05-0,10/cm²'ye ulaşır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "EUV litografisindeki stokastik kusurlar, agresif aralıklarda neden benzersiz bir verim sorunu oluşturur?"
+prompt.distractors = [
+    "EUV'nin 13,5 nm dalga boyunun düzeltmenin ötesinde özellik kenarlarını rastgele bozan kırınım etkileri yaratması nedeniyle",
+    "EUV maskelerinin yansıtıcı çok katmanlarının, kalınlık varyasyonlarının yerel pozlama yoğunluğunu rastgele modüle etmesi nedeniyle",
+    "EUV direnç malzemelerinin, rastgele kimyasal tepkime sınırları oluşturan moleküler ölçekli bir granülerliğe sahip olması nedeniyle"
+]
+answer.answer = "Çünkü her özellik yalnızca birkaç düzine foton tarafından pozlanır; bu nedenle atış gürültüsü (shot noise), milyarlarca özellik genelinde rastgele şekil varyasyonlarına neden olur"
+context = "En agresif aralıklarda her piksel yalnızca onlarca EUV fotonu alır. Foton gelişindeki istatistiksel dalgalanma (atış gürültüsü), yazdırılan her özelliği ince biçimde rastgele yapar. Die başına yüz milyarlarca özellik genelinde, son derece nadir stokastik başarısızlıklar bile verimi sınırlayıcı hâle gelir."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Gizli arıza mekanizmalarını sevkiyattan önce hızlandırmak amacıyla çiplerin yüksek voltaj ve sıcaklıkta çalıştırılması tekniğinin adı nedir?"
+answer.answer = "burn-in"
+answer.alternatives = ["Burn-in", "burn in", "Burn-In", "BURN-IN"]
+context = "Burn-in, elektromigrasyon ve oksit bozunması gibi arıza mekanizmalarını hızlandırarak gizli kusurları ürünler müşterilere ulaşmadan elemek için çipleri saatler boyunca yüksek voltaj ve sıcaklığa maruz bırakır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Dört chiplet her biri %95 verimle ve bağlama süreci üç bağlama adımında %98 verimle üretilirse, yaklaşık birleşik paket verimi nedir?"
+prompt.distractors = [
+    "Yaklaşık %84; tek tek chiplet verimleri ve tek bir bağlama verim faktörü çarpılarak hesaplanır",
+    "Yaklaşık %72; tüm chiplet verimlerinin dört bağımsız bağlama verim terimiyle çarpımından elde edilir",
+    "Yaklaşık %81; chiplet ve bağlama verimleri süreç adımı sayısına göre ağırlıklandırılarak ortalaması alınarak hesaplanır"
+]
+answer.answer = "Yaklaşık %77; 0,95⁴ × 0,98³ hesaplaması yaklaşık %76,6 birleşik verim verir"
+context = "Birleşik verim, tüm bileşen verimlerinin çarpımıdır: 0,95⁴ × 0,98³ = 0,8145 × 0,9412 ≈ 0,766 yani yaklaşık %76,6. Bu çarpımsal etki, çok die'lı paketlerde Bilinen İyi Die (Known-Good-Die) testinin neden zorunlu olduğunu açıklar."

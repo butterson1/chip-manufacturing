@@ -1,0 +1,120 @@
+# Gün 9 Sınavı: Aşındırma ve Kaplama
+# 6 yeni + 2 yakın tekrar (Günler 7-8) + 2 eski tekrar (Günler 1-4)
+
+## --- YENİ: Gün 9 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Pek çok kritik yarıiletken yapı için plazma aşındırma, yaş aşındırmaya neden tercih edilir?"
+prompt.distractors = [
+    "Çünkü plazma aşındırma her zaman daha düşük sıcaklıkta çalışır ve fotodirençli küçülmeyi sulu kimyasal banyolardan daha etkin biçimde önler",
+    "Çünkü plazma aşındırma, yaş aşındırma tezgâhlarının kullandığı kimyasallardan daha ucuz gazlar kullanır; bu yüzden esas olarak maliyet nedeniyle tercih edilir",
+    "Çünkü plazma aşındırma yüzey yüklenimini tamamen ortadan kaldırarak metal ve dielektrik katmanların bias hasarı olmadan işlenmesine izin verir"
+]
+answer.answer = "Because plasma combines reactive chemistry with directional ion bombardment, allowing highly anisotropic profiles that wet etching cannot reliably produce"
+context = "Yaş aşındırma çoğunlukla izotropiktir; yani hem yanal hem de dikey yönde saldırır. Plazma aşındırma, mühendislerin iyonları gofrete doğru hızlandırarak hendek tabanını tercihli olarak aktive etmesine ve yan duvarları korumasına olanak tanır; nanometre ölçeklerinde dikey profiller için bu yaklaşım vazgeçilmezdir."
+id = "d9-q01"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bir aşındırma prosesinde yüksek seçicilik ne anlama gelir?"
+prompt.distractors = [
+    "Plazmа tüm açık malzemeleri neredeyse aynı hızda kaldırır; böylece aşındırılan profil katman sınırları boyunca geometrik olarak dengeli kalır",
+    "Aşındırma, gofret merkezinde kenara göre daha hızlı ilerler; bu da mühendislerin yükleme etkisini radyal ayarlamayla telafi etmesine olanak tanır",
+    "Proses yalnızca nötr radikaller kullanır; dolayısıyla gofret yüzeyi desen transferi sırasında minimum fiziksel bombardımana maruz kalır"
+]
+answer.answer = "The plasma removes the target material much faster than an adjacent or underlying material, preserving stop layers and critical dimensions"
+context = "Seçicilik, malzeme ayrımıyla ilgilidir. İyi bir seçici aşındırma, alttaki silisyum dioksidi neredeyse hiç etkilemeden silisyum nitürü hızla kaldırabilir; böylece proses komşu katmanlara zarar vermek yerine istenen noktada durur."
+id = "d9-q02"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Atomik katman kaplama (ALD), ileri transistör yapıları ve diğer yüksek en-boy oranlı özellikler için neden özellikle değerlidir?"
+prompt.distractors = [
+    "Çünkü tek bir darbe dizisinde kalın iletken filmler kaplar; böylece arka uç bağlantı modülleri için gofret kuyruk süresini en aza indirir",
+    "Çünkü yüksek enerjili püskürtülmüş atomlara dayanır; bu atomlar geleneksel CVD öncüllerine göre dar hendeklere daha derinden girer",
+    "Çünkü mevcut oksit filmleri yerinde metal açısından zengin bileşiklere dönüştürür; böylece ayrı öncül arındırma adımlarına gerek kalmaz"
+]
+answer.answer = "Because its self-limiting surface reactions give excellent thickness control and conformal coating even inside narrow, complex 3D geometries"
+context = "ALD öncülleri art arda besler; böylece her yarı-reaksiyon mevcut yüzey bölgeleri tükendiğinde durur. Bu, büyümeyi yavaş ama son derece düzgün kılar; hafniyum oksit kapı dielektriklerinin ve modern astar filmlerinin kaplanmasında ALD'nin vazgeçilmez olmasının nedeni budur."
+id = "d9-q03"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bosch derin reaktif iyon aşındırma prosesinde SF6 aşındırma adımları ile C4F8 pasifleştirme adımları arasında neden dönüşümlü geçiş yapılır?"
+prompt.distractors = [
+    "Silisyum oksidasyonu ve oksit indirgenmesi arasında dönüşüm yaparak derin hendekler üzerinde yük birikimini bastırmak ve plazma kılıfını kararlı tutmak için",
+    "Flor açısından zengin ve klor açısından zengin kimyalar arasında geçiş yaparak sert maske gerektirmeden fotodirençli seçiciliği iyileştirmek için",
+    "Gofretі florürlü bir batırma işlemiyle periyodik olarak soğutarak yan duvarları içe doğru büken yerel ısınmayı önlemek için"
+]
+answer.answer = "To repeatedly protect the sidewalls with polymer while reopening the trench bottom, enabling very deep, nearly vertical silicon etches"
+context = "Bosch prosesi pasifleştirme adımı sırasında bir floropolimer katar, ardından gelen aşındırma adımı yan duvarlara kıyasla tabanı daha fazla temizler. Bu diziyi tekrarlamak, yüksek en-boy oranına sahip derin ve anizotropik hendekler oluşturur."
+id = "d9-q04"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Atomik katman kaplamanın 1970'lerde geliştirilmesine öncülük etmesiyle tanınan Fin mucit kimdir?"
+answer.answer = "Tuomo Suntola"
+answer.alternatives = ["Suntola"]
+context = "Tuomo Suntola, 1970'lerde atomik katman epitaksisini — bugün atomik katman kaplama olarak bilinen yöntemi — geliştirdi. Bu yöntem, ileri yarıiletken üretimde ultra-ince uyumlu filmler için temel bir teknik hâline geldi."
+id = "d9-q05"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Fablar, kritik üretim gofretlerini işlemeden önce plazma aşındırma veya kaplama odalarını neden 'olgunlaştırır'?"
+prompt.distractors = [
+    "Yüksek bias proses adımları sırasında arka yüz helyum soğutmasını kararlı tutmak için elektrostatik mandrel yüzeyini kasıtlı olarak pürüzleştirmek amacıyla",
+    "Odadaki dielektrik yüzeyleri önceden yükleyerek iyon enerji yayılımını azaltmak ve gofret içi bindirme performansını iyileştirmek için",
+    "Oda nemini hafifçe artırarak polimer kabarmayı bastırmak ve florürlü karbon kimyası sırasında partikül oluşumunu düşürmek için"
+]
+answer.answer = "To bring chamber wall conditions to a stable, repeatable state, since deposited films and absorbed chemistry can change process behavior wafer to wafer"
+context = "Odanın geçmişi önemlidir. Duvar kaplamaları radikal dengesini, polimer oluşumunu, partikül davranışını ve aşındırma ya da kaplama hızlarını etkiler. Olgunlaştırma, değerli gofretler işlenmeden önce odanın tutarlı davranmasını sağlar."
+id = "d9-q06"
+
+## --- YAKIN TEKRAR: Günler 7-8 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İleri düzey fablar neden insan eliyle gofret taşıma yerine kapalı FOUP'lara ve otomatik üst taşımaya bu kadar güvenir?"
+prompt.distractors = [
+    "Çünkü FOUP taşıma, üretim fablarında transistör eşik kaymasının ana kaynağı olan gofret sıcaklığı değişimini büyük ölçüde azaltır",
+    "Çünkü insan taşıması, tarayıcı interferometre ve plazma RF eşleme ağlarını bozan kabul edilemez elektromanyetik girişim yaratır",
+    "Çünkü otomatik taşıma, ön uç araçları arasında vakum sürekliliğini korumak ve açık silisyum yüzeylerinde oksit yeniden büyümesini önlemek için zorunludur"
+]
+answer.answer = "Because humans are major particle sources, and sealed FOUP transport helps preserve ultraclean conditions while moving wafers repeatably through the fab"
+context = "İnsanlar sürekli partikül saçar. FOUP'lar gofretleri ortam kontaminasyonundan yalıtır ve otomatik malzeme taşıma sistemlerinin onları çok daha düşük kontaminasyon riskiyle ve daha iyi lojistik tutarlılıkla fab boyunca taşımasına olanak tanır."
+id = "d9-q07"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bir EUV tarayıcısı neden kaynak ile gofret arasında bu kadar fazla ışık kaybeder?"
+prompt.distractors = [
+    "Çünkü gofret hizalama pozlaması sırasında EUV fotonlarının büyük bölümünü absorplar; desenleme görüntüleme geçişi için yalnızca küçük bir artık doz kalır",
+    "Çünkü EUV sistemleri saçıntı ve dirençli stokastik davranışı iyileştirmek için plazma üretiminin ardından spektrumu kasıtlı olarak genişletir",
+    "Çünkü vakum odası duvarları tam reticle alanı üzerinde düzgün yarık aydınlatması sağlamak için ışın demetinin bir bölümünü saçar"
+]
+answer.answer = "Because EUV must use multiple reflective optics with limited mirror reflectivity, so the beam suffers compounding losses at each optical surface"
+context = "Her EUV aynası gelen ışığın yalnızca yaklaşık üçte ikisini yansıtır. Birkaç ayna ile maske kayıplarından sonra orijinal kaynak gücünün yalnızca küçük bir bölümü gofrete ulaşır; bu nedenle EUV kaynak gücü bu denli kritik bir kısıttır."
+id = "d9-q08"
+
+## --- ESKİ TEKRAR: Günler 1-4 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Sektör neden ileri düğümlerde düzlemsel MOSFET'lerden FinFET'lere geçiş yaptı?"
+prompt.distractors = [
+    "Çünkü FinFET'ler çok daha kalın kapı oksiitlerine izin verir; bu durum kritik ön uç desenleme katmanlarındaki litografi karmaşıklığını önemli ölçüde azaltır",
+    "Çünkü FinFET'ler katkılanmış kaynak ve dren bölgelerinin yerini doğal silisyumla alır; implante taşıyıcıları kaldırarak eklem sızıntısını ortadan kaldırır",
+    "Çünkü FinFET'ler transistör kanalını yerel bağlantı izlerine göre dikey olarak döndürerek arka uç yönlendirmeyi basitleştirir"
+]
+answer.answer = "Because wrapping the gate around more of the channel improves electrostatic control, reducing leakage as planar devices became too hard to scale"
+context = "Düzlemsel MOSFET'ler, boyutlar küçüldükçe kapı denetimini yitirdi ve artan sızıntıya yol açtı. FinFET'ler, kapının kanalın birden fazla tarafını denetlemesiyle elektrostatik yapıyı iyileştirdi; bu durum daha düşük etkin sızıntıyla ölçeklemeye devam etmeyi mümkün kıldı."
+id = "d9-q09"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Litografik çözünürlüğü dalga boyuyla, sayısal açıklıkla ve k1 proses faktörüyle ilişkilendiren formülün adı nedir?"
+answer.answer = "Rayleigh criterion"
+answer.alternatives = ["Rayleigh equation", "Rayleigh formula", "Rayleigh resolution criterion"]
+context = "Rayleigh kriteri genellikle kritik boyut ≈ k1 × lambda / NA şeklinde yazılır. Daha kısa dalga boylarının ve daha yüksek sayısal açıklığın litografik çözünürlüğü neden iyileştirdiğini açıklar."
+id = "d9-q10"

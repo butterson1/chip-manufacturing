@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "NVIDIA'nın SIMT yürütme modeli, iş parçacıklarını aynı anda aynı komutu çalıştıran 32'lik grup (warp) halinde düzenler. Bir warptaki iş parçacıkları if/else dalında farklı yollar izlediğinde ne olur?"
+prompt.distractors = [
+    "Warp zamanlayıcısı, warpu iki bağımsız alt warpa böler; her biri dal yolunu paralel olarak ayrı yürütme birimlerinde çalıştırır",
+    "Donanım, çoğu iş parçacığının hangi dalı izleyeceğini tahmin eder ve yalnızca o yolu spekülatif olarak çalıştırır, yanlış iş parçacıklarını geri alır",
+    "Warp dağıtılır ve iş parçacıkları kilitleme adımını korumak için dal yönleri eşleşen diğer warplara yeniden dağıtılır"
+]
+answer.answer = "GPU her iki yolu da sırayla çalıştırır; o yola ait olmayan iş parçacıklarını maskeleyerek verimliği potansiyel olarak yarıya indirir"
+context = "Bu 'warp ıraksama'sıdır (warp divergence). Bir warptaki tüm iş parçacıkları tek bir program sayacını paylaştığından, ıraksak dallar her iki yolun da sıralı yürütülmesini zorlar. Her tarafta 16 iş parçacığıyla verim %50'ye düşer."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "NVIDIA H100, her biri ~1,98 GHz'de döngü başına 16×16×16 FP16 matris çarpımı hesaplayan 528 tensör çekirdeğine sahiptir. Yalnızca tensör çekirdeklerinden elde edilen FP16 TFLOPS değeri yaklaşık kaçtır?"
+prompt.distractors = [
+    "Yaklaşık 330 TFLOPS — her tensör çekirdeği 4.096 FMA gerçekleştirir ancak yoğun matris işlemlerindeki termal sınırlar nedeniyle düşük saat hızında çalışır",
+    "Yaklaşık 2.100 TFLOPS — her tensör çekirdeği 8.192 FLOPS gerçekleştirir; 528 çekirdekle 1,98 GHz'de çarpıldığında bir petaflopu aşar",
+    "Yaklaşık 67 TFLOPS — tensör çekirdekleri, CUDA çekirdekleriyle yürütme kaynaklarını paylaşır ve her döngüde hepsi aynı anda ateşlenemez"
+]
+answer.answer = "Yaklaşık 990 TFLOPS — 528 çekirdek × döngü başına çekirdek başına 8.192 FLOPS × 1,98 GHz ÷ 10¹², yaklaşık bir petaflop FP16 verir"
+context = "Her 16×16×16 MMA, 4.096 FMA = 8.192 FLOPS'tur. 528 × 8.192 × 1,98 GHz ≈ 8,56 × 10¹⁵ / 10¹² ≈ 990 TFLOPS. Bu, CUDA çekirdeklerinin FP32 veriminin ~15 katıdır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "GPU'lar bellek gecikmesini CPU'lardan temel olarak farklı bir mekanizma ile gizler. GPU'nun birincil yaklaşımı nedir?"
+prompt.distractors = [
+    "GPU'lar, iş parçacığı blokları genelindeki erişim örüntülerini tahmin eden ve warplar isteği göndermeden önce veri getirmeye başlayan donanım ön belleği (prefetcher) kullanır",
+    "GPU'lar, çoğu erişimin çip üzerindeki SRAM'den karşılanmasını sağlamak için 80+ MB L3 önbelleğe sahip büyük çok katmanlı önbellek hiyerarşilerine dayanır",
+    "GPU'lar, bellek durmalarıyla hesaplamayı örtüştürmek amacıyla her warp içinde bağımsız komutları yeniden sıralamak için sıra dışı yürütme kullanır"
+]
+answer.answer = "GPU'lar, önceden ayrılmış yazmaçlarla aynı anda birçok warpu yerleşik tutar ve biri bellekte beklemeye geçtiğinde hazır başka bir warpa anında geçiş yapar"
+context = "Her SM, yazmaç durumu halihazırda yazmaç dosyasında bulunan 48 warpa (1.536 iş parçacığı) kadar barındırabilir. Sıfır maliyetli bağlam geçişi, GPU'nun bir warp bellek beklerken diğer warpları çalıştırabileceği anlamına gelir; spekülatif işlem veya önbellekleme hilelerine gerek yoktur."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "NVIDIA RTX 4090 (Ada Lovelace), SM başına 256 KB yazmaç dosyasına sahiptir. Bir GPU neden CPU'dan çok daha fazla yazmaç depolama alanına ihtiyaç duyar?"
+prompt.distractors = [
+    "GPU gölge programları (shader), eşdeğer işlemler için CPU'nun 32 bit yazmaçlarının 4 katı depolama gerektiren daha geniş 128 bit SIMD yazmaçları kullanır",
+    "GPU yazmaç dosyaları, doku verileri için L0 önbelleği görevi de görerek hem yürütme hem de bellek alt sistemi işlevlerini aynı anda yerine getirir",
+    "GPU derleyicileri, SIMT yürütme modeli kısıtlamaları nedeniyle CPU derleyicileri kadar verimli yazmaç ayırımı gerçekleştiremez"
+]
+answer.answer = "Birden fazla warpın zamanlayıcının aralarında sıfır ek yükle geçiş yapabilmesi için tam yazmaç durumları aynı anda yerleşik olmak zorundadır"
+context = "Bir SM, 32 iş parçacığından oluşan 48 warpu barındırıyorsa bu 1.536 iş parçacığının tamamının canlı yazmaçlara ihtiyacı vardır. Anlık warp geçişi kaydetme/geri yükleme gerektirmez; dolayısıyla her iş parçacığının yazmaçlarının aynı anda fiziksel olarak yazmaç dosyasında bulunması gerekir."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "NVIDIA'nın 2007'de piyasaya sürdüğü, geliştiricilerin C++'a benzer söz dizimiyle GPU kodu yazmasına olanak tanıyan ve NVIDIA'nın ekosisteminin birincil yazılım hendegini oluşturan paralel hesaplama platformunun adı nedir?"
+answer.answer = "CUDA"
+answer.alternatives = ["cuda"]
+context = "CUDA (Compute Unified Device Architecture), 2007'de G80/GeForce 8800 GTX ile birlikte piyasaya sürüldü. 17 yılı aşkın süre içinde NVIDIA, üzerine cuDNN, cuBLAS, NCCL, TensorRT ve daha fazlasını inşa ederek rakiplerin eşleştirmekte zorlandığı bir yazılım ekosistemi oluşturdu."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD'nin MI300X işlemcisi yongacık tasarımıyla 153 milyar transistöre sahiptir. 192 GB HBM3 belleği, büyük dil modeli çıkarımında NVIDIA H100'ün 80 GB belleğine kıyasla ne gibi belirli bir avantaj sağlar?"
+prompt.distractors = [
+    "Daha fazla HBM kapasitesi, MI300X'in aynı anda 2,4 kat daha fazla çıkarım isteğini işlemesine olanak tanır ve harcanan dolar başına verimi artırır",
+    "Ek bellek, sıkıştırma olmadan hem FP32 ana ağırlıkların hem de FP16 gradyanların saklandığı karma hassasiyetli eğitimi mümkün kılar",
+    "Daha büyük HBM kapasitesi sayesinde MI300X, uzun bağlamlı dönüştürücüler için KV-önbelleğinin tamamını yeniden hesaplama yükü olmadan önbelleğe alabilir"
+]
+answer.answer = "80 GB'ı aşan büyük LLM model ağırlıkları, birden fazla GPU'ya model paralelliği gerekmeksizin tek bir MI300X'e sığabilir"
+context = "FP16 formatında 70B parametreli bir model yaklaşık 140 GB gerektirir; bu bir H100'e sığmaz ancak bir MI300X'e sığar. Çok GPU'lu model paralelliğini ortadan kaldırmak, GPU'lar arası iletişim ek yükünü giderir ve dağıtımı basitleştirir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "GeForce 8800 GTX (G80, 2006), genel amaçlı GPU hesaplamayı mümkün kılan önemli bir mimari değişiklik tanıttı. Bu değişiklik neydi?"
+prompt.distractors = [
+    "Ardışık çekirdek başlatmaları arasında şeffaf veri yeniden kullanımına olanak tanıyan donanım tarafından yönetilen L2 önbelleği içeren ilk GPU'ydu",
+    "Köşe ve piksel iş yüklerini saat döngüleri arasında dinamik olarak dengeleyen donanım iş parçacığı zamanlamasını tanıttı",
+    "Tüketici grafik donanımında iş parçacıkları arası iletişimi ilk kez mümkün kılan atomik bellek işlemleri ekledi"
+]
+answer.answer = "Köşe ve piksel gölge donanımını her türlü gölge programını çalıştırabilen özdeş akış işlemcilerinde birleştirdi"
+context = "G80 öncesinde GPU'lar köşe ve piksel gölgeleyiciler için ayrı özel donanıma sahipti; bu durum yük dengesizliğine yol açıyordu. Birleşik gölgeleyiciler, herhangi bir çekirdeğin herhangi bir program türünü çalıştırabilmesi anlamına geliyordu; bu da verimli genel amaçlı hesaplamayı mümkün kıldı ve GPGPU dönemini başlattı."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "H100 SXM yaklaşık 30.000 dolar tutarken, benzer CUDA çekirdek sayısına (~16.900'e karşı ~16.400) sahip olmasına karşın RTX 4090 1.599 dolar fiyatındadır. 20 kat fiyat farkını en iyi açıklayan etken hangisidir?"
+prompt.distractors = [
+    "H100, daha yüksek güvenilirlik seçimi (binning) ile veri merkezi iş yüklerine yönelik optimize edilmiş temel olarak farklı bir transistör mimarisi kullanır",
+    "NVIDIA, veri merkezi ve tüketici kartları için farklı ürün yazılımı lisansları uygular; bu da fiyatlandırma kademelerini yapay olarak segmentlere böler",
+    "H100'ün daha büyük yonga boyutu (814 mm²'ye karşı 609 mm²), TSMC'nin önde gelen düğümlerinde orantılı olarak daha pahalı wafer alanı gerektirir"
+]
+answer.answer = "H100, HBM3 (3.350 GB/s bant genişliği), NVLink 4.0 (900 GB/s ara bağlantı), 80 GB bellek, ECC ve MIG gibi tüketici GPU'larında bulunmayan sistem düzeyinde özellikler içerir"
+context = "Fiyat farkı HBM3 paketlemesini (son derece pahalı silikon ara katman ve DRAM yığınları), çok GPU'lu ölçeklendirme için NVLink ara bağlantısını, ECC bellek korumasını ve veri merkezi güvenilirlik özelliklerini yansıtır. Bu yalnızca bir silikon farkı değil, sistem düzeyinde bir farktır."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "2012'de iki GTX 580 GPU üzerinde eğitilen ve ImageNet yarışmasını kazanarak derin öğrenme devrimini başlatan evrişimsel sinir ağının adı nedir?"
+answer.answer = "AlexNet"
+answer.alternatives = ["alexnet", "Alex Net"]
+context = "Alex Krizhevsky'nin AlexNet'i, 2012 ImageNet yarışmasını büyük bir farkla kazandı ve GPU'ların derin sinir ağlarını uygulanabilir kılabileceğini gösterdi. CNN'ler 1980'lerden beri var olmasına karşın GPU'lar, büyük veri kümeleri üzerinde eğitim için gerekli hesaplama gücünü sağladı."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Apple'ın M4 Max işlemcisi, birleşik bellek mimarisinde ~30 W güçle 546 GB/s bellek bant genişliği sunmaktadır. Yerel LLM çıkarımında bu yaklaşım, çok daha düşük ham TFLOPS değerine karşın neden ayrık GPU'larla rekabet edebilir?"
+prompt.distractors = [
+    "Apple'ın Sinir Motoru çekirdekleri, özel veri akışı tasarımı sayesinde dönüştürücü dikkat işlemlerinde GPU tensör çekirdeklerinden daha verimlidir",
+    "Birleşik mimari, küçük toplu çıkarıma hâkim olan 30-50 mikrosaniyelik gecikmeyi ortadan kaldırmak için PCIe üzerinden CPU'dan GPU'ya veri aktarımını devre dışı bırakır",
+    "Apple'ın özel bellek denetleyicisi, sinir ağı ağırlık erişiminde kullanılabilir bant genişliğini etkin biçimde ikiye katlayan sıkıştırma algoritmaları kullanır"
+]
+answer.answer = "LLM çıkarımı hesaplama değil bellek bant genişliğiyle sınırlıdır; bu nedenle Apple'ın watt başına yüksek bant genişliği oranı, en yüksek TFLOPS değerinden daha önemlidir"
+context = "Her token üretimi için milyarlarca ağırlık parametresinin okunması gerekir ancak parametre başına görece az hesaplama yapılır. Watt başına ~18 GB/s bant genişliği verimliliğiyle Apple Silicon, 300-700 W tüketen ayrık GPU'larla rekabet edebilir ve bu belirli iş yükünde watt başına performansta benzer sonuçlar elde eder."

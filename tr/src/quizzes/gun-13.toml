@@ -1,0 +1,111 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD'nin EPYC Rome ile kullandığı chiplet yaklaşımı, monolitik bir die ile karşılaştırıldığında üretim ekonomisini neden dramatik biçimde iyileştirdi?"
+prompt.distractors = [
+    "Chipletler, daha küçük dielerin daha düşük parazitik kapasitans ve daha kısa kritik sinyal yollarına sahip olması nedeniyle daha yüksek saat frekanslarına olanak tanıdı",
+    "Her chiplet, wafer düzeyinde bağımsız olarak test edilebildiğinden pahalı paket düzeyindeki burn-in testine tamamen olan ihtiyacı ortadan kaldırdı",
+    "Chiplet tasarımı, AMD'nin tüm ürün kademeleri için tek bir litografi maskesi seti kullanmasına izin verdi; böylece 150 milyon dolarlık maske maliyeti tek seferlik bir gidere dönüştü"
+]
+answer.answer = "74 mm²'lik küçük die'lar, ~500 mm²'lik monolitik bir die'dan çok daha iyi verim sağlar ve G/Ç die'ı daha ucuz eski bir süreç düğümü kullanabilir"
+context = "Kusur yoğunluğu Poisson dağılımını izler — daha büyük die'lar üstel olarak daha kötü verim verir. AMD'nin 74 mm²'lik küçük CCD'leri, varsayımsal ~500 mm²'lik monolitik eşdeğerinden çok daha iyi verim verdi. Ayrıca G/Ç die'ı, son teknoloji transistörlere ihtiyaç duymadığından GlobalFoundries'in daha ucuz 14 nm sürecini kullandı."
+id = "d13-q01"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Chipletleri birleştirmek için kullanılan silikon interpozer'ın (TSMC'nin CoWoS'u gibi) organik paket substratına göre birincil avantajı nedir?"
+prompt.distractors = [
+    "Silikon interpozerler, silikonun 150 W/m·K'lik üstün termal iletkenliği nedeniyle organik substratlara kıyasla ısıyı 3 kat daha etkili biçimde dağıtır",
+    "Silikon interpozerler, organik substratlar için gereken 60-80 güne kıyasla 5 günde üretilebilir; bu da üretim temin sürelerini dramatik biçimde kısaltır",
+    "Silikon interpozerler, substrat düzeyinde doğrudan bakır-bakır bağlama kullanarak lehim bağlantısı ihtiyacını tamamen ortadan kaldırır"
+]
+answer.answer = "Silikon interpozerler, yarı iletken litografisiyle şekillendirilerek organik substratlara kıyasla çok daha ince interkonnekt aralıklarına ulaşabilir"
+context = "Temel avantaj yoğunluktur: silikon interpozerler, ~100.000 interkonnekt/mm² yoğunluk sağlayan 0,4-0,8 μm hat genişlikleri elde etmek için standart yarı iletken litografisini kullanır — bu, organik substratlara (8-15 μm hatlar) kıyasla kat kat daha yoğundur. Bu yoğunluk, HBM için gereken ultra geniş bellek veri yollarını mümkün kılan şeydir."
+id = "d13-q02"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "HBM3E bellek yığını, yığın başına 819 GB/s bant genişliği elde eder. Bu aşırı bant genişliğini sağlayan mimari özellik öncelikle nedir?"
+prompt.distractors = [
+    "Yığındaki her DRAM die'ı pin başına yaklaşık 8,4 Gbps hızında çalışır; bu standart DDR5 sinyal hızlarından yaklaşık 4 kat daha hızlıdır",
+    "Through-silicon via'lar, 50 μm'lik kısa uzunlukları sayesinde neredeyir sıfır dirence sahiptir; bu da sinyal bütünlüğü kayıplarını ortadan kaldırır",
+    "Taban mantık die'ı, tüm yığılmış die'lardan gelen veriyi daha az çıkış kanalına çoğullayan yüksek hızlı bir serileştirici/seriden çözücü içerir"
+]
+answer.answer = "3D yığın, die başına 5.000'den fazla TSV ile 8-12 die'ı birleştirir; bu da DDR5'in 64 bit veri yoluna karşı 1.024 bit genişliğinde paralel bir arayüz sağlar"
+context = "HBM, aşırı bant genişliğini öncelikle büyük paralellik yoluyla elde eder — TSV'lerle dikey olarak bağlanan yığılmış die'larla mümkün kılan 1.024 bit genişliğinde bir veri yolu. Bu, DDR5'in 64 bit arayüzünden 16 kat daha geniştir. TSV'lerle dikeye gidilmesi, geleneksel yan yana paketlemeyle imkânsız olacak binlerce kısa paralel bağlantıya olanak tanır."
+id = "d13-q03"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "9 μm aralıklı hibrit bağlama yaklaşık ne kadar bağlantı yoğunluğu elde eder ve bu mikro-bump teknolojisiyle nasıl karşılaştırılır?"
+prompt.distractors = [
+    "Yaklaşık mm² başına 3.000 bağlantı; bu, standart mikro-bump aralıklarıyla elde edilebilen 625/mm²'ye kıyasla 5 kat iyileşmeyi temsil eder",
+    "Yaklaşık mm² başına 50.000 bağlantı; bu, lehim topu hacminin tamamen ortadan kaldırılmasıyla sağlanan 50 kat iyileşmeyi temsil eder",
+    "Yaklaşık mm² başına 1.200 bağlantı; bakır pad boyutları mikro-bump çaplarına benzer kaldığından mütevazı 2 kat iyileşme"
+]
+answer.answer = "Yaklaşık mm² başına 12.000 bağlantı; bu, 40 μm mikro-bump aralığıyla elde edilebilen 625/mm²'ye kıyasla 20 kat iyileşmeyi temsil eder"
+context = "9 μm aralıkta hibrit bağlama, ~12.000 bağlantı/mm² elde eder — bu, 40 μm aralıklı mikro-bump'ların ~625/mm² değerinden yaklaşık 20 kat daha yoğundur. Bu dramatik iyileşme, lehim bumps'larının ortadan kaldırılmasından ve bakır padlarla çevreleyen oksidin doğrudan bağlanmasından kaynaklanır; bu da çok daha sıkı aralıklara olanak tanır."
+id = "d13-q04"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Neredeyse tüm büyük yapay zeka hızlandırıcılarında (NVIDIA H100, AMD MI300X vb.) kullanılan TSMC'nin 2.5D paketleme teknolojisinin adı nedir?"
+answer.answer = "CoWoS"
+answer.alternatives = ["cowos", "Chip-on-Wafer-on-Substrate", "chip on wafer on substrate"]
+context = "CoWoS (Chip-on-Wafer-on-Substrate), silikon interpozer kullanan TSMC'nin 2.5D paketleme platformudur. Yapay zeka hızlandırıcıları için baskın teknoloji olup GPU/hızlandırıcı die'larını HBM bellek yığınlarıyla birleştirir. CoWoS kapasitesi, yapay zeka endüstrisi için önemli bir tedarik darboğazı hâline geldi."
+id = "d13-q05"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İki yüksek güçlü mantık die'ının 3D olarak üst üste yığılması (örn. iki GPU) mevcut teknolojiyle neden özellikle zorlu bir iştir?"
+prompt.distractors = [
+    "Yakın mesafedeki iki aktif mantık die'ı arasındaki elektromanyetik girişim, 2 GHz üzerindeki yüksek hızlı sinyallemeyi bozan çapraz konuşmaya neden olur",
+    "Mevcut hibrit bağlama hizalama doğruluğu olan ±200 nm, mantık-mantık bağlantıları için gereken 50 nm altındaki via aralıklarına ulaşmak için yetersizdir",
+    "Bağlama arayüzeyinin farklı termal genleşme katsayıları, güç çevrimi sırasında TSV'leri kıran mekanik gerilim oluşturur"
+]
+answer.answer = "Alt die'ın ısısının ısı emiciye ulaşmak için üst die'dan geçmesi gerekir; bu da bağları zorlayan 10-15°C'lik termal gradyanlar yaratır"
+context = "Isı, mantık-üstü-mantık 3D yığımlamanın önündeki birincil engeldir. Her iki die de yüzlerce watt üretir ve alt die'ın ısısının bağlama arayüzeyini ve üst die'ı geçerek ısı emiciye ulaşması gerekir. Bu, diferansiyel genleşmeye ve bağların zorlanmasına neden olan dik termal gradyanlar (10-15°C) yaratır. 3D yığımlamanın öncelikle düşük güç yoğunluklu devrelerle başarılı olmasının nedeni budur: bellek (HBM) ve önbellek (V-Cache)."
+id = "d13-q06"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Intel'in EMIB teknolojisi nedir ve tam silikon interpozer karşısında ne gibi bir avantaj sunar?"
+prompt.distractors = [
+    "EMIB, silikon yerine daha yüksek bant genişliği elde etmek ve elektrik sinyal zayıflamasını ortadan kaldırmak için gömülü optik dalga kılavuzları olan polimer köprü kullanır",
+    "EMIB, Intel'in kendi 7 nm sürecinde üretilen tam wafer boyutlu silikon interpozerdir ve TSMC'nin CoWoS kapasitesine bağımlılığı ortadan kaldırır",
+    "EMIB, silikon köprüleri interpozer katmanını ortadan kaldırarak toplam paket yüksekliğini azaltmak amacıyla chipletlerin altına değil üstüne yerleştirir"
+]
+answer.answer = "EMIB, yalnızca die-die bağlantılarının gerekli olduğu yerlerde organik substratlara küçük yerelleşmiş silikon köprüler gömer; bu da tam interpozer yerine daha düşük maliyetle sonuçlanır"
+context = "EMIB (Embedded Multi-die Interconnect Bridge), organik substrat içindeki boşluklara küçük silikon köprü çipler yerleştirir; bu sayede yalnızca ihtiyaç duyulan die-die sınırlarında yüksek yoğunluklu interkonnekt sağlar. Bu, tüm paket alanını kapsayan tam silikon interpozerden çok daha ucuzdur. Intel'in Ponte Vecchio GPU'su, 47 karoya bağlanmak için EMIB kullandı."
+id = "d13-q07"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yapay zeka çip paketleri için gelişmiş organik substrat üretiminde hangi şirketler baskın konumdadır ve bu durum neden bir darboğaza dönüştü?"
+prompt.distractors = [
+    "TSMC, Samsung ve Intel substrat üretimini dikey olarak entegre etmiştir, ancak fabrika kapasiteleri substrattan çok wafer üretimine öncelik vermektedir",
+    "ASE Group, Amkor ve JCET substrat pazarına hâkimdir, ancak 8-15 μm hat genişlikleri yapay zeka paketlerinin 5 μm altındaki gereksinimlerini karşılayamaz",
+    "Applied Materials, Tokyo Electron ve Lam Research substrat ekipmanı üretmektedir, ancak 18+ aylık teslimat süreleri yeni kapasiteyi kısıtlamaktadır"
+]
+answer.answer = "Ibiden, Shinko Electric ve AT&S %70'in üzerinde paya sahiptir; 60-90 adımlık süreçler 60-80 gün sürer ve temin süreleri 40-50 haftaya uzar"
+context = "Üç şirket — Ibiden, Shinko Electric (Fujitsu yan kuruluşu) ve AT&S (Avusturyalı) — %70'in üzerinde birleşik pazar payıyla baskın konumdadır. Gelişmiş substratlar 60-90 işlem adımı gerektirir, üretimi 60-80 gün sürer ve yoğun talep dönemlerinde temin süreleri 40-50 haftaya uzar. 50-100 dolarlık bir substrat, 30.000 dolar üzerindeki bir GPU'nun teslimatını kısıtlayabilir."
+id = "d13-q08"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Tek bir EUV litografi pozlamasının basabileceği yaklaşık maksimum alan (reticle sınırı olarak bilinir) nedir?"
+answer.answer = "858 mm²"
+answer.alternatives = ["858mm2", "858 square mm", "~858 mm²", "about 858 mm²", "858"]
+context = "Reticle sınırı, EUV tarayıcılarının maksimum alan boyutu tarafından belirlenen yaklaşık 858 mm²'dir (26 × 33 mm). Bu sınıra yaklaşan die'lar (600 mm²'nin üzerindeki büyük GPU'lar gibi) ciddi verim cezaları alır; bu da chiplet yaklaşımının temel itici gücüdür — tasarımları her biri reticle sınırı içinde rahatça sığan birden fazla küçük die'a bölmek."
+id = "d13-q09"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD'nin 3D V-Cache teknolojisi, bir CPU die'ının üstüne SRAM önbellek yığmaktadır. Hibrit bağlamayı bu uygulama için kritik kılan nedir?"
+prompt.distractors = [
+    "Hibrit bağlama, lehim bump'ları üzerindeki voltaj düşümünü ortadan kaldırarak yığılmış SRAM'ın CPU die'ıyla aynı voltajda çalışmasına olanak tanır",
+    "Hibrit bağlama, önbelleğin CPU'dan farklı bir süreç düğümünde üretilmesine izin vererek SRAM chiplet maliyetini %40 azaltır",
+    "Hibrit bağlama, die'lar arasında mikro-bump'lardan 10 kat daha iyi termal iletkenlik sağlayarak önbelleği çalışma sıcaklığı sınırları içinde tutar"
+]
+answer.answer = "Bağlama yoğunluğu yeterince yüksek ve gecikme yeterince düşük olduğundan CPU, yığılmış önbelleği kendi die üzerindeki L3 önbelleğinin sorunsuz bir uzantısı olarak algılar"
+context = "Hibrit bağlamanın yoğun, düşük gecikmeli bağlantıları (9 μm aralıkta 12.000/mm²), CPU die'ı ile yığılmış SRAM arasındaki sınırı elektriksel açıdan neredeyse görünmez kılar. CPU, yığılmış önbelleğe kendi die üzerindeki L3 önbelleğiyle karşılaştırılabilir gecikmeyle erişir — yazılım, die üzerindeki ve yığılmış önbellek arasındaki farkı ayırt edemez. Bu sorunsuz entegrasyon yalnızca hibrit bağlamanın yoğunluğuyla mümkündür."
+id = "d13-q10"

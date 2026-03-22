@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Morris Chang'ın 1987'de TSMC'yi kurarken temel stratejik içgörüsü neydi?"
+prompt.distractors = [
+    "Çip tasarımı o kadar standartlaşacaktı ki fablar, fiyatlandırma ve enerji verimliliği üzerinden farklılaşabilecekti",
+    "Askeri mikroelektronik talebi, özel bir Tayvan savunma döküm modeli için yeterince büyüyecekti",
+    "Bellek çipleri mantıktan yapısal olarak daha kârlı hâle gelecekti; dolayısıyla sözleşmeli DRAM üretimi yarı iletken sektörünü yeniden şekillendirecekti"
+]
+answer.answer = "Fabrication would become so capital-intensive and specialized that design and manufacturing would need to split into separate businesses"
+context = "Chang, ileri düzey fabların her çip şirketinin sahip olamayacağı kadar pahalı ve karmaşık hâle geldiğini fark etti. TSMC'nin saf döküm (pure-play foundry) modeli, fabsız şirketlerin fab inşa etmeden çip tasarlamasına olanak tanıdı."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "TSMC'nin müşterileriyle asla rekabet etmeyeceği vaadi neden stratejik açıdan güçlüydü?"
+prompt.distractors = [
+    "Bu vaat, TSMC'nin yalnızca dikey entegre çip satıcılarına uygulanan ihracat kontrolü kurallarından kaçınmasına olanak tanıdı",
+    "Bu durum, TSMC'nin birden fazla müşteri arasında aynı mask setlerini yeniden kullanmasına izin verdi ve paylaşılan reticle'lar sayesinde tekrarlayan mühendislik maliyetlerini düşürdü",
+    "Bu vaat, TSMC'nin kendi proses tasarım kitlerini olmadan faaliyet göstermesine olanak tanıdı; çünkü müşteriler nihai üretim optimizasyonundan sorumluydu"
+]
+answer.answer = "It created trust with fabless designers that would never have wanted to share their best chips with a manufacturing partner that also sold rival products"
+context = "Tarafsızlık önemliydi. Apple, Qualcomm, AMD, NVIDIA ve diğerleri TSMC'yi, çatışan çıkarları olan bir ürün rakibi olarak değil, bir üretim ortağı olarak görebildi."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "TSMC'nin ekonomik açıdan gerçek ürünü, salt wafer satışının ötesinde nedir?"
+prompt.distractors = [
+    "Fab modülü başına mümkün olan en düşük enerji tüketimi; bu, müşterilerin farklı üretim tesisleri arasında bölgesel elektrik fiyatlarından yararlanmasına olanak tanır",
+    "Düğüm başına maksimum transistör yeniliği; üretilebilirlik başlangıçta kararsız olsa ve hacim artışları yeniden tasarımlar için geciktirilse bile",
+    "Özel çip mimarilerine özel erişim; müşteriler bunları tape-out öncesinde yarı özel CPU ve GPU şablonları olarak lisanslar"
+]
+answer.answer = "High yield at scale with predictable schedules, so customers can count on good dies per wafer in real production volumes"
+context = "İleri düzey bir wafer pahalıdır, ancak müşterilerin gerçekten ihtiyaç duyduğu şey öngörülebilir yüksek hacimli çıktıdır. Verim, artış disiplini ve takvim güvenilirliği, döküm ekonomisinin belirleyici olduğu alanlardır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "TSMC, yapay zeka hızlandırıcı patlaması sırasında neden NVIDIA için özellikle kritik hâle geldi?"
+prompt.distractors = [
+    "NVIDIA, tensor çekirdeklerini kontrol etmek için kullanılan x86 CPU chiplet'leri için ağırlıklı olarak TSMC'ye bağımlıydı; GPU'ların kendisi ise olgun yerel düğümlerde kaldı",
+    "TSMC, HBM yığınları ve yapay zeka sunucusu voltaj regülasyonu için gereken galyum nitrür güç transistörlerini sağlayabilen tek tedarikçiydi",
+    "NVIDIA, wafer üretiminden daha büyük bir darboğaz hâline gelen EUV reticle hazırlığı için öncelikle TSMC'ye ihtiyaç duyuyordu"
+]
+answer.answer = "NVIDIA needed both TSMC's advanced logic nodes and TSMC-centered packaging capacity like CoWoS to pair giant GPU dies with HBM at scale"
+context = "Yapay zeka patlaması sırasında darboğaz yalnızca GPU tasarımı değildi. Darboğaz, TSMC'nin ileri düzey die'ları üretme ve bunları CoWoS gibi ileri entegrasyon akışlarıyla HBM ile paketleme kapasitesiydi."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "TSMC'nin üretim gücünü Tayvan dışında yeniden üretmek neden bu kadar zordur?"
+prompt.distractors = [
+    "İleri düzey proses adımlarının çoğu yalnızca Tayvan'ın yurt içi patent sistemi kapsamında yasal olarak gerçekleştirilebilir; bu durum yabancı fabları eski transistör mimarileri kullanmaya zorlar",
+    "ASML tarayıcıları ve KLA muayene araçları, Tayvan'ın şebeke frekansına kalıcı olarak kalibre edilmiştir; bu da yurt dışında tekrarlamayı teknik açıdan tutarsız kılar",
+    "Temel kısıtlama, deniz aşırı tesislerin aynı silikon waferları ithal edememesi; dolayısıyla farklı kristal yönleri kullanmak ve kütüphaneleri yeniden tasarlamak zorundadırlar"
+]
+answer.answer = "Because the advantage is not just buildings and tools but an entire ecosystem of engineers, suppliers, utilities, routines, and tacit manufacturing know-how"
+context = "İleri düzey bir fab, sermaye harcamasından çok daha fazlasına bağlıdır. Yerel tedarikçi yoğunluğuna, kirlenme disiplinine, eğitimli teknisyenlere, kararlı altyapıya ve onlarca yılda inşa edilmiş proses kültürüne ihtiyaç vardır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "TSMC'nin Intel'i üretim uygunluğu açısından nasıl geride bıraktığını en iyi ne açıklar?"
+prompt.distractors = [
+    "TSMC, önce bellek odaklı proses geliştirmeye yoğunlaştı; ardından bu DRAM atılımlarını Intel'i mantık yoğunluğu ve önbellek ölçeklemesinde geçmek için yeniden kullandı",
+    "TSMC, Tayvan işçilik maliyetlerinin kalıcı olarak daha düşük kalması sayesinde kazandı; bu da ileri düzey waferları verimden bağımsız olarak yapısal biçimde daha ucuz kıldı",
+    "TSMC, daha hızlı döngü süreleri için muayene ağırlıklı proses kontrolünden vazgeçti; daha fazla hatayı kabul etti ancak toplam daha fazla wafer başlatmayla telafi etti"
+]
+answer.answer = "TSMC aligned its business around process execution for many customers, while Intel had to synchronize world-class product design and process development inside one organization"
+context = "Intel, hem ürünleri hem de fabları kendisi için birlikte optimize etmek zorundaydı. TSMC, üretim mükemmeliyetine odaklandı ve düğüm geliştirme maliyetlerini birçok müşteri ve ürün kategorisine yayabildi."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "P = α × C × V² × f dinamik güç denkleminde voltaj ölçeklemesine olağandışı büyük etkisini hangi terim verir?"
+prompt.distractors = [
+    "Aktivite faktörü α; çünkü voltaj, her saat döngüsünde mantıksal olarak kaç transistörün anahtarlanmasına izin verildiğini kontrol eder",
+    "Kapasitans C; çünkü voltajı düşürmek, ara bağlantı boyutlarını fiziksel olarak küçültür ve dolayısıyla çalışma sırasında die boyutunu azaltır",
+    "Frekans f; çünkü voltaj değişiklikleri her modern işlemci mimarisinde saat hızındaki özdeş değişikliklerle her zaman yansıtılır"
+]
+answer.answer = "The squared voltage term V², which means even modest voltage reductions produce disproportionately large dynamic power savings"
+context = "21. Günden: Voltaj, dinamik güçte karesi alındığı için en güçlü tek kaldıraçtır. Voltajdaki %30'luk bir düşüş, dinamik gücü yaklaşık %51 oranında azaltır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "RISC-V'nin özel uzantı modelinin ARM gibi tescilli bir ISA'ya kıyasla belirgin avantajı nedir?"
+prompt.distractors = [
+    "RISC-V tüm özel talimatları otomatik olarak taşınabilir mikrokoda dönüştürür; bu sayede ikili dosyalar her uygulamada tam uyumluluğunu korur",
+    "RISC-V her uzantının kullanımdan önce küresel olarak standardize edilmesini gerektirir; böylece satıcıya özgü optimizasyonları korurken parçalanmayı önler",
+    "RISC-V özel talimatları ayrıcalıklı ürün yazılımının arkasına gizler; satıcıların yeni işlem kodlarını yazılıma açmadan donanımı özel olarak ayarlamasına olanak tanır"
+]
+answer.answer = "It lets companies add workload-specific instructions directly into the ISA without paying architecture-license fees or inventing an entire instruction set from scratch"
+context = "20. Günden: RISC-V, özel uzantılar için işlem kodu alanı ayırır. Bu, tasarımcılara standart ekosistem desteği ile çekirdeğin kendisinde alana özgü hızlandırma sağlar."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Yapay zeka patlaması sırasında büyük mantık die'larını HBM yığınlarına bağlayarak önemli bir darboğaz hâline gelen TSMC'nin ileri paketleme teknolojisinin adı nedir?"
+answer.answer = "CoWoS"
+answer.alternatives = ["cowos", "Chip-on-Wafer-on-Substrate"]
+context = "CoWoS, TSMC'nin yapay zeka hızlandırıcılarının, özellikle HBM belleğiyle eşleştirilen NVIDIA GPU'larının merkezine yerleşen ileri paketleme teknolojisidir."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Bir şirketin hem kendi çiplerini tasarlayıp hem de ürettiği, TSMC'nin bozduğu iş modelini tanımlayan üç harfli terim nedir?"
+answer.answer = "IDM"
+answer.alternatives = ["integrated device manufacturer", "integrated device manufacturers"]
+context = "TSMC'nin yükselişinden önce yarı iletken sektörüne, çiplerini tasarlayan ve üreten Intel ve Texas Instruments gibi IDM'ler hâkimdi."

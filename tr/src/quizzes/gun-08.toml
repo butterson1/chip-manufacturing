@@ -1,0 +1,120 @@
+# Gün 8 Sınavı: EUV Litografisi
+# 6 yeni + 2 yakın tekrar (Günler 5-7) + 2 eski tekrar (Günler 1-4)
+
+## --- YENİ: Gün 8 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "EUV litografi sistemleri neden DUV sistemlerinin kullandığı kırıcı merceклeri kullanamaz?"
+prompt.distractors = [
+    "Çünkü 13,5nm fotonların kuvartzu geçerken zamanla mercek malzemesine radyasyon hasarı verecek kadar yeterli enerjisi yoktur",
+    "Çünkü 13,5nm'de camın kırıcı indisi çok yüksektir ve yansıtılan görüntüyü bulanıklaştıran aşırı kromatik sapmaya yol açar",
+    "Çünkü gerekli nanometre altı yüzey kalitesinde mercek üretmek mevcut parlatma teknolojisiyle imkânsızdır"
+]
+answer.answer = "Because virtually all materials absorb 13.5nm light, making transmission through any lens material physically impossible at usable intensities"
+context = "13,5nm dalga boyunda fotonlar, kuvartz ve cam dahil neredeyse tüm katı maddeler tarafından absorplanacak kadar enerjiktir. Bu nedenle EUV sistemleri mercek yerine yansıtıcı aynalar (Mo/Si çok katmanlı kaplamalarla) kullanır ve hava bile EUV'yu absorpladığından neredeyse mükemmel vakumda çalışmak zorundadır."
+id = "d8-q01"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "CO₂ lazer gücünden kullanılabilir 13,5nm EUV fotonlarına dönüşüm verimliliği yaklaşık nedir?"
+prompt.distractors = [
+    "%15-20; çünkü molibden-silisyum toplayıcı ayna geniş bantlı kalay plazma emisyonunu dar bir EUV bandına verimli şekilde odaklar",
+    "%0,5-1; çünkü lazer enerjisinin büyük bölümü plazma oluşmadan önce kalay damlacığı yüzeyi tarafından yansıtılır",
+    "%25-30; çünkü ön-darbe düzleştirme adımı kalay hedefin kesit alanını optimum enerji soğurumu için en üst düzeye çıkarır"
+]
+answer.answer = "5-6%, because the tin plasma radiates across a broad spectrum and only a small fraction of emission falls within the usable 13.5nm band"
+context = "25kW CO₂ lazerden kullanılabilir 13,5nm EUV ışığına dönüşüm verimliliği yalnızca yaklaşık %5-6'dır. ~500.000°C'de oluşturulan kalay plazması geniş bir spectrum yayar ve yayılan enerjinin yalnızca küçük bir bölümü istenen 13,5nm dalga boyundadır. Kaynak gücünün bu denli kritik bir sorun olmasının nedeni budur; enerjinin büyük bölümü ısıya, moloza ve bant dışı radyasyona dönüşür."
+id = "d8-q02"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Her EUV aynası gelen ışığın yaklaşık %67'sini yansıtır. Projeksiyon optiğinde altı ayna bulunduğunda, yalnızca projeksiyon optiğinden geçen EUV ışığının gofrete ulaşan payı nedir?"
+prompt.distractors = [
+    "Yaklaşık %33; çünkü her ayna sabit bir yüzdelik değil, sabit bir mutlak foton enerjisi miktarı absorplar",
+    "Yaklaşık %2; hem projeksiyon optiği kayıplarını hem de vakum odası artık gazındaki ek absorpsiyonu hesaba katarak",
+    "Yaklaşık %25; çünkü çok katmanlı Bragg yansıtıcılar ikincil floresans etkileriyle kaybedilen bazı fotonları geri kazanır"
+]
+answer.answer = "Approximately 9%, calculated as 0.67 raised to the sixth power, with additional losses from illumination optics reducing total transmission to 2-4%"
+context = "Her biri %67 yansıtıcılığa sahip altı ayna, 0,67⁶ ≈ %9 iletim sağlar; bu değer yalnızca projeksiyon optiğinden kaynaklanır. Aydınlatma optiği ve maske kayıpları da eklendiğinde, kaynaktan gofrete toplam optik iletim yaklaşık %2-4'e düşer. Bu aşırı ışık kaybı, EUV kaynak gücünün bu denli kritik olmasının nedenidir."
+id = "d8-q03"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Atom altı pürüzlülükte yüzeyler üreterek ASML'nin EUV ayna optiğinin münhasır tedarikçisi olan Alman şirket hangisidir?"
+answer.answer = "Zeiss"
+answer.alternatives = ["Carl Zeiss", "Carl Zeiss SMT", "Zeiss SMT"]
+context = "Almanya'nın Oberkochen kentindeki Carl Zeiss SMT, RMS yüzey pürüzlülüğü 0,05 nanometrenin altında olan EUV aynalarını üretir; bu değer bir silisyum atomunun çapının yaklaşık dörtte birine karşılık gelir. Her projeksiyon optiği ayna seti aylarca üretim gerektirir ve tahmini maliyeti 50-100 milyon dolardır."
+id = "d8-q04"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "High-NA EXE sistemi X ve Y yönlerinde farklı büyütme oranları (4× ve 8×) kullanan anamorfik optik neden tercih eder?"
+prompt.distractors = [
+    "Yansıtıcı EUV maske geometrisinin gerektirdiği eksen dışı aydınlatma açısının getirdiği astigmatizmi düzeltmek için",
+    "Bölünmüş ışın optik konfigürasyonu aracılığıyla aynı anda iki bitişik zarın pozlanmasıyla verimi iki katına çıkarmak için",
+    "Farklı EUV dalga boylarını görüntü alanının dik eksenlerine yayarak kromatik sapmayı azaltmak için"
+]
+answer.answer = "To increase numerical aperture to 0.55 while keeping mirror sizes manufacturable, accepting a halved field size in one direction as a tradeoff"
+context = "NA'yı 0,33'ten 0,55'e çıkarmak, tekdüze büyütmeyle pratikte imkânsız büyüklükte aynalar gerektirirdi. Anamorfik optik (bir eksende 4×, diğerinde 8×), bir yönde pozlama alanını yarıya indirme pahasına ayna boyutlarını uygulanabilir tutar. Bu mühendislik uzlaşısı High-NA'nın ~8nm yarı-adım çözünürlüğe ulaşmasını sağlar."
+id = "d8-q05"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "ASML, EUV kaynak odasında saniyede 50.000 damlacık buharlaştırarak oluşan kalay molozunu nasıl yönetir?"
+prompt.distractors = [
+    "Oda çevresindeki elektrostatik çöktürücü plakalar iyonize kalay partikülleri çeker; bunlar haftalık bakım sırasında sıyrılır",
+    "Oda duvarlarının yakınındaki -200°C'lik kriyojenik soğuk tuzak kalay buharını katı tortu olarak yoğunlaştırır; bunlar periyodik olarak vakumla çıkarılır",
+    "Plazma ile toplayıcı ayna arasına yerleştirilen dönen kurban folyo tuzaklar kalay parçalarını fiziksel olarak yakalar ve 72 saatte bir değiştirilir"
+]
+answer.answer = "Hydrogen gas flow reacts with tin to form volatile stannane (SnH₄) that is pumped away, combined with magnetic debris mitigation and periodic in-situ cleaning"
+context = "Kalay moloz yönetimi, pahalı toplayıcı aynayı korumak için kritik öneme sahiptir. Birincil yöntem, biriken kalay ile reaksiyona girerek pompalanabilir uçucu bir bileşik olan stannan (SnH₄) oluşturan hidrojen gazı kullanımıdır. Bu, yüklü kalay iyonlarını saptıran manyetik alanlar ve periyodik temizleme döngüleriyle desteklenir."
+id = "d8-q06"
+
+## --- YAKIN TEKRAR: Günler 5-7 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "NAND neden dijital mantık tasarımında 'evrensel kapı' olarak kabul edilir?"
+prompt.distractors = [
+    "Çünkü NAND kapıları diğer kapı türlerine göre daha az güç tüketir ve pil güçlü CMOS devreler için en verimli seçimdir",
+    "Çünkü NAND kapıları herhangi bir mantık kapısının en hızlı yayılım gecikmesine sahiptir ve işlemci hatlarında daha yüksek saat frekansı sağlar",
+    "Çünkü NAND kapıları diğer kapı türlerinden daha az transistör kullanır; CMOS uygulamasında kapı başına yalnızca iki transistör gerektirir"
+]
+answer.answer = "Because any Boolean function can be implemented using only NAND gates, including AND, OR, NOT, and all combinations thereof"
+context = "NAND (ve NOR) 'işlevsel olarak tam'dır; herhangi bir Boolean mantık işlevi yalnızca NAND kapılarıyla oluşturulabilir. Bu durum 1880'de Charles Sanders Peirce ve 1913'te Henry Sheffer tarafından kanıtlandı. Uygulamada CMOS NAND kapıları 4 transistör kullanır ve PMOS transistörlerin yavaş olması nedeniyle NOR kapılarına göre hafifçe tercih edilir; NOR kapıları PMOS'ları seri bağlar."
+id = "d8-q07"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Modern ileri düzey bir fabda otomatik malzeme taşıma sistemi (AMHS) gofretleri proses araçları arasında nasıl taşır?"
+prompt.distractors = [
+    "Otonom kara araçları (AGV'ler), FOUP'ları araç körfezleri arasında saatte 3 m/s hıza kadar manyetik şerit güdümlü zemin yollarında taşır",
+    "Basınçlı nitrojen boru hatları, tek tek gofretleri temiz odanın altındaki yeraltı tünellerinde koruyucu kapsüller içinde taşır",
+    "Tavşan tulumu giyen insan operatörler yakın araçlar arasında FOUP taşır; robotik teslim yalnızca binalar arası transferlerde kullanılır"
+]
+answer.answer = "Overhead hoist transport (OHT) vehicles carry FOUPs along ceiling-mounted rail networks spanning the entire cleanroom at roughly 7-8 m/s"
+context = "Modern fablar, tavana monte raylı ağlarda çalışan üst vinci taşıma (OHT) araçlarını kullanır. FOUP'lar — 25 adede kadar gofret tutan kapalı kapsüller — araçlar arasında otomatik olarak taşınır. Büyük bir fabdaki AMHS, gofret başına 15-30 km'lik toplam yolculuk mesafesinde saatte binlerce FOUP hareketini yönetir."
+id = "d8-q08"
+
+## --- ESKİ TEKRAR: Günler 1-4 ---
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Gofretlerin kesildiği silindirik tek kristal silisyum külçeleri üretmek için kullanılan kristal büyütme tekniğinin adı nedir?"
+answer.answer = "Czochralski"
+answer.alternatives = ["Czochralski method", "Czochralski process", "CZ", "CZ method"]
+context = "Jan Czochralski tarafından 1916'da icat edilen Czochralski (CZ) prosesi, ~1.414°C'deki erimiş silisyuma bir tohum kristal daldırılmasını ve döndürülürken yavaşça yukarı çekilmesini kapsar. Silisyum, tohum üzerinde katılaşarak 2 metreye kadar uzunlukta ve 300mm çapında silindirik bir külçeye büyür. Yarıiletken gofretlerin %95'inden fazlası bu yöntemle üretilmektedir."
+id = "d8-q09"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Transistör yoğunluğu ile isimlendirme arasındaki ilişki neden yaklaşık 130nm proses düğümünde çöktü?"
+prompt.distractors = [
+    "Çünkü 130nm'de alüminyumdan bakır bağlantılara geçiş, her düğümün yeteneklerini tanımlayan kritik boyutu değiştirdi",
+    "Çünkü Uluslararası Yarıiletken Teknoloji Yol Haritası (ITRS) bu nesilde kapı uzunluğunu ölçmekten bağlantı adımını ölçmeye geçiş yaptı",
+    "Çünkü 130nm'de gerdirme silisyumun sunulması, performansı pazarlama açısından fiziksel küçülmeyi daha az önemli kılacak ölçüde geliştirdi"
+]
+answer.answer = "Because foundries began optimizing different features (gate pitch, metal pitch, fin pitch) at different rates, making a single measurement meaningless as a node label"
+context = "~130nm öncesinde düğüm adı kabaca fiziksel kapı uzunluğuyla örtüşüyordu. Sonrasında farklı üreticiler farklı boyutları farklı hızlarda optimize etmeye başladı; Intel kapı adımını agresif biçimde küçültürken TSMC metal adımına odaklanabiliyordu. Tek bir sayı artık proseslerin çok boyutlu gerçekliğini yansıtamaz hâle geldi; böylece düğüm adları ölçüm değil pazarlama etiketi olmaya başladı."
+id = "d8-q10"

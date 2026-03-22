@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "2020'de 1990'daki %37'den düşen ABD'nin küresel yarı iletken üretimindeki payı yaklaşık ne kadardı?"
+prompt.distractors = [
+    "%22; ağırlıklı olarak Intel ve GlobalFoundries'in yurt içi genişlemeyi azaltması nedeniyle",
+    "%18; takip kenarı üretiminin yavaş yavaş Asya'ya dış kaynak kullanımını yansıtarak",
+    "%6; pratikte tüm kalan ABD fablarının yalnızca Ar-Ge operasyonlarına geçmesiyle"
+]
+answer.answer = "12%, with virtually none of it at leading-edge process nodes below 10nm"
+context = "ABD'nin küresel yarı iletken üretimindeki payı 1990'daki %37'den 2020'ye kadar yaklaşık %12'ye düştü ve kritik olarak, kalan bu kapasitenin neredeyse hiçbiri ileri düzey düğümlerde (10nm altı) değildi."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "CHIPS ve Bilim Yasası'nın 280 milyar dolarlık başlık rakamının ne kadarı doğrudan yarı iletken üretimine ve Ar-Ge'ye tahsis edildi?"
+prompt.distractors = [
+    "98,4 milyar dolar; fab inşaat hibeleri ve ekipman vergi kredileri arasında bölündü",
+    "139 milyar dolar; geri kalanı daha geniş STEM eğitim programlarını finanse etti",
+    "72,3 milyar dolar; hem doğrudan hibeler hem de düşük faizli kredi garantileri dahil"
+]
+answer.answer = "$52.7 billion, with the remaining $200+ billion authorizing broader science funding"
+context = "280 milyar dolarlık başlık rakamına karşın, yalnızca 52,7 milyar doları doğrudan yarı iletken üretim teşviklerine (39 milyar dolar hibe/kredi) ve Ar-Ge'ye (13,2 milyar dolar) ayrıldı. Geri kalanı NSF, DOE ve NIST programları için tahsisat yapılmadan yetki verdi."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "CHIPS Yasası'nın alıcıların kabul etmesi gereken temel 'güvenlik önlemi' hükmü nedir?"
+prompt.distractors = [
+    "Alıcılar, beş yıl içinde küresel üretimlerinin en az %40'ını ABD topraklarında gerçekleştirmek zorundadır",
+    "Alıcılar, proses teknolojilerini en az iki başka yerli üreticiye lisanslamak zorundadır",
+    "Alıcılar, fab kapasitelerinin %15'ini ABD hükümeti ve savunma sözleşmelerine ayırmak zorundadır"
+]
+answer.answer = "Recipients cannot significantly expand leading-edge manufacturing in China for 10 years"
+context = "CHIPS Yasası güvenlik önlemleri, alıcıların 10 yıl boyunca Çin'de veya diğer 'endişe duyulan ülkelerde' ileri düzey yarı iletken üretimini önemli ölçüde genişletmesini yasaklamakta; bu koşulları ihlal etmeleri durumunda geri alım hükümleri uygulanmaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "En büyük tek CHIPS Yasası ödülünü hangi şirket aldı ve hibe tutarı yaklaşık ne kadardı?"
+prompt.distractors = [
+    "TSMC, Arizona'da üç ileri düzey fab inşa etmek için 9,2 milyar dolar hibe aldı",
+    "Samsung, Texas Taylor'daki GAA transistör fabı için 8,1 milyar dolar hibe aldı",
+    "Micron, New York ve Idaho'daki bellek çipi fabları için 7,8 milyar dolar hibe aldı"
+]
+answer.answer = "Intel received $8.5 billion in grants plus $11 billion in loans for multi-state expansion"
+context = "Intel, çok eyaletli genişleme için 8,5 milyar dolar doğrudan hibe ve 11 milyar dolar kredi olarak en büyük ödülü aldı; bu durum, ileri düzey çipleri hem tasarlayan hem de üreten tek Amerikan şirketi olarak konumunu yansıtmaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Avrupa'nın yarı iletken stratejisi neden ABD ve Çin'in sahip olmadığı yapısal bir zorlukla karşı karşıyadır?"
+prompt.distractors = [
+    "Avrupa, ileri düzey fablar için yeterli temiz su ve kimyasal tedarik altyapısından yoksundur",
+    "Avrupa iş hukuku düzenlemeleri, fabların gerektirdiği 24/7 vardiya programlarının işletilmesini engellemektedir",
+    "AB'nin GDPR veri düzenlemeleri, yarı iletken tasarım araçları için uyum engelleri oluşturmaktadır"
+]
+answer.answer = "Europe lacks hyperscale cloud customers who consume massive volumes of leading-edge chips"
+context = "ABD (AWS, Google, Microsoft, Meta) ve Çin'den (Huawei, Alibaba, Baidu) farklı olarak, Avrupa'nın büyük ölçekte ileri düzey çip satın alan büyük hiper ölçek bulut sağlayıcısı yoktur. Temel müşteriler olmadan son teknoloji fab inşa etmek ekonomik açıdan risklidir."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "IBM'in proses teknolojisini kullanarak sıfırdan 2nm çip üretmek için oluşturulan Japonya'nın yeni şirketinin adı nedir?"
+answer.answer = "Rapidus"
+answer.alternatives = ["rapidus", "RAPIDUS"]
+context = "Rapidus, Ağustos 2022'de Toyota, Sony, NTT ve diğerlerini kapsayan bir Japon şirketler konsorsiyumu tarafından kuruldu. IBM'in 2nm GAA nanosheet proses teknolojisini lisansladı ve Hokkaido'nun Chitose kentinde bir fab inşa etmektedir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Ekim 2022 ABD ihracat kontrolleri, Çin'in yarı iletken sektöründeki Amerikalı çalışanlarla ilgili ne kısıtladı?"
+prompt.distractors = [
+    "ABD'li mühendislerin Çinli kurumlarla ortak yazarlık yaptığı araştırma makaleleri yayımlaması yasaklandı",
+    "Amerikan vatandaşlarının Çin anakarasında düzenlenen yarı iletken konferanslarına katılması yasaklandı",
+    "ABD vatandaşlarının Çinli çip şirketlerine yatırım yapması veya hisse senedi tutması yasaklandı"
+]
+answer.answer = "U.S. persons were prohibited from supporting development or production of advanced chips at Chinese fabs"
+context = "'Beyin göçü' hükmü, ABD vatandaşlarının ve daimi ikamet edenlerinin Çin'deki fab tesislerinde ileri düzey yarı iletkenlerin geliştirilmesini veya üretimini desteklemesini yasakladı; bu durum, Çinli çip şirketlerinde çalışan düzinelerce Amerikalı mühendisin istifa etmesine yol açtı."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Güney Kore'nin K-Chips Yasası ve Mega Küme stratejisi yaklaşık 622 trilyon won (472 milyar dolar) başlık rakamını duyurdu. Bu rakamın büyük bölümü neyi temsil etmektedir?"
+prompt.distractors = [
+    "Yarı iletime özgü yeni bir ulusal vergi kesintisiyle finanse edilen doğrudan devlet hibeleri",
+    "Kore Bankası'nın egemen varlık rezervleriyle desteklenen düşük faizli devlet kredileri",
+    "Samsung ve SK Hynix tarafından devlet garantileriyle ihraç edilen ortak kamu-özel sektör tahvilleri"
+]
+answer.answer = "Projected private investment by Samsung and SK Hynix incentivized by enhanced tax credits"
+context = "Güney Kore'nin devasa başlık rakamı, büyük ölçüde 2047'ye kadar artırılmış vergi kredileriyle (büyük şirketler için %25'e kadar, KOBİ'ler için %35'e kadar) teşvik edilen tahmini özel yatırımı temsil etmektedir. Bu politika özünde, öncü şirketleri zaten yaptıklarını daha hızlı yapmaya yönlendirmektir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "BCG ve SIA tahminlerine göre, ABD'de yeni bir fab inşa etmek ve işletmek Asya'ya kıyasla ne kadar daha pahalıya mal olmaktadır?"
+prompt.distractors = [
+    "%10-20 daha pahalı; ağırlıklı olarak daha yüksek çevre uyum ve izin gereklilikleri nedeniyle",
+    "%50-80 daha pahalı; ağırlıklı olarak entegre yarı iletken tedarik zinciri kümelerinin yokluğu nedeniyle",
+    "%60-100 daha pahalı; daha yüksek arazi maliyetleri ve daha sıkı sismik yapı kodu gerekliliklerini yansıtarak"
+]
+answer.answer = "25-50% more, driven by higher construction labor, utilities, and fewer experienced workers"
+context = "BCG ve SIA, 2020 yılında ABD'de yeni bir fab inşa etmenin ve işletmenin Asya'ya kıyasla %25-50 daha pahalıya mal olduğunu tahmin etti; bunun nedeni daha yüksek inşaat işçilik maliyetleri, daha pahalı kamu hizmetleri ve daha az deneyimli yarı iletken işçisidir."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "EUV litografi sistemlerini Çin'e satamayan ve bu kısıtlama fiilen 2019'dan beri geçerli olup 2023'te genişletilmiş DUV kısıtlamalarıyla resmîleşen şirket hangisidir?"
+answer.answer = "ASML"
+answer.alternatives = ["asml"]
+context = "EUV litografi sistemlerinin tek üreticisi olan ASML, 2019'dan beri Çin'e EUV tarayıcı satmaktan fiilen engellenmektedir. Ocak 2023'te Hollanda, kısıtlamaların ileri düzey DUV daldırma tarayıcılarını da kapsayacak şekilde genişletilmesini kabul etti."

@@ -1,0 +1,119 @@
+# Gün 4 Testi: Moore Yasası — Modern Dünyayı İnşa Eden 60 Yıllık İddia
+
+## Yeni Sorular (6)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Moore Yasası bir fizik yasası olmamasına karşın neden altı on yıl boyunca geçerliliğini korudu?"
+prompt.distractors = [
+    "Silikonun kristal kafesi, her büyüme döngüsünde doğal olarak daha küçük geometrileri tercih eden doğal bir fraktal özelliğe sahiptir",
+    "DARPA gibi hükûmet finansman programları, tüm üreticilerin yasal olarak karşılaması gereken belirli transistör yoğunluğu hedeflerini zorunlu kıldı",
+    "Fotolitografi dalga boyları zaman içinde sabit bir fiziksel hızda azalarak her iki yılda bir otomatik olarak daha küçük yapıları mümkün kılar"
+]
+answer.answer = "The semiconductor industry organized around it as a shared target, coordinating R&D roadmaps across equipment makers, foundries, and designers"
+context = "ITRS yol haritası (1999-2015) beklenen ilerlemeyi belgeledi. ASML, TSMC, Intel, malzeme tedarikçileri ve EDA şirketleri, Moore Yasası'nı doğal bir olgu olmaktan çok kendi kendini gerçekleştiren bir koordinasyon mekanizmasına dönüştürerek aynı yoğunluk hedeflerini tutturmak için geliştirme takvimlerini senkronize etti."
+id = "d4-q1-why-persisted"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Dennard ölçeklemesini 90nm nodu ve sonrasında temelden çökerten şey neydi?"
+prompt.distractors = [
+    "90nm'deki bakır ara bağlantılar özdirenç sınırına ulaşarak daha yüksek saat frekanslarını engelleyen sinyal yayılım gecikmelerine yol açtı",
+    "Alüminyumdan bakır metalürjiye geçiş, maksimum akım yoğunluğunu kısıtlayan elektro-göç arızalarına neden oldu",
+    "Silikonun ısıl iletkenliği 100nm'nin altında keskin biçimde düştüğünden daha yüksek saat hızları için yeterli ısı atımı imkânsız hale geldi"
+]
+answer.answer = "Gate oxides became so thin (a few atoms) that electrons tunneled through them quantum-mechanically, causing unmanageable leakage current even when transistors were off"
+context = "Dennard ölçeklemesi, transistörler küçüldükçe güç yoğunluğunun sabit kalacağını öngörüyordu. Ancak ~90nm'nin altında, aşırı ince kapı oksitleri üzerindeki kuantum tünelleme önemli sızıntı akımı oluşturarak daha küçük transistörler ile düşük anahtar başı güç arasındaki ilişkiyi bozdu. Bu 'güç duvarı', çok çekirdekli tasarımlara geçişi zorunlu kıldı."
+id = "d4-q2-dennard-breakdown"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "IBS tahminlerine göre 5nm proses nodunda bir çip tasarlamak yaklaşık ne kadara mal olur?"
+prompt.distractors = [
+    "Yaklaşık 150 milyon dolar; bunu esas olarak TSMC veya Samsung fabrikalarındaki EUV maske seti ve silikon doğrulama maliyetleri sürükler",
+    "Yaklaşık 50 milyon dolar; çünkü tasarım maliyetlerinin büyük bölümü ARM ve Synopsys tasarım kütüphanelerinden lisanslanan yeniden kullanılabilir IP blokları sayesinde karşılanır",
+    "Yaklaşık 1,2 milyar dolar; büyük kısmı tam üretime geçmeden önce tasarımı doğrulamak amacıyla adanmış test fabrikalarının inşasına harcanır"
+]
+answer.answer = "Roughly $542 million, reflecting the enormous complexity of verification, physical design, and multi-patterning-aware layout at leading-edge nodes"
+context = "IBS, 5nm tasarım maliyetini 542 milyon dolar olarak tahmin etti; bu rakam 65nm'deki 28,5 milyon dolardan çok daha yüksektir. Bu astronomik maliyet, yalnızca bir avuç şirketin (Apple, Qualcomm, Nvidia, AMD) lider düzeyde tasarımları karşılayabilmesinin nedenidir. 3nm'de maliyetlerin 700 milyon doları aşması beklenmektedir."
+id = "d4-q3-design-cost"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Intel 2007'de 45nm nodunda kapı oksidi sızıntısını gidermek için hangi yeniliği tanıttı?"
+prompt.distractors = [
+    "Polisilikon kapı elektrotunu tungsten metal kapıyla değiştirerek kapı direncini ve anahtarlama gecikmesini önemli ölçüde azalttılar",
+    "Taşıyıcı hareketliliğini malzeme değişikliği olmaksızın artırmak için silikon-germanyum kaynak/dren bölgeli gerilimli silikon kanallar tanıttılar",
+    "Transistörleri substrat'tan elektriksel olarak yalıtmak amacıyla yığın silikon waferlerden silikon-üzeri-yalıtkan (SOI) substrat'lara geçtiler"
+]
+answer.answer = "They replaced silicon dioxide gate insulator with hafnium-based high-k dielectrics, which could be physically thicker while remaining electrically thin"
+context = "~1,2 nm'nin altındaki kalınlıklarda SiO₂ kapı oksitleri yıkıcı kuantum tünelleme sızıntısına uğruyordu. Hafniyum oksit gibi yüksek-k dielektrikler daha yüksek dielektrik sabiti sayesinde fiziksel olarak daha kalın (tünellemeyi azaltır) ama transistör kontrolü için gereken aynı kapasitansa (elektriksel incelik) sahip bir katman kullanılmasına olanak tanır."
+id = "d4-q4-highk"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Ders, Moore Yasası'nın nihai sınırının fiziksel değil ekonomik olabileceğini neden savunuyor?"
+prompt.distractors = [
+    "Ham silikon maliyeti kum kıtlığı nedeniyle hızla artmakta ve wafer substrat'larını 3nm'nin altında orantısız biçimde pahalı hâle getirmektedir",
+    "3nm altı transistör mimarileri için patent lisans ücretleri tek bir şirketin elinde olduğundan yapay bir tekel fiyat engeli oluşmaktadır",
+    "EUV ışık kaynağı maliyetleri çözünürlükle ikinci dereceden ölçeklenmekte; bu da yapı boyutu her yarıya indiğinde tarayıcı fiyatını dört katına çıkarmaktadır"
+]
+answer.answer = "Fabs cost $20-40 billion, designs cost $500-800 million, and wafers cost $20,000+, so fewer customers and companies can justify leading-edge investment"
+context = "Fizik, transistörlerin daha da küçülmesine (~1-2 nm kapı uzunluğuna kadar) izin vermektedir; ancak ekonomik engeller artık etkisini göstermektedir. Yalnızca yeterince değerli uygulamalar — yapay zeka hızlandırıcıları, bir milyar cihaza yönelik akıllı telefon SoC'leri, yüksek kâr marjlı veri merkezi çipleri — bu maliyetleri haklı kılabilmekte ve bu durum katılımcı sayısını sınırlandırmaktadır."
+id = "d4-q5-economic-wall"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Gordon Moore transistör yoğunluğunun ikiye katlanmasına ilişkin gözlemini ilk olarak hangi yılda yayımladı?"
+answer.answer = "1965"
+answer.alternatives = ["1965"]
+context = "Gordon Moore bu gözlemini, çiplerin yaklaşık 50 transistöre sahip olduğu dönemde Electronics dergisi için kaleme aldığı 1965 tarihli bir makalede yayımladı. Çip başına bileşen sayısının her yıl ikiye katlanacağını öngördü; bu öngörü 1975'te her iki yılda bir olarak revize edildi."
+id = "d4-q6-year"
+
+## Tekrar Soruları — Son (Gün 2-3)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Czochralski kristal büyüme sürecinde tohum kristal neden hareketsiz tutulmak yerine döndürülerek yukarı çekilir?"
+prompt.distractors = [
+    "Dönüş, safsızlıkları eriyik yüzeyine fırlatan merkezkaç kuvveti oluşturur; bu safsızlıklar atıl gaz akışıyla sıyrılıp uzaklaştırılır",
+    "Yukarı çekme, kristal kafesine katılmadan önce çözünmüş oksijeni dışarı iten bir basınç gradyanı oluşturur",
+    "Çekme ve dönüşün bileşimi, Seebeck etkisiyle kristal alanlarını hizalayan bir manyetik alan üretir"
+]
+answer.answer = "Rotation ensures uniform thermal distribution and pulling controls the solidification rate, together producing a single crystal with consistent diameter and minimal defects"
+context = "Czochralski süreci, tohum kristali yaklaşık 1 mm/dak hızla çekerken ~10 RPM hızında döndürür. Dönüş, ısıyı kristal çevresi boyunca eşit dağıtır; çekme hızı ise eriyiğin ne hızda katılaştığını kontrol eder. Her ikisi de tek kristal yapının tutarlı çapta ve minimum hatayla korunması için kritiktir."
+id = "d4-q7-review-cz"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Fotolitografi maskesindeki pellicle zarının amacı nedir?"
+prompt.distractors = [
+    "Maskenin hava görüntüsünü keskinleştirmek amacıyla ışık kaynağından belirli dalga boylarını filtreler",
+    "Pozlama sırasında wafer yüzeyinden gelen saçınımı emen ince bir feda tabakası işlevi görür",
+    "Tarama sırasında maske tarayıcının maske platformuna karşı mükemmel biçimde düz durması için düzgün mekanik basınç uygular"
+]
+answer.answer = "It holds dust particles away from the mask's focal plane so they appear as blurred shadows rather than sharp printed defects on the wafer"
+context = "Pellicle, maske yüzeyinin birkaç milimetre yukarısına gerilmiş ince bir şeffaf zardır. Pellicle üzerine düşen parçacıklar odak düzleminden yeterince uzakta olduğundan keskin hatalar olarak basılmaz; o kadar odak dışıdır ki görünmez veya ihmal edilebilir düzeyde kalırlar."
+id = "d4-q8-review-pellicle"
+
+## Tekrar Soruları — Eski (Gün 1)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "MOSFET neden kapı elektrotu ile silikon kanal arasında ince bir yalıtkan oksit tabakası kullanır?"
+prompt.distractors = [
+    "Oksit, anahtarlama sırasında termal enerjiyi emen bir ısı emici görevi görerek yüksek frekanslarda kapı metalinin erimesini önler",
+    "Oksit, yalnızca belirli enerji seviyelerindeki elektronların geçmesine izin veren bir kuantum tünelleme bariyeri oluşturur ve seçici anahtarlamayı sağlar",
+    "Oksit, kapıdan kanala metal atomların elektro-göçünü önler; aksi takdirde transistör kalıcı olarak kısa devre olurdu"
+]
+answer.answer = "The oxide allows the gate's electric field to control the channel electrostatically without any current flowing into the gate, enabling near-zero power input for switching"
+context = "MOS (Metal-Oksit-Yarı iletken) yapısı, kapının yalnızca elektrik alanıyla çalışması için oksidi yalıtkan olarak kullanır. Bu, kapının neredeyse hiç DC akım çekmediği anlamına gelir ve MOSFET'lere bipolar transistörlere kıyasla büyük güç verimliliği avantajı sağlar."
+id = "d4-q9-review-mosfet-oxide"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Daha iyi elektrostatik kontrol için kapıyı dikey silikon finin üç tarafına saran transistör mimarisi nedir?"
+answer.answer = "FinFET"
+answer.alternatives = ["Fin-FET", "fin FET", "finfet"]
+context = "FinFET (Fin Alan Etkili Transistör), Intel tarafından 2011'de 22nm nodunda tanıtıldı. Geleneksel düzlemsel transistörün yerini, kapının üç tarafından sarmaladığı ince dikey bir silikon 'fin' kullanarak elektrostatik kontrolü dramatik biçimde iyileştiren ve sızıntıyı azaltan bir yapıyla değiştirdi."
+id = "d4-q10-review-finfet"

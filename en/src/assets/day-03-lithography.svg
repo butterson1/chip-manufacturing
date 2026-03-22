@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="430" viewBox="0 0 920 430">
+<defs><style>.h{font:20px Arial,sans-serif;fill:#dbe7ff}.s{font:14px Arial,sans-serif;fill:#9fb4d9}.w{stroke:#7dd3fc;stroke-width:5;marker-end:url(#m)} .o{fill:#111827;stroke:#6ea8fe;stroke-width:2}</style><marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#7dd3fc"/></marker></defs>
+<rect width="920" height="430" fill="#0b1020"/>
+<text x="38" y="40" class="h">Photolithography in one pass</text>
+<text x="38" y="66" class="s">Patterned light changes the resist, then etch transfers the pattern into the layer below.</text>
+<rect x="85" y="95" width="150" height="80" rx="8" class="o"/><text x="160" y="140" text-anchor="middle" class="h">Light source</text>
+<rect x="305" y="95" width="150" height="80" rx="8" class="o"/><text x="380" y="130" text-anchor="middle" class="h">Mask</text><text x="380" y="152" text-anchor="middle" class="s">Opaque + clear areas</text>
+<rect x="525" y="95" width="150" height="80" rx="8" class="o"/><text x="600" y="130" text-anchor="middle" class="h">Optics</text><text x="600" y="152" text-anchor="middle" class="s">Focus / shrink image</text>
+<line x1="235" y1="135" x2="305" y2="135" class="w"/><line x1="455" y1="135" x2="525" y2="135" class="w"/><line x1="675" y1="135" x2="760" y2="235" class="w"/>
+<g transform="translate(700,220)">
+  <rect x="0" y="0" width="150" height="28" fill="#f472b6"/><text x="75" y="20" text-anchor="middle" class="s" style="fill:#111827">Photoresist</text>
+  <rect x="0" y="28" width="150" height="24" fill="#94a3b8"/><text x="75" y="45" text-anchor="middle" class="s" style="fill:#111827">Target layer</text>
+  <rect x="0" y="52" width="150" height="50" fill="#14532d"/>
+  <path d="M20 0 v28 M50 0 v28 M95 0 v28 M125 0 v28" stroke="#0b1020" stroke-width="12"/>
+  <path d="M20 28 v24 M50 28 v24 M95 28 v24 M125 28 v24" stroke="#7dd3fc" stroke-width="8" stroke-dasharray="10 8"/>
+</g>
+<text x="713" y="350" class="s">Develop resist → use it as a temporary stencil → etch the exposed material.</text>
+</svg>

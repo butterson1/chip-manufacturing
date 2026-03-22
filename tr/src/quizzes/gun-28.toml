@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Çevre Kapı Dizi (GAA) mimarisi, FinFET transistörlerin hangi temel sınırlılığını özellikle gidermektedir?"
+prompt.distractors = [
+    "Kapı oksit kalınlığı, dielektrik üzerinden kuantum tünellemesi nedeniyle 1,2 nm'nin altına indirilemiyor",
+    "Kaynak-drain mesafesi, 3nm altı adımda litografik çözünürlük sınırları nedeniyle daha fazla daraltılamıyor",
+    "Fin yükseklik/genişlik en-boy oranı, finler 8:1 oranını aştığında mekanik olarak kararsız hale geliyor"
+]
+answer.answer = "Kapı finin yalnızca üç yanını sararak kısa kapı uzunluklarında zayıf elektrostatik kontrole yol açan alt yüzeyi açıkta bırakıyor"
+context = "FinFET'lerde kapı, dikey bir finin üç yanıyla temas eder; ancak alt kısım açıkta kalarak zayıf elektrostatik kontrole sahip bir bölge oluşturur. Kapı uzunlukları ~5nm'nin altına düştükçe bu durum kritik hale gelir. GAA nanosheet'ler kapıyı her kanalın dört yanının tamamına sardırarak tam elektrostatik kontrol sağlar."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "TSMC'nin N2 GAA süreci kaç katmanlı nanosheet kullanıyor ve her bir sheet yaklaşık ne kadar kalın?"
+prompt.distractors = [
+    "Her biri yaklaşık 8-10 nanometre kalınlığında ve aralarında 15 nm dikey boşluk bulunan üç katmanlı nanosheet",
+    "Her biri yaklaşık 2-3 nanometre kalınlığında ve aralarında 6 nm dikey boşluk bulunan altı katmanlı nanosheet",
+    "Her biri yaklaşık 10-12 nanometre kalınlığında ve aralarında 20 nm dikey boşluk bulunan iki katmanlı nanosheet"
+]
+answer.answer = "Her biri yaklaşık 5-6 nanometre kalınlığında ve 25-50 nanometre ayarlanabilir genişliğe sahip dört katmanlı nanosheet"
+context = "TSMC'nin N2 süreci, her biri yaklaşık 5-6 nm kalınlığında ve 25-50 nm genişliğinde dört adet yatay nanosheet kullanıyor. Sheet genişliğinin ayarlanabilir olması — yüksek performans için daha geniş, düşük güç için daha dar — FinFET'lere kıyasla önemli bir avantaj sunuyor."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "CFET (Tamamlayıcı FET) nedir ve neden temel GAA'nın ötesindeki bir adım olarak değerlendirilmektedir?"
+prompt.distractors = [
+    "CFET, elektron hareketliliğini silikon nanosheet'lerin 5 katına çıkarmak için InGaAs gibi bileşik yarı iletken kanallar kullanıyor",
+    "CFET, stacke beşinci bir nanosheet ekliyor ve anahtarlama hızını %40 artırmak için asimetrik kapı metalleri kullanıyor",
+    "CFET, silikon kanalı tamamen karbon nanotüp dizileriyle değiştirerek üstün elektrostatik kontrol sağlıyor"
+]
+answer.answer = "CFET, NMOS ve PMOS transistörleri yan yana değil dikey olarak üst üste yığarak standart hücre yüksekliğini %30-40 oranında küçültme potansiyeli sunuyor"
+context = "CFET, NMOS ve PMOS nanosheet cihazlarını iç bağlantı viaları aracılığıyla doğrudan birbirinin üstüne/altına yerleştirir. Intel, CFET'i 14A düğümünde 2027-2028 civarında üretime sokmayı öngörüyor. Temel zorluk, farklı malzeme ve katkı maddelerine sahip iki farklı transistör türünü dikey bir yığında entegre etmektir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Arka yüz güç dağıtım ağlarında (BSPDN) silikon substrat ne kadar inceltilebilmeli ve Intel'in PowerVia'sı hangi performans avantajını ortaya koydu?"
+prompt.distractors = [
+    "Yaklaşık 10-20 µm'ye incelterek %15 sızıntı akımı azalması ve %3 alan tasarrufu sağlandı",
+    "Yaklaşık 50-100 µm'ye incelterek %20 termal dağılım verimliliği iyileştirmesi gösterildi",
+    "Yaklaşık 5-10 µm'ye incelterek %12 kapasitif çiftleşim gürültüsü azalması sağlandı"
+]
+answer.answer = "Yaklaşık 0,5-1 µm'ye incelterek %30 IR düşüşü azalması ve %6 frekans iyileştirmesi sağlandı"
+context = "BSPDN'ler, waferin orijinal 775 µm kalınlığından yalnızca 0,5-1 µm'ye — kırmızı kan hücresi genişliğinden ince — inceltilemesini gerektiriyor. Intel'in PowerVia'sı, güç (arka yüz) ve sinyal (ön yüz) yönlendirmesini birbirinden ayırarak %30 daha düşük IR düşüşü ve %6 frekans iyileştirmesi gösterdi."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "MoS₂'nin tek katmanının kalınlığı nanometre cinsinden nedir?"
+answer.answer = "0.65"
+answer.alternatives = ["0.65 nm", "0.65nm", ".65"]
+context = "Molibden disülfürün (MoS₂) tek katmanı yalnızca 0,65 nanometre kalınlığındadır; kükürt-molibden-kükürt olarak dizilmiş üç atom. Bu doğal 2B yapı, inceltme işleminin silikon'da yaptığı gibi özelliklerini bozmadığı anlamına gelir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Grafen, silikon'un yaklaşık 100 katı elektron hareketliliğine sahip olmasına karşın dijital mantık transistörleri için neden uygun değildir?"
+prompt.distractors = [
+    "Grafen'in altıgen kristal yapısı, 300mm silikon waferler üzerindeki standart CMOS üretimiyle uyumsuz",
+    "Grafen'in son derece yüksek ısıl iletkenliği, anahtarlama enerjisini azaltan istenmeyen ısı dağılımına neden oluyor",
+    "Grafen'in tek atom kalınlığı, onu mekanik olarak kırılgan yapıyor ve CMP işlem adımlarına dayanamıyor"
+]
+answer.answer = "Grafen'in bant aralığı sıfırdır; bu nedenle grafen'den yapılan transistörler akış akımını tam olarak engelleyecek biçimde asla kapanamaz"
+context = "Olağanüstü elektron hareketliliğine (~200.000 cm²/V·s) karşın grafen'in bant aralığı yoktur. Transistörün açık ve kapalı durumlar arasında tam geçiş yapabilmesi gerekir. Grafen transistörler akımı modüle edebilir ancak hiçbir zaman tamamen engelleyemez; akış hızını değiştirebilen ama hiç kapanmayan bir vana gibi."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Modern bir yapay zeka veri merkezindeki toplam enerji tüketiminin yüzde kaçı hesaplama yapmak yerine veri taşımak için harcanmaktadır?"
+prompt.distractors = [
+    "Yaklaşık %15-25; ağırlıklı olarak DRAM yenileme döngüleri ve bellek denetleyicisi ek güç tüketiminden kaynaklanıyor",
+    "Yaklaşık %70-85; ağırlıklı olarak raf anahtarlarındaki optik alıcı-vericiler güç zarfına hakim olduğundan",
+    "Yaklaşık %5-10; modern yüksek bant genişlikli bellek yığınları veri taşıma maliyetlerini büyük ölçüde çözdüğünden"
+]
+answer.answer = "Yaklaşık %40-60; yongalar, kartlar, raflar ve binalar arasındaki elektrik sinyalleme kayıplarıyla şekilleniyor"
+context = "Modern yapay zeka veri merkezlerinde toplam enerjinin %40-60'ı hesaplama değil, veri taşıma için kullanılıyor. Bakır üzerindeki elektrik sinyalleme, özellikle 112 Gbps ve üzeri hızlarda frekansa bağlı kayıplardan muzdarip. Bu durum, silikon fotonik ve optik bağlantılara yönelik baskıyı artırıyor."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Karbon nanotüp transistörlerin milyar transistörlük yongelere ölçeklenmesini engelleyen temel teknik zorluk nedir?"
+prompt.distractors = [
+    "Karbon nanotüplerin oda sıcaklığında çalışma için yeterli bant aralığı yok; 77K altında kriyojenik soğutma gerektiriyor",
+    "Karbon nanotüp kanallar, sıcaklıkla üstel olarak artan aşırı kapı sızıntı akımı sergiliyor",
+    "Karbon nanotüpler, CMOS üretiminde kullanılan standart n tipi ve p tipi katkı maddeleriyle katkılanamıyor"
+]
+answer.answer = "Büyüyen nanotüplerin yaklaşık üçte biri metalik yapıdadır (kısa devrelere neden olur) ve 5nm adımda hassas yerleştirme sorunu çözüme kavuşturulamamıştır"
+context = "Karbon nanotüp üretimi birbiriyle bağlantılı üç zorlukla karşı karşıyadır: kiralite kontrolü (tüplerin yaklaşık 1/3'ü yarı iletken yerine metalik iletken olarak büyür ve kısa devreye neden olur), yerleştirme hassasiyeti (tüpler ~5nm adımda paralel diziler halinde hizalanmak zorunda) ve metal-nanotüp bağlantılarında yüksek temas direnci."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Chiplet'ler arasında yonga üzerindeki düzeyine yakın bant genişliği yoğunluğu sağlayan hibrit bağlama mevcut üretimde hangi bump adımına ulaşıyor? (mikrometre cinsinden yanıtlayın)"
+answer.answer = "3-9"
+answer.alternatives = ["3-9 µm", "3 to 9", "3-9 um", "3-9µm"]
+context = "Lehim kullanmadan doğrudan bakır-bakır bağlama olan hibrit bağlama, geleneksel 2,5D paketlemenin 40-50 µm adımına kıyasla üretimde 3-9 µm adım değerine ulaşıyor. Araştırma gösterileri 1 µm'nin altına inerek yonga üzeri bağlantı yoğunluklarına yaklaşmıştır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Intel'in MESO (MagnetoElectric Spin-Orbit) mantık cihazları hangi voltajda anahtarlama hedefliyor ve bu konvansiyonel silikonla nasıl karşılaştırılıyor?"
+prompt.distractors = [
+    "MESO 500 mV'ta anahtarlama hedefliyor; silikon'un mevcut çalışma voltajıyla yaklaşık eşit ama sıfır bekleme sızıntısıyla",
+    "MESO 50 mV'ta anahtarlama hedefliyor; bit silme başına enerji için termodinamik Landauer sınırına yaklaşıyor",
+    "MESO 300 mV'ta anahtarlama hedefliyor; silikon'un minimum voltajının yaklaşık yarısı ve 5 kat daha düşük anahtarlama enerjisiyle"
+]
+answer.answer = "MESO yaklaşık 100 mV'ta anahtarlama hedefliyor; silikon'un minimum voltajının yaklaşık beşte biri ve 10-30 kat daha düşük anahtarlama enerjisiyle"
+context = "Intel'in MESO cihazları, ~100 mV'ta — silikon'un pratik minimumunun yaklaşık beşte birinde — işlem başına 10-30 kat daha düşük anahtarlama enerjisiyle anahtarlamak için magnetoelektrik ve spin-yörünge çiftleşmesini bir arada kullanıyor. Spintronik mantık ayrıca spin durumları güç olmadan devam ettiğinden sıfır bekleme gücü sunuyor."

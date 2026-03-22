@@ -1,0 +1,111 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Vakum tüplerini büyük ölçekli hesaplama için kullanışsız kılan temel sorun neydi?"
+prompt.distractors = [
+    "Tüpler yalnızca analog sinyalleri yükseltebiliyordu ve dijital anahtarlama yapma kapasitesinden yoksundu",
+    "Tüpler, temin edilmesi pahalı ve rafine edilmesi güç nadir toprak metalleri gerektiriyordu",
+    "Tüpler anlamlı hesaplama için çok düşük frekanslarda çalışıyordu ve 1 kHz üzeri saat hızına çıkamıyordu"
+]
+answer.answer = "Tüpler aşırı ısı üretiyor, sık sık yanıyordu ve milyonlarca anahtara ölçeklenmek için fiziksel olarak çok büyüktü"
+context = "ENIAC'ın 17.468 vakum tüpü 150 kW tüketiyor, ortalama her 5,6 saatte bir arızalanıyor ve 15×9 metrelik bir odayı kaplıyordu. Milyonlarca anahtara ölçeklenmek fiziksel olarak imkânsızdı."
+id = "4e9d2ab2-1fc6-412b-8c35-2d7ee5ef8eec"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bir NMOS MOSFET'te, kapıya pozitif voltaj uygulandığında kanal bölgesinde fiziksel olarak ne olur?"
+prompt.distractors = [
+    "P-tipi alt tabandaki delikler, kinetik enerji aktarımıyla akıtmaya doğru hızlandırılır ve iletken bir yol oluşturur",
+    "Oksit katmanı dielektrik kırılma yoluyla iletken hale gelir ve akımın kapıdan kanala doğrudan akmasına izin verir",
+    "Katkı atomları elektrik alan etkisiyle yüzeye doğru fiziksel olarak göç eder ve kanalı kalıcı olarak n-tipine dönüştürür"
+]
+answer.answer = "Elektrik alan delikleri iter ve elektronları yüzeye çeker; böylece kaynak ile akıtmayı birleştiren ince bir n-tipi inversiyon katmanı oluşur"
+context = "Kapının elektrik alanı oksidi geçerek çoğunluk taşıyıcılarını (delikler) iter ve azınlık taşıyıcılarını (elektronlar) silikon yüzeyine çeker. Eşik voltajının üzerinde bu inversiyon katmanı kesintisiz bir n-tipi yol oluşturur."
+id = "0f2fb288-bb55-4331-ad34-11cef9b305af"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "CMOS teknolojisi neden eski salt-NMOS mantığa göre çok daha az statik güç tüketir?"
+prompt.distractors = [
+    "CMOS devreleri, tünelleme kaçak akımını birkaç kat azaltan daha kalın kapı oksitleri kullanır",
+    "CMOS transistörleri, kaçak akım taşıyacak daha az kusur durumu içeren daha saf silikonla üretilir",
+    "CMOS devreleri daha düşük besleme voltajlarında çalışır, bu da statik gücü voltaj oranının karesiyle azaltır"
+]
+answer.answer = "Her CMOS kapısında tamamlayıcı NMOS ve PMOS transistörler biri her zaman kapalı olacak şekilde çalışır, dolayısıyla akım yalnızca anahtarlama geçişlerinde akar"
+context = "Frank Wanlass'ın 1963 CMOS patenti, NMOS ve PMOS'u itme-çekme düzeninde eşleştirir: her sabit durumda bir transistör akımı engeller. Güç yalnızca anahtarlama sırasında tüketilir, statik tüketim neredeyse sıfırdır."
+id = "dd6570c8-d179-46fd-b304-f33319352826"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yarı iletken endüstrisini 45nm düğüm civarında SiO₂ kapı oksidini yüksek-k dielektriklerle değiştirmeye zorlayan sorun neydi?"
+prompt.distractors = [
+    "SiO₂ filmleri 5nm altı kalınlıklarda biriktirme sırasında mikroskobik delikler geliştiriyor ve felaket boyutunda kısa devrelere neden oluyordu",
+    "SiO₂, daha küçük süreç düğümlerinin gerektirdiği 1.100°C üzeri tavlama sıcaklıklarında kimyasal olarak kararsız hale geliyordu",
+    "SiO₂, ileri düğümlerde termal döngü sırasında bakır ara bağlantı genleşmesinin mekanik gerilmesine dayanamıyordu"
+]
+answer.answer = "Yaklaşık 1,5nm'den ince SiO₂ katmanları, elektronların oksit boyunca önemli ölçüde kuantum tünellemesine izin vererek kabul edilemez kaçak akıma neden oluyordu"
+context = "~1,5nm altındaki SiO₂ kalınlıklarında elektronlar kuantum mekanik olarak bariyeri tünelleyebilir. HfO₂ gibi yüksek-k malzemeler, fiziksel olarak daha kalın bir katmanda eşdeğer kapasitif bağlantı sağlayarak tünellemeyi bastırır."
+id = "2dd2c68b-022c-49a3-9621-d9a8a6d4009e"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "2011'de 22nm'de Intel tarafından tanıtılan, kapının dikey bir kanal yüzgecini üç taraftan sardığı transistör yapısının adı nedir?"
+answer.answer = "FinFET"
+answer.alternatives = ["Fin-FET", "finfet", "fin FET"]
+context = "FinFET transistörler 22nm'de düzlemsel MOSFET'lerin yerini aldı. Kanal bir yüzgeç gibi dikey olarak çıkar ve kapı üç tarafını sararak daha iyi elektrostatik kontrol ve azaltılmış kaçak sağlar."
+id = "9a325d68-7894-4152-be0d-b6e2502b2a1a"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bir CMOS NAND kapısı kaç transistör gerektirir ve bunlar nasıl düzenlenir?"
+prompt.distractors = [
+    "Altı transistör: paralel bağlı iki NMOS, seri bağlı iki PMOS, artı çıkış tamponlama için iki ek NMOS",
+    "İki transistör: NAND işlevini uygulamak için çapraz bağlı geri beslemeyle bağlanmış bir NMOS ve bir PMOS",
+    "Dört transistör: paralel bağlı iki NMOS ve seri bağlı iki PMOS, paylaşılan kapı bağlantılarıyla"
+]
+answer.answer = "Dört transistör: seri bağlı iki NMOS ve paralel bağlı iki PMOS; çıkış yalnızca her iki giriş de yüksek olduğunda düşüğe çekilir"
+context = "2 girişli CMOS NAND, iki seri NMOS (çıkışı düşüğe çekmek için ikisi de açık olmalı) ve iki paralel PMOS (herhangi biri çıkışı yükseğe çeker) kullanır."
+id = "92ee7b03-dd70-404d-b0a8-a7074a3baaa5"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "MOSFET'in kapısının kanaldan elektriksel olarak yalıtılmış olması neden BJT'ye göre en önemli tasarım avantajı olarak kabul edilir?"
+prompt.distractors = [
+    "Yalıtım, kapının kırılma olmadan çok daha yüksek voltajlarda çalışmasına olanak tanıyarak transistör başına daha güçlü sürme akımı sağlar",
+    "Yalıtım, komşu transistörler arasında elektromanyetik girişimi önleyerek çip üzerinde çok daha yoğun paketleme sağlar",
+    "Yalıtım, kapıyı sıcaklık değişimlerinden bağışık kılar ve MOSFET'lere yüksek sıcaklık ortamlarında üstün performans sağlar"
+]
+answer.answer = "Yalıtım, kapının sabit durumda neredeyse sıfır akım çekmesi anlamına gelir; milyarlarca transistör entegre edildiğinde güç tüketimini çarpıcı biçimde azaltır"
+context = "Yalıtılmış kapı 'alan etkisi'dir — voltaj, kapıdan akım geçmeden kanalı kontrol eder. Bu neredeyse sıfır kapı akımı, milyarlarca transistöre ölçeklenirken kritiktir; BJT'lerde ise baz sürekli akım çeker."
+id = "24277f18-feed-44f7-9882-5ecb29d369cc"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "TSMC'nin en ileri 3nm sürecinde tek bir transistörün maliyeti yaklaşık ne kadardır?"
+prompt.distractors = [
+    "Yaklaşık 0,00005 dolar — doların yüz binde beşi, bir emtia pirinç tanesinin maliyetiyle karşılaştırılabilir",
+    "Yaklaşık 0,0000005 dolar — doların on milyonda beşi, kabaca bir piksel yazıcı mürekkebi maliyetinde",
+    "Yaklaşık 0,00000005 dolar — doların milyarda elli birimi, yaklaşık tek bir bakteri ağırlığındaki şekerin maliyeti"
+]
+answer.answer = "Yaklaşık 0,000000005 dolar — doların beş milyarda biri, transistörleri birim başına yeryüzündeki en ucuz üretilmiş nesneler yapıyor"
+context = "Birim başına ~0,000000005 dolar ile transistörler saçma derecede ucuzdur. Ama onları üreten fabrikaların inşası 19+ milyar dolara, tek bir EUV litografi makinesinin fiyatı ise 380 milyon dolara mal olur."
+id = "02f976d9-7840-416b-860c-a8f95cc2c62a"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "23 Aralık 1947'de ilk çalışan transistörü gösteren iki Bell Labs fizikçisi kimlerdi?"
+answer.answer = "Bardeen ve Brattain"
+answer.alternatives = ["John Bardeen ve Walter Brattain", "Bardeen & Brattain", "Walter Brattain ve John Bardeen"]
+context = "John Bardeen ve Walter Brattain, William Shockley'nin teorik rehberliğinde Bell Laboratuvarları'nda ilk nokta temaslı transistörü inşa etti. Üçü birlikte 1956 Nobel Fizik Ödülü'nü paylaştı."
+id = "7a4663e7-ca23-406a-a9d7-b502c18c9498"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "2nm düğüm ve sonrasında FinFET'lerin yerini alacak, kanal üzerinde gelişmiş kapı kontrolü sunan yaklaşım hangisidir?"
+prompt.distractors = [
+    "Kanal kalınlığını 2-3 atom katmanıyla sınırlamak için ultra ince silikon-üzeri-yalıtkan alt tabanlar kullanan düzlemsel SOI transistörler",
+    "Termiyonik taşıyıcı enjeksiyonu yerine birincil anahtarlama mekanizması olarak kuantum tünellemesini kullanan Tünel FET'ler",
+    "Kapının elektrik alanını klasik sınırların ötesinde yükseltmek için ferroelektrik kapı oksitleri kullanan negatif kapasitans FET'ler"
+]
+answer.answer = "Kapının yığılmış silikon kanal katmanlarını dört taraftan tamamen sardığı Kapı-Her-Taraftan (GAA) nano-levha transistörler"
+context = "GAA/nano-levha transistörler kapıyı kanalın dört tarafına da sarar (FinFET'in üçüne karşılık). Samsung ve TSMC, daha iyi elektrostatik kontrol için yığılmış nano-levhalar kullanan GAA'yı 2nm neslinde devreye alıyor."
+id = "6102e3cc-2a41-4493-a84d-f0078a057ba0"

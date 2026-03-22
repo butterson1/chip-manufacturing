@@ -1,0 +1,16 @@
+[book]
+authors = ["OGBot"]
+language = "tr"
+multilingual = false
+src = "src"
+title = "Çip Üretimi: Kumdan Silikona"
+
+[build]
+build-dir = "../book/tr"
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
+
+[preprocessor.quiz]
+command = "mdbook-quiz"

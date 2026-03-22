@@ -1,0 +1,111 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "CMP neden wafer yüzeyindeki yüksek noktalardan malzemeyi tercihli olarak kaldırır?"
+prompt.distractors = [
+    "Sürtünmeden kaynaklanan yüksek yerel sıcaklık nedeniyle aşındırıcı sıvının kimyasal dağlayıcısı yükseltilmiş bakır bölgelerine daha hızlı tepkimeye girer",
+    "Aşındırıcı partiküller, padın dönme dinamikleri sayesinde merkezkaç kuvvetiyle çıkıntılı özelliklere doğru yoğunlaşır",
+    "Sıvıdaki oksitleyici, daha kısa difüzyon yolları nedeniyle açık yüksek noktalara daha hızlı difüze olur"
+]
+answer.answer = "Pad, yüksek noktalarla daha büyük basınçla temas ederek pasifleştirme katmanını mekanik olarak kaldırır; oyuklar ise korumalı kalır"
+context = "CMP, sinerjiyle çalışır: kimya her yerde ince bir pasifleştirme (oksit) katmanı oluşturur, ancak pad yalnızca yüksek noktalarla fiziksel temas kurar ve oradaki oksiti kaldırır. Alçak noktalarda/oyuklarda pad yüzeye ulaşamaz; bu nedenle pasifleştirme katmanı yüzeyi korur. Bu seçici mekanik etki düzleştirmeyi sağlar."
+id = "41ed36af-a24b-48fa-a03f-6eed98564eec"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "3 nm düğümünde tek bir wafer üretim sırasında yaklaşık kaç ayrı CMP adımından geçer?"
+prompt.distractors = [
+    "5 ila 8; ağırlıklı olarak bakır metal katmanları ve sürecin başında uygulanan bir STI düzleştirme adımı için",
+    "10 ila 13; her bakır katmanı ve transistör düzeyindeki tungsten kontak parlatmasını kapsayarak",
+    "35 ila 40; her metal katman üç ayrı parlatma adımı ve dielektrik düzleştirme gerektirerek"
+]
+answer.answer = "20 ila 25; bakır katmanları, STI, kapı CMP, tungsten tıkacı ve katmanlar arası dielektrik düzleştirmeyi kapsayarak"
+context = "3 nm bir wafer, 20-25 CMP adımından geçer: 13-15 adım bakır metal katmanları için, geri kalanı STI, poli/kapı CMP, tungsten CMP ve ILD düzleştirme için. Her adım kendi aşındırıcı sıvısını, padini ve tarifini gerektirir."
+id = "94370a8a-e919-4aeb-bfac-f74de73d043d"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Benzotriazolün (BTA) bakır CMP aşındırıcı sıvısındaki rolü nedir?"
+prompt.distractors = [
+    "Silis aşındırıcı partiküllerin topaklanmasını ve süspansiyondan çökmesini önlemek için yüzey aktif madde olarak işlev görür",
+    "Metalik bakırı kaldırılabilir bakır oksit katmanına dönüştüren birincil oksitleyici madde olarak hizmet eder",
+    "Uzun süreli parlatma sırasında sıvıyı optimum asitlik aralığında tutmak için pH tamponu işlevi görür"
+]
+answer.answer = "Oyuklu alanlardaki bakır üzerinde koruyucu bir film oluşturarak malzemenin korunması gereken yerlerde istenmeyen kimyasal korozyonu önler"
+context = "BTA, milyonda birkaç parça düzeyinde eklenen bir korozyon inhibitörüdür. Bakır yüzeylerde, özellikle padın temas kurmadığı oyuklarda koruyucu bir film oluşturur. Bu, bakırın bozulmadan kalması gereken hendeklerde kimyasal saldırıyı önleyerek çukurlaşmayı (dishing) azaltır."
+id = "784527f5-b13e-4384-b3fb-d6bf5cfaf52d"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yarı iletken endüstrisi başlangıçta CMP fikrine neden karşı çıktı?"
+prompt.distractors = [
+    "CMP, 400°C üzerinde çalışma sıcaklıkları gerektiriyordu ve bu durum wafer üzerinde daha önce oluşturulmuş bakır interkonektlere zarar verme riski taşıyordu",
+    "Bu süreç, diğer tüm fab adımlarından on kat daha fazla ultra saf su tüketiyordu ve bu durum büyük ölçekte tedarik kapasitesini tehdit ediyordu",
+    "CMP padleri o kadar hızlı bozunuyordu ki tahmini takım çalışma süresi %50'nin altına düşüyor; bu da üretim için ekonomik açıdan uygulanamaz hâle getiriyordu"
+]
+answer.answer = "Kirliliğin kontrol altında tutulmasının temel mühendislik ilkesi olduğu son derece temiz bir ortama aşındırıcı partikül içeren sıvı sokulması gerekiyordu"
+context = "Fabrikalar kirlilik kontrolü için milyarlarca dolar harcar — HEPA filtrasyon, ultra saf su, tulum giysiler. CMP, kimyasal açıdan aktif aşındırıcı sıvı içinde milyarlarca aşındırıcı nanopartikül getirir; bu durum temiz oda ilkelerine aykırı görünüyordu. Süreç, 1980'lerin sonunda ilk önerildiğinde sapkınlık olarak değerlendirildi."
+id = "c83565ad-3462-475e-a9e2-d74e54f2cdbb"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "CMP sırasında yerinde (in-situ) elmas koşullandırmanın amacı nedir?"
+prompt.distractors = [
+    "Sıvı akış düzeninde kontrollü türbülans yaratarak taze sıvıyı pad üzerinde eşit biçimde dağıtır",
+    "Ardışık waferlar arasında çapraz kirliliği önlemek için pada gömülü bakır oksit kalıntılarını kaldırır",
+    "Sürtünme yoluyla pad yüzeyini ısıtarak sıvı filmindeki optimum kimyasal tepkime hızlarını korur"
+]
+answer.answer = "Pad yüzeyini pürüzlendirerek tıkanan mikro gözenekleri yeniden açar ve tutarlı sıvı taşınımı ile kaldırma hızlarını sürdürür"
+context = "CMP ilerledikçe poliüretan pad parlaşır — gözenekler döküntüyle dolar ve yüzey düzleşerek sıvı tutma kapasitesini kaybeder. Elmas koşullandırma diski padı sürekli pürüzlendirir; tutarlı parlatma performansını korumak için wafer başına yaklaşık 1-3 μm pad malzemesi kaldırır."
+id = "b537b9f9-5a6e-41c6-bc14-bf3d8c9173b6"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "CMP takım pazarına Reflexion sistem serisiyle hâkim olan şirket hangisidir?"
+answer.answer = "Applied Materials"
+answer.alternatives = ["AMAT", "applied materials"]
+context = "Applied Materials, Reflexion sistemleriyle pazara hâkim olan önde gelen CMP takım tedarikçisidir. Ebara ise ana rakibidir. Modern Reflexion takımları, 3-4 platen ve entegre CMP sonrası temizleme istasyonları içermektedir."
+id = "24c8ce6e-cea2-47f8-9dfa-949409480ffc"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Standart bir bakır damask CMP sürecinde tek bir parlatma yerine neden genellikle üç aşama gereklidir?"
+prompt.distractors = [
+    "Her aşama aynı sıvıyı kullanır ancak kırılgan düşük-k dielektrik katmanların delaminasyonunu azaltmak için giderek daha düşük basınç uygular",
+    "Üç aşama, elektrokaplamada farklı derinliklerde oluşan üç farklı bakır tane yapısına karşılık gelir",
+    "Parçacık yüklenmesi nedeniyle CMP padinin toplu kaldırma ile ince parlatma arasında değiştirilmesi gerektiğinden çok aşama zorunludur"
+]
+answer.answer = "Farklı malzemeler (toplu bakır, TaN/Ta bariyer, dielektrik), kontrollü kaldırma için farklı sıvı kimyaları ve seçicilikleri gerektirir"
+context = "1. Aşama, yoğun biçimde toplu bakır fazlasını kaldırır. 2. Aşama, sert TaN/Ta bariyerini kaldırmak için farklı bir sıvı (genellikle alümina bazlı, asidik) kullanır. 3. Aşama ise yumuşak bir padla hafif bir parlatmadır. Her malzemenin farklı sertliği ve kimyası, özelleştirilmiş sıvı formülasyonlarını gerektirir."
+id = "ef29cea6-f071-4862-80e9-f0d709a2b530"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bakır CMP bağlamında 'çukurlaşma' (dishing) nedir?"
+prompt.distractors = [
+    "Elektrokaplanmış fazla malzemenin eksik kaldırılması nedeniyle geniş hendek yapılarının üzerinde yükselen bakır tümseklerinin oluşması",
+    "Bariyer parlatma sırasında agresif sıvı kimyası nedeniyle bakır hatlarına komşu dielektrik malzemenin yanal erozyona uğraması",
+    "Taşıyıcı kafasındaki tekdüze olmayan basınç dağılımından kaynaklanan tüm wafer'ın kâse şeklinde deformasyona uğraması"
+]
+answer.answer = "Parlatma sırasında aşırı kimyasal saldırı nedeniyle geniş yapılardaki bakırın çevreleyen yalıtkan yüzeyin altına çekilmesi"
+context = "Çukurlaşma (dishing), geniş hendeklerdeki bakır fazla parlatıldığında oluşur — yumuşak bakır çevreleyen oksit yüzeyinin altına çekilir. Aşırı agresif sıvı kimyası (fazla oksitleyici) bu duruma yol açar ve padın hende bükülüp girebilmesi nedeniyle geniş yapılarda daha belirgindir. Tel direncini artırır ve sonraki katmanlar için topografi sorunları yaratır."
+id = "5578b815-bde3-4f6c-babe-e009668ec62d"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Modern CMP takımlarının ileri düğümlerde wafer boyunca elde ettiği yaklaşık bitiş noktası doğruluğu (nanometre cinsinden) nedir?"
+answer.answer = "5"
+answer.alternatives = ["5 nm", "±5 nm", "±5", "5nm"]
+context = "Modern CMP takımları, motor akımı izleme, optik bitiş noktası algılama ve eddy akım sensörünü birleştirerek wafer boyunca yaklaşık ±5 nm bitiş noktası doğruluğu elde eder — bu, yaklaşık 15 atomluk bakır katmanına eşdeğerdir."
+id = "7f2ab866-8c43-4a54-b9af-dab8cbe05ee1"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Çip tasarımcıları düzenlerine neden işlevsel olmayan 'kukla dolgu' metal karolarını ekler?"
+prompt.distractors = [
+    "Kukla karolar, CMP sürtünmesinin oluşturduğu sıcaklık artışları sırasında yerelleşmiş ısıl hasarı önlemek için ısı emici görevi görür",
+    "Yüksek basınçlı CMP parlatma adımları sırasında wafer'ın bükülmesini engellemek için ek mekanik destek sağlarlar",
+    "Kukla karolar, CMP kusurlarını işlevsel devre alanlarından uzaklaştıran feda edilen yapılar olarak hizmet eder"
+]
+answer.answer = "Die üzerindeki metal desen yoğunluğunu eşitleyerek CMP kaldırma hızlarının tekdüze olmasını ve düzleştirmenin tutarlı kalmasını sağlarlar"
+context = "CMP kaldırma hızı, desen yoğunluğuna bağlıdır. Düşük metal yoğunluklu bölgeler (ağırlıklı yalıtkan) ile yoğun bölgeler farklı biçimde düzleşir. Kukla dolgu karolar tüm alanları benzer bir yoğunluğa (tipik olarak %20-80) getirir; bu da tekdüze düzleştirme sağlar. Bu CMP tasarım kuralları, düzenleri elektriksel gereksinimler kadar şekillendirir."
+id = "b34c0645-3432-4b6c-a685-998fc4f1b135"

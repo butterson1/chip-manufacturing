@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Krste Asanović ve UC Berkeley ekibi 2010 yılında RISC-V'yi neden tasarladı?"
+prompt.distractors = [
+    "Mevcut ISA'lar araştırma için gerekli 64 bit adresleme ve modern güvenlik özellikleri desteğinden yoksundu",
+    "ARM'ın kısıtlayıcı akademik kullanım lisansları, işlemci tasarım derslerinin öğretilmesini imkânsız kılıyordu",
+    "MIPS kullanımdan kaldırılmış ve ticari lisanslama için artık hiçbir RISC mimarisi mevcut değildi"
+]
+answer.answer = "Mevcut ISA'ların her biri ya çok karmaşıktı, ya lisanslanması çok pahalıydı ya da öğrencilerin uygulayabileceğinden fazla patent yüküyle doluydu"
+context = "x86 çok karmaşıktı (1.500'den fazla komut), ARM mimari lisansları 5-15 milyon dolar tutuyordu ve MIPS patent engeliyle doluydu. Ekip, öğrencilerin bir dönemde uygulayabileceği temiz bir ISA'ya ihtiyaç duyuyordu."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Temel RISC-V tamsayı ISA'sı (RV32I) kaç komut içerir?"
+prompt.distractors = [
+    "32 komut; mimarideki genel amaçlı yazmaç sayısıyla eşleşiyor",
+    "64 komut; hesaplama işlemleri ve bellek/kontrol işlemleri arasında eşit biçimde dağılmış",
+    "128 komut; tamsayı, kayan noktalı ve temel atomik işlemleri kapsıyor"
+]
+answer.answer = "47 komut; tamsayı aritmetiği, bellek erişimi, kontrol akışı ve sistem işlemlerini kapsıyor"
+context = "RV32I yalnızca 47 komut içerir. Bunu ARMv8-A'nın ~400 veya x86-64'ün 1.500'ü ile karşılaştırın. Küçük temel ISA, modüler standart uzantılar aracılığıyla genişletilir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "RISC-V uzantı harfi 'C' ne sağlar?"
+prompt.distractors = [
+    "AES, SHA ve eliptik eğri işlemleri için şifreleme hızlandırma komutları",
+    "Açık ön belleğe alma, temizleme ve tutarlılık kontrolü için önbellek yönetimi komutları",
+    "Dal cezalarını azaltmak için koşullu yürütme komutlarına olanak tanıyan koşullu yürütme desteği"
+]
+answer.answer = "Bellek kısıtlı sistemlerde kod yoğunluğunu artıran 16 bit sıkıştırılmış komut kodlaması"
+context = "'C' uzantısı yaygın komutlar için sıkıştırılmış 16 bit kodlamalar sunar ve kod yoğunluğunu artırır; bu durum sınırlı belleğe sahip gömülü sistemler için kritik öneme sahiptir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "RISC-V, Çinli yarı iletken şirketleri için neden stratejik açıdan vazgeçilmez hale geldi?"
+prompt.distractors = [
+    "Çinli şirketler, İsviçre ile ikili anlaşmalar aracılığıyla tercihli RISC-V lisans koşulları almaktadır",
+    "RISC-V'nin vektör uzantısı, ARM'ın SVE'sine kıyasla Çinli yapay zeka iş yükleri için üstün performans sağlar",
+    "Çinli döküm tesisleri, süreç tasarım kitleri (PDK) ni özellikle RISC-V fiziksel uygulamaları için optimize etmiştir"
+]
+answer.answer = "RISC-V'nin İsviçre merkezli bir vakıf aracılığıyla yürütülen açık yönetişimi onu yaptırımlara karşı dirençli kılar; oysa ARM lisans kısıtlamalarıyla karşılaşabilir"
+context = "ABD'nin Çin'e yönelik teknoloji kısıtlamaları, tescilli ISA'ları riskli hale getirmektedir. ARM Holdings, lisansları iptal etmesi yönünde baskıyla karşılaşabilir; ancak binlerce üyesiyle İsviçre merkezli bir vakıf tarafından yönetilen RISC-V'yi kısıtlamak pratikte imkânsızdır."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Linux çalıştırabilen uygulama işlemcileri için tipik kombinasyon olan tamsayı, çarpma/bölme, atomik, tek/çift duyarlıklı kayan nokta ve sıkıştırılmış uzantılara sahip bir RISC-V çekirdeğini tanımlayan kısaltma nedir?"
+answer.answer = "RV64GC"
+answer.alternatives = ["rv64gc", "RV64gc"]
+context = "RV64GC; G kısaltmasını (IMAFD'nin kısaltması: Tamsayı, Çarpma, Atomik, Float, Double) ve C'yi (Sıkıştırılmış) içeren 64 bit taban anlamına gelir. Bu, Linux çalıştıran uygulama işlemcileri için standart kombinasyondur."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "RISC-V, farklı satıcıların uzantıları arasında çakışma yaratmadan özel komutları nasıl işler?"
+prompt.distractors = [
+    "RISC-V International tarafından yönetilen merkezi bir kayıt defteri, opcode çakışmalarını önlemek için benzersiz uzantı kimlikleri atar",
+    "Özel komutlar bir yazılım tuzağı (trap) mekanizması kullanmak zorundadır; yerel donanım yerine mikrokod olarak yürütülür",
+    "Satıcılar komut önekine bir şirket tanımlayıcısı kodlar; böylece satıcı başına yalıtılmış opcode ad alanları oluşturulur"
+]
+answer.answer = "RISC-V, standart komutlarla çakışmayacak biçimde kullanıcı tanımlı uzantılar için kodlama alanında dört özel opcode ayırır"
+context = "RISC-V, özellikle özel uzantılar için dört opcode (her biri milyarlarca olası kodlamayı kapsayan) ayırır. Bu sayede standart ISA veya diğer satıcıların uzantılarıyla çakışma önlenir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Western Digital'ın yılda iki milyarı aşkın gömülü çekirdeği RISC-V'ye geçirmesinin temel motivasyonu neydi?"
+prompt.distractors = [
+    "RISC-V'nin vektör uzantısı, depolama denetleyicilerinde hata düzeltme kodlaması için 3 kat daha iyi verim sağladı",
+    "ARM'ın lisans sözleşmesi, Western Digital'ın tescilli depolama ürün yazılımı kaynak kodunu ifşa etmesini gerektiriyordu",
+    "RISC-V çekirdekleri, aynı süreç düğümündeki eşdeğer ARM çekirdeklerine kıyasla %40 daha düşük güç tüketimi sağladı"
+]
+answer.answer = "RISC-V'nin özel uzantı modeli, depolama denetleyicileri için iş yüküne özgü optimizasyona sıfır lisans maliyetiyle olanak tanıdı"
+context = "Western Digital, özel uzantıların depolama denetleyicisi iş yükleri için optimizasyona izin vermesi ve sıfır telif hakkı modelinin milyarlarca birim üzerindeki önemli yonga başına maliyetleri ortadan kaldırması nedeniyle kısmen RISC-V'yi seçti."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Farklı ISA'lar üzerindeki eşdeğer uygulamaları karşılaştıran araştırmalar, yalnızca ISA seçimine atfedilebilen performans farkının genellikle ne kadar olduğunu göstermektedir?"
+prompt.distractors = [
+    "%25-35; RISC mimarilerine CISC tasarımlarına kıyasla güç verimliliğinde tutarlı bir avantaj tanır",
+    "%40-60; bu nedenle ISA seçimi işlemci tasarımında en kritik erken karar olmaya devam eder",
+    "%1'den az; ISA seçimi derinlemesine gömülü gerçek zamanlı uygulamalar için bile tamamen önemsizdir"
+]
+answer.answer = "%5-15; mikro-mimari seçimler, bellek alt sistemi tasarımı ve derleyici kalitesinin değişim aralığı içindedir"
+context = "Araştırmalar, ISA seçiminin yalnızca %5-15 performans farkına yol açtığını göstermektedir. Apple'ın ARM yongaları Intel'in x86 yongalarını ISA nedeniyle değil, üstün mikro-mimari ve tam yığın kontrolü sayesinde geride bırakmaktadır."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "AMD K8, Apple A serisi ve AMD Zen ile tanınan; RISC-V tabanlı yapay zeka ve genel amaçlı işlemciler geliştirmek için Tenstorrent'i kuran efsanevi CPU mimarının adı nedir?"
+answer.answer = "Jim Keller"
+answer.alternatives = ["Keller", "jim keller"]
+context = "Tarihin en başarılı CPU mimarlarından biri olan Jim Keller, RISC-V tabanlı işlemciler peşinden gitmek için Tenstorrent'i kurdu ve RISC-V'nin yüksek performans hedeflerine önemli güvenilirlik kazandırdı."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Esperanto ET-SoC-1, RISC-V'nin hangi performans sınıfında rekabet edebildiğini gösterdi ve bunu nasıl başardı?"
+prompt.distractors = [
+    "5+ GHz'de spekülatif yürütmeli derin sıra dışı ardışık düzen kullanarak tek iş parçacıklı masaüstü performansı",
+    "TSMC 5 nm üzerinde büyük paylaşımlı L3 önbelleklere sahip dört büyük çekirdek kullanarak sunucu sınıfı verimli hesaplama",
+    "Garantili mikrosaniye altı kesme gecikmesiyle deterministik sıralı çekirdekler kullanarak gerçek zamanlı gömülü kontrol"
+]
+answer.answer = "Tek bir TSMC 7 nm kalıbına 1.000'den fazla küçük RISC-V vektör çekirdeği sığdırarak büyük ölçekli paralellik aracılığıyla makine öğrenmesi çıkarımı"
+context = "Esperanto'nun ET-SoC-1'i, TSMC 7 nm üzerinde vektör uzantılı 1.000'den fazla küçük ET-Minion RISC-V çekirdeği ve dört büyük ET-Maxion yönetim çekirdeği içeriyordu; büyük ölçekli paralellik aracılığıyla makine öğrenmesi çıkarımını hedefliyordu."

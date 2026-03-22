@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Dennard ölçeklemesinin (1974) temel içgörüsü neydi?"
+prompt.distractors = [
+    "Transistör anahtarlama hızı, litografik çözünürlük iyileştikçe ve kanal uzunlukları orantılı biçimde küçüldükçe her iki yılda bir ikiye katlanır",
+    "Çip başına toplam güç tüketimi, transistör sayısıyla doğrusal olarak artar; çünkü her ek transistör sabit bir enerji yükü getirir",
+    "Transistör başına üretim maliyeti, her proses düğümünde üstel olarak düşer; çünkü wafer maliyetleri görece sabit kalır"
+]
+answer.answer = "As transistors shrink, voltage and current scale down proportionally so that power density remains roughly constant across generations"
+context = "Dennard ölçeklemesi, transistör boyutlarının κ oranında küçültülmesinin voltajın κ oranında düşmesine izin verdiğini ve birim alan başına gücün sabit kaldığını gözlemledi; bu sayede toplam güç artırılmadan daha fazla transistör daha yüksek frekansta çalıştırılabildi."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Intel 2004'te 4 GHz Prescott Pentium 4'ü neden iptal etti?"
+prompt.distractors = [
+    "90nm üretim prosesinin büyük die boyutu için yeterli verim oranı yoktu ve bu da 4 GHz SKU'yu ticari ölçekte sürdürülemez kıldı",
+    "AMD'nin Athlon 64'ü daha düşük frekanslarda üstün IPC sunuyordu ve bu da 4 GHz hedefini pazar konumlandırması açısından stratejik olarak gereksiz kılıyordu",
+    "31 aşamalı boru hattı, yüksek saat frekansından elde edilen performans kazanımlarını geçersiz kılan aşırı dal yanlış tahmin cezalarına neden oluyordu"
+]
+answer.answer = "Leakage power at 90nm consumed ~40% of total power, pushing thermal density beyond what any practical cooling solution could handle"
+context = "Prescott, ~115W TDP'ye ulaştı ve sıcak noktalarda termal yoğunluk 100 W/cm²'ye yaklaştı. 90nm'de eşikaltı kaçak akımı ve kapı oksit tünelleme, 4 GHz hedefini termal açıdan imkânsız kıldı."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Sonsuz voltaj ölçeklemesini engelleyen eşikaltı kaçak akımı tabanına ne neden olur?"
+prompt.distractors = [
+    "Güç dağıtım ağındaki bakır atomlarının elektromigrasyonu, minimum işletim voltajı eşiklerini sınırlayan direnç artışları yaratır",
+    "Kapı oksit kapasitansı atomik kalınlıklarda doyuma ulaşır ve kapının kanalı modüle edecek yeterli elektrik alanı oluşturmasını engeller",
+    "Transistörler arasındaki ara bağlantı RC gecikmeleri düşük voltajlarda artar; çünkü azalan sinyal salınımı metal tel gürültü tabanına yaklaşır"
+]
+answer.answer = "Quantum tunneling allows electrons to pass through the channel barrier even when the gate voltage is below threshold, with leakage rising ~10× per 100mV of V_th reduction"
+context = "Eşik voltajları 200-300mV civarındayken eşikaltı kaçak akımı üstel biçimde önemli hâle gelir; elektronlar bariyer üzerinden kuantum-mekanik tünelleme yaparak transistör 'kapalı' olduğunda bile akım oluşturur."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "P = α × C × V² × f dinamik güç denkleminde voltaj terimi güç azaltma için neden en önemli kaldıraçtır?"
+prompt.distractors = [
+    "Voltaj, çip işlemi sırasında gerçek zamanlı olarak ayarlanabilen tek değişkendir; kapasitans ve frekans üretim sırasında sabitlenir",
+    "Voltaj, ulaşılabilecek maksimum saat frekansını doğrudan belirler; dolayısıyla voltajı düşürmek denklemdeki hem V hem de f terimlerini eş zamanlı azaltır",
+    "Voltaj azaltma, aktivite faktörü α'yı da düşürür; çünkü düşük voltajdaki transistörler ortalamada her saat döngüsünde daha az kez anahtarlanır"
+]
+answer.answer = "Power scales with the square of voltage, so a 30% voltage reduction yields a 51% power savings — a nonlinear effect unmatched by any other single variable"
+context = "V² ilişkisi, küçük voltaj düşüşlerinin orantısız güç tasarrufu sağladığı anlamına gelir. Apple'ın 0,55-0,75V'da çalışan çekirdeklerinin, 1,2V+ voltajdaki eski Intel çekirdekleriyle karşılaştırılabilir performans elde ederken çok daha az güç kullanmasının nedeni budur."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Kaçak akım gücü neden termal kaçmaya yol açabilecek pozitif bir termal geri besleme döngüsü oluşturur?"
+prompt.distractors = [
+    "Yüksek sıcaklıklar bakır ara bağlantıların genişlemesine neden olur, kesitlerini azaltır ve metal katmanlardaki dirençsel güç kaybını artırır",
+    "Dinamik güç sıcaklıkla birlikte artar; çünkü taşıyıcı hareketliliği değişiklikleri anahtarlama eşiğini değiştirir ve her döngüde daha fazla transistörün geçiş yapmasına yol açar",
+    "Die ile ısı emici arasındaki termal arayüz malzemesi yüksek sıcaklıklarda bozulur ve zamanla ısı transfer verimliliğini üstel biçimde düşürür"
+]
+answer.answer = "Subthreshold leakage current roughly doubles with every 10°C temperature increase, generating additional heat that further raises temperature and leakage"
+context = "Bu pozitif geri besleme döngüsü, sunucu çiplerinin 100-105°C'de zorla kapatılmasının nedenidir; amaç, kaçak akım geri besleme döngüsünü kendini besler ve kontrolden çıkar hâle gelmeden kırmaktır."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Intel'in 90nm Prescott'undaki toplam çip gücünün kaçak akım (kapalı olması gereken transistörler) olarak ne kadarı israf edildi?"
+answer.answer = "40%"
+answer.alternatives = ["40 percent", "~40%", "about 40%", "roughly 40%"]
+context = "90nm düğümünde, eşikaltı kaçak akımı ve kapı oksit tünelleme, Prescott'un toplam güç dağılımının yaklaşık %40'ının 'kapalı' durumdaki transistörlerden kaynaklanmasına neden oldu."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "'Karanlık silikon' sorunu nedir ve bu neden aslında bir tasarım stratejisidir?"
+prompt.distractors = [
+    "En alt metal katmanlardaki transistörler fotolitografi sırasında ışık almaz; bu durum, onların ne kadar sık yerleştirilebileceğini sınırlayan özel pozlama teknikleri gerektirir",
+    "Yüksek transistör yoğunluğunda silikon kızılötesi termal görüntülemeye opak hâle gelir; bu da sıcak noktaları belirlemeyi imkânsız kılar ve önleyici güç sınırlamaları gerektirir",
+    "Die'ın hata eğilimli bölgeleri üretim testi sırasında kalıcı olarak devre dışı bırakılır; işlevselliği korumak için yedek devreler etrafına haritalanır"
+]
+answer.answer = "50-80% of transistors cannot be powered simultaneously without exceeding the thermal budget, so chips include more capability than they can use at once and activate blocks selectively"
+context = "Karanlık silikon, kasıtlı bir fazla tedarik stratejisidir. Çipler, iş yüküne göre seçici biçimde beslenen özel hızlandırıcılar (GPU, NPU, ISP, video kodlama) içerir ve böylece toplam güç termal zarfın içinde tutulur."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Güç kapılama (power gating), boşta kalan devre gücünü yönetmede saat kapılamasından (clock gating) nasıl farklıdır?"
+prompt.distractors = [
+    "Saat kapılama, blokları güçten ayırmak için yüksek-V_th transistörler kullanırken güç kapılama, anahtarlama aktivitesini önlemek için saat sinyalini dondurur",
+    "Güç kapılama, bir mantık bloğu içindeki tek tek transistörlerde çalışırken saat kapılama yalnızca tüm işlemci çekirdeklerini tek bir birim olarak etkiler",
+    "Saat kapılama hem dinamik hem kaçak akım gücünü ortadan kaldırır ancak daha uzun uyandırma gecikmesi vardır; güç kapılama yalnızca dinamik gücü tasarruf eder ve anında geri yükleme sağlar"
+]
+answer.answer = "Power gating physically disconnects idle blocks from supply rails via sleep transistors, eliminating leakage, while clock gating only stops switching to save dynamic power"
+context = "Güç kapılama hem dinamik hem kaçak akım gücünü ortadan kaldırır ancak 10-100µs uyandırma gecikmesi vardır. Saat kapılama daha ince taneli ve anlıktır fakat yalnızca dinamik gücü ortadan kaldırır; saat kapılamalı devrelerde kaçak akım devam eder."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Arka yüzey güç dağıtımı (Intel PowerVia, TSMC BSPDN) çip güç tüketimini azaltmaya nasıl yardımcı olur?"
+prompt.distractors = [
+    "Güç raylarını waferin arkasına taşımak, die üzerindeki voltaj regülatörlerine olan ihtiyacı tamamen ortadan kaldırır ve %10-15 verimlilik cezasını tamamen kaldırır",
+    "Arka yüzey güç dağıtımı, ön yüzde sinyal yönlendirmesi için daha kalın metal katmanlara izin verir ve kritik yol gecikmelerini kısaltarak sinyal tekrarlayıcı gücünü azaltır",
+    "Güç ve sinyal yönlendirmesini ayırmak, güç ve sinyal hatları arasındaki elektromanyetik bağlantı ortadan kalktığından daha yüksek saat frekanslarına olanak tanır"
+]
+answer.answer = "Separating power delivery from signal routing reduces IR drop across the power network by 30-50%, allowing lower nominal voltage for the same effective voltage at transistors"
+context = "IR düşüşü — güç dağıtım ağındaki voltaj kaybı — tasarımcıları nominal voltajı gerekenden daha yüksek ayarlamaya zorlar. IR düşüşünü %30-50 azaltarak arka yüzey güç dağıtımı, çiplerin daha düşük voltajda çalışmasına olanak tanır ve V²f dinamik gücünü doğrudan düşürür."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Apple'ın M serisi performans çekirdeklerinin minimum ile maksimum frekans arasında çalışabileceği yaklaşık güç aralığı oranı nedir?"
+answer.answer = "100:1"
+answer.alternatives = ["100 to 1", "100x", "~100:1"]
+context = "Apple'ın P-çekirdekleri ~0,5V'da ~600 MHz (50mW altı) ile ~1,1V'da ~3,78 GHz (birkaç watt) arasında çalışabilir; agresif çekirdek başına DVFS sayesinde yaklaşık 100:1 güç aralığı elde edilir."

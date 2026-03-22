@@ -1,0 +1,111 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İleri düzey bir fab temiz odasında saatte kaç kez tüm hava hacmi yenilenir?"
+prompt.distractors = [
+    "Saatte 30-60 kez; tavana monte HEPA filtrelerle 0,1 m/s hızında laminar aşağı akışla",
+    "Saatte 3.000-6.000 kez; yan duvar meme dizilerinden türbülanslı yüksek hızlı jetlerle",
+    "Saatte 10-20 kez; zemin altı basınçlı plenumlarla yukarı doğru laminar akış düzeniyle"
+]
+answer.answer = "300-600 times per hour, using ceiling ULPA filter banks with downward laminar flow at 0.3-0.5 m/s"
+context = "İleri düzey fab temiz odaları, aşağı doğru laminar hava akışı kullanarak saatte 300 ila 600 kez tüm hava hacmini yeniler. Hava tavana monte filtre bankalarından geçer, gofretlerin ve çalışanların yanından akar, yükseltilmiş zeminden dışarı çıkar ve yeniden dolaşıma girer. Bu hava taşıma sistemi, bir fabin elektrik tüketiminin %30-40'ını oluşturur."
+id = "fe26876b-96c7-40a7-82f5-c0db3bdf4083"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yarıiletken fabrikalarda kullanılan ultra saf suyun (UPW) özgül direnci nedir ve bu neden önemlidir?"
+prompt.distractors = [
+    "1,82 megaohm-cm; damıtılmış sudan on kat daha saf olan bu değer, durulama sırasında oksit yeniden büyümesini önler",
+    "182 megaohm-cm; mutlak fiziksel maksimum olan bu değer, kapı dielektrikleri üzerinde sıfır iyonik kontaminasyon sağlar",
+    "0,182 megaohm-cm; kimyasal mekanik planarlaştırma sırasında metalik kontaminasyonu önlemeye yeterince saf"
+]
+answer.answer = "18.2 megaohm-cm, the theoretical maximum for pure H₂O, ensuring parts-per-trillion level cleanliness for wafer rinsing"
+context = "UPW, saf su için teorik maksimum olan 18,2 megaohm-cm özgül direncine sahiptir. Bu aşırı saflık (1 milyar parçada birden az çözünmüş katı), atomik ölçeklerde iz kontaminasyonun bile aygıtları mahvedebileceği için zorunludur. Karşılaştırma için: musluk suyu 0,01-0,05 megaohm-cm değerindedir; yaklaşık 400 ila 1.800 kat daha az saftır."
+id = "3c8da123-42f4-40cf-9e99-3853392447cb"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İleri düzey bir fab sürekli olarak 100-150 MW güç tüketir. Bu gücün tek büyük tüketicisi hangi sistemdir?"
+prompt.distractors = [
+    "EUV litografi tarayıcıları; her bir birim 1,2 MW çekiyor ve bir fab aynı anda 10-15 tanesini işletiyor",
+    "Ultra saf su arıtma tesisleri; çok aşamalı ters ozmoz ve UV oksidasyon sürekli çalışıyor",
+    "Alt fabdaki vakum pompa dizileri; yüzlerce türbomoleküler pompa 10⁻⁶ Torr basıncı koruyor"
+]
+answer.answer = "HVAC and air handling systems, because maintaining ISO Class 1-3 cleanroom conditions with 300-600 air changes per hour is enormously energy-intensive"
+context = "HVAC ve hava taşıma sistemleri, fabin güç tüketiminin %30-40'ını oluşturur; bu, tek başına en büyük paydır. Saatte yüzlerce hava değişimiyle birlikte hassas sıcaklık (21°C ± 0,1°C), nem (%43 ± %1) ve ISO Sınıf 1-3 partikül sayısını korumak, dev fan, soğutma ve filtre altyapısı gerektirir."
+id = "3a6a4d29-18aa-4330-b933-d37c39a55dce"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bir rakip neden aynı ekipmanı satın alıp TSMC ile karşılaştırılabilir çip verimine ulaşamaz?"
+prompt.distractors = [
+    "TSMC'nin, rakiplerin aynı ekipmanları edinmesini engelleyen ekipman satıcılarıyla münhasır satın alma anlaşmaları var",
+    "TSMC, satıcı tarafından sağlanan ekipmanı kapsamlı biçimde değiştirerek başkalarının erişemeyeceği tescilli makine varyantları oluşturuyor",
+    "Ekipman satıcıları, lisans kademelerine göre farklı müşterilere kasıtlı olarak farklı donanım konfigürasyonları gönderiyor"
+]
+answer.answer = "The competitive moat lies in thousands of finely tuned process recipes accumulated over years of production learning, not in the equipment itself"
+context = "Aynı ekipmana sahip iki fab, proses tariflerinin ne kadar iyi ayarlandığına bağlı olarak birbirinden çok farklı verimler üretir. Tarifler — hassas gaz akışı, basınç, sıcaklık ve zamanlama dizileri — yıllar içinde üretim öğrenmesiyle biriktirilen gerçek sırdır. Intel'in aynı ASML tarayıcılarını satın almasına karşın TSMC'nin başarısını tekrarlayamamasının nedeni de budur."
+id = "fa84b868-0bcc-4b74-a86d-0ba7f3c44b87"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İleri düzey bir gofret kaç bireysel proses adımından geçer ve fabda ne kadar süre harcar?"
+prompt.distractors = [
+    "15-25 gün boyunca 200-400 adım; sürenin büyük bölümü aynı DUV pozlama geçişleri arasındaki litografi kuyruk bekleme süreleriyle geçer",
+    "6-12 ay boyunca 2.000-5.000 adım; yavaş sıcaklık rampaları gerektiren tekrarlanan termal oksidasyon döngüleri ağırlıklıdır",
+    "7-14 gün boyunca 50-100 adım; çünkü gelişmiş otomasyon ve paralel işleme döngü sürelerini büyük ölçüde kısaltıyor"
+]
+answer.answer = "800-1,200 steps over 60-100 days, cycling through deposit-pattern-etch-clean sequences for each of the many layers"
+context = "Apple M4 gibi ileri düzey bir çip, 60 ila 100 gün boyunca 800 ila 1.200 proses adımından geçer. Gofret litografiden 80-100 kez geçer ve 15'ten fazla metal bağlantı katmanı da dahil olmak üzere her katman için kaplama-kaplama-poz-aşındırma-temizleme döngüsünü tekrarlar. Üst taşıyıcı raylı sistemdeki toplam kat mesafesi 15-30 km'ye ulaşabilir."
+id = "c4a7b29a-3f53-466f-913c-549a09df8d30"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Gofretleri üst taşıyıcı raylı sistemde proses araçları arasında taşımak için kullanılan kapalı kapsayıcının adı nedir?"
+answer.answer = "FOUP"
+answer.alternatives = ["Front Opening Unified Pod", "foup"]
+context = "FOUP'lar (Ön Açılımlı Birleşik Kapsül), 25 adede kadar gofret taşıyan ve AMHS (Otomatik Malzeme Taşıma Sistemi) üst tek raylı sistemde araçlar arasında hareket eden kapalı kapsüllerdir. Gofreti taşıma sırasında kontaminasyondan korurlar; bir gofret, fabdaki 2-3 aylık yolculuğu boyunca hiç insan eliyle dokunulmayabilir."
+id = "4593a662-7e1f-4732-bd3c-e5be182ee6f6"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İleri düzey bir yarıiletken fabı günlük ne kadar ultra saf su tüketir?"
+prompt.distractors = [
+    "Günde 500-1.000 metreküp; 2.000-3.000 kişilik küçük bir köye eşdeğer",
+    "Günde 1-5 milyon metreküp; birkaç milyonluk büyük bir metropolitan alana eşdeğer",
+    "Günde 100-500 metreküp; kapalı döngü geri dönüşümünün proses suyunun %99'unu geri kazandırması nedeniyle yeterli"
+]
+answer.answer = "30,000-50,000 cubic meters per day, equivalent to supplying a city of 50,000-60,000 people"
+context = "İleri düzey bir fab, günlük 30.000 ila 50.000 metreküp (8-13 milyon galon) ultra saf su kullanır; bu, 50.000-60.000 kişilik bir şehri besleyebilecek miktardır. Yalnızca TSMC, 2022'de yaklaşık 88 milyon metrik ton su tüketti. İleri düzey fablar %75-85 oranında geri kazanım sağlasa da kalan su çekimi önemli miktardadır."
+id = "55a9fe5f-9988-42be-aee0-44e83809e754"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yarıiletken temiz odalarında kalemler neden yasaktır?"
+prompt.distractors = [
+    "Kalem ahşabından salınan uçucu organik bileşikler UV pozlama sırasında fotodirençli kimyayla reaksiyona girer",
+    "Standart kalemlerin üzerindeki sarı boya, MOSFET kapı oksitlerini tahrip eden hareketli bir iyon kontaminantı olan kadmiyum içerir",
+    "Kalem silgileri, kapı dielektrik katmanlarına zarar verebilecek statik yükler üreten kauçuk partiküller saçar"
+]
+answer.answer = "Graphite particles from pencil tips are a contamination source that could deposit on wafers and cause defects"
+context = "Kalemler, grafitinin iletken partikül kontaminant olması nedeniyle yasaktır. 100nm ölçeğinde partikülleri arayan bir temiz odada, yazmadan kaynaklanan grafit tozu ciddi bir kontaminasyon riski oluşturur. Yalnızca temiz oda onaylı kalemler kullanılabilir. Benzer şekilde, kozmetik ürünler, parfüm ve dış mekân kâğıdı da yasaktır."
+id = "2f2a5201-8299-47ef-bddb-cad776fc4524"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Dünyada EUV litografi sistemlerinin tek tedarikçisi hangi şirkettir?"
+answer.answer = "ASML"
+answer.alternatives = ["asml"]
+context = "Hollanda'nın Veldhoven kentinde merkezi bulunan ASML, yeryüzünde EUV litografi tarayıcısı üreten tek şirkettir. Her sistem yaklaşık 380 milyon dolara mal olur ve ileri düzey bir fab 10-15 tanesine ihtiyaç duyar. Bu tekel konumu, ASML'yi küresel yarıiletken tedarik zincirinin en stratejik öneme sahip şirketlerinden biri yapmaktadır."
+id = "96a4e52d-e35f-408c-b074-7db8ef76350d"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Tam donanımlı ileri düzey bir fabin yaklaşık maliyet dağılımı nasıldır?"
+prompt.distractors = [
+    "15-25 milyar dolar toplam: %60-70 inşaat, %15-20 ekipman, %10-15 güvenlik ve çevre uyum sistemleri",
+    "15-25 milyar dolar toplam: %50-60 arazi edinimi ve saha hazırlığı, %20-30 ekipman, %10-20 tesis sistemleri",
+    "15-25 milyar dolar toplam: %40-50 3-4 yıllık inşaat dönemindeki işgücü maliyetleri, %30-40 ekipman, %10-20 malzemeler"
+]
+answer.answer = "$15-25B total: roughly $4-6B in process tools alone (~1,000-1,500 machines), with safety infrastructure representing 15-20% of construction cost"
+context = "İleri düzey bir fab 15-25 milyar dolara mal olur. 1.000-1.500 proses aracı bu toplamın 4-6 milyar dolarını oluşturur. Güvenlik altyapısı (gaz dedektörleri, yangın söndürme, kimyasal scrubber'lar, sismik destekler) inşaat maliyetlerinin %15-20'sini karşılar. Geri kalan kısım bina, temiz altyapı, hizmetler ve nitelendirme masraflarını kapsar."
+id = "b3f33faf-2118-47a7-90bd-580a253c3a32"

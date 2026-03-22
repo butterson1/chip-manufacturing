@@ -1,0 +1,97 @@
+# Gün 2 Testi: Silikon Waferler — Kumdan İnsanlığın Ürettiği En Saf Maddeye
+
+## Yeni Sorular (6)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Elektronik kaliteli silikon hangi saflık düzeyine ulaşır ve bu neden gereklidir?"
+prompt.distractors = [
+    "Altı-dokuzluk saflık (%99,9999), çünkü litografi araçlarının ışık yansıması için kusursuz optik bir yüzeye ihtiyacı vardır",
+    "Dokuz-dokuzluk saflık (%99,9999999), çünkü tel kesme işlemi kimyasal olarak giderilmesi gereken yüzey altı hasarı oluşturur",
+    "Sekiz-dokuzluk saflık (%99,999999), çünkü Czochralski süreci bu eşiğin üzerinde safsızlıkları bünyesine katamaz"
+]
+answer.answer = "Eleven-nines purity (99.999999999%), because even parts-per-billion impurities can trap electrons and kill transistors"
+context = "Yarı iletken silikon %99,999999999 saflığa (on bir dokuz) ulaşır. Çip başına 100 milyar transistör ölçeğinde, yanlış yerleşmiş tek bir safsızlık atomu bile elektronları tuzağa düşürebilir, akım sızıntısına yol açabilir ve bir transistörü mahvedebilir."
+id = "9337f0cf-ef8a-41f7-9cf6-b0eea4c4c785"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Siemens sürecinde borun triklorosilandan uzaklaştırılması, demir veya alüminyum safsızlıklarına kıyasla neden daha zordur?"
+prompt.distractors = [
+    "Bor, damıtma kolonunda standart basınçlarda kimyasal ayrıma direnen kararlı bir oksit tabakası oluşturur",
+    "Bor atomlarının kütlesi silikonunkine neredeyse eşit olduğundan kesirli damıtmadaki santrifüj ayırma yöntemleri etkisiz kalır",
+    "Bor triklorür, kolondaki hidrojen klorürle tepkimeye girerek TCS ile birlikte damıtılan karmaşık bileşikler oluşturur"
+]
+answer.answer = "Boron trichloride boils at 12.5°C, very close to trichlorosilane's 31.8°C boiling point, making distillation separation difficult"
+context = "Demir klorür (316°C) ve alüminyum klorür (180°C), TCS'nin (31.8°C) kaynama noktasından çok uzak değerlere sahip olduğundan kolayca ayrılırlar. Ancak bor triklorür 12,5°C'de kaynar; TCS'den yalnızca 19°C düşüktür ve bu durum yüzlerce teorik tabla gerektiren damıtma kolonlarını zorunlu kılar."
+id = "bb88d9b5-fd5a-4526-8e9a-a480cd3e7fee"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Sektörün 450mm waferlere geçiş planı neden 2017 civarında fiilen terk edildi?"
+prompt.distractors = [
+    "Czochralski kristal çekiciler termal gradyan sınırlamaları nedeniyle 300mm çapın üzerinde kusursuz büyümeyi sürdüremedi",
+    "Japonya'daki silikon wafer tedarikçileri piyasa arz fazlası endişesiyle 450mm ekipman yatırımı yapmayı reddetti",
+    "Uluslararası ticaret kısıtlamaları, 450mm kapasiteli litografi ekipmanının lider fabrikalara ihracatını engelledi"
+]
+answer.answer = "Equipment development costs exceeded $20 billion industry-wide, while EUV lithography and advanced packaging offered better returns"
+context = "SUNY Polytechnic'teki G450C konsorsiyumu 2017 civarında terk edildi. 450mm waferler için yeni litografi, biriktirme ve taşıma araçları geliştirmek sektör genelinde 20 milyar doların üzerinde maliyete yol açacaktı; sektör, EUV ve gelişmiş paketlemenin çip ekonomisini iyileştirmek için daha uygun maliyetli yollar olduğuna karar verdi."
+id = "e4ca2f8b-484f-4c4b-ba40-84ed76bede29"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Czochralski kristal büyümesi sırasında silikon külçesindeki oksijen kirliliğinin birincil kaynağı nedir?"
+prompt.distractors = [
+    "Argon atmosferindeki artık su buharı, 1.414°C'de erimiş silikon yüzeyiyle tepkimeye girerek oksijen atomları serbest bırakır",
+    "Polisilikon hammaddesi, yeniden eritme yoluyla giderilemeyen Siemens biriktirme sürecinden izleme oksijeni içerir",
+    "Tohum kristal, eriyikle ilk temas sırasında hafifçe oksitlenerek büyüme arayüzüne oksijen atomları sokar"
+]
+answer.answer = "The fused silica crucible slowly dissolves into the molten silicon, releasing oxygen atoms into the melt throughout the growth run"
+context = "Erimiş silikon içeren SiO₂ potası, 24-72 saatlik kristal büyüme sürecinde yavaş yavaş çözünerek oksijen salar. Bu, kaçınılmaz bir ödünleşimdir; 1.414°C'de erimiş silikona dayanabilecek bir potaya ihtiyaç vardır ve fused silika yavaş çözünmesine karşın en iyi seçenektir."
+id = "37dfdbbe-9023-4ec7-8548-3f26c17c6780"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Metalurjik kaliteli silikonun gaz halindeki triklorosilane aracılığıyla ultra saf polisilikon hâline dönüştürüldüğü sürecin adı nedir?"
+answer.answer = "Siemens process"
+answer.alternatives = ["Siemens", "siemens process", "the Siemens process"]
+context = "Siemens süreci, MG-Si'yi triklorosilane gazına dönüştürür, kesirli damıtmayla saflığı artırır ve ardından kimyasal buhar biriktirme yöntemiyle ısıtılmış çubuklar üzerine saf silikon çöktürür. 1950'lerden bu yana baskın polisilikon saflaştırma yöntemi olmayı sürdürmektedir."
+id = "187f2b87-4429-4336-b5d7-d8c4e1ecbd2d"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Tamamlanmış bir 300mm silikon wafer ne kadar düzdür ve bu düzlük neden önemlidir?"
+prompt.distractors = [
+    "±5 nanometre düzlükte; çünkü paketleme sırasında yapılan tel bağlama işlemi hassas yüzey topolojisi hizalaması gerektirir",
+    "±50 nanometre düzlükte; çünkü epitaksiyel katman büyümesi yüzey boyunca düzgün termal temas gerektirir",
+    "±10 nanometre düzlükte; çünkü iyon implantasyon dozu, yüzey açısının ışına göre konumuyla değişir"
+]
+answer.answer = "Flat to ±0.5 nanometers, which is necessary because lithography systems focus light to nanometer-scale features and any surface variation ruins the pattern"
+context = "CMP polisajı, 300mm'lik bir wafer üzerinde ±0,5 nm düzlük sağlar. Litografi yalnızca birkaç nanometre genişliğinde yapılar bastırdığından, küçük yüzey çıkıntıları bile odak noktasını bozarak devre desenini mahveder. Ölçek ABD büyüklüğüne getirildiğinde, en yüksek çıkıntı yaklaşık 2 cm olurdu."
+id = "10468ed8-44a4-4795-9a6d-96bf5c68b134"
+
+## Son Tekrar — Gün 1 (2)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Vakum tüplerindeki hangi temel sorun, 1940'larda katı hal transistörü arayışını başlattı?"
+prompt.distractors = [
+    "Vakum tüpleri yalnızca sinyalleri yükseltebiliyordu; ikili hesaplama için gereken dijital anahtar işlevi göremiyordu",
+    "Vakum tüpleri, savaş sonrası kıtlık döneminde temin edilmesi pahalı ve zor olan nadir toprak elementi gerektiriyordu",
+    "Vakum tüpleri, erken bilgisayarları yönlendiren radyo iletişim uygulamaları için çok düşük frekanslarda çalışıyordu"
+]
+answer.answer = "Vacuum tubes generated excessive heat, were physically large, and failed frequently — making systems with thousands of them impractical to scale"
+context = "ENIAC 17.468 vakum tüpü kullanıyor, 150 kW tüketiyor, büyük bir odayı kaplıyor ve ortalama arıza süresi yaklaşık 5,6 saatti. Her tüp 1-2 watt güç harcıyor ve eskiyip çatlayan ısıtmalı bir filamente sahipti. Milyonlarca tüpe ölçeklenmek fiziksel olarak imkânsızdı."
+id = "3f516f5f-5f8b-428e-aac1-3423feade77d"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "FinFET'in yerini alan ve şu anda en yeni proses nodlarında (Samsung 3nm, Intel 20A) kullanılan transistör mimarisi nedir?"
+answer.answer = "GAA"
+answer.alternatives = ["gate-all-around", "Gate-All-Around", "GAAFET", "GAA FET", "gate all around", "nanosheet", "nanosheets"]
+context = "Gate-All-Around (GAA) transistörler, kapıyı kanalın tamamen etrafına sarar (nanolevha veya nanotel kullanarak) ve FinFET'in üç taraflı kapısından daha iyi elektrostatik kontrol sağlar. Samsung, GAA'yı 2022'de 3nm'de tanıttı; Intel ise 20A nodunda GAA'yı (RibbonFET) planlamaktadır."
+id = "8d524ef2-513a-4a35-a4c4-5143c29f9eb2"
+
+## Eski Tekrar (gelecekteki günler için yer tutucu)
+
+# Henüz eski tekrar öğesi yok — Gün 2 yalnızca ikinci derstr.

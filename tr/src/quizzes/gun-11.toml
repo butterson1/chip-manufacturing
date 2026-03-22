@@ -1,0 +1,120 @@
+# Gün 11 Testi: İnterkonektler
+# 6 yeni + 2 yakın tekrar (Günler 9-10) + 2 eski tekrar (Günler 1-7)
+
+## --- YENİ: Gün 11 ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yarı iletken endüstrisi, bakırın onlarca yıldır daha iyi bir iletken olduğu bilinmesine rağmen, neden 1997 civarında interkonektlerde alüminyumdan bakıra geçiş yaptı?"
+prompt.distractors = [
+    "Çünkü alüminyumun termal genleşme katsayısı, 250 nm düğümünde tanıtılan düşük-κ dielektriklerde çatlamalara yol açıyordu ve bu diyelektrikler daha sünek bir metal gerektiriyordu",
+    "Çünkü işleme sırasında oluşan alüminyum oksit, via ara yüzeylerinde yalıtkan bariyerler oluşturarak 350 nm aralıklarında temas direncini kabul edilemez sınırların üzerine çıkartıyordu",
+    "Çünkü alüminyumun kristal yapısı, damask işlemiyle uyumsuz; endüstrinin bakırı düşünebilmesi için önce damask yöntemini benimsemesi gerekiyordu"
+]
+answer.answer = "Çünkü bakır, alüminyum gibi plazma ile kazınıp şekillendirilemez; IBM'in bu kısıtlamayı aşan damask sürecini geliştirmesi 1997'yi buldu"
+context = "Bakır, plazma kazıma kimyasallarıyla uçucu bileşikler oluşturmaz. IBM'in atılımı damask süreciydi: önce dielektrikte hendekler kazılır, ardından bakırla doldurulur — geleneksel 'önce kapla, sonra kazan' yaklaşımı tersine çevrilir."
+id = "d11-q01"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Çift damask elektrokaplama sürecinde bakırın, boşluk hapsetmeden hendekleri alttan üste doğru doldurmasını sağlayan mekanizma nedir?"
+prompt.distractors = [
+    "Elektrik alanı, geometrik odaklanma nedeniyle hendek tabanında yoğunlaşır ve banyo kimyasından bağımsız olarak bakır iyonlarını önce oraya iter",
+    "PVD kaplama sırasında bakır tohum katmanı, hendek tabanında kasıtlı olarak daha kalın yapılır; bu da daha yüksek yerel iletkenlik ve daha hızlı çekirdeklenme sağlar",
+    "Hendek tabanı (wafer tutucu tarafından ısıtılan) ile üst kısım (elektrolit tarafından soğutulan) arasındaki sıcaklık farkı, tercihli birikimi sıcak yüzeye yönlendirir"
+]
+answer.answer = "Organik katkılar (hızlandırıcı, baskılayıcı, dengeleyici) yüzeyde rekabetçi biçimde adsorbe olur; hızlandırıcı, geometrik etkiler nedeniyle hendek tabanında yoğunlaşarak buradaki birikimi yerel olarak hızlandırır"
+context = "Süper doldurma üç katkıya dayanır: baskılayıcı her yerde birikimi yavaşlatır, hızlandırıcı tabanda bunu geçersiz kılar (alan küçüldükçe yoğunlaşır) ve dengeleyici yüksek noktalardaki aşırı büyümeyi engeller. Bu rekabetçi adsorpsiyon, alttan üste dolum yaratır."
+id = "d11-q02"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "20 nm bakır telin efektif özdirenç değeri neden büyük bakırın 1,7 μΩ·cm değerinden 3-5 kat daha yüksektir?"
+prompt.distractors = [
+    "Çünkü elektrokaplama işlemi, organik banyo katkılarından gelen kükürt ve karbon kirleticilerini bakıra hapseder; bunlar elektron saçılma merkezleri olarak işlev görür",
+    "Çünkü BEOL'de kullanılan tavlama sıcaklıkları (300-400°C), bakırı tam kristalize etmek için çok düşüktür; bu yüzden bakır zayıf elektron hareketliliğine sahip kısmen amorf bir hâlde kalır",
+    "Çünkü TaN bariyer katmanı, bakırla bir Schottky kontağı oluşturur ve bu arayüzey direnci kesit alanları çok küçük olduğunda baskın hâle gelir"
+]
+answer.answer = "Çünkü tane sınırı saçılması, kaba arayüzeylerden kaynaklanan yüzey saçılması ve bakır kesit alanının %10-30'unu tüketen bariyer katmanı bir araya gelerek direnci dramatik biçimde artırır"
+context = "Üç etki bir araya gelir: elektronlar polikristal tane sınırlarında saçılır (tel genişliğiyle kıyaslanabilir boyutta), kaba bakır-bariyer arayüzeyleri yüzey saçılmasına yol açar (1/genişlikle ölçeklenir) ve TaN/Ta bariyeri mevcut kesit alanının önemli bir bölümünü kaplar."
+id = "d11-q03"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Rütenyum, 7,1 μΩ·cm gibi bakırdan 4 kat daha kötü bir yük özdirencine sahip olmasına karşın neden en dar interkonekt adımlarında bakırın yerine geçmeye aday gösterilmektedir?"
+prompt.distractors = [
+    "Çünkü rütenyumun yüksek erime noktası (2334°C - bakırın 1085°C'ye karşı), BEOL tavlamasının çok daha yüksek sıcaklıklarda yapılmasına olanak tanır; bu da sıfır tane sınırına sahip mükemmel tek kristal teller üretir",
+    "Çünkü rütenyum, difüzyon bariyer katmanı gerektirmeyen ve elektromigrasyon bağışıklığı doğal olan soy bir metaldir; böylece toplam BEOL işlem adımlarını %40 azaltır",
+    "Çünkü rütenyum, oksijen kimyasıyla konvansiyonel plazma kazımayla şekillendirilebilir; bu da dar aralıklarda damask işlemi ve CMP ihtiyacını ortadan kaldırır"
+]
+answer.answer = "Çünkü rütenyumun kısa elektron ortalama serbest yolu (6,7 nm - bakırın 39 nm'sine karşı), yüzey ve tane sınırı saçılmasının görece daha az ek dirence yol açması anlamına gelir; dolayısıyla efektif özdirenç nano ölçekli genişliklerde çok daha az bozunur"
+context = "Bakırın uzun ortalama serbest yolu (39 nm), elektronların hacimsel saçılma olayları arasında uzun mesafe kat ettiği anlamına gelir — bu yüzden 20 nm genişlikte yüzeyler ve tane sınırları eklemek devasa ek saçılmaya neden olur. Rütenyumun kısa ortalama serbest yolu (6,7 nm), elektronların zaten yüksek oranda hacimde saçıldığı anlamına gelir; dolayısıyla yüzeyler görece çok daha az ek direnç ekler."
+id = "d11-q04"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "IBM'in bakır interkonektleri şekillendirmek için geliştirdiği süreci ilham veren antik metal işleme tekniğinin adı (ve adını aldığı şehir) nedir?"
+answer.answer = "damascene"
+answer.alternatives = ["damascene process", "Damascus", "dual damascene"]
+context = "Damask süreci, Suriye'nin Şam (Damascus) şehrindeki kılıç ustalarının uyguladığı antik metal kakma sanatından adını alır. Metal kaplama ve kazıma yerine önce hendekler açılır, ardından doldurulur."
+id = "d11-q05"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "3 nm düğümünde toplam wafer işleme süresinin yaklaşık ne kadarı, FEOL (transistör) üretimiyle karşılaştırıldığında BEOL (interkonnekt) üretimine harcanmaktadır?"
+prompt.distractors = [
+    "BEOL işleme süresinin yaklaşık %15-20'sini alır; FinFET ve GAA transistör yapıları için gereken karmaşık çoklu desenleme litografisi nedeniyle FEOL %60 ile baskın konumdadır",
+    "BEOL ve FEOL her biri toplam işleme süresinin yaklaşık %30'unu alırken, kalan %40 test, metroloji ve wafer düzeyinde paketleme adımlarına harcanır",
+    "BEOL işleme süresinin yaklaşık %25'ini alır ve bu FEOL'ün %35'inden biraz azdır; çünkü her damask döngüsü, eşdeğer FEOL litografi-kazıma-kaplama döngüsünden daha hızlıdır"
+]
+answer.answer = "BEOL toplam işleme süresinin yaklaşık %40'ını alır ve FEOL'ün %30-35'ini aşar; çünkü tekrarlayan damask döngüleriyle 13-15 metal katman inşa etmek, transistör üretiminden daha uzun sürer"
+context = "İnterkonekt kablolaması — 'tesisatçılık' — transistörlerin kendisinden daha fazla fabrikasyon süresi alır. 13-15 metal katmanın her biri kendi litografi, kazıma, kaplama, elektrokaplama ve CMP döngüsünü gerektirir."
+id = "d11-q06"
+
+## --- TEKRAR: Yakın (Günler 9-10) ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Reaktif iyon kazımada (RIE), hendek yan duvarlarına çöken pasifleştirme polimerlerinin kazıma sürecindeki rolü nedir?"
+prompt.distractors = [
+    "Plazma radikalleriyle kazınan substrat malzemesi arasındaki kimyasal tepkimeyi katalitik olarak hızlandırarak yan duvarlardaki kazıma hızını artırırlar",
+    "Plazma maruziyeti sırasında yan duvarlarda biriken elektrik yükünü nötralize ederek, gelen iyonların yük kaynaklı sapmalarını önlerler",
+    "Plazma kaynağından gelen ve aksi hâlde fotodirencin bozulmasına ve yan duvarlardaki desen bozulmalarına yol açacak UV ışımasını emerler"
+]
+answer.answer = "Plazma radikallerinin yanal kimyasal kazımasından yan duvarları korurlar; iyon bombardımanı pasifleştirmeyi yalnızca hendek tabanından temizlerken anizotropik (dikey) profiller elde edilmesini sağlarlar"
+context = "Pasifleştirme katmanları (örn. florokarbon polimerler) RIE sırasında tüm yüzeyleri kaplar. Dikey iyon bombardımanı, hendek tabanındaki pasifleştirmeyi sıçratarak kazımanın aşağı yönde sürmesine izin verirken yan duvarlar korumalı kalır — bu da dikey profiller üretir."
+id = "d11-q07"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İyon kanallama, kristal silisyuma implantasyon sırasında neden sorunlara yol açar ve bu sorun genellikle nasıl giderilir?"
+prompt.distractors = [
+    "Kanallanan iyonlar kristal düzlemleri boyunca aşırı kafes hasarı yaratır; bu nedenle wafer, hasarın anlık dinamik tavlanması için implantasyon sırasında 600°C'ye ısıtılır",
+    "Kanallanan iyonlar kristal düzlemleri boyunca yana doğru saçılarak implant profilini genişletir; bu nedenle demet daha dar hizalamak için amorf oksit sert maske kullanılır",
+    "Kanallanan iyonlar, hizalanmış satırlarda elektronik durma nedeniyle çok hızlı enerji kaybederek hedeflenenden daha sığ bir profil oluşturur; yüksek ışın enerjileri enerji kaybını telafi eder"
+]
+answer.answer = "Kanallanan iyonlar, açık kristal eksenleri boyunca hedeflenenden çok daha derine iner ve katkılayıcı profilinde istenmeyen derin bir kuyruk oluşturur; bu nedenle wafer kanalları engellemek için 5-7° açıyla eğilir"
+context = "Silisyumun elmas kübik yapısı, belirli kristalografik yönlerde açık kanallar barındırır. Bu kanallara giren iyonlar daha az nükleer durmayla karşılaşarak öngörülen aralığın çok ötesine geçer. Wafer'ın 5-7° eğilmesi, demeti bu kanallarla hizasızlaştırır."
+id = "d11-q08"
+
+## --- TEKRAR: Eski (Günler 1-7) ---
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Her transistör kuşağıyla birlikte voltajın ve güç yoğunluğunun düşmesine olanak tanıyan Dennard ölçekleme ilkesi neden 2006 yılı civarında çöktü?"
+prompt.distractors = [
+    "Çünkü kapı oksit kalınlığı kimyasal buhar biriktirme hassasiyetinin sınırına ulaştı ve 300 mm'lik bir wafer üzerinde 5 nm'den ince tekdüze film kaplamak imkânsız hâle geldi",
+    "Çünkü interkonnekt RC gecikmesi toplam çip gecikmesine hâkim olmaya başladı; bu da transistör voltajını daha da düşürmeyi anlamsız kıldı, zira gerçek anahtarlama hızını teller belirliyordu",
+    "Çünkü 90 nm düğümünde litografik hizalama hataları, kapı uzunluğu ile kaynak/dren boyutlarını orantılı ölçeklendirmek için gereken hassas hizalamayı engelledi"
+]
+answer.answer = "Çünkü eşik voltajı, eşiğin altındaki sızıntı akımının azalan Vth ile üstel biçimde arttığı göz önüne alındığında besleme voltajıyla orantılı biçimde ölçeklenemedi"
+context = "Dennard ölçeklemesi, eşik voltajının besleme voltajıyla birlikte düşmesini gerektiriyordu. Ancak eşiğin altındaki sızıntı akımı, Vth azaldıkça üstel olarak artar. ~1V beslemenin altında sızıntı kabul edilemez hâle geldi; bu durum ölçekleme paradigmasını kırdı ve güç yoğunluğunun otomatik azalması dönemini sona erdirdi."
+id = "d11-q09"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Yarı iletken fabrikalarında wafer temizleme ve durulama için kullanılan ultra saf suyun hedef özdirenç değeri (MΩ·cm cinsinden) nedir?"
+answer.answer = "18.2"
+answer.alternatives = ["18.2 MΩ·cm", "18.2 megohm-cm"]
+context = "Yarı iletken kalitesinde ultra saf suyun (UPW) özdirenç değeri 18,2 MΩ·cm'dir; bu, 25°C'deki saf su için teorik maksimum değerdir. Pratikte sıfır çözünmüş iyon anlamına gelir — herhangi bir kirlilik özdirenç değerini düşürür."
+id = "d11-q10"

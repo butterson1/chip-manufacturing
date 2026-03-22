@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "5 GHz'de çalışan modern bir CPU çekirdeği her 200 pikosaniyede bir döngü tamamlarken, DDR5 DRAM erişimi yaklaşık 70 nanosaniye sürmektedir. Bellek gecikmesinin döngü süresine oranı yaklaşık nedir?"
+prompt.distractors = [
+    "Yaklaşık 35:1 — bellek, tek bir CPU döngüsünden yaklaşık 35 kat daha yavaştır",
+    "Yaklaşık 3.500:1 — bellek gecikmesi binlerce CPU saat döngüsünü aşmaktadır",
+    "Yaklaşık 30:1 — bellek, istenen veriyi iletmek için kabaca 30 döngü almaktadır"
+]
+answer.answer = "Yaklaşık 350:1 — işlemci her bellek erişimi için ~350 döngü boyunca bekler"
+context = "70 ns / 0,2 ns = 350. Bu devasa oran 'bellek duvarı'dır — önbellekler olmadan bir CPU, zamanının %99,7'sini DRAM bekleyerek boşa harcardı."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Intel'in Pentium 4 Prescott (2004) işlemcisi 31 aşamalı bir ardışık düzene sahipti ve 3,8 GHz'e ulaştı; ancak beklenenin altında performans gösterdi. Bunun temel mimari nedeni neydi?"
+prompt.distractors = [
+    "31 aşamalı ardışık düzen, çok sayıda ardışık düzen mandalı üzerindeki saat dağıtımı nedeniyle aşırı güç tüketiyordu",
+    "Her ardışık düzen aşaması çok az iş yapıyordu ve bu durum komut verimini kod çözme bant genişliğiyle sınırlı kılıyordu",
+    "Derin ardışık düzen, daha büyük komut ve veri önbellekleri gerektirerek yürütme birimleri için kullanılabilecek transistör bütçesini azalttı"
+]
+answer.answer = "Derin ardışık düzen, her yanlış tahmin başına 31 döngüye kadar işi boşa harcatan ağır bir dal yanlış tahmini cezası getirdi"
+context = "Daha derin ardışık düzenler, her yanlış tahmin için daha fazla döngü israfı anlamına gelir. Komutların ~%20'si dal komutu olduğundan ve yanlış tahmin oranı %5 bile olsa, 31 aşamayı temizlemek yüksek saat hızına karşın gerçek dünya performansını ciddi biçimde düşürdü."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Sıra dışı işlemcilerde yazmaç yeniden adlandırma ne işe yarar?"
+prompt.distractors = [
+    "Sanal bellek adreslerini fiziksel yazmaç konumlarıyla eşleştirerek daha hızlı bellek erişim kalıplarına olanak tanır",
+    "Bağımsız yürütme iş parçacıkları arasında fiziksel yazmaçları paylaştırarak yazmaç dosyası depolama alanını sıkıştırır",
+    "Zamanlayıcının yazmaç ad alanını dinamik olarak yeniden düzenleyerek komutları öncelik sırasına koymasını sağlar"
+]
+answer.answer = "Mimari yazmaçları daha büyük bir fiziksel yazmaç kümesine eşleştirerek komutlar arasındaki sahte veri bağımlılıklarını ortadan kaldırır"
+context = "İki komut da mimari r1 yazmacına yazıyor ancak birbirinden bağımsızsa, yeniden adlandırma onları farklı fiziksel yazmaçlara (örn. p47 ve p112) eşler; bu sayede her ikisi çakışma olmadan paralel olarak yürütülebilir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Apple'ın M serisi performans çekirdekleri 3,5-4,5 GHz'de çalışırken kod çözmede yaklaşık 8-10 genişliğindeyken, Intel çekirdekleri 5,5+ GHz'de 6 genişliğindedir. Apple'ın geniş-ve-yavaş yaklaşımı neden daha güç verimlidir?"
+prompt.distractors = [
+    "Daha geniş çekirdekler, daha düşük voltajlarda anahtarlayan daha basit transistörler kullanır; bu da komut başına toplam enerjiyi azaltır",
+    "Apple'ın ARM komut seti, komut başına daha az mikro-işlem gerektirdiğinden geniş kod çözme doğası gereği daha ucuzdur",
+    "TSMC'nin üretim süreci, Apple'a herhangi bir genişlikte Intel'inkinden daha az sızıntı akımı olan transistörler sağlar"
+]
+answer.answer = "Dinamik güç yaklaşık olarak frekansın küpüyle ölçeklendiğinden, IPC'yi genişlikten elde etmek daha yüksek saat hızlarına göre çok daha az enerji gerektirir"
+context = "Güç ∝ C × V² × f olup sinyal bütünlüğünü korumak için frekansla birlikte voltajın da artması gerekir. Bu durum frekans ölçeklendirmesini son derece güç açısından pahalı kılar. Daha düşük frekansta geniş yürütme, enerjinin çok küçük bir kısmıyla benzer verim sağlar."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Modern CPU'ların büyük çoğunluğunda kullanılan TAGE (TAgged GEometric history length) dal tahmincisi, farklı geçmiş uzunluklarıyla indekslenen birden fazla tablo tutar. Geçmiş uzunluklarının geometrik aralıklamasının ne gibi bir avantajı vardır?"
+prompt.distractors = [
+    "Geometrik aralıklama, daha uzun geçmiş uzunluklarına daha az giriş ayırarak toplam depolama gereksinimini azaltır",
+    "Her tahmin tablosunun herhangi bir dal için doğru tahmini yapma olasılığının eşit olmasını sağlar",
+    "Geometrik aralıklama, dal adreslerini örtüşmeyen karma aralıklara dağıtarak takma ad çakışmalarını en aza indirir"
+]
+answer.answer = "Her olası geçmiş uzunluğu için ayrı bir tablo gerektirmeden hem kısa vadeli hem de uzun vadeli dal korelasyon örüntülerini verimli biçimde yakalar"
+context = "TAGE, ~4, 8, 16, 64, 512 vb. uzunluktaki (geometrik aralıklı) geçmişlerle indekslenen tablolar kullanır. Tahminleyici tüm tablolara başvurur ve en uzun eşleşen geçmişi kullanır. Bu sayede döngüler (kısa geçmiş), ilişkili dallar (orta) ve uzun menzilli örüntüler (uzun) yönetilebilir sayıda tabloyla yakalanır."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Ocak 2018'de açıklanan, spekülatif yürütme ve dal tahminini kullanarak önbellek yan kanalları aracılığıyla gizli verileri sızdıran CPU güvenlik açığının adı nedir?"
+answer.answer = "Spectre"
+answer.alternatives = ["spectre", "SPECTRE", "Spectre attack"]
+context = "Spectre (Jann Horn ve Paul Kocher tarafından bağımsız olarak keşfedilmiştir), yanlış tahmin edilen dalların ötesindeki spekülatif yürütmenin önbellek durumunda gözlemlenebilir izler bırakabileceğini ve saldırganların erişmemeleri gereken belleği okuyabildiğini ortaya koymuştur. Azaltma önlemleri %2-8 performans kaybına yol açmaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD'nin Ryzen 7 5800X3D işlemcisi, CCD'nin üstüne bağlanmış ekstra 64 MB SRAM yongacıktan oluşan 3D V-Cache kullanır. Oyun iş yüklerinde daha yüksek saat hızlı 5800X'i %15-20 oranında geride bıraktı. Bu, modern CPU performansı hakkında ne göstermektedir?"
+prompt.distractors = [
+    "SRAM tabanlı önbellek, DRAM'den temel olarak daha hızlıdır; dolayısıyla herhangi bir miktarda SRAM eklemek performansı orantılı biçimde artırır",
+    "3D yığınlama termal kısıtlamayı ortadan kaldırarak altta yatan çekirdeklerin daha uzun süre yüksek boost frekanslarını sürdürmesini sağlar",
+    "Oyun iş yükleri öncelikli olarak bellek bant genişliğiyle sınırlıdır ve ekstra L3, çip dışı DRAM okuma sayısını azaltır"
+]
+answer.answer = "Daha büyük L3 sayesinde önbellek isabet oranındaki iyileşmeler, bellek gecikmesinden kaynaklanan pahalı ardışık düzen durmalarını azaltır ve bu durum ek saat hızının sağladığı yararı geride bırakır"
+context = "5800X3D aslında 5800X'ten biraz daha düşük saat hızında çalışıyordu; ancak toplam 96 MB L3 önbelleği (32 MB'a kıyasla) önbellek kaçırmalarını dramatik biçimde azalttı. DRAM gecikmesi ile döngü süresi arasındaki 300:1 oranı göz önünde bulundurulduğunda, önbellek isabet oranındaki küçük bir iyileşme bile büyük performans kazanımlarına dönüşür."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Modern bir sıra dışı CPU'da Yeniden Sıralama Tamponu (ROB), kritik bir doğruluk işlevi üstlenir. Dal yanlış tahmini tespit edildiğinde ne olur?"
+prompt.distractors = [
+    "ROB, yanlış tahmin edilen daldan itibaren tüm komutları yazmaç dosyasındaki düzeltilmiş işlenen değerlerini kullanarak yeniden oynatır",
+    "ROB, mimari durumu kontrol noktasına kaydeder ve yalnızca hatalı yoldaki komutları yeniden çalıştırır",
+    "ROB, sonraki tüm girişleri geçersiz olarak işaretler ve yürütme devam etmeden önce yürütme birimlerinin boşalmasını bekler"
+]
+answer.answer = "Yanlış tahmin edilen daldan sonraki tüm ROB girişleri atılır ve mimari durum en son doğru biçimde teslim edilen komuta geri yüklenir"
+context = "ROB, komutları program sırasına göre izler. Yanlış tahmin durumunda, hatalı dalın ardından gelen spekülatif her şey temizlenir; sonuçlar atılır, yeniden adlandırılmış yazmaçlar serbest bırakılır. Yürütme doğru yoldan yeniden başlar. ROB boyutunun önemli olmasının nedeni budur: daha büyük ROB'lar daha fazla spekülatif işleme izin verir ancak yanlış tahminlerde daha fazla boşa harcar."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Tipik iş yüklerinde tüm komutların yüzde kaçı dal komutudur — derste bahsedilen şaşırtıcı derecede istikrarlı rakam nedir?"
+answer.answer = "20%"
+answer.alternatives = ["20", "~20%", "about 20%", "approximately 20%"]
+context = "Tüm komutların yaklaşık %20'si dal komutudur; bu istatistik farklı iş yüklerinde şaşırtıcı biçimde tutarlı kalır. Bu, %99 doğrulukta çalışan bir dal tahminleyicisinin bile yaklaşık her 500 komutta bir yanlış tahmin yaptığı anlamına gelir; 15-20+ aşamalı ardışık düzen derinliklerinde bu durum önemli performans etkisi yaratır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Modern yüksek performanslı bir CPU çekirdeği transistörlerinin yalnızca yaklaşık %5-10'unu gerçek aritmetik yürütme birimlerine ayırır. Kalan %90-95'lik transistör bütçesi esas olarak neyi uygular?"
+prompt.distractors = [
+    "Çip üzerindeki çok katmanlı depolama hiyerarşisini yöneten önbellek belleği ve bellek denetleyicisi mantığı",
+    "Dinamik voltaj ve frekans ölçeklendirmesini kontrol eden güç yönetimi devreleri ve saat dağıtım ağları",
+    "Birden fazla çekirdek arasındaki çekirdekler arası iletişim dokusu, tutarlılık protokolleri ve paylaşılan kaynak tahsisi"
+]
+answer.answer = "Sıra dışı yürütmeyi düzenleyen dal tahmini, komut zamanlama, yeniden sıralama tamponları, yazmaç yeniden adlandırma ve iletme mantığı"
+context = "Modern bir CPU çekirdeğinin transistörlerinin büyük çoğunluğu, sıra dışı spekülatif yürütmenin 'muhasebe' işlerine ayrılmıştır: dal tahmini, yazmaç yeniden adlandırma, rezervasyon istasyonlarında bağımlılık takibi, ROB'da komutları tamponlama ve sonuçları iletme. Matematik yapan gerçek ALU ve FPU'lar küçük bir kesimi oluşturur. Bir CPU, hesap makinasından çok bir lojistik operasyonudur."

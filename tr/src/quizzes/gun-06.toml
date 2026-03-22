@@ -1,0 +1,111 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İsimlendirme kuralının fiziksel kapı uzunluğundan belirgin biçimde ayrışmaya başladığı proses düğümü hangisidir?"
+prompt.distractors = [
+    "250nm; derin ultraviyole litografisi, cıva i-çizgisi pozlama sistemlerinin yerini aldığında",
+    "65nm; gerdirme mühendisliği kapı performansını litografik boyutlardan bağımsızlaştırdığında",
+    "22nm; Intel'in üç boyutlu kapı yapılarına sahip FinFET transistörleri sunduğunda"
+]
+answer.answer = "130nm, when etch trimming allowed physical gate lengths to shrink well below the printed pitch"
+context = "Yaklaşık 130nm düğümünde (~2001), fablar litografik adımın çok altına inebilmek için aşırı aşındırma ve kırpma tekniklerini kullanmaya başladı; fiziksel kapı uzunluklarını ~70nm'ye kadar düşürdüler. Bu, düğüm adı ile fiziksel ölçüm arasındaki uçurumu açtı ve o günden bu yana genişlemeye devam etti."
+id = "fbda95e2-83b0-42a5-8855-92e95a282f05"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Farklı fabrikalar arasında transistör yoğunluğunu karşılaştırmak için en fiziksel açıdan anlamlı ölçüt hangisidir?"
+prompt.distractors = [
+    "Kapı adımı (CPP); komşu transistör kapıları arasındaki minimum boşluğu doğrudan belirlediği için",
+    "Fin adımı; transistör başına mevcut akım taşıyan kanal sayısını kontrol ettiği için",
+    "Eşdeğer oksit kalınlığı; daha ince kapı dielektrikleri, daha küçük geometrilerde daha sıkı elektrostatik kontrol sağladığı için"
+]
+answer.answer = "Minimum metal adımı (M1), because it corresponds to a directly measurable interconnect spacing on the chip"
+context = "Metal adımı (en sıkı bağlantı katmanının merkez-merkezden aralığı), elektron mikroskobunda doğrudan ölçülebilir ve kablolama yoğunluğunu belirler. Transistör yoğunluğu (M/mm²) da bilgi verici olmakla birlikte kullanılan hücre karışımına bağlıdır. Metal adımı, fabrikalar arasında en tutarlı fiziksel ölçümdür."
+id = "e53fb0c2-6dab-48ac-a721-7f8dad8d24bc"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İsimlendirme farkına karşın Intel'in 14nm prosesinin transistör yoğunluğu TSMC'nin 7nm prosesiyle neden yaklaşık olarak karşılaştırılabilirdi?"
+prompt.distractors = [
+    "Intel FinFET transistörler kullanırken TSMC hâlâ düzlemsel aygıtlardaydı; bu durum Intel'e yapısal yoğunluk avantajı sağladı",
+    "Intel'in 14nm'si kritik katmanlar için EUV litografisi kullanırken TSMC'nin 7nm'si tamamen DUV çoklu desenlemeye dayandı",
+    "Intel'in 14nm'si daha sıkı tasarım kurallarıyla sunucu çiplerini hedeflerken TSMC'nin 7nm'si mobil güç verimliliğine optimize edilmişti"
+]
+answer.answer = "The node names had become marketing labels rather than physical measurements, and Intel used a more conservative naming scheme than TSMC"
+context = "Intel'in 14nm'si ve TSMC'nin 7nm'si her ikisi de yaklaşık 96-100 milyon transistör/mm² elde etti. Fark isimlendirme anlayışındaydı: Intel'in rakamları fiziksel boyutlara daha yakın seyrederken TSMC'nin pazarlama söylemi daha ileri gitmeye başlamıştı. Intel, sonunda isimlendirilme rekabeti için proseslerini yeniden adlandırdı (10nm ESF → Intel 7)."
+id = "f258ee99-b133-48b1-8c96-d2ab7d91dfb1"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Özellikler küçüldükçe hat kenar pürüzlülüğü (LER) orantılı olarak neden daha zararlı hâle gelir?"
+prompt.distractors = [
+    "Daha küçük özellikler daha fazla fotodirençli katman gerektirir ve her katman birikimlere yol açan ek kenar pürüzlülüğü getirir",
+    "EUV dirençlerinde kullanılan fotoasit molekülleri DUV dirençlerindekilerden fiziksel olarak daha büyüktür; bu da daha pürüzlü kenarlara neden olur",
+    "Daha kısa dalga boylu ışık kaynakları daha fazla kırınım üretir ve özellik kenarları boyunca duran dalga desenleri oluşturur"
+]
+answer.answer = "The absolute roughness stays similar at ±1-2nm, but this becomes a larger percentage of the feature width at smaller dimensions"
+context = "LER, fotodirençli kimyanın istatistiksel doğasından kaynaklanır; tek bir fotoasit molekülü ~1-2nm büyüklüğündedir. Bu mutlak pürüzlülük özelliklerle birlikte küçülmez. 200nm genişlikte ±2nm, yalnızca %1'dir (önemsiz); 20nm genişlikte aynı ±2nm, %10 olur ve cihazdan cihaza önemli elektriksel değişkenliğe yol açar."
+id = "dc76a154-6bf8-45c0-bfba-dbeeb02cc160"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Ultra-ince oksit katmanlarından kuantum tünellemeyi önlemek amacıyla modern transistörlerde silisyum dioksitin yerini alan kapı dielektriği malzemesi nedir?"
+answer.answer = "hafnium dioxide"
+answer.alternatives = ["HfO2", "hafnium oxide", "high-k dielectric", "HfO₂"]
+context = "Hafniyum dioksit (HfO₂), yaklaşık 45nm düğümünden itibaren (Intel, 2007) SiO₂'nin yerini alan yüksek-k bir dielektriktir. Daha yüksek dielektrik sabiti, aynı kapasitif kaplingeyi sağlarken fiziksel olarak daha kalın bir katmana izin verir; bu da kuantum tünellemesinden kaynaklanan kapı sızıntısını büyük ölçüde azaltır."
+id = "d0ebd046-f328-4ed3-b832-8a468c2651b1"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "28nm proses düğümü neden transistör başına maliyet açısından sektörün 'tatlı noktası' olarak kabul edilir?"
+prompt.distractors = [
+    "FinFET transistörlerin kullanıldığı ilk düğüm olduğu için; bu durum verimi dramatik biçimde iyileştirdi ve güç tüketimini düşürdü",
+    "EUV veya herhangi bir daldırma/çoklu desenleme kullanmadan yalnızca i-çizgisi litografisiyle üretilebilen en küçük düğüm olduğu için",
+    "193nm ArF daldırma litografisiyle üçlü desenleme teknikleri kullanılarak elde edilebilen minimum özellik boyutuyla örtüştüğü için"
+]
+answer.answer = "It is the most advanced node achievable without EUV or excessive multi-patterning, keeping manufacturing costs low while delivering good density"
+context = "28nm, transistör başına maliyetin düşmeyi bıraktığı dönüm noktasında yer alır. 28nm'nin altında çoklu desenleme (ve sonunda EUV) ihtiyacı, üretim maliyetlerini yoğunluk kazanımlarının azaltabileceğinden daha hızlı artırdı. Bu durum 28nm'yi en uygun maliyetli düğüm yapar ve yeni 28nm fab kapasitesinin hâlâ inşa edilmesinin nedeni budur."
+id = "ed21bf1f-6f53-40e9-a1e6-6ca570bc36cd"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "~20nm'den dar bakır bağlantılardan ne kadar akım akabileceğini sınırlayan fiziksel olay nedir?"
+prompt.distractors = [
+    "Elektron dalga fonksiyonunun yayılmasını kısıtlayarak bakırın hacimsel özdirengenliğini artıran kuantum hapsetme etkileri",
+    "Dar tellerde Joule ısınmasından kaynaklanan ve çevre dielektriklerin ısıl iletkenliğini aşan ısıl kaçak",
+    "Gigahertz frekanslarında akımı yalnızca tel yüzeyinde aktmaya zorlayen ve etkin kesit alanını azaltan deri etkisi"
+]
+answer.answer = "Electromigration, where high-density electron current physically displaces copper atoms, creating voids and hillocks"
+context = "Elektromigrasyon, elektronlardan metal atomlarına aktarılan momentum'nun onları fiziksel olarak yerinden etmesiyle gerçekleşir. 20nm'nin altındaki genişliklerde akım yoğunluğu son derece yüksektir; bakır atomları tıpkı mermerle vurulan bowling topları gibi 'itilir'. Bu durum boşluklar (açık devreler) ve tepecikler (kısa devreler) yaratır; bu nedenle rütenyum ve molibden alternatif olarak araştırılmaktadır."
+id = "258a25f2-70bd-4d3e-8d43-fdf72ed3144f"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Sektörel tahminlere göre 3nm prosesinde karmaşık bir çip tasarlamak yaklaşık ne kadara mal olur?"
+prompt.distractors = [
+    "50-100 milyon dolar; ek doğrulama gereksinimleri nedeniyle olgun 28nm tasarım maliyetinin yaklaşık üç katı",
+    "150-250 milyon dolar; ağırlıklı olarak ileri düğümlerdeki EDA araçları ve standart hücre kütüphanelerine ait lisans ücretleri",
+    "1,5-2 milyar dolar; önde gelen bir fabrikada büyük müşteri başına ayrılan sermaye maliyet payıyla eşleşen rakam"
+]
+answer.answer = "$500-800 million, reflecting the enormous engineering effort for physical design, verification, and mask creation"
+context = "IBS tahminlerine göre 3nm'de karmaşık bir SoC tasarlamak 500-800 milyon dolara mal olur. Bu maliyet RTL tasarımı, fiziksel tasarım, zamanlama kapanışı, doğrulama ve maske maliyetlerini kapsar. 5nm'de 400-500 milyon, 28nm'de ise 40-50 milyon dolardır. Bu ~10× maliyet farkı, ileri düğüm tasarımını çok yüksek hacimli ürünlerle sınırlandırır."
+id = "bf13754c-b056-4b05-98df-ad81b37bd130"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "TSMC'nin N5 prosesinin yaklaşık transistör yoğunluğu (milyon/mm² cinsinden) nedir?"
+answer.answer = "173"
+answer.alternatives = ["173 million", "~173", "170"]
+context = "TSMC'nin N5 (5nm) prosesi yaklaşık 173 milyon transistör/mm² yoğunluğa ulaşır. Karşılaştırma için: N3E yaklaşık 291 milyon/mm², Samsung'un 3nm GAA'sı ~150-170 milyon/mm² ve Intel 4 ise ~160 milyon/mm² değerlerindedir. Bu durum, düğüm adlarının yoğunlukla doğrusal biçimde örtüşmediğini gözler önüne serer."
+id = "11ed6d6b-4e3b-4cb7-b9c3-2e25e9fcbfd4"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yarıiletken sektörü neden düzlemsel transistörlerden FinFET'lere, ardından Gate-All-Around nanoyaprak mimarisine geçiş yaptı?"
+prompt.distractors = [
+    "Her mimari transistör katmanı başına daha az litografi adımı gerektirerek üretim karmaşıklığını azaltır",
+    "Kapıyı daha fazla yüzeyden sarmak kapı oksidi alanını küçültür; bu da parazitik kapasitansı düşürür ve anahtarlama hızını artırır",
+    "Üç boyutlu yapılar birden fazla transistör katmanının dikey olarak yığılmasına olanak tanır; böylece her nesilde yoğunluk doğrudan iki katına çıkar"
+]
+answer.answer = "Wrapping the gate around more channel sides improves electrostatic control, combating short-channel effects at smaller gate lengths"
+context = "Kanallar ~25nm'nin altına kısaldıkça kapı, kanal üzerindeki denetimini yitirdi (DIBL gibi kısa kanal etkileri). FinFET'ler kapıyı fin şekilli kanalın 3 yüzüne sardı. GAA nanoyaprakları ise tüm 4 yüzeyi sararak çok daha iyi elektrostatik denetim sağlar. Kapı teması ne kadar fazlaysa, daha kısa kanallar o kadar güvenilir çalışır."
+id = "84b2fc74-15dd-4ae4-bc07-d63366297994"

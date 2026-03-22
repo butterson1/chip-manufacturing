@@ -1,0 +1,119 @@
+# Gün 3 Testi: Fotolitografi 101 — Işıkla Devre Baskısı
+
+## Yeni Sorular (6)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Optik Yakınlık Düzeltmesi (OPC) neden gerçek istenen devre düzeni yerine maskeye bozulmuş şekiller ekler?"
+prompt.distractors = [
+    "Bozulmuş şekiller, tekrarlayan pozlamalarda krom katmanındaki termal stresi azaltarak maske ömrünü önemli ölçüde uzatır",
+    "Bozulmuş şekiller maske şeffaflığının tekdüzeliğini artırarak waferin tüm bölgelerine eşit ışık dozu ulaşmasını sağlar",
+    "Bozulmuş şekiller, direnç filmindeki elektron saçılmasını telafi ederek gizli kimyasal görüntünün bulanıklaşmasını önler"
+]
+answer.answer = "Light diffracts around edges and interferes during projection, so the mask must be pre-distorted to cancel optical effects and produce the intended pattern"
+context = "Kırınım, köşelerin yuvarlanmasına, çizgilerin incelmesine ve yoğun/yalıtılmış yapıların farklı basılmasına yol açar. OPC, tüm optik bozulmalar sonucunda basılan desenin amaçlanan tasarımla örtüşmesi için maskeyi serif, yardımcı yapı ve sapma düzeltmeleriyle önceden bozar."
+id = "d3-q1-opc-purpose"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "İmmersiyonlu litografinin 193nm DUV'u daha küçük yapı boyutlarına taşımasını ne mümkün kıldı?"
+prompt.distractors = [
+    "Su, wafer yüzeyinden gelen 193nm yansımalarını emer; bu da fotodirençteki duran dalga parazit etkilerini azaltır",
+    "Su, pozlama sırasında waferi soğutarak yüksek hassasiyetteki basımda basılan deseni bozacak termal genleşmeyi önler",
+    "Su, dirence daha yüksek lazer darbe enerjisi iletimini sağlayarak daha ince yapılar için kimyasal amplifikasyon tepkime hızını artırır"
+]
+answer.answer = "Water's refractive index of 1.44 at 193nm increases the numerical aperture from ~0.93 to ~1.35, improving resolution by roughly 45% over dry exposure"
+context = "NA = n × sin(θ) olduğundan, lens-wafer boşluğundaki havayı (n=1,0) su ile (n=1,44) değiştirmek maksimum NA'yı yaklaşık 1,35'e yükseltir. TSMC'den Burn Lin bunu 2002'de önerdi; ASML ise 2006 itibarıyla ilk immersiyonlu tarayıcıları teslim etti."
+id = "d3-q2-immersion"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Öz-Hizalamalı Dörtlü Desenleme'de (SAQP) orijinal litografik desenin 4 katı yoğunlukta nihai yapılar nasıl oluşturulur?"
+prompt.distractors = [
+    "Dört ayrı maske pozlaması gelişmiş bindirme düzeltmesi kullanılarak birbirine hizalanır; her biri yapıların dörtte birini basar",
+    "Direnç, çeyrek-adım yapılar oluşturmak için doz birikimini sağlayacak şekilde aynı maske kullanılarak hafifçe kaydırılmış konumlarda dört kez pozlanır",
+    "Odaklanmış iyon demeti, malzemeyi merkezlerinden sırayla kaldırarak orijinal yapıları dört eşit alt yapıya böler"
+]
+answer.answer = "A conformal spacer film is deposited on printed lines, the core is etched away leaving sidewall pairs, then the spacer process is repeated to double density again"
+context = "SAQP bir çizgi basar, uyumlu bir aralayıcı çöktürür, orijinal çizgiyi kaldırarak iki yan duvar yapısı bırakır ve ardından tüm süreci tekrarlar. Her tur yoğunluğu iki katına çıkarır: 1× → 2× → 4×. Samsung ve TSMC, 7nm ve 5nm DUV nodlarında bu yöntemi kullandı."
+id = "d3-q3-saqp"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Pozlama sonrası pişirme (PEB) sıcaklığının wafer genelinde ±0,1°C hassasiyetle kontrol edilmesi neden gereklidir?"
+prompt.distractors = [
+    "±0,1°C'nin üzerindeki sıcaklık farklılıkları fotodirencin çözücüsünün düzensiz biçimde yeniden buharlaşmasına ve bir sonraki aşamayı etkileyen kalınlık değişikliklerine yol açar",
+    "±0,1°C'nin üzerindeki sıcaklık farklılıkları, direnç ile silikon arasında diferansiyel termal genleşmeye neden olarak desen çatlaması hataları üretir",
+    "±0,1°C'nin üzerindeki sıcaklık farklılıkları direnç filminin kırılma indisini değiştirir; bu durum hizalama işaret sensörlerinin wafer konumunu okumasını bozar"
+]
+answer.answer = "The acid-catalyzed deprotection reaction rate is exponentially sensitive to temperature, so a 1°C variation can shift printed feature dimensions by about 10%"
+context = "Kimyasal olarak amplifikasyonlu direnç malzemelerinde PEB, pozlama sırasında oluşan asidin polimer zincirlerinin korumasını kaldırdığı aşamadır. Bu tepkime Arrhenius kinetiğine uyar; yani sıcaklığa üstel bağımlıdır. Yalnızca 1°C'lik tekdüzelik bozukluğu bile yaklaşık %10 boyutsal sapmayla sonuçlanır."
+id = "d3-q4-peb-temp"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Hollanda'nın Veldhoven şehrinde merkezi bulunan ve dünyanın gelişmiş litografi tarayıcılarının neredeyse tamamını üreten şirket hangisidir?"
+answer.answer = "ASML"
+answer.alternatives = ["asml", "ASML Holding"]
+context = "ASML, EUV litografi sistemlerinin tek üreticisidir ve DUV immersiyonlu tarayıcı pazarına hâkimdir. Makineleri 100 milyon ila 350 milyon dolar veya üzeri fiyatlara satılmakta olup her lider çipin üretimi için vazgeçilmezdir."
+id = "d3-q5-asml"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Tek bir çip tasarımı için lider EUV fotomask setleri neden 10-15 milyon dolara mal olur?"
+prompt.distractors = [
+    "EUV maskeleri krom-üzeri-kuvars yerine altın kaplı taban gerektiriyor ve altın biriktirme sürecinin verimi son derece düşük",
+    "Her EUV maskesi belirli bir tarayıcı birimine tek tek kalibre edilmeli; bu yüzden fabrikalar üretim güvencesi amacıyla çift maske seti bulundurur",
+    "EUV maske blanklarının sıfır yerçekimi koşullarında büyütülmesi gereken berilyum florür kristalinden üretilmesi zorunludur"
+]
+answer.answer = "A chip requires 60-80 separate masks (one per layer), each written by slow electron-beam lithography taking 20-40 hours, with individual masks costing $300K-$1M"
+context = "Her maske katmanı, e-ışın araçları tarafından 20-40 saat boyunca nokta nokta yazılan krom desenli ayrı bir fused silika plaka gerektirir. 60-80 katman boyunca maske başına 300.000-1.000.000 dolar hesabıyla toplam maske seti maliyeti 10-15 milyon dolara ulaşır; bu, gelişmiş çip tasarımına girişin önündeki önemli bir engeldir."
+id = "d3-q6-mask-cost"
+
+## Son Tekrar — Gün 2 (2)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Siemens sürecinde bor safsızlıklarının giderilmesi neden demir veya alüminyumun giderilmesinden daha zordur?"
+prompt.distractors = [
+    "Bor, triklorosilane molekülündeki silikon atomlarıyla kovalent bağ oluşturur ve bu durum damıtmayla fiziksel ayrımı engeller",
+    "Bor safsızlıkları gaz halindeki klorürler yerine çözünmüş katılar hâlinde bulunur; bu da ek sıvı faz ekstraksiyon adımları gerektirir",
+    "Bor atomları silikon atomlarından daha hafif olduğundan kesirli damıtmada kullanılan santrifüj kuvvetlerle ayrılamaz"
+]
+answer.answer = "Boron trichloride boils at 12.5°C, only 19°C below trichlorosilane's 31.8°C boiling point, making fractional distillation separation extremely difficult"
+context = "Demir klorür (316°C) ve alüminyum klorür (180°C), TCS'nin (31.8°C) kaynama noktasından çok uzakta olduğundan kolayca ayrılır. Bor triklorür (12,5°C) ise yalnızca 19°C geridedir ve bu durum yüzlerce teorik tabla içeren damıtma kolonları gerektirir."
+id = "d3-r1-boron"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Czochralski kristal büyümesi sırasında silikon külçesinde oksijen kirliliğine ne yol açar?"
+prompt.distractors = [
+    "Argon koruyucu gazındaki izleme oksijeni, silikon eriyiğinin yüzeyiyle tepkimeye girerek kristale oksijen atomlarını giderek katıştırır",
+    "Polisilikon hammaddesi, yeniden eritme sıcaklıklarında varlığını sürdüren Siemens biriktirme sürecinden çözünmüş oksijen içerir",
+    "Konvektif akımlar eriyiğin yüzeyini fırın atmosferine maruz bırakarak oksijen radikallerinin sıvı silikona difüze olmasına izin verir"
+]
+answer.answer = "The fused silica (SiO₂) crucible gradually dissolves into the 1,414°C molten silicon throughout the 24-72 hour growth process, releasing oxygen atoms"
+context = "Kuvars pota, 1.414°C'deki erimiş silikon için pratik tek kaptır; ancak SiO₂ yavaş yavaş eriyiğe çözünür. Bu, kaçınılmaz bir ödünleşimdir — alternatif bir kap malzemesi o kadar iyi işlev görmemektedir; bu nedenle oksijen katışımı ortadan kaldırılmak yerine yönetilmektedir."
+id = "d3-r2-oxygen"
+
+## Eski Tekrar — Gün 1 (2)
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "CMOS teknolojisi — NMOS ve PMOS transistörleri birleştirerek — neden yalnızca NMOS kullanan devrelerin önüne geçti?"
+prompt.distractors = [
+    "CMOS transistörleri, tamamlayıcı çiftin daha düşük kapı gecikmesiyle itme-çekme çıkışı oluşturması sayesinde yalnızca NMOS devrelerinden daha hızlı anahtarlama yapar",
+    "CMOS üretimi, yalnızca NMOS süreçlerinden daha az fotolitografi adımı gerektirdiğinden wafer başına üretim maliyetini önemli ölçüde azaltır",
+    "CMOS devreleri, bellek uygulamalarındaki bit çevirme hatalarını azaltarak yalnızca NMOS mantığından daha kararlı voltaj çıkış seviyeleri üretir"
+]
+answer.answer = "CMOS draws current only during switching transitions, consuming near-zero static power, while NMOS-only logic draws continuous current through pull-up resistors"
+context = "CMOS'ta durağan hâlde ya PMOS ya da NMOS transistörü kapalıdır; bu sayede güç kaynağından toprağa bir yol oluşmaz. Yalnızca NMOS devreler ise sürekli akım çeken dirençli çekme yukarı devreleri kullanır. Bu güç avantajı, CMOS'u milyarlarca transistöre ölçeklenmek için vazgeçilmez kıldı."
+id = "d3-r3-cmos"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Intel tarafından 2011'de 22nm nodunda tanıtılan ve geleneksel düzlemsel transistör kapısının yerini üç boyutlu fin şekilli kanalın aldığı yapısal yenilik nedir?"
+answer.answer = "FinFET"
+answer.alternatives = ["finfet", "Fin-FET", "fin-FET", "finFET", "tri-gate", "Tri-Gate", "tri-gate transistor"]
+context = "FinFET (veya üç kapılı transistör), kapıyı ince ve yüksek bir silikon finin üç tarafına sararak kanal üzerindeki elektrostatik kontrolü dramatik biçimde artırır. Intel bunu 2011'de 22nm'de tanıttı ve teknoloji 16/14nm'de tüm sektörde standart hâle geldi."
+id = "d3-r4-finfet"

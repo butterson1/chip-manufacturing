@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "RTL doğrulama neden toplam çip tasarım çalışmasının %60-70'ini tüketir?"
+prompt.distractors = [
+    "RTL simülasyon araçlarının son derece yavaş çalışması nedeniyle basit test durumları için bile aylarca hesaplama süresi gerekmektedir",
+    "Donanım tanımlama dillerinin hata eğilimli olması ve yaygın hataları yakalamak için güçlü tür sistemlerinden yoksun olması nedeniyle",
+    "Foundry'lerin tape-out kabul etmeden önce her modül için matematiksel doğruluk kanıtı gerektirmesi nedeniyle"
+]
+answer.answer = "Silikon üretildikten sonra yamanılamaz; bu nedenle yüz milyonlarca dolarlık yeniden üretimden kaçınmak için kapsamlı ön silikon testi zorunludur"
+context = "3 nm'de yeniden üretim (respin) 300-500 milyon dolara mal olur ve 3-6 aylık gecikmeye yol açar. Silikondaki hatalar yazılım güncellemesiyle düzeltilemediğinden endüstri, tape-out öncesinde hataları yakalamak amacıyla doğrulamaya ağırlıklı yatırım yapar."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "RTL-GDSII akışında mantık sentezi ne yapar?"
+prompt.distractors = [
+    "Kapı düzeyi netlist'lerini her standart hücre örneğine koordinat atayarak fiziksel düzen geometrilerine dönüştürür",
+    "RTL davranışsal açıklamasının, kısıtlı rastgele test kullanarak tasarımcının spesifikasyonuyla örtüştüğünü doğrular",
+    "Yönlendirilmiş metal interkonnektleri, tasarım kuralı kısıtlamalarına uyarak belirli foundry metal katmanlarıyla eşler"
+]
+answer.answer = "Zamanlama, alan ve güç açısından optimize edilmiş biçimde davranışsal RTL kodunu foundry'nin kütüphanesindeki belirli standart hücrelerin netlist'ine dönüştürür"
+context = "Mantık sentezi, RTL'yi (davranışsal açıklama) alır ve tasarımcının zamanlama, alan ve güç kısıtlarını optimize ederek foundry kütüphanesindeki fiziksel standart hücrelerle (NAND, NOR, flip-flop vb.) eşler."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yerleştirme sırasında modern PnR araçları, standart hücreleri yüklü parçacıklar gibi ele alan analitik yöntemler kullanır. Bu yaklaşımın amacı nedir?"
+prompt.distractors = [
+    "Komşu hücreler arasındaki elektromanyetik girişimi modelleyerek tasarım genelinde sinyal bütünlüğünü sağlamak",
+    "Die üzerindeki ısı dağılımını simüle ederek yoğun bölgelerde sıcak nokta oluşumunu önlemek",
+    "Optimizasyon geçişleri sırasında doğru zamanlama analizi için hücreler arasındaki parazitik kapasitansı hesaplamak"
+]
+answer.answer = "Hücreleri, itici kuvvetleri (örtüşmeyi önlemek) ile çekici kuvvetler (bağlı hücrelere kablo uzunluğunu en aza indirmek) dengeleyerek die üzerine dağıtmak"
+context = "Analitik global yerleştirme, hücreleri örtüşmeyi/tıkanıklığı önlemek için itici kuvvetlere ve toplam kablo uzunluğunu en aza indirerek optimum konumlarına doğru çekici kuvvetlere sahip parçacıklar olarak modeller. Bu, sonraki yasallaştırma ve ayrıntılı yerleştirme aşamalarının iyileştirdiği iyi bir başlangıç dağılımı üretir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Statik Zamanlama Analizi (STA), çoklu PVT köşelerinde neyi kontrol eder?"
+prompt.distractors = [
+    "Tüm süreç, voltaj ve sıcaklık kombinasyonlarında veri kaybetmeden saat frekansının dinamik olarak ayarlanabildiğini",
+    "Tüm çalışma koşulları kombinasyonlarında güç tüketiminin termal tasarım zarfı içinde kaldığını",
+    "Standart hücre kütüphanesi karakterizasyon verilerinin her üretim koşulu için kapı gecikmelerini doğru öngördüğünü"
+]
+answer.answer = "Her sinyal yolunun flip-flop'lar arasında tüm süreç, voltaj ve sıcaklık kombinasyonlarında kurulum ve tutma zamanlama gereksinimlerini karşıladığını"
+context = "STA, sinyallerin tüm PVT köşelerinde hedef flip-flop'lara bir sonraki saat kenarından önce ulaşıp ulaşmadığını (kurulum) ve mevcut kenardan sonra çok hızlı gelip gelmediğini (tutma) kontrol eder — örn. kurulum için yavaş/düşük voltaj/sıcak, tutma için hızlı/yüksek voltaj/soğuk."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Tape-out sonrası foundry'ye gönderilen nihai geometrik maske verilerini içeren endüstri standardı dosya formatının adı nedir?"
+answer.answer = "GDSII"
+answer.alternatives = ["GDS2", "GDS II", "GDSII file", "gdsii"]
+context = "GDSII (Graphic Data System II), foundry'lere gönderilen IC düzeni verileri için standart formattır. Modern halefi OASIS (Open Artwork System Interchange Standard), GDSII dosyalarının 1-2 TB'ı aşabildiği büyük tasarımlarda giderek daha fazla kullanılmaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Yarı iletken endüstrisi 500 milyar doların üzerinde bir değere sahipken EDA endüstrisi neden yalnızca iki şirkete (Synopsys ve Cadence) hâkim konumda?"
+prompt.distractors = [
+    "Çünkü yarı iletken şirketleri birden fazla satıcıdan satın almak yerine tescilli kurum içi EDA araçları geliştirmeyi tercih eder",
+    "Çünkü uluslararası ihracat kontrolleri EDA yazılımı dağıtımını kısıtlar; bu da uygulanabilir küresel satıcı sayısını sınırlar",
+    "Çünkü EDA pazarı yeni katılımcıları çekmek için çok küçüktür; dünya genelinde toplam yıllık gelir 2 milyar doların altındadır"
+]
+answer.answer = "Çünkü değiştirme maliyetleri son derece yüksektir — araçlar birbirine sıkı sıkıya bağlıdır ve foundry süreç kitleriyle birlikte geliştirilmiştir; yeniden nitelendirme 6-12 ay sürer"
+context = "EDA araçları, zamanlama, parazitik ve tasarım kuralı verilerinin araçlar arasında aktığı sıkı bağlı bir akış oluşturur. Foundry'ler, yıllar içinde belirli EDA satıcılarıyla PDK'ları birlikte geliştirir. Tek bir aracın bile değiştirilmesi aylarca yeniden nitelendirme gerektirir; bu da devasa bir bağımlılık yaratır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Tape-out öncesinde Tasarım Kuralı Kontrolünün (DRC) amacı nedir?"
+prompt.distractors = [
+    "Düzenden çıkarılan devrenin sentezdeki orijinal kapı düzeyi netlist'iyle eşleştiğini doğrulamak",
+    "Parazitik direnç ve kapasitans çıkarıldıktan sonra tüm sinyal yollarının zamanlama gereksinimlerini karşıladığını onaylamak",
+    "RTL kaynak kodunun foundry'nin önerilen kodlama stiline ve sentez yönergelerine uygun olduğunu doğrulamak"
+]
+answer.answer = "Düzendeki her geometrik şeklin foundry'nin minimum genişlik, aralık ve kapsamalar gibi üretim kısıtlarına uyduğunu doğrulamak"
+context = "DRC, fiziksel düzenin foundry'nin üretim kurallarına uyduğunu kontrol eder — minimum metal genişlikleri, minimum özellik aralıkları, via kapsama gereksinimleri ve binlerce başka geometrik kısıt. Tek bir DRC ihlali, verimi öldüren bir kusura neden olabilir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Modern 3+ GHz SoC üzerinde saat ağacı sentezi (CTS), 5-10 pikosaniye kadar dar saat çarpıklığı elde etmek zorundadır. Bu neden bu kadar kritiktir?"
+prompt.distractors = [
+    "Çünkü saat çarpıklığı doğrudan çipin maksimum güç tüketimini belirler ve daha dar çarpıklık daha düşük çalışma voltajına olanak tanır",
+    "Çünkü saat dağıtım ağlarından kaynaklanan elektromanyetik emisyonlar, tüketici elektronik cihazlar için düzenleyici sınırları karşılamalıdır",
+    "Çünkü foundry'nin DRC kuralları her metal katmandaki saat tampon çıkışları arasında izin verilen maksimum zamanlama uyumsuzluğunu belirtir"
+]
+answer.answer = "Çünkü saat çarpıklığı doğrudan zamanlama bütçesini tüketir — her pikosaniye çarpıklık, flip-flop'lar arasındaki faydalı hesaplamadan çalınan bir pikosaniyedir"
+context = "3 GHz'de bir saat periyodu ~333 ps'dir. Saat çarpıklığı 10 ps tüketirse, herhangi bir mantık gecikmesi sayılmadan toplam bütçenin %3'ü yitirilmiş olur. Aşırı çarpıklık kurulum veya tutma ihlallerine yol açarak çipin hatalı çalışmasına neden olur."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "EDA araçları, hesaplama ve mühendislik dahil 3 nm süreç düğümünde önde gelen bir çip tasarlamanın yaklaşık toplam maliyeti nedir?"
+answer.answer = "$500-800 million"
+answer.alternatives = ["500-800 million", "$500M-$800M", "$500 million to $800 million", "500 million", "800 million"]
+context = "3 nm çip tasarlamak, EDA lisansları, devasa hesaplama grupları (50.000-100.000 çekirdek) ve 2-3+ yıl boyunca çalışan yüzlerce kişilik mühendislik ekipleri dahil toplam tahmini 500-800 milyon dolara mal olmaktadır. Bu maliyet artışı, önde gelen tasarımı yalnızca bir avuç şirketle sınırlamaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Intel'in 1994 Pentium FDIV hatası 475 milyon dolarlık zarara yol açtı. Bu ünlü doğrulama başarısızlığının kök nedeni neydi?"
+prompt.distractors = [
+    "Kayan nokta birimindeki bir zamanlama ihlali, belirli yüksek frekanslı çalışma koşullarında yanlış yuvarlama davranışına neden oldu",
+    "Bir sentez aracı optimizasyonu, kayan nokta bölücünün kritik yolundaki gereksiz mantık kapılarını yanlış biçimde birleştirdi",
+    "Bakır interkonnektlerdeki bir üretim kusuru, matematiksel yardımcı işlemcide aralıklı sinyal bütünlüğü arızalarına yol açtı"
+]
+answer.answer = "Kayan nokta bölücüde kullanılan arama tablosunda 1.066 girdiden beşi yanlıştı; bu durum belirli nadir bölücü çiftleri için hatalı sonuçlar üretiyor"
+context = "Pentium FDIV hatası bir veri hatasıydı — SRT bölme algoritmasının kullandığı 1.066 girdili arama tablosunda beş yanlış girdi. Bu bir mantık tasarımı hatası veya üretim kusuru değil, doğrulama boşluğuydu: bölücünün arama tablosu değerlerinin yetersiz test edilmesi."

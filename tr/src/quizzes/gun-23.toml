@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Shin-Etsu Chemical ve SUMCO birlikte küresel 300mm silikon wafer pazarının yaklaşık ne kadarını kontrol etmektedir?"
+prompt.distractors = [
+    "Birlikte yaklaşık %30-35'ini elinde tutuyorlar; GlobalWafers ve SK Siltron birlikte daha büyük bir paya sahip",
+    "Birlikte yaklaşık %75-80'ini elinde tutuyorlar; Avrupalı ve Tayvan'lı rakiplerine çok az pay bırakıyor",
+    "Birlikte yaklaşık %40-45'ini elinde tutuyorlar; bu pay Siltronic ve GlobalWafers'ın birleşik payına kabaca eşit"
+]
+answer.answer = "They hold roughly 55-60% combined, with GlobalWafers, SK Siltron, and Siltronic accounting for most of the rest"
+context = "Shin-Etsu ve SUMCO (ikisi de Japon) birlikte küresel 300mm wafer arzının yaklaşık %55-60'ını kontrol etmektedir. GlobalWafers (Tayvan), SK Siltron (Güney Kore) ve Siltronic (Almanya) eklendiğinde, beş şirket pazarın %90'ından fazlasını oluşturmaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "EUV fotodirenci, wafer başına toplam fotodireç maliyeti görece düşük olmasına karşın neden özellikle kritik bir tedarik zinciri darboğazı olarak kabul edilmektedir?"
+prompt.distractors = [
+    "Çünkü EUV fotodirenci, yalnızca İç Moğolistan'daki tek bir madenden elde edilen nadir toprak elementleri gerektirmekte ve bu da bir mineral bağımlılığı yaratmaktadır",
+    "Çünkü EUV fotodireç üretimi, çip üretiminde kullanılan EUV tarayıcıların aynısını gerektirmekte ve bu da ASML araçlarına döngüsel bir bağımlılık yaratmaktadır",
+    "Çünkü EUV fotodirencinin sentezden sonra yalnızca 48 saatlik raf ömrü vardır ve bu da tedarik kesintilerine karşı stok yapılmasını imkânsız kılmaktadır"
+]
+answer.answer = "Because the molecular-level chemistry requires parts-per-trillion defect densities and decades of accumulated process knowledge concentrated in a few Japanese firms"
+context = "Japon firmalar küresel fotodireç pazarının yaklaşık %91'ini ve EUV fotodirencinin %95'inden fazlasını kontrol etmektedir. EUV fotodirençleri, trilyonda-bir parça düzeyinde hata yoğunluğu gerektiren fotosit üreteçlere sahip kimyasal olarak ampliye edilmiş polimerlerdir; bu sentez uzmanlığı yalnızca yatırım yapılarak kopyalanamaz."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Aşağıdakilerden hangisi beş baskın yarı iletken ekipman şirketini yaklaşık yıllık gelirlerine göre doğru sıralamaktadır?"
+prompt.distractors = [
+    "Applied Materials (~30 milyar $) > ASML (~27 milyar $) > Lam Research (~17 milyar $) > Tokyo Electron (~16 milyar $) > KLA (~11 milyar $)",
+    "ASML (~30 milyar $) > Tokyo Electron (~27 milyar $) > Applied Materials (~17 milyar $) > KLA (~16 milyar $) > Lam Research (~11 milyar $)",
+    "ASML (~30 milyar $) > Applied Materials (~27 milyar $) > KLA (~17 milyar $) > Lam Research (~16 milyar $) > Tokyo Electron (~11 milyar $)"
+]
+answer.answer = "ASML (~$30B) > Applied Materials (~$27B) > Lam Research (~$17B) > Tokyo Electron (~$16B) > KLA (~$11B)"
+context = "ASML yaklaşık 30 milyar dolarla öndedir; bunu sırasıyla yaklaşık 27 milyar dolarla Applied Materials, 17 milyar dolarla Lam Research, 16 milyar dolarla Tokyo Electron ve 11 milyar dolarla KLA izlemektedir. Bu beş şirket birlikte tüm yarı iletken ekipman harcamalarının %70-75'ini oluşturmaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bir BCG/SIA araştırması, herhangi bir bölgede tamamen öz yeterli bir yarı iletken tedarik zinciri kurmanın yaklaşık ne kadar ön yatırım gerektireceğini tahmin etti?"
+prompt.distractors = [
+    "Yaklaşık 100 milyar dolar; bu, tam ekipman yüküyle beş ileri düzey fab inşa etmeye kabaca eşdeğerdir",
+    "Yaklaşık 250 milyar dolar; tüm büyük yarı iletken şirketlerinin birleşik yıllık Ar-Ge bütçeleriyle karşılaştırılabilir",
+    "Yaklaşık 500 milyar dolar; küresel yarı iletken ekipman sektörünün beş yıllık toplam yıllık gelirine kabaca eşit"
+]
+answer.answer = "Approximately $1 trillion, which would also raise chip prices by an estimated 35-65% due to lost economies of scale"
+context = "BCG/SIA 2021 araştırması, tam öz yeterlilik için 1 trilyon dolarlık ön yatırım ve çip fiyatlarında %35-65 artış tahmin etti. Bu rakam, enflasyon ve yükselen ekipman maliyetleri göz önünde bulundurulduğunda bugün muhtemelen daha yüksektir."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "2020-2022 küresel çip kıtlığının yalnızca otomotiv sektörüne yaklaşık ekonomik etkisi neydi?"
+prompt.distractors = [
+    "Yaklaşık 50 milyar dolarlık gelir kaybı; ağırlıklı olarak ileri düzey çip gerektiren elektrikli araç üretiminin azalmasından kaynaklandı",
+    "Yaklaşık 500 milyar dolarlık gelir kaybı; birçok orta ölçekli otomobil üreticisinin iflas koruması başvurusunda bulunmasına neden oldu",
+    "Yaklaşık 100 milyar dolarlık gelir kaybı; Avrupa ve Kuzey Amerika üreticileri arasında kabaca eşit biçimde dağıldı"
+]
+answer.answer = "Roughly $210 billion in lost revenue, demonstrating how semiconductor supply disruptions cascade through downstream industries"
+context = "2020-2022 çip kıtlığı yalnızca otomotiv sektörüne yaklaşık 210 milyar dolarlık gelir kaybına mal oldu; bu durum, yarı iletken tedarik zincirindeki aksaklıkların trilyonlarca dolarlık değer yaratan aşağı akış sektörlerine nasıl yayıldığını gözler önüne serdi."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "2022'de yarı iletken kalitesinde neon fiyatlarının yaklaşık 10 kat artmasına neden olan ve özel gaz tedarik zincirlerinin kırılganlığını gözler önüne seren olay neydi?"
+answer.answer = "Russia's invasion of Ukraine"
+answer.alternatives = ["Russian invasion of Ukraine", "Ukraine war", "Russia-Ukraine war", "war in Ukraine"]
+context = "Rusya'nın 2022'deki Ukrayna işgalinden önce Ukrayna, çelik üretiminin yan ürünü olarak üretilen dünyanın yarı iletken kalitesindeki neonunun yaklaşık %50'sini karşılıyordu. İşgal, neon fiyatlarının yaklaşık 10 kat artmasına neden oldu."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "ABD neden 2022 ihracat kısıtlamalarında Çin'e karşı özellikle kapı-her-yerde (gate-all-around, GAA) transistör tasarımına yönelik EDA araçlarını hedef aldı?"
+prompt.distractors = [
+    "Çünkü GAA araçları en pahalı EDA lisanslarıydı ve bunları kısıtlamak Çin'li çip şirketleri üzerindeki mali baskıyı en üst düzeye çıkaracaktı",
+    "Çünkü GAA tasarım araçları, tamamen ABD yargı yetkisi dahilinde üretilen tek EDA ürünleriydi ve bu da onları hukuki açıdan kısıtlamayı kolaylaştırıyordu",
+    "Çünkü GAA tasarım araçları, DARPA sözleşmeleri kapsamında geliştirilen gizli savunma algoritmalarını içeriyordu ve bu da zorunlu ITAR kısıtlamalarını tetikliyordu"
+]
+answer.answer = "Because China could still design chips at older nodes with existing tools, but GAA-specific tools were needed for 3nm and below, precisely targeting next-generation capability"
+context = "GAA EDA araçlarına getirilen kısıtlama hassas bir hedeflemeydi: Çin, eski proses düğümleri için araçlara erişimini korudu; ancak 3nm ve altında yeni nesil çipler tasarlamak, GAA mimarilerini destekleyen en güncel Synopsys ve Cadence sürümleri olmadan önemli ölçüde zorlaştı."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bir ASML EUV tarayıcısı sipariş edip teslim almak için yaklaşık bekleme süresi nedir ve ASML yılda kaç adet üretebilmektedir?"
+prompt.distractors = [
+    "6-9 ay bekleme süresi; ASML birden fazla montaj tesisinde yılda yaklaşık 150-200 sistem üretmektedir",
+    "12-15 ay bekleme süresi; ASML Veldhoven tesisinde yılda yaklaşık 80-100 sistem üretmektedir",
+    "36-48 ay bekleme süresi; ASML, Zeiss'ın optik tedarik kısıtlamaları nedeniyle yılda yaklaşık 20-25 sistem üretmektedir"
+]
+answer.answer = "18-24 months lead time, with ASML producing approximately 50-60 systems per year, meaning new fabs must secure delivery slots years in advance"
+context = "Bir EUV tarayıcısı siparişten teslimata 18-24 ay sürer ve ASML yılda yalnızca yaklaşık 50-60 adet üretebilmektedir. Yeni bir fab 15-20 EUV aracına ihtiyaç duyduğundan, fab inşaat takvimleri ASML'nin üretim kapasitesiyle sınırlıdır."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "İleri çip paketleme için ABF (Ajinomoto Build-up Film) substrat pazarına hâkim olan üç Japon şirket nedir? En az ikisini yazın."
+answer.answer = "Ibiden and Shinko Electric"
+answer.alternatives = ["Ibiden, Shinko Electric, AT&S", "Ibiden and Shinko", "Ibiden, Shinko", "Shinko and Ibiden"]
+context = "ABF substratlar ağırlıklı olarak Ibiden, Shinko Electric (Fujitsu'nun yan kuruluşu, her ikisi de Japon) ve AT&S (Avusturya) tarafından üretilmektedir. 2021-2022 kıtlığı sırasında ABF substrat teslim süreleri 50-70 haftaya uzadı. (Not: AT&S Avusturyalıdır, Japon değil — soru biraz aldatıcıydı!)"
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bu ders, yarı iletken tedarik zincirinin temel bir nedenle yoğunlaşmaya doğru evrildiğini savunmaktadır. Bunun sanayi politikası için yarattığı temel gerilim nedir?"
+prompt.distractors = [
+    "Yoğunlaşma daha hızlı inovasyon döngülerine olanak tanır, ancak gelişmekte olan ülkelerin yarı iletken değer zincirine katılmasını engeller",
+    "Yoğunlaşma, baskın tedarikçiler tarafından tekelci fiyatlandırmaya olanak tanır, ancak zamanla genel sektör Ar-Ge yatırımını azaltır",
+    "Yoğunlaşma, ev sahibi ülkeler için jeopolitik kaldıraç yaratır, ancak çok taraflı çerçeveler arasında ticaret müzakerelerini daha karmaşık hâle getirir"
+]
+answer.answer = "Concentration is efficient — enabling deep R&D investment, economies of scale, and extreme quality — but this same optimization makes the system fragile to disruption"
+context = "Tedarik zinciri yoğunlaştı; çünkü yoğunlaşma verimlidir: fotodirecin %90'ının Japonya'da bulunması büyük Ar-Ge yatırımlarına ve ppb'nin altında saflığa olanak tanır. Üretimi dağıtmak maliyetleri artırır, uzmanlığı sulandırır ve kaliteyi düşürür. Verimlilik ile dayanıklılık arasındaki gerilim, yarı iletken sanayi politikasının merkezi ikilemini oluşturmaktadır."

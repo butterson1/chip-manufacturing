@@ -1,0 +1,101 @@
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Bir SRAM hücresi neden DRAM hücresinden bit başına yaklaşık 50 kat daha fazla silikon alanı gerektirir?"
+prompt.distractors = [
+    "SRAM, yalıtım için kapı yapıları arasında daha büyük boşluk gerektiren yüksek voltajlı transistörler kullanır",
+    "SRAM hücreleri, önemli ek yonga alanı kaplayan bit başına özel yenileme devresi gerektirir",
+    "SRAM, daha yüksek anahtarlama akımlarını taşımak için hücre başına daha kalın metal ara bağlantı katmanları gerektirir",
+]
+answer.answer = "SRAM her biti altı transistörle depolarken DRAM yalnızca bir transistör ve bir kondansatör kullanır"
+context = "Klasik 6T SRAM hücresi, bit başına altı transistör kullanır: iki çapraz bağlı evirici artı iki erişim transistörü. DRAM'in 1T-1C tasarımı (bir transistör, bir kondansatör) çok daha alan verimlidir; bu nedenle DRAM kat kat daha yüksek yoğunluk sağlar."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Modern bir 5 GHz CPU, L1 önbelleği yerine DDR5 DRAM'den veri çekmek zorunda kaldığında yaklaşık rastgele erişim gecikmesi cezası nedir?"
+prompt.distractors = [
+    "DDR5'in satır etkinleştirmesi toplamda yaklaşık 5-10 nanosaniye aldığından işlemci yaklaşık 25-50 döngü harcar",
+    "DDR5 veri yolu müzakeresi yaklaşık 100-140 nanosaniyelik ek yük eklediğinden işlemci yaklaşık 500-700 döngü harcar",
+    "DDR5'in CAS gecikmesi yaklaşık 10-15 nanosaniye olduğundan işlemci yaklaşık 50-75 döngü harcar",
+]
+answer.answer = "DDR5 rastgele erişimi toplamda yaklaşık 50-70 nanosaniye aldığından işlemci yaklaşık 250-350 döngü harcar"
+context = "DDR5 rastgele erişimi, satır etkinleştirme (~13 ns) artı sütun erişimi (~13-14 ns CAS) sürerek toplamda ~50-70 ns alır. 5 GHz'de (döngü başına 0,2 ns) bu 250-350 boşa harcanan döngü demektir; sıra dışı yürütmenin gizlemeye çalıştığı devasa bir cezadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "HBM, pin başına daha düşük veri hızında çalışmasına karşın DDR5'e kıyasla nasıl çok daha yüksek bant genişliği elde eder?"
+prompt.distractors = [
+    "HBM, DDR5'in pin başına tek bit aktarımına kıyasla pin başına 4 bit aktaran gelişmiş sinyal kodlaması kullanır",
+    "HBM, DRAM kalıplarını doğrudan işlemci substratının üzerine yerleştirerek pin başına elektriksel direnci 100 kat azaltır",
+    "HBM, dahili olarak çok daha yüksek saat frekanslarında çalışır ancak TSV bağlantıları için yalnızca geniş paralel veri yolları kullanır",
+]
+answer.answer = "HBM, DDR5'in 32 bit alt kanal genişliğine kıyasla binlerce TSV aracılığıyla 1.024 bit genişliğinde arayüz kullanır"
+context = "HBM'in temel anlayışı, kısa ve yavaş teller aracılığıyla büyük ölçüde paralelleşmedir. Her yığın, dikey olarak üst üste yerleştirilmiş kalıpları bağlayan binlerce Silikon İçi Geçiş (TSV) ile gerçekleştirilen 1.024 bit arayüze sahiptir (DDR5'in 32 bit alt kanalına kıyasla). Pin başına hız daha düşüktür (~6,4 Gbps'e karşı 5.600+ Mbps), ancak 32 kat daha fazla pin çok daha yüksek toplam bant genişliği sağlar."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Her DRAM hücresi neden yaklaşık her 32-64 milisaniyede bir yenilenmelidir?"
+prompt.distractors = [
+    "Transistör kapı oksidi zamanla sıkışan yükler biriktirir; bu durum eşik voltajını kaydırarak depolanan durumu bozar",
+    "Komşu hücrelerden kaynaklanan elektromanyetik girişim, periyodik olarak düzeltilmesi gereken aşamalı bit çevirmeye neden olur",
+    "Satır kod çözücüyü bağlayan polisilis ara bağlantılarındaki direnç nedeniyle kelime satırı voltajı zamanla düşer",
+]
+answer.answer = "Depolama kondansatörü, eklem sızıntısı ve eşik altı akımları nedeniyle yükünü kaybeder ve bit okunamaz hale gelir"
+context = "DRAM, her biti ~20-30 femtofaradlık küçük bir kondansatördeki yük olarak depolar. Eklem sızıntısı ve eşik altı akımları bu yükü yaklaşık 64 ms içinde boşaltır; bu nedenle her hücrenin veri bütünlüğünü korumak için periyodik olarak okunup yeniden yazılması (yenilenmesi) gerekir. Bu yenileme vergisi, kullanılabilir bant genişliğinin %5-10'una mal olur."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "AMD'nin 3D V-Cache teknolojisi öncelikli olarak aşağıdaki nedenle önemli oyun performansı kazanımları sağladı:"
+prompt.distractors = [
+    "Ek önbellek kalıbı, optimize edilmiş termal dağıtım yolları sayesinde ana CCD'den daha yüksek saat hızlarında çalışıyordu",
+    "Yığılmış önbellek, geleneksel L3 önbellek hücrelerine kıyasla %40 daha düşük erişim gecikmesiyle yeni bir 8T SRAM hücre tasarımı kullandı",
+    "Ekstra kalıp, ana işlemci çekirdeklerinin yükünü azaltan özel doku sıkıştırma açma donanımı ekledi",
+]
+answer.answer = "L3 önbelleğinin 96 MB'a üçe katlanması, işaretçi ağırlıklı oyun motoru sahne grafı geçişlerinde DRAM erişimlerini önemli ölçüde azalttı"
+context = "Oyun motorları, karmaşık sahne grafları üzerinde işaretçileri takip ederek önbellek dostu olmayan erişim örüntüleri oluşturur. Hibrit bağlama yoluyla L3'ü 32 MB'tan 96 MB'a çıkaran 5800X3D, bu çalışma kümesinin çok daha büyük bir bölümünü kalıp üzerinde tuttu ve maliyetli 50-70 ns DRAM erişimlerini önledi. Daha az çekirdeğe sahip olmasına karşın daha yüksek saat hızlı Intel CPU'larla eşit performans sergiledi."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Dünyanın DRAM'inin neredeyse tamamını esasen kaç şirket üretmektedir? (Sayıyı verin)"
+answer.answer = "3"
+answer.alternatives = ["three", "Three"]
+context = "Samsung (~%40 pazar payı), SK Hynix (~%34) ve Micron (~%25), dünya genelinde neredeyse tüm DRAM'i üretmektedir. Yalnızca iki ülkede (Güney Kore ve ABD) bu kadar aşırı yoğunlaşma, önemli bir jeopolitik kırılganlık oluşturmaktadır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Modern bilgisayarlarda bellek hiyerarşisine yol açan temel fiziksel kısıtlama nedir?"
+prompt.distractors = [
+    "Yarı iletken üretim sınırlamaları, tek bir kalıba yaklaşık 100 MB'tan fazla herhangi bir bellek türünün entegre edilmesini engeller",
+    "5 nm altı düğümlerdeki kuantum tünelleme etkileri, kalıptaki bellek dizisi boyutuyla orantılı olarak depolanan yükleri bozar",
+    "Metal ara bağlantılardan geçen sinyal yayılma gecikmeleri, tek bir kalıptaki bellek dizisi boyutuyla karesel olarak ölçeklenir",
+]
+answer.answer = "Veri taşıma maliyeti mesafeyle orantılı enerji gerektirir ve bu durum kalıp üzerindeki ile çip dışı erişim arasında 300-400 kat enerji farkı yaratır"
+context = "1 mm uzaktaki SRAM'den bir bit okumak ~0,05 pJ'lik enerji harcarken, 20 mm uzaktaki DRAM'den veri çekmek ~15-20 pJ'ye mal olur; bu 300-400 kat artış demektir. Bu enerji-mesafe ilişkisi, daha fazla hesaplama biriminin her zaman eklenebileceği ancak beslenecek veri sağlamanın orantılı biçimde daha pahalı hale geldiği anlamına gelir ve bu durum katmanlı bir bellek yaklaşımını zorunlu kılar."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "HBM3E belleğinin yığın başına yaklaşık maliyeti nedir ve eşdeğer DDR5 kapasitesiyle karşılaştırıldığında nasıldır?"
+prompt.distractors = [
+    "HBM3E yığın başına yaklaşık 30-50 dolar tutmaktadır; gigabayt başına eşdeğer DDR5 kapasitesinin yaklaşık 3-5 katı kadardır",
+    "HBM3E yığın başına yaklaşık 500-700 dolar tutmaktadır; gigabayt başına eşdeğer DDR5 kapasitesinin yaklaşık 50-70 katı kadardır",
+    "HBM3E yığın başına yaklaşık 10-20 dolar tutmaktadır; üretim ölçeği nedeniyle gigabayt başına DDR5 ile kabaca aynı fiyattadır",
+]
+answer.answer = "HBM3E yığın başına yaklaşık 100-120 dolar tutmaktadır; gigabayt başına eşdeğer DDR5 kapasitesinin yaklaşık 20-30 katı kadardır"
+context = "Bir HBM3E yığını ~100-120 dolara mal olurken eşdeğer DDR5 kapasitesi 3-5 dolardır. Bu fark TSV delme, kalıp inceltme (çatlama riski), hassas yığınlama/bağlama ve sınırlı üretici sayısından kaynaklanmaktadır. Bir H100'ün 80 GB HBM'i yalnızca bellek maliyeti olarak ~500-600 dolara karşılık gelir."
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "x86 işlemcilerinde standart önbellek satırı boyutu kaç bayttır?"
+answer.answer = "64"
+answer.alternatives = ["64 bytes", "64B"]
+context = "x86 işlemcileri, önbellek düzeyleri ile ana bellek arasındaki temel veri aktarım birimi olarak 64 baytlık önbellek satırı kullanır. Herhangi bir bayta erişildiğinde, onu içeren 64 baytlık satırın tamamı getirilir; bu sayede yakınlarda bulunan verilere birlikte erişilme eğilimi olan uzamsal yerellik (spatial locality) kullanılır."
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = "Önbellek dostu matris çarpımı, aynı sayıda aritmetik işlem gerçekleştiren naif bir uygulamadan neden 10-100 kat daha hızlı çalışabilir?"
+prompt.distractors = [
+    "Önbellek dostu kod, naif sürümün veri hizalama sorunları nedeniyle kullanamadığı donanım düzeyinde SIMD vektörleştirmesini tetikler",
+    "Önbellek dostu kod, kontrol akışını doğrusallaştırarak dal yanlış tahminlerini önler; bu da yürütme motorundaki ardışık düzen durmalarını ortadan kaldırır",
+    "Önbellek dostu kod, derleyicinin naif sürümlerde bellek takma adı (memory aliasing) tarafından engellenen birleşik çarpma-toplama komutlarını kullanmasını sağlar",
+]
+answer.answer = "Önbellek dostu erişim örüntüleri verileri hızlı SRAM önbelleklerinde tutarken naif örüntüler eleman başına tekrarlayan 50-70 ns DRAM erişimlerine neden olur"
+context = "Tek bir önbellek kaçırması, 200-500 aritmetik işlem değerinde zaman ve enerji harcar. Döngü döşemesi (loop tiling), veriyi önbellek boyutlu bloklar halinde işleyerek hızlı L1/L2 SRAM'den maksimum yeniden kullanım sağlar. Naif uygulamalar, sürekli 50-70 ns DRAM gidiş-gelişleri zorlayan adımlı (strided) erişim örüntüleriyle önbelleği çırpar ve bu durum toplam çalışma süresine hâkim olur."
